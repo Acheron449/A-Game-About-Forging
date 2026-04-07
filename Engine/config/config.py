@@ -4,6 +4,7 @@ import os
 CONFIGURATION = "CONFIGURATION"
 CONTENTS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'Contents')
 RESOURCES_PATH = os.path.join(CONTENTS_PATH, 'Resources')
+RESOURCE_MANIFEST_FILE = os.path.join(RESOURCES_PATH, 'resource_paths.txt')
 
 def get_all_resources(base_path):
     """

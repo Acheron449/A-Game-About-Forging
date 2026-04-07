@@ -6,6 +6,9 @@ class Player:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+        self.width = 16
+        self.height = 16
+        self.rect = Rect(self.x, self.y, self.width, self.height)
         self.health = 100
         self.max_health = 100
         self.xp = 0
@@ -15,10 +18,19 @@ class Player:
         self.equipped_items = {'weapon': None, 'armor': None, 'helmet': None, 'boots': None}
         self.inventory = Inventory()
         self.appearance = 'default'  # Can be configured
+        self.pickaxe_equipped = False
 
-    def move(self, dx, dy):
-        self.x += dx
-        self.y += dy
+    def update_rect(self):
+        self.rect.topleft = (self.x, self.y)
+
+    def move(self, dx, dy, world=None):
+        new_rect = self.rect.move(dx, dy)
+        if world is None or world.can_move_rect(new_rect):
+            self.x += dx
+            self.y += dy
+            self.update_rect()
+            return True
+        return False
 
     def attack(self, enemy):
         damage = self.stats['strength']
@@ -36,6 +48,24 @@ class Player:
             self.gold += item.value
         elif item.type == 'xp':
             self.gain_xp(item.value)
+
+    def mine(self, world, mouse_buttons):
+        """Attempt to mine a nearby mining spot when left mouse is pressed."""
+        weapon = self.equipped_items.get('weapon')
+        if not weapon or weapon.name.lower() != 'pickaxe':
+            return None
+
+        if not mouse_buttons or not mouse_buttons[0]:
+            return None
+
+        for entity in list(world.entities):
+            if isinstance(entity, MiningSpot) and self.rect.colliderect(entity.rect):
+                item = entity.mine()
+                if item:
+                    self.collect_item(item)
+                    world.entities.remove(entity)
+                    return item
+        return None
 
     def gain_xp(self, amount):
         self.xp += amount
@@ -56,12 +86,16 @@ class Player:
             self.equipped_items[item.type] = item
             for stat, bonus in item.stats_bonus.items():
                 self.stats[stat] += bonus
+            if item.name.lower() == 'pickaxe':
+                self.pickaxe_equipped = True
 
     def unequip_item(self, item):
         if self.equipped_items[item.type] == item:
             self.equipped_items[item.type] = None
             for stat, bonus in item.stats_bonus.items():
                 self.stats[stat] -= bonus
+            if item.name.lower() == 'pickaxe':
+                self.pickaxe_equipped = False
 
     def die(self):
         # Handle death
@@ -98,11 +132,39 @@ class Inventory:
             self.add_item(item)
 
 class World:
-    def __init__(self, player):
+    def __init__(self, player, tile_size=16):
         self.player = player
         self.entities = []  # List of enemies, collectables, etc.
         self.map = []  # Simple 2D list for map
+        self.tile_size = tile_size
         self.renderer = WorldRenderer()
+
+    def set_map(self, tile_grid):
+        self.map = tile_grid
+
+    def tile_at(self, tile_x, tile_y):
+        if tile_y < 0 or tile_x < 0 or tile_y >= len(self.map) or tile_x >= len(self.map[0]):
+            return 1
+        return self.map[tile_y][tile_x]
+
+    def is_walkable_tile(self, tile_x, tile_y):
+        return self.tile_at(tile_x, tile_y) == 0
+
+    def can_move_rect(self, rect):
+        if not self.map:
+            return True
+        corners = [
+            (rect.left, rect.top),
+            (rect.right - 1, rect.top),
+            (rect.left, rect.bottom - 1),
+            (rect.right - 1, rect.bottom - 1),
+        ]
+        for px, py in corners:
+            tile_x = px // self.tile_size
+            tile_y = py // self.tile_size
+            if not self.is_walkable_tile(tile_x, tile_y):
+                return False
+        return True
 
     def render(self, screen):
         self.renderer.render_world(self, screen)
@@ -114,12 +176,17 @@ class World:
     def spawn_collectable(self, x, y, item):
         self.entities.append(Collectable(x, y, item))
 
-    def spawn_mining_spot(self, x, y):
-        self.entities.append(MiningSpot(x, y))
+    def spawn_mining_spot(self, x, y, item=None):
+        self.entities.append(MiningSpot(x, y, item))
 
-    def interact(self, entity):
-        # Handle interaction
-        pass
+    def interact(self, entity, player, mouse_buttons=None):
+        if isinstance(entity, MiningSpot) and player.rect.colliderect(entity.rect) and mouse_buttons and mouse_buttons[0]:
+            mined_item = entity.mine()
+            if mined_item:
+                player.collect_item(mined_item)
+                self.entities.remove(entity)
+                return mined_item
+        return None
 
 class Collectable:
     def __init__(self, x, y, item):
@@ -128,9 +195,20 @@ class Collectable:
         self.item = item
 
 class MiningSpot:
-    def __init__(self, x, y):
+    def __init__(self, x, y, item=None):
         self.x = x
         self.y = y
+        self.width = 16
+        self.height = 16
+        self.rect = Rect(self.x, self.y, self.width, self.height)
+        self.item = item or Item('Stone Ore', 'ore', value=1)
+        self.mined = False
+
+    def mine(self):
+        if self.mined:
+            return None
+        self.mined = True
+        return self.item
 
 class Enemy:
     def __init__(self, x, y, health, damage):

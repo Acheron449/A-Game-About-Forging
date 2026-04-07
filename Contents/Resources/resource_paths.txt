@@ -1,0 +1,108 @@
+Audio/Music/Idle/track_1.mp3
+Audio/SFX/Arms/Gun/Gunshot.mp3
+Audio/SFX/Click/click.wav
+Audio/SFX/Impact/Breaking_glass.mp3
+Audio/SFX/Impact/Crash.mp3
+Audio/SFX/Interact/Frog.aiff
+Audio/SFX/Interact/Pop.aiff
+Audio/SFX/Interact/Purr.aiff
+Audio/SFX/Interact/Shutter.mp3
+Audio/SFX/Mining/Clangs/0.mp3
+Audio/SFX/Mining/Clangs/1.mp3
+Audio/SFX/Mining/Clangs/2.mp3
+Audio/SFX/Mining/Clangs/3.mp3
+Audio/SFX/Mining/Clangs/4.mp3
+Audio/SFX/Mining/Clangs/5.mp3
+Audio/SFX/Mining/Clangs/6.mp3
+Audio/SFX/Misc/Aww.mp3
+Audio/SFX/Misc/Heartbeat.mp3
+Audio/SFX/Misc/Nooo.mp3
+Audio/SFX/Misc/Yes.mp3
+Audio/SFX/Misc/dragon-studio-ding-sfx-472366.mp3
+Audio/SFX/Misc/freesound_crunchpixstudio-material-gold-394476.mp3
+Audio/SFX/Misc/gramuzik-elektron-continuation-with-errors-160923.mp3
+Audio/SFX/Movement/Running/Grass/0.mp3
+Audio/SFX/Movement/Running/Gravel/0.mp3
+Audio/SFX/Movement/Running/Stone/0.mp3
+Audio/SFX/Movement/Running/Wood/0.mp3
+Audio/SFX/Movement/Walking/Grass/0.mp3
+Audio/SFX/Movement/Walking/Gravel/0.mp3
+Audio/SFX/Movement/Walking/Gravel/1.mp3
+Audio/SFX/Movement/Walking/Marsh/0.mp3
+Audio/SFX/Movement/Walking/Stone/0.mp3
+Audio/SFX/Movement/Walking/Stone/1.mp3
+Audio/SFX/Movement/Walking/Wood/0.mp3
+Audio/SFX/Movement/Walking/Wood/1.mp3
+Audio/SFX/Skills/Element/Earth/0.mp3
+Audio/SFX/Skills/Element/Fire/0.mp3
+Audio/SFX/Skills/Element/Fire/1.mp3
+Audio/SFX/Skills/Element/Gravity/0.mp3
+Audio/SFX/Skills/Element/Lightning/0.mp3
+Audio/SFX/Skills/Element/Lightning/1.mp3
+Audio/SFX/Skills/Element/Lightning/2.mp3
+Audio/SFX/Skills/Element/Water/0.mp3
+Audio/SFX/Skills/Element/Water/1.mp3
+Audio/SFX/Skills/Element/Wind/0.mp3
+Audio/SFX/Skills/Element/Wind/1.mp3
+Audio/SFX/Skills/Element/Wind/2.mp3
+Audio/SFX/Skills/Mythos/Angel/0.mp3
+Audio/SFX/Skills/Mythos/Angel/1.mp3
+Audio/SFX/Skills/Mythos/Angel/2.mp3
+Audio/SFX/Skills/Mythos/Demon/0.mp3
+Audio/SFX/Skills/Mythos/Demon/1.mp3
+Audio/SFX/Skills/Mythos/Demon/2.mp3
+UI/Bars/HP/0/0.png
+UI/Bars/HP/1/0.png
+UI/Bars/HP/1/1.png
+UI/Bars/HP/10/0.png
+UI/Bars/HP/11/0.png
+UI/Bars/HP/11/1.png
+UI/Bars/HP/2/0.png
+UI/Bars/HP/3/0.png
+UI/Bars/HP/4/0.png
+UI/Bars/HP/5/0.png
+UI/Bars/HP/6/0.png
+UI/Bars/HP/7/0.png
+UI/Bars/HP/8/0.png
+UI/Bars/HP/9/0.png
+UI/Bars/MP/0/0.png
+UI/Bars/MP/1/0.png
+UI/Bars/MP/10/0.png
+UI/Bars/MP/11/0.png
+UI/Bars/MP/2/0.png
+UI/Bars/MP/3/0.png
+UI/Bars/MP/4/0.png
+UI/Bars/MP/5/0.png
+UI/Bars/MP/6/0.png
+UI/Bars/MP/7/0.png
+UI/Bars/MP/8/0.png
+UI/Bars/MP/9/0.png
+UI/Boss HP Bar/0.png
+UI/Boss HP Bar/1.png
+UI/Boss HP Bar/10.png
+UI/Boss HP Bar/11.png
+UI/Boss HP Bar/12.png
+UI/Boss HP Bar/13.png
+UI/Boss HP Bar/14.png
+UI/Boss HP Bar/15.png
+UI/Boss HP Bar/16.png
+UI/Boss HP Bar/17.png
+UI/Boss HP Bar/18.png
+UI/Boss HP Bar/19.png
+UI/Boss HP Bar/2.png
+UI/Boss HP Bar/20.png
+UI/Boss HP Bar/21.png
+UI/Boss HP Bar/22.png
+UI/Boss HP Bar/23.png
+UI/Boss HP Bar/24.png
+UI/Boss HP Bar/25.png
+UI/Boss HP Bar/26.png
+UI/Boss HP Bar/27.png
+UI/Boss HP Bar/28.png
+UI/Boss HP Bar/3.png
+UI/Boss HP Bar/4.png
+UI/Boss HP Bar/5.png
+UI/Boss HP Bar/6.png
+UI/Boss HP Bar/7.png
+UI/Boss HP Bar/8.png
+UI/Boss HP Bar/9.png
