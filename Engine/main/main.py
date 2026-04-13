@@ -57,8 +57,9 @@ def main():
                 for held in axis_scancodes_held.values():
                     held.clear()
         
-        # Update player sprite
-        player_renderer.update(axis_scancodes_held)
+        keys_pressed = pygame.key.get_pressed()
+        # Update player sprite (shift/sprint uses keys_pressed; movement uses axis_scancodes_held)
+        player_renderer.update(axis_scancodes_held, keys_pressed)
         
         # Update UI
         ui_renderer.update_ui()

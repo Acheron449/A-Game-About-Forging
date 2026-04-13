@@ -27,10 +27,11 @@ class PlayerRenderer:
         self.current_state = 'idle'  # Current state (idle, walk, run, sprint, etc.)
         self.animation_frame = 0
         self.animation_counter = 0
-        self.animation_speed = 10  # Update every 10 frames while moving
+        self.animation_speed = 10  # Walk/sprint: advance frame every N ticks while moving
+        self.idle_animation_speed = 18  # Idle loop when multiple idle frames exist
         self.sprite_scale = 0.45  # Scale sprites to 45% of original size
-        self.min_hold_time = 1  # Minimum hold time in ms for key to register
-        self.down_press_start = None
+        self.min_hold_time = 1  # Minimum hold time in ms before walk/sprint (after movement keys)
+        self.movement_press_start = None
         
         # Load sprite sheets
         self.idle_sprites = self._load_idle_sprites()
@@ -178,13 +179,24 @@ class PlayerRenderer:
     def get_sprite(self, state, direction):
         """Get the current sprite image based on state and direction."""
         sprite_key = f'{state}_{direction}'
-        
-        # Try movement sprites first, then idle
+        idle_key = f'idle_{direction}'
+
+        if state == 'idle':
+            if idle_key in self.idle_sprites and self.idle_sprites[idle_key]:
+                return self.idle_sprites[idle_key]
+            if 'idle_S' in self.idle_sprites and self.idle_sprites['idle_S']:
+                return self.idle_sprites['idle_S']
+            return []
+
         if sprite_key in self.movement_sprites and self.movement_sprites[sprite_key]:
             return self.movement_sprites[sprite_key]
-        elif sprite_key in self.idle_sprites and self.idle_sprites[sprite_key]:
-            return self.idle_sprites[sprite_key]
-        
+        # Missing sprint/run/etc.: try walk, then idle for this facing
+        if state != 'walk':
+            walk_key = f'walk_{direction}'
+            if walk_key in self.movement_sprites and self.movement_sprites[walk_key]:
+                return self.movement_sprites[walk_key]
+        if idle_key in self.idle_sprites and self.idle_sprites[idle_key]:
+            return self.idle_sprites[idle_key]
         return []
     
     def update_animation(self, state, direction, axis_scancodes_held, previous_state=None, previous_direction=None):
@@ -206,10 +218,16 @@ class PlayerRenderer:
             self.animation_counter = 0
         
         if state == 'idle':
-            # For idle, show the first frame and do not animate
-            self.animation_frame = 0
-            self.current_sprite = sprites[0][1]
-            self.animation_counter = 0
+            # Multi-frame idle: loop (last facing from update(); direction matches movement diagonals AW, WD, AS, SD)
+            if len(sprites) > 1:
+                self.animation_counter += 1
+                if self.animation_counter >= self.idle_animation_speed:
+                    self.animation_counter = 0
+                    self.animation_frame = (self.animation_frame + 1) % len(sprites)
+            else:
+                self.animation_frame = 0
+                self.animation_counter = 0
+            self.current_sprite = sprites[self.animation_frame][1]
         else:
             # Only advance frames when movement keys are pressed
             if self.is_key_pressed(axis_scancodes_held):
@@ -225,26 +243,27 @@ class PlayerRenderer:
             sprite_rect = self.current_sprite.get_rect(center=position)
             screen.blit(self.current_sprite, sprite_rect)
     
-    def update(self, axis_scancodes_held):
-        """Update player sprite based on input."""
+    def update(self, axis_scancodes_held, keys_pressed):
+        """Update player sprite: walk/sprint for all facings (W, S, A, D, AW, WD, AS, SD); idle keeps last facing."""
         previous_state = self.current_state
         previous_direction = self.facing_direction
-        
-        # Default to idle
-        state = 'idle'
-        direction = 'S'
-        
-        down_pressed = self._axis_held(axis_scancodes_held, 'down')
-        
-        if down_pressed:
-            if self.down_press_start is None:
-                self.down_press_start = pygame.time.get_ticks()
-            elif pygame.time.get_ticks() - self.down_press_start >= self.min_hold_time:
-                state = 'walk'
+
+        moving = self._any_movement_held(axis_scancodes_held)
+
+        if moving:
+            direction = self.get_current_direction(axis_scancodes_held)
+            raw_state = self.get_current_state(axis_scancodes_held, keys_pressed)
+            if self.movement_press_start is None:
+                self.movement_press_start = pygame.time.get_ticks()
+            if pygame.time.get_ticks() - self.movement_press_start >= self.min_hold_time:
+                state = raw_state
+            else:
+                state = 'idle'
         else:
-            self.down_press_start = None
-        
-        self.facing_direction = direction
+            self.movement_press_start = None
+            state = 'idle'
+            direction = self.facing_direction
+
         self.update_animation(state, direction, axis_scancodes_held, previous_state, previous_direction)
         self.current_state = state
 
