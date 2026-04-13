@@ -1,10 +1,27 @@
 import os
+import pygame
 
 # Configuration constants
 CONFIGURATION = "CONFIGURATION"
 CONTENTS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'Contents')
 RESOURCES_PATH = os.path.join(CONTENTS_PATH, 'Resources')
 RESOURCE_MANIFEST_FILE = os.path.join(RESOURCES_PATH, 'resource_paths.txt')
+
+# Keybinding Configuration
+KEYBINDS = {
+    'up': [pygame.K_w, pygame.K_UP],
+    'down': [pygame.K_s, pygame.K_DOWN],
+    'left': [pygame.K_a, pygame.K_LEFT],
+    'right': [pygame.K_d, pygame.K_RIGHT],
+}
+
+# Direction mappings for sprite filenames
+DIRECTION_MAP = {
+    'up': 'W',
+    'down': 'S',
+    'left': 'A',
+    'right': 'D',
+}
 
 def get_all_resources(base_path):
     """

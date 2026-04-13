@@ -1,6 +1,7 @@
 from ..config.config import *
 from ..config.imports import *
 from .renderer import WorldRenderer, UIRenderer
+import pygame
 
 class Player:
     def __init__(self, x, y):
@@ -8,9 +9,11 @@ class Player:
         self.y = y
         self.width = 16
         self.height = 16
-        self.rect = Rect(self.x, self.y, self.width, self.height)
+        self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
         self.health = 100
         self.max_health = 100
+        self.mana = 50
+        self.max_mana = 50
         self.xp = 0
         self.level = 1
         self.gold = 0
@@ -200,7 +203,7 @@ class MiningSpot:
         self.y = y
         self.width = 16
         self.height = 16
-        self.rect = Rect(self.x, self.y, self.width, self.height)
+        self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
         self.item = item or Item('Stone Ore', 'ore', value=1)
         self.mined = False
 
