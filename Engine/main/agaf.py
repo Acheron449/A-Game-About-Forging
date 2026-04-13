@@ -119,9 +119,9 @@ class Inventory:
     def add_item(self, item):
         self.items.append(item)
 
-    def remove_item(self, item):
+    def remove_item(self, item):# Remove item from inventory
         if item in self.items:
-            self.items.remove(item)
+            self.items.remove(item) # Remove item from inventory
 
     def equip(self, player, item):
         if item in self.items:

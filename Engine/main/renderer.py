@@ -20,7 +20,7 @@ class PlayerRenderer:
     
     def __init__(self, player):
         self.player = player
-        self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+        self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) # Go up three levels to reach project root
         self.player_resources_dir = os.path.join(self.root_dir, "Contents", "Resources", "Player")
         
         self.facing_direction = 'S'  # Default facing direction (S for south/down)
@@ -29,6 +29,8 @@ class PlayerRenderer:
         self.animation_counter = 0
         self.animation_speed = 10  # Update every 10 frames while moving
         self.sprite_scale = 0.45  # Scale sprites to 45% of original size
+        self.min_hold_time = 1  # Minimum hold time in ms for key to register
+        self.down_press_start = None
         
         # Load sprite sheets
         self.idle_sprites = self._load_idle_sprites()
@@ -36,8 +38,13 @@ class PlayerRenderer:
         self.current_sprite = None
         self.sprites_list = []
         
+        # Set current sprite to idle 'S'
+        idle_s_key = 'idle_S'
+        if idle_s_key in self.idle_sprites and self.idle_sprites[idle_s_key]:
+            self.current_sprite = self.idle_sprites[idle_s_key][0][1]  # First frame
+        
     def _load_idle_sprites(self):
-        """Load idle sprites for all directions from Player/Idle folders."""
+        """Load idle sprites for all directions from Player/Idle folders.""" #TEST - Updated to load from all subfolders in Idle, not just 'Test - Static'
         idle_sprites = {}
         idle_paths = ['Test - Static', 'Static', 'Armed']  # Updated to match actual directory names
         
@@ -121,21 +128,21 @@ class PlayerRenderer:
         right = any(keys_pressed[key] for key in KEYBINDS['right'])
 
         direction = self.facing_direction
-        if up and left and not down and not right:
+        if up and left and not down and not right: # Diagonal up-left
             direction = 'AW'
-        elif up and right and not down and not left:
+        elif up and right and not down and not left: # Diagonal up-right
             direction = 'WD'
-        elif down and left and not up and not right:
+        elif down and left and not up and not right: # Diagonal down-left
             direction = 'AS'
-        elif down and right and not up and not left:
+        elif down and right and not up and not left: # Diagonal down-right
             direction = 'SD'
-        elif up and not down:
+        elif up and not down: # Up takes priority over down if both are pressed
             direction = 'W'
-        elif down and not up:
+        elif down and not up: # Down takes priority over up if both are pressed
             direction = 'S'
-        elif left and not right:
+        elif left and not right: # Left takes priority over right if both are pressed
             direction = 'A'
-        elif right and not left:
+        elif right and not left: # Right takes priority over left if both are pressed
             direction = 'D'
 
         self.facing_direction = direction
@@ -216,9 +223,24 @@ class PlayerRenderer:
         """Update player sprite based on input."""
         previous_state = self.current_state
         previous_direction = self.facing_direction
-        self.get_current_direction(keys_pressed)
-        state = self.get_current_state(keys_pressed)
-        self.update_animation(state, self.facing_direction, keys_pressed, previous_state, previous_direction)
+        
+        # Default to idle
+        state = 'idle'
+        direction = 'S'
+        
+        # Check if S key (down) is pressed
+        down_pressed = any(keys_pressed[key] for key in KEYBINDS['down'])
+        
+        if down_pressed:
+            if self.down_press_start is None:
+                self.down_press_start = pygame.time.get_ticks()
+            elif pygame.time.get_ticks() - self.down_press_start >= self.min_hold_time:
+                state = 'walk'
+        else:
+            self.down_press_start = None
+        
+        self.facing_direction = direction
+        self.update_animation(state, direction, keys_pressed, previous_state, previous_direction)
         self.current_state = state
 
 class UIRenderer:
