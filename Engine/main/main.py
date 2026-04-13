@@ -31,10 +31,10 @@ def main():
     # Initialize UI renderer
     ui_renderer = UIRenderer(player)
 
-    # Movement via physical scancodes: KEYUP sometimes uses a different event.key than KEYDOWN
-    # on macOS/SDL, so key-code sets never see the release and "S" stays stuck.
-    movement_scancodes_held = set()
-    all_movement_keys = tuple(k for bound in KEYBINDS.values() for k in bound)
+    # Per-axis scancode sets: classify movement on KEYDOWN (event.key), release on KEYUP
+    # (event.scancode) so macOS/SDL mismatched KEYUP key codes don't stick or break input.
+    # key_to_scancode() can disagree with event.scancode — do not use it for comparisons.
+    axis_scancodes_held = {axis: set() for axis in KEYBINDS}
     
     # Game loop
     running = True
@@ -46,20 +46,19 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     running = False
-                elif event.key in all_movement_keys:
-                    movement_scancodes_held.add(event.scancode)
+                else:
+                    for axis, keys in KEYBINDS.items():
+                        if event.key in keys:
+                            axis_scancodes_held[axis].add(event.scancode)
             elif event.type == pygame.KEYUP:
-                # Always drop this physical key — safe no-op if it was not a movement key
-                movement_scancodes_held.discard(event.scancode)
+                for axis in KEYBINDS:
+                    axis_scancodes_held[axis].discard(event.scancode)
             elif event.type == pygame.WINDOWFOCUSLOST:
-                movement_scancodes_held.clear()
-
-        # No keyboard focus: releases may never arrive — avoid stuck movement
-        if not pygame.key.get_focused():
-            movement_scancodes_held.clear()
+                for held in axis_scancodes_held.values():
+                    held.clear()
         
         # Update player sprite
-        player_renderer.update(movement_scancodes_held)
+        player_renderer.update(axis_scancodes_held)
         
         # Update UI
         ui_renderer.update_ui()

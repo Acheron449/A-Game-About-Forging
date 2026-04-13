@@ -43,26 +43,11 @@ class PlayerRenderer:
         if idle_s_key in self.idle_sprites and self.idle_sprites[idle_s_key]:
             self.current_sprite = self.idle_sprites[idle_s_key][0][1]  # First frame
 
-        # Map WASD/arrows to SDL scancodes (stable; matches event.scancode on KEYDOWN/KEYUP)
-        _to_sc = getattr(pygame.key, 'key_to_scancode', None)
-        if _to_sc:
-            self._axis_scancodes = {
-                axis: frozenset(_to_sc(k) for k in keys) for axis, keys in KEYBINDS.items()
-            }
-            self._all_movement_scancodes = frozenset().union(*self._axis_scancodes.values())
-        else:
-            self._axis_scancodes = None
-            self._all_movement_scancodes = frozenset()
+    def _axis_held(self, axis_scancodes_held, axis):
+        return bool(axis_scancodes_held[axis])
 
-    def _axis_held(self, movement_scancodes_held, axis):
-        if self._axis_scancodes is None:
-            return False
-        return bool(movement_scancodes_held & self._axis_scancodes[axis])
-
-    def _any_movement_held(self, movement_scancodes_held):
-        if self._axis_scancodes is None:
-            return False
-        return bool(movement_scancodes_held & self._all_movement_scancodes)
+    def _any_movement_held(self, axis_scancodes_held):
+        return any(axis_scancodes_held[ax] for ax in KEYBINDS)
         
     def _load_idle_sprites(self):
         """Load idle sprites for all directions from Player/Idle folders.""" #TEST - Updated to load from all subfolders in Idle, not just 'Test - Static'
@@ -141,12 +126,12 @@ class PlayerRenderer:
         
         return images
     
-    def get_current_direction(self, movement_scancodes_held):
+    def get_current_direction(self, axis_scancodes_held):
         """Determine player facing direction based on pressed keys."""
-        up = self._axis_held(movement_scancodes_held, 'up')
-        down = self._axis_held(movement_scancodes_held, 'down')
-        left = self._axis_held(movement_scancodes_held, 'left')
-        right = self._axis_held(movement_scancodes_held, 'right')
+        up = self._axis_held(axis_scancodes_held, 'up')
+        down = self._axis_held(axis_scancodes_held, 'down')
+        left = self._axis_held(axis_scancodes_held, 'left')
+        right = self._axis_held(axis_scancodes_held, 'right')
 
         direction = self.facing_direction
         if up and left and not down and not right: # Diagonal up-left
@@ -169,16 +154,16 @@ class PlayerRenderer:
         self.facing_direction = direction
         return self.facing_direction
     
-    def is_key_pressed(self, movement_scancodes_held):
+    def is_key_pressed(self, axis_scancodes_held):
         """Check if any movement key is being pressed."""
-        return self._any_movement_held(movement_scancodes_held)
+        return self._any_movement_held(axis_scancodes_held)
     
-    def get_current_state(self, movement_scancodes_held, keys_pressed):
+    def get_current_state(self, axis_scancodes_held, keys_pressed):
         """Determine player movement state based on pressed keys."""
-        up = self._axis_held(movement_scancodes_held, 'up')
-        down = self._axis_held(movement_scancodes_held, 'down')
-        left = self._axis_held(movement_scancodes_held, 'left')
-        right = self._axis_held(movement_scancodes_held, 'right')
+        up = self._axis_held(axis_scancodes_held, 'up')
+        down = self._axis_held(axis_scancodes_held, 'down')
+        left = self._axis_held(axis_scancodes_held, 'left')
+        right = self._axis_held(axis_scancodes_held, 'right')
 
         if not (up or down or left or right):
             return 'idle'
@@ -202,7 +187,7 @@ class PlayerRenderer:
         
         return []
     
-    def update_animation(self, state, direction, movement_scancodes_held, previous_state=None, previous_direction=None):
+    def update_animation(self, state, direction, axis_scancodes_held, previous_state=None, previous_direction=None):
         """Update the current animation frame for the given state and direction."""
         sprites = self.get_sprite(state, direction)
         
@@ -227,7 +212,7 @@ class PlayerRenderer:
             self.animation_counter = 0
         else:
             # Only advance frames when movement keys are pressed
-            if self.is_key_pressed(movement_scancodes_held):
+            if self.is_key_pressed(axis_scancodes_held):
                 self.animation_counter += 1
                 if self.animation_counter >= self.animation_speed:
                     self.animation_counter = 0
@@ -240,7 +225,7 @@ class PlayerRenderer:
             sprite_rect = self.current_sprite.get_rect(center=position)
             screen.blit(self.current_sprite, sprite_rect)
     
-    def update(self, movement_scancodes_held):
+    def update(self, axis_scancodes_held):
         """Update player sprite based on input."""
         previous_state = self.current_state
         previous_direction = self.facing_direction
@@ -249,8 +234,7 @@ class PlayerRenderer:
         state = 'idle'
         direction = 'S'
         
-        # Down (S / arrow down): scancode set + KEYUP discard (see main loop)
-        down_pressed = self._axis_held(movement_scancodes_held, 'down')
+        down_pressed = self._axis_held(axis_scancodes_held, 'down')
         
         if down_pressed:
             if self.down_press_start is None:
@@ -261,7 +245,7 @@ class PlayerRenderer:
             self.down_press_start = None
         
         self.facing_direction = direction
-        self.update_animation(state, direction, movement_scancodes_held, previous_state, previous_direction)
+        self.update_animation(state, direction, axis_scancodes_held, previous_state, previous_direction)
         self.current_state = state
 
 class UIRenderer:
