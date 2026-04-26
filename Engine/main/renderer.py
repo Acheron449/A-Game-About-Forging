@@ -1,19 +1,19 @@
-import os
+import os 
 import json
 import pygame
 import builtins
 
-from ..config.config import *
-from ..config.imports import *
+from ..config.config import *  # for resource paths, not used in this snippet but needed for PlayerRenderer.update() and UIRenderer._load_hp_frames()/_load_mp_frames()
+from ..config.imports import * # for any additional imports needed for rendering, not used in this snippet but may be needed for future rendering features (e.g., loading fonts, additional sprite types, etc.)
 
-class WorldRenderer:
-    def __init__(self):
+class WorldRenderer: # Placeholder for future world rendering logic (e.g., map, tiles, entities, etc.)
+    def __init__(self): # Initialize any necessary variables for world rendering (e.g., tile size, camera position, etc.)
         pass
 
-    def render_world(self, world, screen):
+    def render_world(self, world, screen): # Render the world map, player, and entities to the screen. This will be called from World.render() and can be expanded with actual rendering logic as needed.
         # Render map and entities
         # Placeholder for rendering logic
-        pass
+        pass 
 
 class PlayerRenderer:
     """Handles loading and rendering directional player sprites."""
@@ -114,8 +114,8 @@ class PlayerRenderer:
             if suffix != direction_key:
                 continue
 
-            try:
-                image_path = os.path.join(base_dir, filename)
+            try: 
+                image_path = os.path.join(base_dir, filename) 
                 image = pygame.image.load(image_path)
                 if pygame.display.get_surface() is not None:
                     image = image.convert_alpha()
@@ -243,7 +243,7 @@ class PlayerRenderer:
             sprite_rect = self.current_sprite.get_rect(center=position)
             screen.blit(self.current_sprite, sprite_rect)
     
-    def update(self, axis_scancodes_held, keys_pressed):
+    def update(self, axis_scancodes_held, keys_pressed): 
         """Update player sprite: walk/sprint for all facings (W, S, A, D, AW, WD, AS, SD); idle keeps last facing."""
         previous_state = self.current_state
         previous_direction = self.facing_direction
@@ -251,53 +251,53 @@ class PlayerRenderer:
         moving = self._any_movement_held(axis_scancodes_held)
 
         if moving:
-            direction = self.get_current_direction(axis_scancodes_held)
+            direction = self.get_current_direction(axis_scancodes_held) 
             raw_state = self.get_current_state(axis_scancodes_held, keys_pressed)
             if self.movement_press_start is None:
                 self.movement_press_start = pygame.time.get_ticks()
             if pygame.time.get_ticks() - self.movement_press_start >= self.min_hold_time:
                 state = raw_state
             else:
-                state = 'idle'
+                state = 'idle' # Start in idle until min hold time is reached, then switch to walk/sprint based on shift key. This prevents instant sprinting and allows for a more natural transition from idle to movement.
         else:
-            self.movement_press_start = None
-            state = 'idle'
-            direction = self.facing_direction
+            self.movement_press_start = None # Reset movement press timer when no movement keys are held
+            state = 'idle' # When no movement keys are held, switch to idle but keep last facing direction for idle animation (e.g., if player was moving diagonally AW, then releases keys, they should still face that direction in idle)
+            direction = self.facing_direction # Keep last facing direction when idle (e.g., if player was moving diagonally AW, then releases keys, they should still face that direction in idle)
 
         self.update_animation(state, direction, axis_scancodes_held, previous_state, previous_direction)
         self.current_state = state
 
 class UIRenderer:
     def __init__(self, player):
-        self.player = player
+        self.player = player # Reference to player for accessing health, mana, etc.
         self.elements = {}  # Health bar, stats display, etc.
-        self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-        self.hp_bar_root = os.path.join(self.root_dir, "Contents", "Resources", "UI", "Bars", "HP")
-        self.mp_bar_root = os.path.join(self.root_dir, "Contents", "Resources", "UI", "Bars", "MP")
+        self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) # Go up three levels to reach project root
+        self.hp_bar_root = os.path.join(self.root_dir, "Contents", "Resources", "UI", "Bars", "HP") # Expecting HP bar frames in Contents/Resources/UI/Bars/HP with subfolders 0, 1, ..., 11 for each HP group, each containing 0.png and 1.png for animation
+        self.mp_bar_root = os.path.join(self.root_dir, "Contents", "Resources", "UI", "Bars", "MP") # Expecting MP bar frames in Contents/Resources/UI/Bars/MP with same structure as HP bars (0-11 folders, each with 0.png and 1.png for animation)
         self.hp_frames = self._load_hp_frames()
         self.mp_frames = self._load_mp_frames()
-        self.hp_frame_index = 0
-        self.mp_frame_index = 0
+        self.hp_frame_index = 0 #  Separate frame index for HP bar animation (e.g., blinking when low health)
+        self.mp_frame_index = 0 # Separate frame index for MP bar animation
         self.hp_bar_pos = (240, 40)  # Moved 40px right, HP bar higher at y=40
         self.mp_bar_pos = (240, 150)  # Moved 40px right, kept at y=150
         self.bar_scale = 0.2  # Scale bars to 20% size
         self.animation_counter = 0  # Counter for slowing down animation
         self.animation_speed = 15  # Update animation every 15 frames (4 FPS)
 
-    def _load_hp_frames(self):
+    def _load_hp_frames(self): # Load HP bar frames from expected folder structure (0-11 folders, each with 0.png and 1.png for animation)
         frames = {}
-        for folder_index in range(0, 12):
-            folder_path = os.path.join(self.hp_bar_root, str(folder_index))
-            if not os.path.isdir(folder_path):
+        for folder_index in range(0, 12): # Loop through expected HP groups (0-11)
+            folder_path = os.path.join(self.hp_bar_root, str(folder_index)) # Expecting folders named 0, 1, ..., 11 for each HP group
+            if not os.path.isdir(folder_path): # Skip if folder doesn't exist (e.g., missing group folders)
                 continue
             frame_images = []
-            for image_name in ("0.png", "1.png"):
-                image_path = os.path.join(folder_path, image_name)
-                if os.path.isfile(image_path):
+            for image_name in ("0.png", "1.png"): # Expecting two frames per folder for animation (e.g., 0.png and 1.png)
+                image_path = os.path.join(folder_path, image_name)  # Construct path to each frame image
+                if os.path.isfile(image_path): # Check if the image file exists before trying to load
                     try:
-                        frame_images.append(pygame.image.load(image_path).convert_alpha())
+                        frame_images.append(pygame.image.load(image_path).convert_alpha()) # Load the image with alpha transparency
                     except Exception:
-                        frame_images.append(None)
+                        frame_images.append(None) # If loading fails, append None to maintain list structure (2 frames per folder)
                 else:
                     frame_images.append(None)
             frames[folder_index] = frame_images

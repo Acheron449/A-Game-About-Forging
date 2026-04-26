@@ -1,15 +1,16 @@
 import pygame
 import sys
 
-def main():
-    from .agaf import Player, Item, Inventory, World
-    from .renderer import PlayerRenderer, UIRenderer
-    from ..config.config import KEYBINDS
+def main(): # Main game loop
+    from .agaf import Player, Item, Inventory, World #, Ore, Enemy, UpgradeTree, UI
+    from .renderer import PlayerRenderer, UIRenderer #, OreRenderer, EnemyRenderer
+    from ..config.config import ALL_RESOURCES # for loading sprites, not used in this snippet but needed for PlayerRenderer.update() and UIRenderer._load_hp_frames()/_load_mp_frames()
+    from ..config.config import KEYBINDS # for input handling, not used in this snippet but needed for PlayerRenderer.update()
 
     # Initialize pygame
     pygame.init()
     
-    # Set window resolution
+    # Set window resolution - Try to use OS to automatically create window size based on device specs
     screen_width = 1352
     screen_height = 878
     
