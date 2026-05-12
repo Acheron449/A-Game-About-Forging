@@ -1,12 +1,88 @@
 import os
 import pygame
-from typing import Sequence, NamedTuple
+from typing import Dict, Sequence, NamedTuple, Tuple
 
 # Configuration constants
 CONFIGURATION = "CONFIGURATION"
 CONTENTS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'Contents')
 RESOURCES_PATH = os.path.join(CONTENTS_PATH, 'Resources')
 RESOURCE_MANIFEST_FILE = os.path.join(RESOURCES_PATH, 'resource_paths.txt')
+
+# Display / main loop
+SCREEN_WIDTH = 1352
+SCREEN_HEIGHT = 878
+WINDOW_TITLE = "A Game About Forging"
+TARGET_FPS = 60
+SCREEN_CLEAR_COLOR = (20, 20, 20)
+QUIT_KEY = pygame.K_ESCAPE
+
+# Player & world tuning
+PLAYER_HITBOX_WIDTH = 16
+PLAYER_HITBOX_HEIGHT = 16
+PLAYER_START_HEALTH = 100
+PLAYER_START_MAX_HEALTH = 100
+PLAYER_START_MANA = 50
+PLAYER_START_MAX_MANA = 50
+PLAYER_START_XP = 0
+PLAYER_START_LEVEL = 1
+PLAYER_START_GOLD = 0
+PLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}
+XP_PER_LEVEL_MULTIPLIER = 100
+LEVEL_UP_MAX_HEALTH_BONUS = 10
+DEFAULT_PLAYER_APPEARANCE = 'default'
+PICKAXE_NAME_KEY = 'pickaxe'
+
+WORLD_DEFAULT_TILE_SIZE = 16
+
+MINING_SPOT_WIDTH = 16
+MINING_SPOT_HEIGHT = 16
+DEFAULT_MINING_ITEM_NAME = 'Stone Ore'
+DEFAULT_MINING_ITEM_TYPE = 'ore'
+DEFAULT_MINING_ITEM_VALUE = 1
+
+UPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}
+
+# Asset roots (under Contents/Resources)
+PLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')
+HP_BAR_RESOURCES_ROOT = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'HP')
+MP_BAR_RESOURCES_ROOT = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'MP')
+
+# PlayerRenderer tuning
+PLAYER_DEFAULT_FACING = 'S'
+PLAYER_DEFAULT_STATE = 'idle'
+PLAYER_IDLE_FALLBACK_KEY = 'idle_S'
+PLAYER_IDLE_SUBDIRS = ['Test - Static', 'Static', 'Armed']
+PLAYER_DIRECTION_KEYS = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']
+PLAYER_MOVEMENT_DIRECTORY_MAP: Dict[str, str] = {
+    'walk': 'test - walk',
+    'run': 'Run',
+    'sprint': 'Sprint',
+    'dash': 'Dash',
+    'jump': 'Jump',
+    'roll': 'Roll',
+    'crouch': 'Crouch',
+}
+ANIMATION_SPEED_WALK = 10
+IDLE_ANIMATION_SPEED = 18
+SPRITE_SCALE = 0.45
+MOVEMENT_MIN_HOLD_MS = 1
+
+# UIRenderer tuning
+UI_HP_BAR_POSITION: Tuple[int, int] = (240, 40)
+UI_MP_BAR_POSITION: Tuple[int, int] = (240, 150)
+UI_BAR_SCALE = 0.2
+UI_BAR_ANIMATION_INTERVAL_FRAMES = 15
+UI_BAR_GROUP_COUNT = 12
+UI_BAR_FRAME_FILENAMES: Tuple[str, str] = ('0.png', '1.png')
+
+# Save / appearance
+PLAYER_APPEARANCE_SAVE_DIR = 'Saves/player config'
+PLAYER_APPEARANCE_JSON_NAME = 'appearance.json'
+
+# Pickaxe / mining feedback (string hooks for audio/VFX)
+SOUND_CLINK_METAL_ON_STONE = 'Clink_Metal_On_Stone'
+SOUND_ROCK_SHATTER = 'Rock_Shatter'
+EFFECT_SPARKLES_IMPACT = 'Sparkles at impact point'
 
 # Keybinding Configuration
 KEYBINDS = {
@@ -23,6 +99,7 @@ DIRECTION_MAP = {
     'left': 'A',
     'right': 'D',
 }
+
 class OreDrop(NamedTuple):
     name: str
     weight: int

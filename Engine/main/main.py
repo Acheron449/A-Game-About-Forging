@@ -4,23 +4,25 @@ import sys
 def main(): # Main game loop
     from .agaf import Player, Item, Inventory, World #, Ore, Enemy, UpgradeTree, UI
     from .renderer import PlayerRenderer, UIRenderer #, OreRenderer, EnemyRenderer
-    from ..config.config import ALL_RESOURCES # for loading sprites, not used in this snippet but needed for PlayerRenderer.update() and UIRenderer._load_hp_frames()/_load_mp_frames()
-    from ..config.config import KEYBINDS # for input handling, not used in this snippet but needed for PlayerRenderer.update()
+    from ..config.config import (
+        KEYBINDS,
+        QUIT_KEY,
+        SCREEN_CLEAR_COLOR,
+        SCREEN_HEIGHT,
+        SCREEN_WIDTH,
+        TARGET_FPS,
+        WINDOW_TITLE,
+    )
 
     # Initialize pygame
     pygame.init()
     
-    # Set window resolution - Try to use OS to automatically create window size based on device specs
-    screen_width = 1352
-    screen_height = 878
-    
     # Create windowed mode
-    screen = pygame.display.set_mode((screen_width, screen_height))
-    pygame.display.set_caption("A Game About Forging")
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    pygame.display.set_caption(WINDOW_TITLE)
     
     # Clock for FPS
     clock = pygame.time.Clock()
-    fps = 60
     
     # Initialize game entities
     player = Player(0, 0)
@@ -45,7 +47,7 @@ def main(): # Main game loop
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
+                if event.key == QUIT_KEY:
                     running = False
                 else:
                     for axis, keys in KEYBINDS.items():
@@ -66,11 +68,11 @@ def main(): # Main game loop
         ui_renderer.update_ui()
         
         # Clear screen (dark background)
-        screen.fill((20, 20, 20))
+        screen.fill(SCREEN_CLEAR_COLOR)
         
         # Draw player in center of screen
-        player_center_x = screen_width // 2
-        player_center_y = screen_height // 2
+        player_center_x = SCREEN_WIDTH // 2
+        player_center_y = SCREEN_HEIGHT // 2
         player_renderer.draw_player(screen, (player_center_x, player_center_y))
         
         # Draw UI (HP and Mana bars in top-left)
@@ -80,7 +82,7 @@ def main(): # Main game loop
         pygame.display.flip()
         
         # Cap frame rate
-        clock.tick(fps)
+        clock.tick(TARGET_FPS)
     
     # Cleanup
     pygame.quit()

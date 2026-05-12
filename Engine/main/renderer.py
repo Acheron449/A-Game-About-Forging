@@ -3,7 +3,30 @@ import json
 import pygame
 import builtins
 
-from ..config.config import *  # for resource paths, not used in this snippet but needed for PlayerRenderer.update() and UIRenderer._load_hp_frames()/_load_mp_frames()
+from ..config.config import (
+    ANIMATION_SPEED_WALK,
+    HP_BAR_RESOURCES_ROOT,
+    IDLE_ANIMATION_SPEED,
+    KEYBINDS,
+    MOVEMENT_MIN_HOLD_MS,
+    MP_BAR_RESOURCES_ROOT,
+    PLAYER_APPEARANCE_JSON_NAME,
+    PLAYER_APPEARANCE_SAVE_DIR,
+    PLAYER_DEFAULT_FACING,
+    PLAYER_DEFAULT_STATE,
+    PLAYER_DIRECTION_KEYS,
+    PLAYER_IDLE_FALLBACK_KEY,
+    PLAYER_IDLE_SUBDIRS,
+    PLAYER_MOVEMENT_DIRECTORY_MAP,
+    PLAYER_RESOURCES_DIR,
+    SPRITE_SCALE,
+    UI_BAR_ANIMATION_INTERVAL_FRAMES,
+    UI_BAR_FRAME_FILENAMES,
+    UI_BAR_GROUP_COUNT,
+    UI_BAR_SCALE,
+    UI_HP_BAR_POSITION,
+    UI_MP_BAR_POSITION,
+)
 from ..config.imports import * # for any additional imports needed for rendering, not used in this snippet but may be needed for future rendering features (e.g., loading fonts, additional sprite types, etc.)
 
 class WorldRenderer: # Placeholder for future world rendering logic (e.g., map, tiles, entities, etc.)
@@ -20,17 +43,16 @@ class PlayerRenderer:
     
     def __init__(self, player):
         self.player = player
-        self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) # Go up three levels to reach project root
-        self.player_resources_dir = os.path.join(self.root_dir, "Contents", "Resources", "Player")
+        self.player_resources_dir = PLAYER_RESOURCES_DIR
         
-        self.facing_direction = 'S'  # Default facing direction (S for south/down)
-        self.current_state = 'idle'  # Current state (idle, walk, run, sprint, etc.)
+        self.facing_direction = PLAYER_DEFAULT_FACING
+        self.current_state = PLAYER_DEFAULT_STATE
         self.animation_frame = 0
         self.animation_counter = 0
-        self.animation_speed = 10  # Walk/sprint: advance frame every N ticks while moving
-        self.idle_animation_speed = 18  # Idle loop when multiple idle frames exist
-        self.sprite_scale = 0.45  # Scale sprites to 45% of original size
-        self.min_hold_time = 1  # Minimum hold time in ms before walk/sprint (after movement keys)
+        self.animation_speed = ANIMATION_SPEED_WALK
+        self.idle_animation_speed = IDLE_ANIMATION_SPEED
+        self.sprite_scale = SPRITE_SCALE
+        self.min_hold_time = MOVEMENT_MIN_HOLD_MS
         self.movement_press_start = None
         
         # Load sprite sheets
@@ -40,7 +62,7 @@ class PlayerRenderer:
         self.sprites_list = []
         
         # Set current sprite to idle 'S'
-        idle_s_key = 'idle_S'
+        idle_s_key = PLAYER_IDLE_FALLBACK_KEY
         if idle_s_key in self.idle_sprites and self.idle_sprites[idle_s_key]:
             self.current_sprite = self.idle_sprites[idle_s_key][0][1]  # First frame
 
@@ -53,9 +75,9 @@ class PlayerRenderer:
     def _load_idle_sprites(self):
         """Load idle sprites for all directions from Player/Idle folders.""" #TEST - Updated to load from all subfolders in Idle, not just 'Test - Static'
         idle_sprites = {}
-        idle_paths = ['Test - Static', 'Static', 'Armed']  # Updated to match actual directory names
+        idle_paths = PLAYER_IDLE_SUBDIRS
         
-        direction_keys = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']
+        direction_keys = PLAYER_DIRECTION_KEYS
         for idle_type in idle_paths:
             idle_dir = os.path.join(self.player_resources_dir, "Idle", idle_type)
             if not os.path.isdir(idle_dir):
@@ -72,17 +94,9 @@ class PlayerRenderer:
     def _load_movement_sprites(self):
         """Load movement sprites for all directions from Player/Movement folders."""
         movement_sprites = {}
-        movement_directories = {
-            'walk': 'test - walk',
-            'run': 'Run',
-            'sprint': 'Sprint',
-            'dash': 'Dash',
-            'jump': 'Jump',
-            'roll': 'Roll',
-            'crouch': 'Crouch',
-        }
+        movement_directories = PLAYER_MOVEMENT_DIRECTORY_MAP
         
-        direction_keys = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']
+        direction_keys = PLAYER_DIRECTION_KEYS
         for state, move_type in movement_directories.items():
             move_dir = os.path.join(self.player_resources_dir, "Movement", move_type)
             if not os.path.isdir(move_dir):
@@ -184,8 +198,8 @@ class PlayerRenderer:
         if state == 'idle':
             if idle_key in self.idle_sprites and self.idle_sprites[idle_key]:
                 return self.idle_sprites[idle_key]
-            if 'idle_S' in self.idle_sprites and self.idle_sprites['idle_S']:
-                return self.idle_sprites['idle_S']
+            if PLAYER_IDLE_FALLBACK_KEY in self.idle_sprites and self.idle_sprites[PLAYER_IDLE_FALLBACK_KEY]:
+                return self.idle_sprites[PLAYER_IDLE_FALLBACK_KEY]
             return []
 
         if sprite_key in self.movement_sprites and self.movement_sprites[sprite_key]:
@@ -271,27 +285,26 @@ class UIRenderer:
     def __init__(self, player):
         self.player = player # Reference to player for accessing health, mana, etc.
         self.elements = {}  # Health bar, stats display, etc.
-        self.root_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) # Go up three levels to reach project root
-        self.hp_bar_root = os.path.join(self.root_dir, "Contents", "Resources", "UI", "Bars", "HP") # Expecting HP bar frames in Contents/Resources/UI/Bars/HP with subfolders 0, 1, ..., 11 for each HP group, each containing 0.png and 1.png for animation
-        self.mp_bar_root = os.path.join(self.root_dir, "Contents", "Resources", "UI", "Bars", "MP") # Expecting MP bar frames in Contents/Resources/UI/Bars/MP with same structure as HP bars (0-11 folders, each with 0.png and 1.png for animation)
+        self.hp_bar_root = HP_BAR_RESOURCES_ROOT
+        self.mp_bar_root = MP_BAR_RESOURCES_ROOT
         self.hp_frames = self._load_hp_frames()
         self.mp_frames = self._load_mp_frames()
         self.hp_frame_index = 0 #  Separate frame index for HP bar animation (e.g., blinking when low health)
         self.mp_frame_index = 0 # Separate frame index for MP bar animation
-        self.hp_bar_pos = (240, 40)  # Moved 40px right, HP bar higher at y=40
-        self.mp_bar_pos = (240, 150)  # Moved 40px right, kept at y=150
-        self.bar_scale = 0.2  # Scale bars to 20% size
+        self.hp_bar_pos = UI_HP_BAR_POSITION
+        self.mp_bar_pos = UI_MP_BAR_POSITION
+        self.bar_scale = UI_BAR_SCALE
         self.animation_counter = 0  # Counter for slowing down animation
-        self.animation_speed = 15  # Update animation every 15 frames (4 FPS)
+        self.animation_speed = UI_BAR_ANIMATION_INTERVAL_FRAMES
 
     def _load_hp_frames(self): # Load HP bar frames from expected folder structure (0-11 folders, each with 0.png and 1.png for animation)
         frames = {}
-        for folder_index in range(0, 12): # Loop through expected HP groups (0-11)
+        for folder_index in range(0, UI_BAR_GROUP_COUNT):
             folder_path = os.path.join(self.hp_bar_root, str(folder_index)) # Expecting folders named 0, 1, ..., 11 for each HP group
             if not os.path.isdir(folder_path): # Skip if folder doesn't exist (e.g., missing group folders)
                 continue
             frame_images = []
-            for image_name in ("0.png", "1.png"): # Expecting two frames per folder for animation (e.g., 0.png and 1.png)
+            for image_name in UI_BAR_FRAME_FILENAMES:
                 image_path = os.path.join(folder_path, image_name)  # Construct path to each frame image
                 if os.path.isfile(image_path): # Check if the image file exists before trying to load
                     try:
@@ -306,12 +319,12 @@ class UIRenderer:
     def _load_mp_frames(self):
         """Load mana bar frames, similar to HP frames."""
         frames = {}
-        for folder_index in range(0, 12):
+        for folder_index in range(0, UI_BAR_GROUP_COUNT):
             folder_path = os.path.join(self.mp_bar_root, str(folder_index))
             if not os.path.isdir(folder_path):
                 continue
             frame_images = []
-            for image_name in ("0.png", "1.png"):
+            for image_name in UI_BAR_FRAME_FILENAMES:
                 image_path = os.path.join(folder_path, image_name)
                 if os.path.isfile(image_path):
                     try:
@@ -410,8 +423,7 @@ class UIRenderer:
 
     def configure_appearance(self, appearance):
         self.player.appearance = appearance
-        config_dir = "Saves/player config"
-        os.makedirs(config_dir, exist_ok=True)
-        config_path = os.path.join(config_dir, "appearance.json")
+        os.makedirs(PLAYER_APPEARANCE_SAVE_DIR, exist_ok=True)
+        config_path = os.path.join(PLAYER_APPEARANCE_SAVE_DIR, PLAYER_APPEARANCE_JSON_NAME)
         with open(config_path, 'w') as f:
             json.dump({"appearance": appearance}, f)

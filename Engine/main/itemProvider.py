@@ -1,28 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 import random
-from typing import Callable, Iterable, Optional, Protocol, Sequence
+from typing import Callable, Optional, Protocol, Sequence
 
-
-@dataclass(frozen=True)
-class OreDrop:
-    name: str
-    weight: int
-
-
-ORE_POOL: Sequence[OreDrop] = (
-    OreDrop(name="Stone", weight=42),
-    OreDrop(name="Coal", weight=18),
-    OreDrop(name="Iron", weight=12),
-    OreDrop(name="Silver", weight=8),
-    OreDrop(name="Gold", weight=6),
-    OreDrop(name="Platinum", weight=5),
-    OreDrop(name="Diamond", weight=4),
-    OreDrop(name="Mithril", weight=2),
-    OreDrop(name="Kyber", weight=2),
-    OreDrop(name="Meteorite Fragment", weight=1),
-)
+from ..config.config import ORE_POOL, OreDrop, SOUND_ROCK_SHATTER
 
 
 class SupportsAddItem(Protocol):
@@ -95,7 +76,7 @@ def provide_random_ore(
                 if on_destroy is not None:
                     on_destroy(target_object)
                 if on_sound is not None:
-                    on_sound("Rock_Shatter")
+                    on_sound(SOUND_ROCK_SHATTER)
         except Exception:
             pass
 
