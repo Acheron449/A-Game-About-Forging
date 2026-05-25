@@ -76,8 +76,62 @@ UI_BAR_GROUP_COUNT = 12
 UI_BAR_FRAME_FILENAMES: Tuple[str, str] = ('0.png', '1.png')
 
 # Save / appearance
+PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', '..'))
+SAVE_DIRECTORY = os.path.join(PROJECT_ROOT, 'Saves')
+SAVE_FILE_EXTENSION = '.dat'
 PLAYER_APPEARANCE_SAVE_DIR = 'Saves/player config'
 PLAYER_APPEARANCE_JSON_NAME = 'appearance.json'
+GAME_SETTINGS_FILENAME = 'game_settings.json'
+
+# Inventory & hotbar
+HOTBAR_SLOT_COUNT = 10
+INVENTORY_BAG_SLOT_COUNT = 50
+INVENTORY_BAG_COLUMNS = 10
+
+# Player stamina & skills (pseudocode defaults)
+PLAYER_START_STAMINA = 100
+PLAYER_START_MAX_STAMINA = 100
+PLAYER_STATUS_DEFAULT_LEVEL = 4
+PLAYER_STATUS_DEFAULT_GOLD = 1298
+DASH_STAMINA_COST = 25
+SKILL_ULT_MANA_COST = 30
+SKILL_1_MANA_COST = 15
+SKILL_2_MANA_COST = 15
+STAMINA_REGEN_BASE = 2.0
+HEALTH_REGEN_IDLE_BASE = 1.0
+MANA_REGEN_IDLE_BASE = 1.5
+
+# UI toggles (keyboard)
+UI_QUEST_TOGGLE_KEY = pygame.K_j
+UI_MINIMAP_TOGGLE_KEY = pygame.K_m
+HOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9
+
+# Action binds (display labels; runtime uses pygame keys where applicable)
+BIND_ATTACK_LABEL = 'Left Mouse Button'
+BIND_BLOCK_LABEL = 'Right Mouse Button'
+BIND_INTERACT_LABEL = 'E'
+BIND_INTERACT_KEYS = [pygame.K_e]
+SKILL_ULT_KEYS = [pygame.K_q]
+SKILL_1_KEYS = [pygame.K_e]
+SKILL_2_KEYS = [pygame.K_c]
+
+# Settings UI
+SETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']
+DEFAULT_DIFFICULTY = 'Normal'
+DEFAULT_MOUSE_SENSITIVITY = 0.5
+DEFAULT_SETTINGS_FPS_LIMIT = 30
+DEFAULT_RESOLUTION_LABEL = '1920 x 1080'
+DEFAULT_MASTER_VOLUME = 0.50
+DEFAULT_MUSIC_VOLUME = 1.00
+DEFAULT_SFX_VOLUME = 1.00
+
+# Character preview
+CHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'
+
+# Scenes (logical names for menu/load flow)
+SCENE_MAIN_WORLD = 'MainWorld'
+SCENE_TUTORIAL = 'TutorialLevel'
+SCENE_MAIN_MENU = 'MainMenu'
 
 # Pickaxe / mining feedback (string hooks for audio/VFX)
 SOUND_CLINK_METAL_ON_STONE = 'Clink_Metal_On_Stone'
