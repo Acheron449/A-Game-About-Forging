@@ -75,7 +75,7 @@ def main(): # Main game loop
         player_center_y = SCREEN_HEIGHT // 2
         player_renderer.draw_player(screen, (player_center_x, player_center_y))
         
-        # Draw UI (HP and Mana bars in top-left)
+        # Draw UI (User Status bars in top-left)
         ui_renderer.draw_ui(screen)
         
         # Update display

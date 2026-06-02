@@ -15,7 +15,9 @@ from ..config.config import ( # Import the config
     PLAYER_START_MANA,
     PLAYER_START_MAX_HEALTH,
     PLAYER_START_MAX_MANA,
+    PLAYER_START_MAX_STAMINA,
     PLAYER_START_STATS,
+    PLAYER_START_STAMINA,
     PLAYER_START_XP,
     UPGRADE_TREE_INITIAL_COUNTS,
     WORLD_DEFAULT_TILE_SIZE,
@@ -36,6 +38,8 @@ class Player:
         self.max_health = PLAYER_START_MAX_HEALTH # Set the maximum health
         self.mana = PLAYER_START_MANA # Set the starting mana
         self.max_mana = PLAYER_START_MAX_MANA # Set the maximum mana
+        self.stamina = PLAYER_START_STAMINA # Set the starting stamina
+        self.max_stamina = PLAYER_START_MAX_STAMINA # Set the maximum stamina
         self.xp = PLAYER_START_XP # Set the starting xp
         self.level = PLAYER_START_LEVEL # Set the starting level
         self.gold = PLAYER_START_GOLD # Set the starting gold

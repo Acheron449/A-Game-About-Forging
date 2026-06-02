@@ -1,15 +1,12 @@
 import os 
 import json
 import pygame
-import builtins
 
 from ..config.config import (
     ANIMATION_SPEED_WALK,
-    HP_BAR_RESOURCES_ROOT,
     IDLE_ANIMATION_SPEED,
     KEYBINDS,
     MOVEMENT_MIN_HOLD_MS,
-    MP_BAR_RESOURCES_ROOT,
     PLAYER_APPEARANCE_JSON_NAME,
     PLAYER_APPEARANCE_SAVE_DIR,
     PLAYER_DEFAULT_FACING,
@@ -20,14 +17,9 @@ from ..config.config import (
     PLAYER_MOVEMENT_DIRECTORY_MAP,
     PLAYER_RESOURCES_DIR,
     SPRITE_SCALE,
-    UI_BAR_ANIMATION_INTERVAL_FRAMES,
-    UI_BAR_FRAME_FILENAMES,
-    UI_BAR_GROUP_COUNT,
-    UI_BAR_SCALE,
-    UI_HP_BAR_POSITION,
-    UI_MP_BAR_POSITION,
 )
 from ..config.imports import * # for any additional imports needed for rendering, not used in this snippet but may be needed for future rendering features (e.g., loading fonts, additional sprite types, etc.)
+from .user_status_ui import UserStatusUI
 
 class WorldRenderer: # Placeholder for future world rendering logic (e.g., map, tiles, entities, etc.)
     def __init__(self): # Initialize any necessary variables for world rendering (e.g., tile size, camera position, etc.)
@@ -283,143 +275,15 @@ class PlayerRenderer:
 
 class UIRenderer:
     def __init__(self, player):
-        self.player = player # Reference to player for accessing health, mana, etc.
-        self.elements = {}  # Health bar, stats display, etc.
-        self.hp_bar_root = HP_BAR_RESOURCES_ROOT
-        self.mp_bar_root = MP_BAR_RESOURCES_ROOT
-        self.hp_frames = self._load_hp_frames()
-        self.mp_frames = self._load_mp_frames()
-        self.hp_frame_index = 0 #  Separate frame index for HP bar animation (e.g., blinking when low health)
-        self.mp_frame_index = 0 # Separate frame index for MP bar animation
-        self.hp_bar_pos = UI_HP_BAR_POSITION
-        self.mp_bar_pos = UI_MP_BAR_POSITION
-        self.bar_scale = UI_BAR_SCALE
-        self.animation_counter = 0  # Counter for slowing down animation
-        self.animation_speed = UI_BAR_ANIMATION_INTERVAL_FRAMES
-
-    def _load_hp_frames(self): # Load HP bar frames from expected folder structure (0-11 folders, each with 0.png and 1.png for animation)
-        frames = {}
-        for folder_index in range(0, UI_BAR_GROUP_COUNT):
-            folder_path = os.path.join(self.hp_bar_root, str(folder_index)) # Expecting folders named 0, 1, ..., 11 for each HP group
-            if not os.path.isdir(folder_path): # Skip if folder doesn't exist (e.g., missing group folders)
-                continue
-            frame_images = []
-            for image_name in UI_BAR_FRAME_FILENAMES:
-                image_path = os.path.join(folder_path, image_name)  # Construct path to each frame image
-                if os.path.isfile(image_path): # Check if the image file exists before trying to load
-                    try:
-                        frame_images.append(pygame.image.load(image_path).convert_alpha()) # Load the image with alpha transparency
-                    except Exception:
-                        frame_images.append(None) # If loading fails, append None to maintain list structure (2 frames per folder)
-                else:
-                    frame_images.append(None)
-            frames[folder_index] = frame_images
-        return frames
-
-    def _load_mp_frames(self):
-        """Load mana bar frames, similar to HP frames."""
-        frames = {}
-        for folder_index in range(0, UI_BAR_GROUP_COUNT):
-            folder_path = os.path.join(self.mp_bar_root, str(folder_index))
-            if not os.path.isdir(folder_path):
-                continue
-            frame_images = []
-            for image_name in UI_BAR_FRAME_FILENAMES:
-                image_path = os.path.join(folder_path, image_name)
-                if os.path.isfile(image_path):
-                    try:
-                        frame_images.append(pygame.image.load(image_path).convert_alpha())
-                    except Exception:
-                        frame_images.append(None)
-                else:
-                    frame_images.append(None)
-            frames[folder_index] = frame_images
-        return frames
-
-    def _hp_group_index(self):
-        hp = builtins.max(0, builtins.min(self.player.health, self.player.max_health))
-        if hp <= 0:
-            return 0
-        if hp >= self.player.max_health:
-            return 11
-        return builtins.min(10, ((hp - 1) // 10) + 1)
-
-    def _mp_group_index(self):
-        """Get mana bar group index (0-11)."""
-        mp = builtins.max(0, builtins.min(self.player.mana, self.player.max_mana))
-        if mp <= 0:
-            return 0
-        if mp >= self.player.max_mana:
-            return 11
-        return builtins.min(10, ((mp - 1) // 10) + 1)
-
-    def _select_hp_image(self):
-        group = self._hp_group_index()
-        frames = self.hp_frames.get(group, [None, None])
-
-        if group == 0:
-            # 0 HP uses the static zero-health image from folder 0
-            return frames[0] or frames[1]
-
-        if group == 1:
-            # below 10 HP alternates between folder 1 images
-            return frames[self.hp_frame_index % 2] or frames[0] or frames[1]
-
-        if group == 11:
-            # full HP alternates between folder 11 images
-            return frames[self.hp_frame_index % 2] or frames[0] or frames[1]
-
-        # For all other 10-HP intervals, use the image in the matching folder
-        return frames[0] or frames[1]
-
-    def _select_mp_image(self):
-        """Select mana bar image based on current mana."""
-        group = self._mp_group_index()
-        frames = self.mp_frames.get(group, [None, None])
-
-        if group == 0:
-            return frames[0] or frames[1]
-
-        if group == 1:
-            return frames[self.mp_frame_index % 2] or frames[0] or frames[1]
-
-        if group == 11:
-            return frames[self.mp_frame_index % 2] or frames[0] or frames[1]
-
-        return frames[0] or frames[1]
-
-    def _update_hp_frame(self):
-        self.animation_counter += 1
-        if self.animation_counter >= self.animation_speed:
-            self.hp_frame_index = (self.hp_frame_index + 1) % 2
-            self.mp_frame_index = (self.mp_frame_index + 1) % 2
-            self.animation_counter = 0
+        self.player = player
+        self.elements = {}
+        self.user_status = UserStatusUI(player)
 
     def draw_ui(self, screen):
-        hp_image = self._select_hp_image()
-        if hp_image is not None:
-            # Scale the HP bar
-            scaled_hp = pygame.transform.scale(hp_image, 
-                (int(hp_image.get_width() * self.bar_scale), 
-                 int(hp_image.get_height() * self.bar_scale)))
-            # Center the scaled bar at the intended position
-            hp_x = self.hp_bar_pos[0] - scaled_hp.get_width() // 2
-            hp_y = self.hp_bar_pos[1] - scaled_hp.get_height() // 2
-            screen.blit(scaled_hp, (hp_x, hp_y))
-        
-        mp_image = self._select_mp_image()
-        if mp_image is not None:
-            # Scale the MP bar
-            scaled_mp = pygame.transform.scale(mp_image, 
-                (int(mp_image.get_width() * self.bar_scale), 
-                 int(mp_image.get_height() * self.bar_scale)))
-            # Center the scaled bar at the intended position
-            mp_x = self.mp_bar_pos[0] - scaled_mp.get_width() // 2
-            mp_y = self.mp_bar_pos[1] - scaled_mp.get_height() // 2
-            screen.blit(scaled_mp, (mp_x, mp_y))
+        self.user_status.draw(screen)
 
     def update_ui(self):
-        self._update_hp_frame()
+        self.user_status.refresh_status()
 
     def configure_appearance(self, appearance):
         self.player.appearance = appearance

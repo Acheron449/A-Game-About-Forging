@@ -44,8 +44,6 @@ UPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'spe
 
 # Asset roots (under Contents/Resources)
 PLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')
-HP_BAR_RESOURCES_ROOT = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'HP')
-MP_BAR_RESOURCES_ROOT = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'MP')
 
 # PlayerRenderer tuning
 PLAYER_DEFAULT_FACING = 'S'
@@ -67,13 +65,17 @@ IDLE_ANIMATION_SPEED = 18
 SPRITE_SCALE = 0.45
 MOVEMENT_MIN_HOLD_MS = 1
 
-# UIRenderer tuning
-UI_HP_BAR_POSITION: Tuple[int, int] = (240, 40)
-UI_MP_BAR_POSITION: Tuple[int, int] = (240, 150)
-UI_BAR_SCALE = 0.2
-UI_BAR_ANIMATION_INTERVAL_FRAMES = 15
-UI_BAR_GROUP_COUNT = 12
-UI_BAR_FRAME_FILENAMES: Tuple[str, str] = ('0.png', '1.png')
+# UIRenderer tuning — User Status composite bar (HP / MP / Stamina)
+USER_STATUS_SPRITE_PATH = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'User Status', '0.png')
+USER_STATUS_POSITION: Tuple[int, int] = (8, 8)
+USER_STATUS_SCALE = 1.0
+# Fill slots within the sprite (x, y, height, max_fill_width) at native resolution
+USER_STATUS_HP_SLOT: Tuple[int, int, int, int] = (50, 14, 16, 248)
+USER_STATUS_MP_SLOT: Tuple[int, int, int, int] = (75, 34, 14, 194)
+USER_STATUS_STAMINA_SLOT: Tuple[int, int, int, int] = (50, 54, 14, 185)
+USER_STATUS_HP_COLOR: Tuple[int, int, int] = (200, 45, 45)
+USER_STATUS_MP_COLOR: Tuple[int, int, int] = (45, 130, 220)
+USER_STATUS_STAMINA_COLOR: Tuple[int, int, int] = (220, 185, 45)
 
 # Save / appearance
 PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', '..'))
