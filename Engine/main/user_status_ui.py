@@ -31,11 +31,11 @@ class StatusBarTracker:
         max_attr: str,
     ):
         self.player = player
-        self.current_attr = current_attr
-        self.max_attr = max_attr
-        self.current_value = 0.0
-        self.max_value = 1.0
-        self.fill_ratio = 0.0
+        self.current_attr = current_attr # set the current attribute to the current attribute from the player
+        self.max_attr = max_attr # set the max attribute to the max attribute from the player
+        self.current_value = 0.0 # set the current value to 0.0
+        self.max_value = 1.0 # set the max value to 1.0
+        self.fill_ratio = 0.0 # set the fill ratio to 0.0
 
     def refresh(self) -> float:
         current = float(getattr(self.player, self.current_attr, 0))
@@ -43,28 +43,28 @@ class StatusBarTracker:
         self.current_value = max(0.0, current)
         self.max_value = max(1.0, maximum)
         self.fill_ratio = self.current_value / self.max_value
-        return self.fill_ratio
+        return self.fill_ratio # return the fill ratio
 
 
 class HPStatusBar(StatusBarTracker):
-    stat_name = 'hp'
+    stat_name = 'hp' # set the stat name to 'hp'
 
     def __init__(self, player: Any):
-        super().__init__(player, 'health', 'max_health')
+        super().__init__(player, 'health', 'max_health') # initialize the HP status bar with the player and the current and max health attributes
 
 
 class MPStatusBar(StatusBarTracker):
-    stat_name = 'mp'
+    stat_name = 'mp' # set the stat name to 'mp'
 
     def __init__(self, player: Any):
-        super().__init__(player, 'mana', 'max_mana')
+        super().__init__(player, 'mana', 'max_mana') # initialize the MP status bar with the player and the current and max mana attributes
 
 
 class StaminaStatusBar(StatusBarTracker):
-    stat_name = 'stamina'
+    stat_name = 'stamina' # set the stat name to 'stamina'
 
     def __init__(self, player: Any):
-        super().__init__(player, 'stamina', 'max_stamina')
+        super().__init__(player, 'stamina', 'max_stamina') # initialize the stamina status bar with the player and the current and max stamina attributes
 
 
 class StatusBarFillRenderer:
@@ -75,27 +75,27 @@ class StatusBarFillRenderer:
         tracker: StatusBarTracker,
         slot: Tuple[int, int, int, int],
         color: Tuple[int, int, int],
-    ):
+    ): # initialize the status bar fill renderer with the tracker, slot, and color
         self.tracker = tracker
-        self.slot_x, self.slot_y, self.slot_height, self.max_fill_width = slot
-        self.color = color
+        self.slot_x, self.slot_y, self.slot_height, self.max_fill_width = slot # set the slot x, y, height, and max fill width to the slot x, y, height, and max fill width from the slot
+        self.color = color # set the color to the color from the color
 
     def refresh(self) -> float:
-        return self.tracker.refresh()
+        return self.tracker.refresh() # return the fill ratio
 
     def draw(
         self,
         screen: pygame.Surface,
-        origin: Tuple[int, int],
+        origin: Tuple[int, int], # set the origin to the origin from the origin
         scale: float,
-    ) -> None:
+    ) -> None: # draw the status bar fill renderer with the screen, origin, and scale
         ratio = self.tracker.fill_ratio
-        if ratio <= 0:
+        if ratio <= 0: # if the fill ratio is less than or equal to 0, return
             return
         fill_width = max(1, int(self.max_fill_width * scale * ratio))
         fill_height = max(1, int(self.slot_height * scale))
-        x = origin[0] + int(self.slot_x * scale)
-        y = origin[1] + int(self.slot_y * scale)
+        x = origin[0] + int(self.slot_x * scale) # calculate the x position of the fill
+        y = origin[1] + int(self.slot_y * scale) # calculate the y position of the fill
         pygame.draw.rect(screen, self.color, pygame.Rect(x, y, fill_width, fill_height))
 
 
