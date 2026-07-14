@@ -14,12 +14,12 @@ from .settings_modifier import SettingsModifier
 class SettingsUIManager:
     def __init__(
         self,
-        config: Optional[GameConfiguration] = None,
+        initial_config: Optional[GameConfiguration] = None,
         on_draw_category: Optional[Callable[[str], None]] = None,
         on_draw_panel: Optional[Callable[[str, Dict[str, Any]], None]] = None,
         on_apply_engine: Optional[Callable[[GameConfiguration], None]] = None,
     ):
-        self.current_config = config or GameConfiguration.load_from_file()
+        self.current_config = initial_config or GameConfiguration.load_from_file()
         self.active_category = 'General'
         self.categories: List[str] = list(config.SETTINGS_CATEGORIES)
         self._on_draw_category = on_draw_category

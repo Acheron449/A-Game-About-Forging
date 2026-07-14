@@ -173,33 +173,33 @@ def main(): # Main game loop
                 settings_screen.handle_event(event)
             elif inventory_screen.is_open:
                 inventory_screen.handle_event(event)
-            elif scene_state['name'] == SCENE_MAIN_MENU and event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            elif scene_state['name'] == config.SCENE_MAIN_MENU and event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 title_screen.handle_event(event)
             elif pause_menu.is_paused and event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 pause_screen.handle_event(event)
 
             if scene_state['name'] == config.SCENE_MAIN_MENU:
-            title_screen.render(screen)
-        else:
-            if not pause_menu.is_paused and not inventory_screen.is_open:
-                keys_pressed = pygame.key.get_pressed()
-                # Update player sprite (shift/sprint uses keys_pressed; movement uses axis_scancodes_held)
-                player_renderer.update(axis_scancodes_held, keys_pressed)
+                title_screen.render(screen)
+            else:
+                if not pause_menu.is_paused and not inventory_screen.is_open:
+                    keys_pressed = pygame.key.get_pressed()
+                    # Update player sprite (shift/sprint uses keys_pressed; movement uses axis_scancodes_held)
+                    player_renderer.update(axis_scancodes_held, keys_pressed)
 
-                # Update UI
-                ui_renderer.update_ui()
+                    # Update UI
+                    ui_renderer.update_ui()
 
-            # Keep the latest gameplay frame visible underneath modal overlays.
-            screen.fill(config.SCREEN_CLEAR_COLOR)
+                # Keep the latest gameplay frame visible underneath modal overlays.
+                screen.fill(config.SCREEN_CLEAR_COLOR)
 
-            # Draw player in center of screen
-            player_center_x, player_center_y = (value // 2 for value in screen.get_size())
-            player_renderer.draw_player(screen, (player_center_x, player_center_y))
+                # Draw player in center of screen
+                player_center_x, player_center_y = (value // 2 for value in screen.get_size())
+                player_renderer.draw_player(screen, (player_center_x, player_center_y))
 
-            # Draw UI (User Status bars in top-left)
-            ui_renderer.draw_ui(screen)
-            inventory_screen.draw(screen, player_renderer.current_sprite)
-            pause_screen.render(screen)
+                # Draw UI (User Status bars in top-left)
+                ui_renderer.draw_ui(screen)
+                inventory_screen.draw(screen, player_renderer.current_sprite)
+                pause_screen.render(screen)
 
         settings_screen.draw(screen)
 

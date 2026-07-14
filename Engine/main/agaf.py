@@ -74,12 +74,12 @@ class Player:
 
     def gain_xp(self, amount): # Gain xp from the player
         self.xp += amount
-        if self.xp >= self.level * XP_PER_LEVEL_MULTIPLIER: # Check if the xp is greater than or equal to the level times the xp per level multiplier
+        if self.xp >= self.level * config.XP_PER_LEVEL_MULTIPLIER: # Check if the xp is greater than or equal to the level times the xp per level multiplier
             self.level_up() # Level up the player
 
     def level_up(self): # Level up the player
         self.level += 1
-        self.max_health += LEVEL_UP_MAX_HEALTH_BONUS # Add the level up max health bonus to the maximum health
+        self.max_health += config.LEVEL_UP_MAX_HEALTH_BONUS # Add the level up max health bonus to the maximum health
         self.health = self.max_health # Set the health to the maximum health
         # Allocate points to upgrade tree
 
@@ -91,7 +91,7 @@ class Player:
             self.equipped_items[item.type] = item # Equip the item
             for stat, bonus in item.stats_bonus.items(): # Add the stats bonus to the stats
                 self.stats[stat] += bonus # Add the stats bonus to the stats
-            if item.name.lower() == PICKAXE_NAME_KEY: # Check if the item name is the pickaxe name
+            if item.name.lower() == config.PICKAXE_NAME_KEY: # Check if the item name is the pickaxe name
                 self.pickaxe_equipped = True # Set the pickaxe equipped to True
 
     def unequip_item(self, item): # Unequip an item
@@ -99,7 +99,7 @@ class Player:
             self.equipped_items[item.type] = None # Set the equipped item to None
             for stat, bonus in item.stats_bonus.items(): # Subtract the stats bonus from the stats
                 self.stats[stat] -= bonus # Subtract the stats bonus from the stats
-            if item.name.lower() == PICKAXE_NAME_KEY: # Check if the item name is the pickaxe name
+            if item.name.lower() == config.PICKAXE_NAME_KEY: # Check if the item name is the pickaxe name
                 self.pickaxe_equipped = False # Set the pickaxe equipped to False
 
     def die(self): # Die
@@ -137,7 +137,7 @@ class Inventory:
             self.add_item(item) # Add the item to the inventory
 
 class World:
-    def __init__(self, player, tile_size=WORLD_DEFAULT_TILE_SIZE): # Initialize a world
+    def __init__(self, player, tile_size=config.WORLD_DEFAULT_TILE_SIZE): # Initialize a world
         self.player = player # Set the player to the player in the world
         self.entities = []  # List of enemies, collectables, etc.
         self.map = []  # Simple 2D list for map
@@ -203,13 +203,13 @@ class MiningSpot:
     def __init__(self, x, y, item=None): # Initialize a mining spot
         self.x = x
         self.y = y
-        self.width = MINING_SPOT_WIDTH # Set the width of the mining spot
-        self.height = MINING_SPOT_HEIGHT # Set the height of the mining spot
+        self.width = config.MINING_SPOT_WIDTH # Set the width of the mining spot
+        self.height = config.MINING_SPOT_HEIGHT # Set the height of the mining spot
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height)
         self.item = item or Item(
-            DEFAULT_MINING_ITEM_NAME,
-            DEFAULT_MINING_ITEM_TYPE,
-            value=DEFAULT_MINING_ITEM_VALUE,
+            config.DEFAULT_MINING_ITEM_NAME,
+            config.DEFAULT_MINING_ITEM_TYPE,
+            value=config.DEFAULT_MINING_ITEM_VALUE,
         )
         self.mined = False # Set the mined to the mined
 

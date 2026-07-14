@@ -40,7 +40,7 @@ class SaveManager:
             return []
         return [
             f for f in os.listdir(self.save_directory)
-            if f.endswith(SAVE_FILE_EXTENSION)
+            if f.endswith(config.SAVE_FILE_EXTENSION)
         ]
 
     def _full_path(self, filename: str) -> str:
