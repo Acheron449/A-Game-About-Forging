@@ -8,7 +8,7 @@ from .character_preview import CharacterPreview
 from .equipment_manager import EquipmentManager
 from .inventory_hotbar import InventoryHotbar
 from .inventory_manager import InventoryManager
-from .main_menu_manager import MainMenuManager
+from ..main.Title import Application, GameEngine, MainMenuManager
 from .movement_controller import PlayerController
 from .pause_menu_manager import PauseMenuManager
 from .player_skills import PlayerSkills
@@ -55,7 +55,10 @@ class GameSession:
         )
         self.main_menu = MainMenuManager(
             save_manager=self.save_manager,
-            on_toggle_settings=lambda open_: self.ui_manager.toggle_settings_menu(open_),
+            ui_manager=self.ui_manager,
+            game_engine=GameEngine(
+                on_apply_save_data=self.apply_save_data,
+            ),
         )
         self.pause_menu = PauseMenuManager(
             save_manager=self.save_manager,

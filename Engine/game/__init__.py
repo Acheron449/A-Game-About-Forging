@@ -6,7 +6,6 @@ from .equipment_manager import EquipmentManager, EquipmentSlot
 from .game_configuration import GameConfiguration
 from .inventory_hotbar import InventoryHotbar
 from .inventory_manager import InventoryManager, InventorySlot
-from .main_menu_manager import MainMenuManager
 from .movement_controller import PlayerController
 from .pause_menu_manager import PauseMenuManager
 from .player_skills import PlayerSkills
@@ -16,7 +15,6 @@ from .settings_modifier import SettingsModifier
 from .settings_ui_manager import SettingsUIManager
 from .ui_hotbar_integration import UIHotbarIntegration
 from .ui_manager import UIManager
-from .game_session import GameSession
 
 __all__ = [
     'BossStatus',
@@ -27,7 +25,6 @@ __all__ = [
     'InventoryHotbar',
     'InventoryManager',
     'InventorySlot',
-    'MainMenuManager',
     'PauseMenuManager',
     'PlayerController',
     'PlayerSkills',
@@ -37,5 +34,4 @@ __all__ = [
     'SettingsUIManager',
     'UIHotbarIntegration',
     'UIManager',
-    'GameSession',
 ]

@@ -3,7 +3,7 @@ import json
 import pygame
 
 from ..config.config import (
-    ANIMATION_SPEED_WALK,
+    ANIMATION_SPEED_WALK, 
     IDLE_ANIMATION_SPEED,
     KEYBINDS,
     MOVEMENT_MIN_HOLD_MS,
