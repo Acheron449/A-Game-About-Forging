@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Callable, List, Optional
 
-from ..config.config import INVENTORY_BAG_SLOT_COUNT
+from ..config.config import config
 
 
 class InventorySlot:
@@ -27,7 +27,7 @@ class InventorySlot:
 class InventoryManager:
     def __init__(
         self,
-        total_bag_slots: int = INVENTORY_BAG_SLOT_COUNT,
+        total_bag_slots: int = config.INVENTORY_BAG_SLOT_COUNT,
         on_open: Optional[Callable[[], None]] = None,
         on_close: Optional[Callable[[], None]] = None,
         on_render: Optional[Callable[[], None]] = None,

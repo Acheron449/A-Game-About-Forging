@@ -6,7 +6,7 @@ from typing import Any, Callable, Dict, List, Optional
 
 import pygame
 
-from ..config.config import SETTINGS_CATEGORIES
+from ..config.config import config
 from .game_configuration import GameConfiguration
 from .settings_modifier import SettingsModifier
 
@@ -21,7 +21,7 @@ class SettingsUIManager:
     ):
         self.current_config = config or GameConfiguration.load_from_file()
         self.active_category = 'General'
-        self.categories: List[str] = list(SETTINGS_CATEGORIES)
+        self.categories: List[str] = list(config.SETTINGS_CATEGORIES)
         self._on_draw_category = on_draw_category
         self._on_draw_panel = on_draw_panel
         self._on_apply_engine = on_apply_engine

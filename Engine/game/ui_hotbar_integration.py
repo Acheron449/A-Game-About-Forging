@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Callable, List, Optional, Tuple
 
-from ..config.config import HOTBAR_SLOT_COUNT
+from ..config.config import config
 from .inventory_hotbar import InventoryHotbar
 from .inventory_manager import InventoryManager, InventorySlot
 
@@ -27,7 +27,7 @@ class UIHotbarIntegration:
         origin_y: int = 0, # the y position of the origin
         slot_spacing: int = 48, # the spacing between slots
     ) -> None: # return None
-        for index in range(HOTBAR_SLOT_COUNT): # loop through the hotbar slots
+        for index in range(config.HOTBAR_SLOT_COUNT): # loop through the hotbar slots
             x_pos = origin_x + index * slot_spacing # calculate the x position of the slot
             y_pos = origin_y # calculate the y position of the slot
             item = self.hotbar_slots[index].get_item() # get the item in the slot

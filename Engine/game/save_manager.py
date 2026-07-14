@@ -8,26 +8,17 @@ import time
 import uuid
 from typing import Any, Callable, Dict, List, Optional
 
-from ..config.config import (
-    PLAYER_START_GOLD,
-    PLAYER_START_HEALTH,
-    PLAYER_START_LEVEL,
-    PLAYER_START_MANA,
-    PLAYER_START_MAX_HEALTH,
-    PLAYER_START_MAX_MANA,
-    SAVE_DIRECTORY,
-    SAVE_FILE_EXTENSION,
-)
+from ..config.config import config
 
 
 class SaveManager:
     def __init__(
         self,
-        save_directory: str = SAVE_DIRECTORY,
+        save_directory: str = None,
         serialize: Optional[Callable[[Dict[str, Any]], str]] = None,
         deserialize: Optional[Callable[[str], Dict[str, Any]]] = None,
     ):
-        self.save_directory = save_directory
+        self.save_directory = save_directory or config.SAVE_DIRECTORY
         os.makedirs(self.save_directory, exist_ok=True)
         self._serialize = serialize or self._default_serialize
         self._deserialize = deserialize or self._default_deserialize
@@ -72,17 +63,17 @@ class SaveManager:
     @staticmethod
     def generate_default_starting_stats() -> Dict[str, Any]:
         return {
-            'health': PLAYER_START_HEALTH,
-            'max_health': PLAYER_START_MAX_HEALTH,
-            'mana': PLAYER_START_MANA,
-            'max_mana': PLAYER_START_MAX_MANA,
-            'level': PLAYER_START_LEVEL,
-            'gold': PLAYER_START_GOLD,
+            'health': config.PLAYER_START_HEALTH,
+            'max_health': config.PLAYER_START_MAX_HEALTH,
+            'mana': config.PLAYER_START_MANA,
+            'max_mana': config.PLAYER_START_MAX_MANA,
+            'level': config.PLAYER_START_LEVEL,
+            'gold': config.PLAYER_START_GOLD,
             'scene': 'TutorialLevel',
         }
 
     def _generate_timestamp_filename(self) -> str:
-        return f"{int(time.time())}_save{SAVE_FILE_EXTENSION}"
+        return f"{int(time.time())}_save{config.SAVE_FILE_EXTENSION}"
 
     def create_new_save_file(self) -> Dict[str, Any]:
         default_data = self.generate_default_starting_stats()

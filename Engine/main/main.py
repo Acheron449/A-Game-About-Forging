@@ -2,17 +2,7 @@ import pygame
 import sys
 from pathlib import Path
 
-from ..config.config import (
-    KEYBINDS,
-    QUIT_KEY,
-    SCREEN_CLEAR_COLOR,
-    SCREEN_HEIGHT,
-    SCREEN_WIDTH,
-    TARGET_FPS,
-    WINDOW_TITLE,
-    SCENE_MAIN_MENU,
-    RESOURCES_PATH,
-)
+from ..config.config import config
 
 from ..game.inventory import InventoryItem, InventoryManager, InventoryScreen
 from ..game.inventory_hotbar import InventoryHotbar
@@ -32,8 +22,8 @@ def main(): # Main game loop
     pygame.font.init()
 
     # Create windowed mode
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption(WINDOW_TITLE)
+    screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+    pygame.display.set_caption(config.WINDOW_TITLE)
 
     # Clock for FPS
     clock = pygame.time.Clock()
@@ -49,7 +39,7 @@ def main(): # Main game loop
     ui_renderer = UIRenderer(player)
 
     # Title-screen state
-    scene_state = {'name': SCENE_MAIN_MENU}
+    scene_state = {'name': config.SCENE_MAIN_MENU}
     running_state = {'running': True}
     title_prompt_text = {'message': ''}
 
@@ -114,7 +104,7 @@ def main(): # Main game loop
         on_capture_state=capture_current_state,
         on_notification=on_display_prompt,
         on_open_settings=open_settings,
-        on_return_main_menu=lambda: on_load_scene(SCENE_MAIN_MENU),
+        on_return_main_menu=lambda: on_load_scene(config.SCENE_MAIN_MENU),
         on_quit_game=on_quit,
     )
 
@@ -131,13 +121,13 @@ def main(): # Main game loop
     )
     settings_modifier._on_warning = lambda message: setattr(settings_screen, 'status_message', message)
 
-    title_screen = TitleScreen(title_menu, (SCREEN_WIDTH, SCREEN_HEIGHT))
-    pause_screen = PauseScreen(pause_menu, (SCREEN_WIDTH, SCREEN_HEIGHT))
+    title_screen = TitleScreen(title_menu, (config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+    pause_screen = PauseScreen(pause_menu, (config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
 
     inventory_manager = InventoryManager()
     inventory_hotbar = InventoryHotbar()
     inventory_screen = InventoryScreen(inventory_manager, inventory_hotbar)
-    weapon_icons = Path(RESOURCES_PATH) / 'UI' / 'Items' / 'Arms' / '32 Free Weapon Icons' / 'Icons'
+    weapon_icons = Path(config.RESOURCES_PATH) / 'UI' / 'Items' / 'Arms' / '32 Free Weapon Icons' / 'Icons'
     inventory_manager.bag_slots[0].set_item(InventoryItem('Forged Sword', 'weapon', weapon_icons / 'Iicon_32_01.png'))
     inventory_manager.bag_slots[3].set_item(InventoryItem('Iron Ingot', 'material', weapon_icons / 'Iicon_32_12.png', quantity=12))
     inventory_manager.bag_slots[12].set_item(InventoryItem('Runic Blade', 'weapon', weapon_icons / 'Iicon_32_06.png'))
@@ -146,7 +136,7 @@ def main(): # Main game loop
     # Per-axis scancode sets: classify movement on KEYDOWN (event.key), release on KEYUP
     # (event.scancode) so macOS/SDL mismatched KEYUP key codes don't stick or break input.
     # key_to_scancode() can disagree with event.scancode — do not use it for comparisons.
-    axis_scancodes_held = {axis: set() for axis in KEYBINDS}
+    axis_scancodes_held = {axis: set() for axis in config.KEYBINDS}
 
     # Game loop
     while running_state['running']:
@@ -156,8 +146,8 @@ def main(): # Main game loop
             elif event.type == pygame.KEYDOWN:
                 if settings_screen.is_open:
                     settings_screen.handle_event(event)
-                elif event.key == QUIT_KEY:
-                    if scene_state['name'] == SCENE_MAIN_MENU:
+                elif event.key == config.QUIT_KEY:
+                    if scene_state['name'] == config.SCENE_MAIN_MENU:
                         running_state['running'] = False
                     elif inventory_screen.is_open:
                         inventory_screen.close()
@@ -165,16 +155,16 @@ def main(): # Main game loop
                         pause_menu.toggle_pause_menu()
                     for held in axis_scancodes_held.values():
                         held.clear()
-                elif scene_state['name'] != SCENE_MAIN_MENU and event.key == pygame.K_i and not pause_menu.is_paused:
+                elif scene_state['name'] != config.SCENE_MAIN_MENU and event.key == pygame.K_i and not pause_menu.is_paused:
                     inventory_screen.toggle()
                     for held in axis_scancodes_held.values():
                         held.clear()
                 else:
-                    for axis, keys in KEYBINDS.items():
+                    for axis, keys in config.KEYBINDS.items():
                         if event.key in keys:
                             axis_scancodes_held[axis].add(event.scancode)
             elif event.type == pygame.KEYUP:
-                for axis in KEYBINDS:
+                for axis in config.KEYBINDS:
                     axis_scancodes_held[axis].discard(event.scancode)
             elif event.type == pygame.WINDOWFOCUSLOST:
                 for held in axis_scancodes_held.values():
@@ -188,7 +178,7 @@ def main(): # Main game loop
             elif pause_menu.is_paused and event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 pause_screen.handle_event(event)
 
-        if scene_state['name'] == SCENE_MAIN_MENU:
+            if scene_state['name'] == config.SCENE_MAIN_MENU:
             title_screen.render(screen)
         else:
             if not pause_menu.is_paused and not inventory_screen.is_open:
@@ -200,7 +190,7 @@ def main(): # Main game loop
                 ui_renderer.update_ui()
 
             # Keep the latest gameplay frame visible underneath modal overlays.
-            screen.fill(SCREEN_CLEAR_COLOR)
+            screen.fill(config.SCREEN_CLEAR_COLOR)
 
             # Draw player in center of screen
             player_center_x, player_center_y = (value // 2 for value in screen.get_size())
@@ -217,7 +207,7 @@ def main(): # Main game loop
         pygame.display.flip()
 
         # Cap frame rate
-        clock.tick(settings_ui.current_config.fps_limit or TARGET_FPS)
+        clock.tick(settings_ui.current_config.fps_limit or config.TARGET_FPS)
 
     # Cleanup
     pygame.quit()

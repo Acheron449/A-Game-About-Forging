@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import Callable, Optional, Protocol, Sequence
 
-from ..config.config import ORE_POOL, OreDrop, SOUND_ROCK_SHATTER
+from ..config.config import config, OreDrop
 
 
 class SupportsAddItem(Protocol):
@@ -52,7 +52,7 @@ def provide_random_ore(
     """
     rng = rng or random.Random()
 
-    selected = _choose_weighted(ORE_POOL, rng).name
+    selected = _choose_weighted(config.ORE_POOL, rng).name
 
     if inventory is not None:
         if make_item is None:
@@ -76,7 +76,7 @@ def provide_random_ore(
                 if on_destroy is not None:
                     on_destroy(target_object)
                 if on_sound is not None:
-                    on_sound(SOUND_ROCK_SHATTER)
+                    on_sound(config.SOUND_ROCK_SHATTER)
         except Exception:
             pass
 

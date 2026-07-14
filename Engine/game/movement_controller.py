@@ -6,7 +6,7 @@ from typing import Any, Callable, Optional
 
 import pygame
 
-from ..config.config import DASH_STAMINA_COST, KEYBINDS
+from ..config.config import config
 from .player_status import PlayerStatus
 
 
@@ -28,8 +28,8 @@ class PlayerController:
         self._on_block = on_block
 
     def _movement_pressed(self, keys_pressed) -> bool:
-        for axis in KEYBINDS:
-            for key in KEYBINDS[axis]:
+        for axis in config.KEYBINDS:
+            for key in config.KEYBINDS[axis]:
                 if keys_pressed[key]:
                     return True
         return False
@@ -43,9 +43,9 @@ class PlayerController:
         if self._movement_pressed(keys_pressed):
             self.move_player()
         if keys_pressed[pygame.K_LSHIFT] or keys_pressed[pygame.K_RSHIFT]:
-            if self.player_status and self.player_status.current_stamina >= DASH_STAMINA_COST:
+            if self.player_status and self.player_status.current_stamina >= config.DASH_STAMINA_COST:
                 self.execute_dash()
-                self.player_status.use_stamina(DASH_STAMINA_COST)
+                self.player_status.use_stamina(config.DASH_STAMINA_COST)
         if mouse_buttons[0]:
             self.execute_attack()
         if len(mouse_buttons) > 1 and mouse_buttons[1]:

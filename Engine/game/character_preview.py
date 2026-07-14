@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Callable, List, Optional, TYPE_CHECKING
 
-from ..config.config import CHARACTER_PREVIEW_BASE_IMAGE
+from ..config.config import config
 
 if TYPE_CHECKING:
     from .equipment_manager import EquipmentManager
@@ -14,7 +14,7 @@ class CharacterPreview:
     def __init__(
         self,
         equipment_manager: Optional['EquipmentManager'] = None,
-        static_player_image: str = CHARACTER_PREVIEW_BASE_IMAGE,
+        static_player_image: str = config.CHARACTER_PREVIEW_BASE_IMAGE,
         on_display: Optional[Callable[[str, List[str]], None]] = None,
     ):
         self.equipment_manager = equipment_manager

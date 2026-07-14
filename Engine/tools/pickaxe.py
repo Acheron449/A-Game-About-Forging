@@ -3,10 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Callable, Optional, Protocol, Sequence
 
-from ..config.config import ( # Import the config
-    EFFECT_SPARKLES_IMPACT,
-    SOUND_CLINK_METAL_ON_STONE,
-)
+from ..config.config import config
 
 
 class SupportsMine(Protocol):
@@ -56,9 +53,9 @@ class PickaxeController:
     def start_mining(self, target: object) -> None:
         self.is_mining = True # Set the is mining to the is mining
         if self.on_effect is not None: # Check if the on effect is not None
-            self.on_effect(EFFECT_SPARKLES_IMPACT) # Call the on effect
+            self.on_effect(config.EFFECT_SPARKLES_IMPACT) # Call the on effect
         if self.on_sound is not None: # Check if the on sound is not None
-            self.on_sound(SOUND_CLINK_METAL_ON_STONE) # Call the on sound
+            self.on_sound(config.SOUND_CLINK_METAL_ON_STONE) # Call the on sound
         if self.mine_action is not None: # Check if the mine action is not None
             self.mine_action(target) # Call the mine action
 

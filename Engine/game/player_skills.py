@@ -6,14 +6,7 @@ from typing import Callable, Optional
 
 import pygame
 
-from ..config.config import (
-    SKILL_1_KEYS,
-    SKILL_1_MANA_COST,
-    SKILL_2_KEYS,
-    SKILL_2_MANA_COST,
-    SKILL_ULT_KEYS,
-    SKILL_ULT_MANA_COST,
-)
+from ..config.config import config
 from .player_status import PlayerStatus
 
 
@@ -26,9 +19,9 @@ class PlayerSkills:
         on_skill2: Optional[Callable[[], None]] = None,
     ):
         self.player_status = player_status
-        self.ult_cost = SKILL_ULT_MANA_COST
-        self.skill1_cost = SKILL_1_MANA_COST
-        self.skill2_cost = SKILL_2_MANA_COST
+        self.ult_cost = config.SKILL_ULT_MANA_COST
+        self.skill1_cost = config.SKILL_1_MANA_COST
+        self.skill2_cost = config.SKILL_2_MANA_COST
         self._on_ultimate = on_ultimate
         self._on_skill1 = on_skill1
         self._on_skill2 = on_skill2
@@ -37,15 +30,15 @@ class PlayerSkills:
         return any(keys_pressed[k] for k in key_list)
 
     def handle_skill_input(self, keys_pressed) -> None:
-        if self._key_down(keys_pressed, SKILL_ULT_KEYS):
+        if self._key_down(keys_pressed, config.SKILL_ULT_KEYS):
             if self.player_status.current_mana >= self.ult_cost:
                 self.execute_ultimate()
                 self.player_status.use_mana(self.ult_cost)
-        if self._key_down(keys_pressed, SKILL_1_KEYS):
+        if self._key_down(keys_pressed, config.SKILL_1_KEYS):
             if self.player_status.current_mana >= self.skill1_cost:
                 self.execute_skill1()
                 self.player_status.use_mana(self.skill1_cost)
-        if self._key_down(keys_pressed, SKILL_2_KEYS):
+        if self._key_down(keys_pressed, config.SKILL_2_KEYS):
             if self.player_status.current_mana >= self.skill2_cost:
                 self.execute_skill2()
                 self.player_status.use_mana(self.skill2_cost)

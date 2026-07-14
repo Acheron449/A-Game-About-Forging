@@ -6,7 +6,7 @@ from typing import Callable, List, Optional
 
 import pygame
 
-from ..config.config import QUIT_KEY, UI_MINIMAP_TOGGLE_KEY, UI_QUEST_TOGGLE_KEY
+from ..config.config import config
 
 
 class UIManager:
@@ -32,25 +32,25 @@ class UIManager:
 
     def handle_ui_keydown(self, key: int) -> None:
         """Prefer this from the event loop (one toggle per key press)."""
-        if key == UI_QUEST_TOGGLE_KEY:
+        if key == config.UI_QUEST_TOGGLE_KEY:
             self.is_quest_list_open = not self.is_quest_list_open
             self.toggle_quest_ui(self.is_quest_list_open)
-        elif key == UI_MINIMAP_TOGGLE_KEY:
+        elif key == config.UI_MINIMAP_TOGGLE_KEY:
             self.is_minimap_open = not self.is_minimap_open
             self.toggle_minimap_ui(self.is_minimap_open)
-        elif key == QUIT_KEY:
+        elif key == config.QUIT_KEY:
             self.is_settings_open = not self.is_settings_open
             self.toggle_settings_menu(self.is_settings_open)
             self.pause_game(self.is_settings_open)
 
     def handle_ui_input(self, keys_pressed) -> None:
         """Held-key polling (may repeat while key is held)."""
-        if keys_pressed[UI_QUEST_TOGGLE_KEY]:
-            self.handle_ui_keydown(UI_QUEST_TOGGLE_KEY)
-        if keys_pressed[UI_MINIMAP_TOGGLE_KEY]:
-            self.handle_ui_keydown(UI_MINIMAP_TOGGLE_KEY)
-        if keys_pressed[QUIT_KEY]:
-            self.handle_ui_keydown(QUIT_KEY)
+        if keys_pressed[config.UI_QUEST_TOGGLE_KEY]:
+            self.handle_ui_keydown(config.UI_QUEST_TOGGLE_KEY)
+        if keys_pressed[config.UI_MINIMAP_TOGGLE_KEY]:
+            self.handle_ui_keydown(config.UI_MINIMAP_TOGGLE_KEY)
+        if keys_pressed[config.QUIT_KEY]:
+            self.handle_ui_keydown(config.QUIT_KEY)
 
     def toggle_quest_ui(self, is_open: bool) -> None:
         if self._on_toggle_quest:

@@ -1,28 +1,4 @@
-from ..config.config import ( # Import the config
-    DEFAULT_MINING_ITEM_NAME,
-    DEFAULT_MINING_ITEM_TYPE,
-    DEFAULT_MINING_ITEM_VALUE,
-    DEFAULT_PLAYER_APPEARANCE,
-    LEVEL_UP_MAX_HEALTH_BONUS,
-    MINING_SPOT_HEIGHT,
-    MINING_SPOT_WIDTH,
-    PICKAXE_NAME_KEY,
-    PLAYER_HITBOX_HEIGHT,
-    PLAYER_HITBOX_WIDTH,
-    PLAYER_START_GOLD,
-    PLAYER_START_HEALTH,
-    PLAYER_START_LEVEL,
-    PLAYER_START_MANA,
-    PLAYER_START_MAX_HEALTH,
-    PLAYER_START_MAX_MANA,
-    PLAYER_START_MAX_STAMINA,
-    PLAYER_START_STATS,
-    PLAYER_START_STAMINA,
-    PLAYER_START_XP,
-    UPGRADE_TREE_INITIAL_COUNTS,
-    WORLD_DEFAULT_TILE_SIZE,
-    XP_PER_LEVEL_MULTIPLIER,
-)
+from ..config.config import config
 from ..config.imports import * # Import the imports
 from .renderer import WorldRenderer, UIRenderer
 import pygame # Import pygame for the rectangle
@@ -31,22 +7,22 @@ class Player:
     def __init__(self, x, y): # Initialize the player at the given coordinates  
         self.x = x # Set the x coordinate   
         self.y = y # Set the y coordinate   
-        self.width = PLAYER_HITBOX_WIDTH # Set the width of the hitbox
-        self.height = PLAYER_HITBOX_HEIGHT # Set the height of the hitbox
+        self.width = config.PLAYER_HITBOX_WIDTH # Set the width of the hitbox
+        self.height = config.PLAYER_HITBOX_HEIGHT # Set the height of the hitbox
         self.rect = pygame.Rect(self.x, self.y, self.width, self.height) # Create a rectangle for the player
-        self.health = PLAYER_START_HEALTH # Set the starting health
-        self.max_health = PLAYER_START_MAX_HEALTH # Set the maximum health
-        self.mana = PLAYER_START_MANA # Set the starting mana
-        self.max_mana = PLAYER_START_MAX_MANA # Set the maximum mana
-        self.stamina = PLAYER_START_STAMINA # Set the starting stamina
-        self.max_stamina = PLAYER_START_MAX_STAMINA # Set the maximum stamina
-        self.xp = PLAYER_START_XP # Set the starting xp
-        self.level = PLAYER_START_LEVEL # Set the starting level
-        self.gold = PLAYER_START_GOLD # Set the starting gold
-        self.stats = dict(PLAYER_START_STATS) # Set the starting stats
+        self.health = config.PLAYER_START_HEALTH # Set the starting health
+        self.max_health = config.PLAYER_START_MAX_HEALTH # Set the maximum health
+        self.mana = config.PLAYER_START_MANA # Set the starting mana
+        self.max_mana = config.PLAYER_START_MAX_MANA # Set the maximum mana
+        self.stamina = config.PLAYER_START_STAMINA # Set the starting stamina
+        self.max_stamina = config.PLAYER_START_MAX_STAMINA # Set the maximum stamina
+        self.xp = config.PLAYER_START_XP # Set the starting xp
+        self.level = config.PLAYER_START_LEVEL # Set the starting level
+        self.gold = config.PLAYER_START_GOLD # Set the starting gold
+        self.stats = dict(config.PLAYER_START_STATS) # Set the starting stats
         self.equipped_items = {'weapon': None, 'armor': None, 'helmet': None, 'boots': None} # Set the starting equipped items
         self.inventory = Inventory() # Create an inventory for the player
-        self.appearance = DEFAULT_PLAYER_APPEARANCE # Set the starting appearance
+        self.appearance = config.DEFAULT_PLAYER_APPEARANCE # Set the starting appearance
         self.pickaxe_equipped = False # Set the starting pickaxe equipped
 
     def update_rect(self): # Update the rectangle
@@ -81,7 +57,7 @@ class Player:
     def mine(self, world, mouse_buttons): # Mine a nearby mining spot when left mouse is pressed
         """Attempt to mine a nearby mining spot when left mouse is pressed."""
         weapon = self.equipped_items.get('weapon') # Get the weapon from the equipped items
-        if not weapon or weapon.name.lower() != PICKAXE_NAME_KEY: # Check if the weapon is not equipped or the name is not the pickaxe name
+        if not weapon or weapon.name.lower() != config.PICKAXE_NAME_KEY: # Check if the weapon is not equipped or the name is not the pickaxe name
             return None # Return None if the weapon is not equipped or the name is not the pickaxe name
 
         if not mouse_buttons or not mouse_buttons[0]: # Check if the left mouse button is not pressed

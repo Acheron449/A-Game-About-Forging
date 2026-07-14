@@ -7,45 +7,30 @@ import os
 from dataclasses import asdict, dataclass, field
 from typing import Any, Dict, List, Optional
 
-from ..config.config import (
-    BIND_ATTACK_LABEL,
-    BIND_BLOCK_LABEL,
-    BIND_INTERACT_LABEL,
-    DEFAULT_DIFFICULTY,
-    DEFAULT_MASTER_VOLUME,
-    DEFAULT_MOUSE_SENSITIVITY,
-    DEFAULT_MUSIC_VOLUME,
-    DEFAULT_RESOLUTION_LABEL,
-    DEFAULT_SETTINGS_FPS_LIMIT,
-    DEFAULT_SFX_VOLUME,
-    GAME_SETTINGS_FILENAME,
-    PROJECT_ROOT,
-    SAVE_DIRECTORY,
-    SETTINGS_CATEGORIES,
-)
+from ..config.config import config
 
 
 @dataclass
 class GameConfiguration:
     """General, video, audio, directory, and keybind settings."""
 
-    difficulty: str = DEFAULT_DIFFICULTY
-    mouse_sensitivity: float = DEFAULT_MOUSE_SENSITIVITY
-    fps_limit: int = DEFAULT_SETTINGS_FPS_LIMIT
-    resolution: str = DEFAULT_RESOLUTION_LABEL
-    master_volume: float = DEFAULT_MASTER_VOLUME
-    music_volume: float = DEFAULT_MUSIC_VOLUME
-    sfx_volume: float = DEFAULT_SFX_VOLUME
-    save_file_location: str = field(default_factory=lambda: SAVE_DIRECTORY)
-    game_directory: str = field(default_factory=lambda: PROJECT_ROOT)
-    bind_attack: str = BIND_ATTACK_LABEL
-    bind_block: str = BIND_BLOCK_LABEL
-    bind_interact: str = BIND_INTERACT_LABEL
+    difficulty: str = config.DEFAULT_DIFFICULTY
+    mouse_sensitivity: float = config.DEFAULT_MOUSE_SENSITIVITY
+    fps_limit: int = config.DEFAULT_SETTINGS_FPS_LIMIT
+    resolution: str = config.DEFAULT_RESOLUTION_LABEL
+    master_volume: float = config.DEFAULT_MASTER_VOLUME
+    music_volume: float = config.DEFAULT_MUSIC_VOLUME
+    sfx_volume: float = config.DEFAULT_SFX_VOLUME
+    save_file_location: str = field(default_factory=lambda: config.SAVE_DIRECTORY)
+    game_directory: str = field(default_factory=lambda: config.PROJECT_ROOT)
+    bind_attack: str = config.BIND_ATTACK_LABEL
+    bind_block: str = config.BIND_BLOCK_LABEL
+    bind_interact: str = config.BIND_INTERACT_LABEL
     extra_binds: Dict[str, str] = field(default_factory=dict)
 
     @classmethod
     def load_from_file(cls, path: Optional[str] = None) -> 'GameConfiguration':
-        path = path or os.path.join(PROJECT_ROOT, GAME_SETTINGS_FILENAME)
+        path = path or os.path.join(config.PROJECT_ROOT, config.GAME_SETTINGS_FILENAME)
         if not os.path.isfile(path):
             return cls()
         with open(path, encoding='utf-8') as f:
@@ -55,7 +40,7 @@ class GameConfiguration:
         return cls(**filtered)
 
     def save_to_file(self, path: Optional[str] = None) -> None:
-        path = path or os.path.join(PROJECT_ROOT, GAME_SETTINGS_FILENAME)
+        path = path or os.path.join(config.PROJECT_ROOT, config.GAME_SETTINGS_FILENAME)
         os.makedirs(os.path.dirname(path) or '.', exist_ok=True)
         with open(path, 'w', encoding='utf-8') as f:
             json.dump(asdict(self), f, indent=2)
@@ -89,4 +74,4 @@ class GameConfiguration:
 
     @staticmethod
     def categories() -> List[str]:
-        return list(SETTINGS_CATEGORIES)
+        return list(config.SETTINGS_CATEGORIES)

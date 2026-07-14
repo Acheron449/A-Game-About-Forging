@@ -6,7 +6,7 @@ import pygame
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Optional
 
-from ..config.config import SCENE_MAIN_WORLD, SCENE_MAIN_MENU, SCENE_TUTORIAL, WINDOW_TITLE
+from ..config.config import config
 from ..game.save_manager import SaveManager
 from ..game.ui_manager import UIManager
 
@@ -79,7 +79,7 @@ class MainMenuManager:
         on_open_settings: Optional[Callable[[], None]] = None,
         user_confirms: Optional[Callable[[], bool]] = None,
     ):
-        self.game_title = WINDOW_TITLE
+        self.game_title = config.WINDOW_TITLE
         self.is_settings_menu_open = False
         self.save_manager = save_manager or SaveManager()
         self.ui_manager = ui_manager or UIManager()
@@ -122,7 +122,7 @@ class MainMenuManager:
         save_file = self.save_manager.retrieve_last_known_save()
         if self.save_manager.is_recognized(save_file):
             self.game_engine.apply_save_data(save_file)
-            self.game_engine.load_scene(SCENE_MAIN_WORLD)
+            self.game_engine.load_scene(config.SCENE_MAIN_WORLD)
         else:
             self.display_prompt('Save file corrupted or missing.')
 
@@ -133,7 +133,7 @@ class MainMenuManager:
             new_save = self.save_manager.create_new_save_file()
             self.game_engine.initialize_game_start()
             self.game_engine.apply_save_data(new_save)
-            self.game_engine.load_scene(SCENE_TUTORIAL)
+            self.game_engine.load_scene(config.SCENE_TUTORIAL)
 
     def on_settings_clicked(self) -> None:
         """Toggle the in-game settings menu from the title screen."""

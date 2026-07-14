@@ -2,22 +2,7 @@ import os
 import json
 import pygame
 
-from ..config.config import (
-    ANIMATION_SPEED_WALK, 
-    IDLE_ANIMATION_SPEED,
-    KEYBINDS,
-    MOVEMENT_MIN_HOLD_MS,
-    PLAYER_APPEARANCE_JSON_NAME,
-    PLAYER_APPEARANCE_SAVE_DIR,
-    PLAYER_DEFAULT_FACING,
-    PLAYER_DEFAULT_STATE,
-    PLAYER_DIRECTION_KEYS,
-    PLAYER_IDLE_FALLBACK_KEY,
-    PLAYER_IDLE_SUBDIRS,
-    PLAYER_MOVEMENT_DIRECTORY_MAP,
-    PLAYER_RESOURCES_DIR,
-    SPRITE_SCALE,
-)
+from ..config.config import config
 from ..config.imports import * # for any additional imports needed for rendering, not used in this snippet but may be needed for future rendering features (e.g., loading fonts, additional sprite types, etc.)
 from .user_status_ui import UserStatusUI
 
@@ -35,16 +20,16 @@ class PlayerRenderer:
     
     def __init__(self, player):
         self.player = player
-        self.player_resources_dir = PLAYER_RESOURCES_DIR
+        self.player_resources_dir = config.PLAYER_RESOURCES_DIR
         
-        self.facing_direction = PLAYER_DEFAULT_FACING
-        self.current_state = PLAYER_DEFAULT_STATE
+        self.facing_direction = config.PLAYER_DEFAULT_FACING
+        self.current_state = config.PLAYER_DEFAULT_STATE
         self.animation_frame = 0
         self.animation_counter = 0
-        self.animation_speed = ANIMATION_SPEED_WALK
-        self.idle_animation_speed = IDLE_ANIMATION_SPEED
-        self.sprite_scale = SPRITE_SCALE
-        self.min_hold_time = MOVEMENT_MIN_HOLD_MS
+        self.animation_speed = config.ANIMATION_SPEED_WALK
+        self.idle_animation_speed = config.IDLE_ANIMATION_SPEED
+        self.sprite_scale = config.SPRITE_SCALE
+        self.min_hold_time = config.MOVEMENT_MIN_HOLD_MS
         self.movement_press_start = None
         
         # Load sprite sheets
@@ -54,7 +39,7 @@ class PlayerRenderer:
         self.sprites_list = []
         
         # Set current sprite to idle 'S'
-        idle_s_key = PLAYER_IDLE_FALLBACK_KEY
+        idle_s_key = config.PLAYER_IDLE_FALLBACK_KEY
         if idle_s_key in self.idle_sprites and self.idle_sprites[idle_s_key]:
             self.current_sprite = self.idle_sprites[idle_s_key][0][1]  # First frame
 
@@ -62,14 +47,14 @@ class PlayerRenderer:
         return bool(axis_scancodes_held[axis])
 
     def _any_movement_held(self, axis_scancodes_held):
-        return any(axis_scancodes_held[ax] for ax in KEYBINDS)
+        return any(axis_scancodes_held[ax] for ax in config.KEYBINDS)
         
     def _load_idle_sprites(self):
         """Load idle sprites for all directions from Player/Idle folders.""" #TEST - Updated to load from all subfolders in Idle, not just 'Test - Static'
         idle_sprites = {}
-        idle_paths = PLAYER_IDLE_SUBDIRS
+        idle_paths = config.PLAYER_IDLE_SUBDIRS
         
-        direction_keys = PLAYER_DIRECTION_KEYS
+        direction_keys = config.PLAYER_DIRECTION_KEYS
         for idle_type in idle_paths:
             idle_dir = os.path.join(self.player_resources_dir, "Idle", idle_type)
             if not os.path.isdir(idle_dir):
@@ -86,9 +71,9 @@ class PlayerRenderer:
     def _load_movement_sprites(self):
         """Load movement sprites for all directions from Player/Movement folders."""
         movement_sprites = {}
-        movement_directories = PLAYER_MOVEMENT_DIRECTORY_MAP
+        movement_directories = config.PLAYER_MOVEMENT_DIRECTORY_MAP
         
-        direction_keys = PLAYER_DIRECTION_KEYS
+        direction_keys = config.PLAYER_DIRECTION_KEYS
         for state, move_type in movement_directories.items():
             move_dir = os.path.join(self.player_resources_dir, "Movement", move_type)
             if not os.path.isdir(move_dir):
@@ -190,8 +175,8 @@ class PlayerRenderer:
         if state == 'idle':
             if idle_key in self.idle_sprites and self.idle_sprites[idle_key]:
                 return self.idle_sprites[idle_key]
-            if PLAYER_IDLE_FALLBACK_KEY in self.idle_sprites and self.idle_sprites[PLAYER_IDLE_FALLBACK_KEY]:
-                return self.idle_sprites[PLAYER_IDLE_FALLBACK_KEY]
+            if config.PLAYER_IDLE_FALLBACK_KEY in self.idle_sprites and self.idle_sprites[config.PLAYER_IDLE_FALLBACK_KEY]:
+                return self.idle_sprites[config.PLAYER_IDLE_FALLBACK_KEY]
             return [] # Return an empty list if no idle sprites are found.
 
         if sprite_key in self.movement_sprites and self.movement_sprites[sprite_key]:
@@ -287,7 +272,7 @@ class UIRenderer:
 
     def configure_appearance(self, appearance):
         self.player.appearance = appearance
-        os.makedirs(PLAYER_APPEARANCE_SAVE_DIR, exist_ok=True)
-        config_path = os.path.join(PLAYER_APPEARANCE_SAVE_DIR, PLAYER_APPEARANCE_JSON_NAME)
+        os.makedirs(config.PLAYER_APPEARANCE_SAVE_DIR, exist_ok=True)
+        config_path = os.path.join(config.PLAYER_APPEARANCE_SAVE_DIR, config.PLAYER_APPEARANCE_JSON_NAME)
         with open(config_path, 'w') as f:
             json.dump({"appearance": appearance}, f)

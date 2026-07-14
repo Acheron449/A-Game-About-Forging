@@ -226,3 +226,11 @@ def get_all_resources(base_path):
 
 # Dictionary containing all resources with relative paths as keys
 ALL_RESOURCES = get_all_resources(RESOURCES_PATH)
+
+# Create a module-level `config` object for easier, centralized access and
+# future runtime-config overrides. This preserves the uppercase constants
+# for backward compatibility while offering `config.<NAME>` attribute access.
+from types import SimpleNamespace
+
+_config_values = {k: v for k, v in globals().items() if k.isupper()}
+config = SimpleNamespace(**_config_values)

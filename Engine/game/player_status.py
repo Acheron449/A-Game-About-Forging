@@ -4,32 +4,18 @@ from __future__ import annotations
 
 from typing import Callable, Dict, Optional
 
-from ..config.config import (
-    HEALTH_REGEN_IDLE_BASE,
-    MANA_REGEN_IDLE_BASE,
-    PLAYER_START_GOLD,
-    PLAYER_START_HEALTH,
-    PLAYER_START_LEVEL,
-    PLAYER_START_MANA,
-    PLAYER_START_MAX_HEALTH,
-    PLAYER_START_MAX_MANA,
-    PLAYER_START_STAMINA,
-    PLAYER_START_MAX_STAMINA,
-    PLAYER_STATUS_DEFAULT_GOLD,
-    PLAYER_STATUS_DEFAULT_LEVEL,
-    STAMINA_REGEN_BASE,
-)
+from ..config.config import config
 
 
 class PlayerStatus:
     def __init__(
         self,
         *,
-        max_health: int = PLAYER_START_MAX_HEALTH,
-        max_mana: int = PLAYER_START_MAX_MANA,
-        max_stamina: int = PLAYER_START_MAX_STAMINA,
-        level: int = PLAYER_STATUS_DEFAULT_LEVEL,
-        gold: int = PLAYER_STATUS_DEFAULT_GOLD,
+        max_health: int = config.PLAYER_START_MAX_HEALTH,
+        max_mana: int = config.PLAYER_START_MAX_MANA,
+        max_stamina: int = config.PLAYER_START_MAX_STAMINA,
+        level: int = config.PLAYER_STATUS_DEFAULT_LEVEL,
+        gold: int = config.PLAYER_STATUS_DEFAULT_GOLD,
         item_stats: Optional[Dict[str, int]] = None,
         on_health_ui_update: Optional[Callable[[], None]] = None,
         on_stamina_ui_update: Optional[Callable[[], None]] = None,
@@ -38,9 +24,9 @@ class PlayerStatus:
         self.max_health = max_health
         self.max_mana = max_mana
         self.max_stamina = max_stamina
-        self.current_health = PLAYER_START_HEALTH if max_health == PLAYER_START_MAX_HEALTH else max_health
-        self.current_mana = PLAYER_START_MANA if max_mana == PLAYER_START_MAX_MANA else max_mana
-        self.current_stamina = PLAYER_START_STAMINA if max_stamina == PLAYER_START_MAX_STAMINA else max_stamina
+        self.current_health = config.PLAYER_START_HEALTH if max_health == config.PLAYER_START_MAX_HEALTH else max_health
+        self.current_mana = config.PLAYER_START_MANA if max_mana == config.PLAYER_START_MAX_MANA else max_mana
+        self.current_stamina = config.PLAYER_START_STAMINA if max_stamina == config.PLAYER_START_MAX_STAMINA else max_stamina
         self.player_level = level
         self.gold = gold
         self.item_stats = item_stats or {}
@@ -57,15 +43,15 @@ class PlayerStatus:
     @staticmethod
     def calculate_stamina_regen(player_level: int, item_stats: Dict[str, int]) -> float:
         bonus = item_stats.get('stamina_regen', 0)
-        return STAMINA_REGEN_BASE + player_level * 0.1 + bonus
+        return config.STAMINA_REGEN_BASE + player_level * 0.1 + bonus
 
     @staticmethod
     def calculate_health_regen(item_stats: Dict[str, int]) -> float:
-        return HEALTH_REGEN_IDLE_BASE + item_stats.get('health_regen', 0)
+        return config.HEALTH_REGEN_IDLE_BASE + item_stats.get('health_regen', 0)
 
     @staticmethod
     def calculate_mana_regen(item_stats: Dict[str, int]) -> float:
-        return MANA_REGEN_IDLE_BASE + item_stats.get('mana_regen', 0)
+        return config.MANA_REGEN_IDLE_BASE + item_stats.get('mana_regen', 0)
 
     def apply_item_stats(self, item_stats: Dict[str, int]) -> None:
         for key, value in item_stats.items():

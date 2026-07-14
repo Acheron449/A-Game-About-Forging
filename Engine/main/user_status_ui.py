@@ -6,17 +6,7 @@ from typing import Any, Callable, Optional, Tuple
 
 import pygame
 
-from ..config.config import (
-    USER_STATUS_HP_COLOR,
-    USER_STATUS_HP_SLOT,
-    USER_STATUS_MP_COLOR,
-    USER_STATUS_MP_SLOT,
-    USER_STATUS_POSITION,
-    USER_STATUS_SCALE,
-    USER_STATUS_SPRITE_PATH,
-    USER_STATUS_STAMINA_COLOR,
-    USER_STATUS_STAMINA_SLOT,
-)
+from ..config.config import config
 
 
 class StatusBarTracker:
@@ -108,9 +98,9 @@ class UserStatusUI:
     def __init__(
         self,
         player: Any,
-        sprite_path: str = USER_STATUS_SPRITE_PATH,
-        position: Tuple[int, int] = USER_STATUS_POSITION,
-        scale: float = USER_STATUS_SCALE,
+        sprite_path: str = config.USER_STATUS_SPRITE_PATH,
+        position: Tuple[int, int] = config.USER_STATUS_POSITION,
+        scale: float = config.USER_STATUS_SCALE,
         on_status_change: Optional[Callable[[str, float, float], None]] = None,
     ):
         self.player = player
@@ -119,13 +109,13 @@ class UserStatusUI:
         self._on_status_change = on_status_change
         self.frame_surface = self._load_frame(sprite_path)
         self.hp_bar = StatusBarFillRenderer(
-            HPStatusBar(player), USER_STATUS_HP_SLOT, USER_STATUS_HP_COLOR,
+            HPStatusBar(player), config.USER_STATUS_HP_SLOT, config.USER_STATUS_HP_COLOR,
         )
         self.mp_bar = StatusBarFillRenderer(
-            MPStatusBar(player), USER_STATUS_MP_SLOT, USER_STATUS_MP_COLOR,
+            MPStatusBar(player), config.USER_STATUS_MP_SLOT, config.USER_STATUS_MP_COLOR,
         )
         self.stamina_bar = StatusBarFillRenderer(
-            StaminaStatusBar(player), USER_STATUS_STAMINA_SLOT, USER_STATUS_STAMINA_COLOR,
+            StaminaStatusBar(player), config.USER_STATUS_STAMINA_SLOT, config.USER_STATUS_STAMINA_COLOR,
         )
         self._bars = (self.hp_bar, self.mp_bar, self.stamina_bar)
 

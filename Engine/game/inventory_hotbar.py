@@ -6,14 +6,14 @@ from typing import Any, Callable, List, Optional
 
 import pygame
 
-from ..config.config import HOTBAR_KEY_OFFSET, HOTBAR_SLOT_COUNT # import the hotbar key offset and slot count from the config
+from ..config.config import config # import the hotbar key offset and slot count from the config
 from .inventory_manager import InventorySlot # import the inventory slot from the inventory manager class
 
 
 class InventoryHotbar: # define the inventory hotbar class
     def __init__(
         self,
-        slot_count: int = HOTBAR_SLOT_COUNT, # set the slot count to the hotbar slot count from the config
+        slot_count: int = config.HOTBAR_SLOT_COUNT, # set the slot count to the hotbar slot count from the config
         on_equip_or_use: Optional[Callable[[Any], None]] = None, # set the on equip or use function to None if no function is provided in the constructor
     ):
         self.hotbar_slots: List[InventorySlot] = [ # create a list of inventory slots and initialize each slot with an inventory slot object
@@ -24,8 +24,8 @@ class InventoryHotbar: # define the inventory hotbar class
 
     def handle_hotbar_keydown(self, key: int) -> Optional[Any]: # handle the hotbar keydown event
         """Select hotbar slot from a single KEYDOWN event."""
-        for key_number in range(1, HOTBAR_SLOT_COUNT + 1): # loop through the hotbar slots
-            key_code = HOTBAR_KEY_OFFSET + (key_number - 1) # calculate the key code
+        for key_number in range(1, config.HOTBAR_SLOT_COUNT + 1): # loop through the hotbar slots
+            key_code = config.HOTBAR_KEY_OFFSET + (key_number - 1) # calculate the key code
             if key_number == 10:
                 key_code = pygame.K_0 # set the key code to 0 if the key number is 10
             if key == key_code:
@@ -33,8 +33,8 @@ class InventoryHotbar: # define the inventory hotbar class
         return None # return None if the key is not found
 
     def handle_hotbar_input(self, keys_pressed) -> None: # handle the hotbar input event
-        for key_number in range(1, HOTBAR_SLOT_COUNT + 1): # loop through the hotbar slots
-            key_code = HOTBAR_KEY_OFFSET + (key_number - 1)
+        for key_number in range(1, config.HOTBAR_SLOT_COUNT + 1): # loop through the hotbar slots
+            key_code = config.HOTBAR_KEY_OFFSET + (key_number - 1)
             if key_number == 10:
                 key_code = pygame.K_0 # set the key code to 0 if the key number is 10
             if keys_pressed[key_code]:
