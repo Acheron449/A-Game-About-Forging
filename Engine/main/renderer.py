@@ -4,7 +4,7 @@ import pygame
 
 from ..config.config import config
 from ..config.imports import * # for any additional imports needed for rendering, not used in this snippet but may be needed for future rendering features (e.g., loading fonts, additional sprite types, etc.)
-from .user_status_ui import UserStatusUI
+from .userStatusUi import UserStatusUI
 
 class WorldRenderer: # Placeholder for future world rendering logic (e.g., map, tiles, entities, etc.)
     def __init__(self): # Initialize any necessary variables for world rendering (e.g., tile size, camera position, etc.)

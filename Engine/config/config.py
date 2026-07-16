@@ -15,6 +15,14 @@ WINDOW_TITLE = "A Game About Forging"
 TARGET_FPS = 60
 SCREEN_CLEAR_COLOR = (20, 20, 20)
 QUIT_KEY = pygame.K_ESCAPE
+tmx_data = pytmx.load_pygame('map.tmx')
+
+DEFAULT_FONT_PATH = os.path.join(
+    RESOURCES_PATH,
+    'Fonts',
+    'Handjet',
+    'Handjet-VariableFont_ELGR,ELSH,wght.ttf',
+)
 
 # Player & world tuning
 PLAYER_HITBOX_WIDTH = 16
@@ -89,6 +97,17 @@ GAME_SETTINGS_FILENAME = 'game_settings.json'
 HOTBAR_SLOT_COUNT = 10
 INVENTORY_BAG_SLOT_COUNT = 50
 INVENTORY_BAG_COLUMNS = 10
+
+
+def get_game_font(size: int, bold: bool = False, italic: bool = False):
+    """Load the in-game font from the bundled Handjet asset when available."""
+    pygame.font.init()
+    if os.path.exists(DEFAULT_FONT_PATH):
+        try:
+            return pygame.font.Font(DEFAULT_FONT_PATH, size)
+        except pygame.error:
+            pass
+    return pygame.font.SysFont('serif', size, bold=bold, italic=italic)
 
 # Player stamina & skills (pseudocode defaults)
 PLAYER_START_STAMINA = 100

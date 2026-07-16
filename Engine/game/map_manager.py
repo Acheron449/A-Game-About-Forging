@@ -1,0 +1,1 @@
+"""map creation framework for the game."""

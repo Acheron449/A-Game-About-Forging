@@ -6,7 +6,7 @@ from typing import Any, Callable, Dict, List, Optional
 
 import pygame
 
-from ..config.config import config
+from ..config.config import config, get_game_font
 from .game_configuration import GameConfiguration
 from .settings_modifier import SettingsModifier
 
@@ -82,11 +82,11 @@ class SettingsScreen:
         self.status_message = ''
         self.category_rects: List[tuple[str, pygame.Rect]] = []
         self.control_rects: Dict[str, pygame.Rect] = {}
-        self.title_font = pygame.font.SysFont('serif', 36, bold=True)
-        self.heading_font = pygame.font.SysFont('serif', 25, bold=True)
-        self.label_font = pygame.font.SysFont('serif', 18, bold=True)
-        self.text_font = pygame.font.SysFont('serif', 17)
-        self.small_font = pygame.font.SysFont('serif', 14)
+        self.title_font = get_game_font(36, bold=True)
+        self.heading_font = get_game_font(25, bold=True)
+        self.label_font = get_game_font(18, bold=True)
+        self.text_font = get_game_font(17)
+        self.small_font = get_game_font(14)
 
     def open(self) -> None:
         self.is_open = True

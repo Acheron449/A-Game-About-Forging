@@ -6,6 +6,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import pygame
 
+from ..config.config import get_game_font
 from .save_manager import SaveManager
 
 
@@ -124,9 +125,9 @@ class PauseScreen:
     def __init__(self, pause_menu: PauseMenuManager, screen_size: Tuple[int, int]):
         self.pause_menu = pause_menu
         self.screen_size = screen_size
-        self.title_font = pygame.font.SysFont(None, 56)
-        self.button_font = pygame.font.SysFont(None, 34)
-        self.prompt_font = pygame.font.SysFont(None, 22)
+        self.title_font = get_game_font(56)
+        self.button_font = get_game_font(34)
+        self.prompt_font = get_game_font(22)
         self.button_rects: List[tuple[str, pygame.Rect]] = []
 
     def render(self, screen: pygame.Surface) -> None:

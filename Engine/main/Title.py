@@ -6,7 +6,7 @@ import pygame
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Optional
 
-from ..config.config import config
+from ..config.config import config, get_game_font
 from ..game.save_manager import SaveManager
 from ..game.ui_manager import UIManager
 
@@ -212,9 +212,9 @@ class TitleScreen:
     def __init__(self, title_menu: MainMenuManager, screen_size: tuple[int, int]):
         self.title_menu = title_menu
         self.screen_size = screen_size
-        self.title_font = pygame.font.SysFont(None, 88)
-        self.button_font = pygame.font.SysFont(None, 40)
-        self.prompt_font = pygame.font.SysFont(None, 24)
+        self.title_font = get_game_font(88)
+        self.button_font = get_game_font(40)
+        self.prompt_font = get_game_font(24)
         self.button_rects: list[tuple[MenuButton, pygame.Rect]] = []
 
     def render(self, screen: pygame.Surface) -> None:

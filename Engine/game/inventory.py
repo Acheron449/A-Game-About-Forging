@@ -8,7 +8,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import pygame
 
-from ..config.config import config
+from ..config.config import config, get_game_font
 
 
 class InventorySlot:
@@ -122,9 +122,9 @@ class InventoryScreen:
     def __init__(self, inventory_manager: InventoryManager, hotbar: Optional[Any] = None) -> None:
         self.inventory_manager = inventory_manager
         self.hotbar = hotbar
-        self.title_font = pygame.font.SysFont('serif', 33, bold=True)
-        self.label_font = pygame.font.SysFont('serif', 18, bold=True)
-        self.small_font = pygame.font.SysFont('serif', 15)
+        self.title_font = get_game_font(33, bold=True)
+        self.label_font = get_game_font(18, bold=True)
+        self.small_font = get_game_font(15)
         self._slot_rects: List[Tuple[InventorySlot, pygame.Rect]] = []
         self._dragged_slot: Optional[InventorySlot] = None
         self._dragged_item: Optional[Any] = None

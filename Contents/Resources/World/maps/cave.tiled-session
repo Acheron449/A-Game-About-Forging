@@ -1,0 +1,49 @@
+{
+    "activeFile": "maps/tutorial.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "active/MainLev2.0.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 0.31
+        },
+        "maps/cave.tmx": {
+            "scale": 0.3388,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 560.8028335301063,
+                "y": 467.8276269185361
+            }
+        },
+        "maps/tutorial.tmx": {
+            "scale": 0.4489,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 478.9485408777011,
+                "y": 544.6647360213856
+            }
+        }
+    },
+    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/tilesets/RPGW_Caves_v2.1",
+    "map.height": 16,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 64,
+    "map.tileWidth": 64,
+    "map.width": 24,
+    "openFiles": [
+        "maps/cave.tmx",
+        "maps/tutorial.tmx"
+    ],
+    "project": "cave.tiled-project",
+    "recentFiles": [
+        "maps/cave.tmx",
+        "maps/tutorial.tmx",
+        "active/MainLev2.0.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 64,
+        "width": 64
+    },
+    "tileset.useTransparentColor": true
+}

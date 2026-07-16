@@ -1,0 +1,1 @@
+"""interface for the minimap in the game."""
