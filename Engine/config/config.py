@@ -2,6 +2,11 @@ import os
 import pygame
 from typing import Dict, Sequence, NamedTuple, Tuple
 
+try:
+    import pytmx
+except Exception:  # pragma: no cover - optional dependency for map loading
+    pytmx = None
+
 # Configuration constants
 CONFIGURATION = "CONFIGURATION"
 CONTENTS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'Contents')
@@ -15,7 +20,14 @@ WINDOW_TITLE = "A Game About Forging"
 TARGET_FPS = 60
 SCREEN_CLEAR_COLOR = (20, 20, 20)
 QUIT_KEY = pygame.K_ESCAPE
-tmx_data = pytmx.load_pygame('map.tmx')
+
+if pytmx is not None:
+    try:
+        tmx_data = pytmx.load_pygame('map.tmx')
+    except Exception:
+        tmx_data = None
+else:
+    tmx_data = None
 
 DEFAULT_FONT_PATH = os.path.join(
     RESOURCES_PATH,

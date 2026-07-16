@@ -6,6 +6,14 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Set
 
+print("Checking for required dependencies...")
+print("If you are running this script in a virtual environment, make sure it is activated.")
+
+try:
+    import pygame
+except Exception:  # pragma: no cover - fallback if pygame is unavailable
+    pygame = None
+
 
 class ImportUpdater(ast.NodeTransformer):
     """Walks the AST and updates import statements based on a mapping."""
@@ -54,26 +62,79 @@ def update_python_imports(file_path, import_mapping):
 
 
 def collect_dependency_packages(project_root: Path) -> Set[str]:
-    """Collect importable package names from Python files under the project."""
+    """Collect third-party packages that the shared imports module requires."""
+    imports_file = project_root / 'Engine' / 'config' / 'imports.py'
+    if not imports_file.exists():
+        return set()
+
     packages: Set[str] = set()
-    for path in project_root.rglob('*.py'):
-        if 'venv' in path.parts or '.git' in path.parts or '__pycache__' in path.parts:
-            continue
-        try:
-            source = path.read_text(encoding='utf-8')
-        except (UnicodeDecodeError, OSError):
-            continue
-        tree = ast.parse(source, filename=str(path))
-        for node in ast.walk(tree):
-            if isinstance(node, ast.Import):
-                for alias in node.names:
-                    if alias.name.split('.')[0] not in {'os', 'sys', 'json', 'pathlib', 'typing', 'ast', 'dataclasses', 'subprocess', 'importlib', 'math', 'random', 'time', 'uuid', 'logging', 'collections', 'itertools', 'functools', 'enum', 'statistics', 're', 'shutil', 'argparse', 'copy', 'weakref', 'threading'}:
-                        packages.add(alias.name.split('.')[0])
-            elif isinstance(node, ast.ImportFrom) and node.module:
-                module = node.module.split('.')[0]
-                if module not in {'os', 'sys', 'json', 'pathlib', 'typing', 'ast', 'dataclasses', 'subprocess', 'importlib', 'math', 'random', 'time', 'uuid', 'logging', 'collections', 'itertools', 'functools', 'enum', 'statistics', 're', 'shutil', 'argparse', 'copy', 'weakref', 'threading'}:
-                    packages.add(module)
+    try:
+        source = imports_file.read_text(encoding='utf-8')
+    except (UnicodeDecodeError, OSError):
+        return set()
+
+    tree = ast.parse(source, filename=str(imports_file))
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            for alias in node.names:
+                module_name = alias.name.split('.')[0]
+                if module_name not in {'os', 'sys', 'json', 'pathlib', 'typing', 'ast', 'dataclasses', 'subprocess', 'importlib', 'math', 'random', 'time', 'uuid', 'logging', 'collections', 'itertools', 'functools', 'enum', 'statistics', 're', 'shutil', 'argparse', 'copy', 'weakref', 'threading'}:
+                    packages.add(module_name)
+        elif isinstance(node, ast.ImportFrom) and node.module:
+            module_name = node.module.split('.')[0]
+            if module_name not in {'os', 'sys', 'json', 'pathlib', 'typing', 'ast', 'dataclasses', 'subprocess', 'importlib', 'math', 'random', 'time', 'uuid', 'logging', 'collections', 'itertools', 'functools', 'enum', 'statistics', 're', 'shutil', 'argparse', 'copy', 'weakref', 'threading'}:
+                packages.add(module_name)
     return packages
+
+
+def _show_permission_prompt(packages: List[str]) -> bool:
+    """Show a simple confirmation window before installing dependencies."""
+    if pygame is None:
+        return True
+
+    try:
+        pygame.init()
+        pygame.display.init()
+        screen = pygame.display.set_mode((420, 180))
+        pygame.display.set_caption('Install dependencies?')
+        screen.fill((18, 18, 24))
+
+        font = pygame.font.SysFont('arial', 18)
+        message = 'The game needs to install/update dependencies:'
+        detail = ', '.join(packages)
+        lines = [message, detail, '', 'Allow this?']
+        y = 24
+        for line in lines:
+            text = font.render(line, True, (240, 240, 240))
+            screen.blit(text, (24, y))
+            y += 24
+
+        pygame.draw.rect(screen, (70, 120, 220), pygame.Rect(90, 120, 90, 34), border_radius=8)
+        pygame.draw.rect(screen, (180, 80, 80), pygame.Rect(240, 120, 90, 34), border_radius=8)
+        confirm_text = font.render('Yes', True, (255, 255, 255))
+        cancel_text = font.render('No', True, (255, 255, 255))
+        screen.blit(confirm_text, (124, 128))
+        screen.blit(cancel_text, (278, 128))
+        pygame.display.flip()
+
+        waiting = True
+        choice = False
+        while waiting:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    waiting = False
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    if 90 <= event.pos[0] <= 180 and 120 <= event.pos[1] <= 154:
+                        choice = True
+                        waiting = False
+                    elif 240 <= event.pos[0] <= 330 and 120 <= event.pos[1] <= 154:
+                        waiting = False
+            pygame.time.delay(20)
+
+        pygame.quit()
+        return choice
+    except Exception:
+        return True
 
 
 def check_and_install_dependencies(project_root: Path, install_missing: bool = True) -> Dict[str, object]:
@@ -86,12 +147,17 @@ def check_and_install_dependencies(project_root: Path, install_missing: bool = T
             importlib.import_module(package)
         except Exception:
             results['missing'].append(package)
-            if install_missing:
+
+    if install_missing and results['missing']:
+        allow_install = _show_permission_prompt(results['missing'])
+        if allow_install:
+            for package in results['missing']:
                 try:
                     subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
                     results['installed'].append(package)
                 except subprocess.CalledProcessError:
                     pass
+
     return results
 
 
@@ -99,7 +165,6 @@ def ensure_runtime_dependencies(project_root: Path | None = None, install_missin
     """Run dependency checks before the game launches."""
     root = Path(project_root or Path(__file__).resolve().parent.parent)
     return check_and_install_dependencies(root, install_missing=install_missing)
-
 
 if __name__ == "__main__":
     ensure_runtime_dependencies()
