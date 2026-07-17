@@ -35,6 +35,7 @@ class PlayerRenderer:
         # Load sprite sheets
         self.idle_sprites = self._load_idle_sprites()
         self.movement_sprites = self._load_movement_sprites()
+        self.weapon_action_sprites = self._load_weapon_action_sprites()
         self.current_sprite = None
         self.sprites_list = []
         
@@ -81,41 +82,65 @@ class PlayerRenderer:
             
             for dir_key in direction_keys: # Generate keys like 'walk_W', 'run_A', etc.
                 sprite_key = f'{state}_{dir_key}' # e.g. 'walk_W', 'run_A', etc.
-                movement_sprites[sprite_key] = self._load_direction_images(move_dir, dir_key) # Load sprites for this state and direction, e.g. 'walk_W' for walking north, 'run_A' for running west, etc.
+                movement_sprites[sprite_key] = self._load_direction_images(move_dir, dir_key)
         
         return movement_sprites
     
+    def _load_weapon_action_sprites(self):
+        """Load weapon-specific action sprites from Player/Movement/Attack... folders."""
+        weapon_sprites = {}
+        action_map = getattr(config, 'PLAYER_WEAPON_ANIMATION_FOLDERS', {})
+        direction_keys = config.PLAYER_DIRECTION_KEYS
+
+        for weapon_type, actions in action_map.items():
+            weapon_sprites[weapon_type] = {}
+            for action_name, folder_name in actions.items():
+                action_dir = os.path.join(self.player_resources_dir, 'Movement', folder_name)
+                if not os.path.isdir(action_dir):
+                    continue
+                weapon_sprites[weapon_type][action_name] = {}
+                for direction_key in direction_keys:
+                    weapon_sprites[weapon_type][action_name][direction_key] = self._load_direction_images(action_dir, direction_key)
+        return weapon_sprites
+
     def _load_direction_images(self, base_dir, direction_key):
-        """Load all images for a specific direction from a directory."""
+        """Load all images for a specific direction from a directory or nested direction subfolder."""
         images = []
         direction_key = direction_key.upper()
-        
-        # Look for image files matching the direction code
-        for filename in sorted(os.listdir(base_dir)):
-            if not filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-                continue
-            name_base = os.path.splitext(filename)[0].upper()
-            parts = name_base.split('_')
-            if not parts:
-                continue
-            # For files with frame numbers (e.g., AS_0), remove the frame part
-            if parts[-1].isdigit():
-                parts = parts[:-1]
-            suffix = ''.join(parts)
-            if suffix != direction_key:
-                continue
+        candidate_dir = os.path.join(base_dir, direction_key)
+        search_dir = candidate_dir if os.path.isdir(candidate_dir) else base_dir
 
-            try: 
-                image_path = os.path.join(base_dir, filename) 
-                image = pygame.image.load(image_path)
-                if pygame.display.get_surface() is not None:
-                    image = image.convert_alpha()
-                if self.sprite_scale != 1.0:
-                    image = pygame.transform.rotozoom(image, 0, self.sprite_scale)
-                images.append((filename, image))
-            except Exception as e:
-                print(f"Failed to load image {filename}: {e}")
-        
+        if os.path.isdir(search_dir):
+            for filename in sorted(os.listdir(search_dir)):
+                if not filename.lower().endswith(('.png', '.jpg', '.jpeg')):
+                    continue
+                name_base = os.path.splitext(filename)[0].upper()
+                parts = name_base.split('_')
+                if not parts:
+                    continue
+                if parts[-1].isdigit():
+                    parts = parts[:-1]
+                suffix = ''.join(parts)
+                if suffix != direction_key:
+                    continue
+
+                try:
+                    image_path = os.path.join(search_dir, filename)
+                    image = pygame.image.load(image_path)
+                    if pygame.display.get_surface() is not None:
+                        image = image.convert_alpha()
+                    if self.sprite_scale != 1.0:
+                        image = pygame.transform.rotozoom(image, 0, self.sprite_scale)
+                    images.append((filename, image))
+                except Exception as e:
+                    print(f"Failed to load image {filename}: {e}")
+
+        if not images and search_dir == base_dir:
+            for child_name in sorted(os.listdir(base_dir)):
+                child_path = os.path.join(base_dir, child_name)
+                if os.path.isdir(child_path) and child_path != candidate_dir:
+                    images.extend(self._load_direction_images(child_path, direction_key))
+
         return images
     
     def get_current_direction(self, axis_scancodes_held): # Determine player facing direction based on pressed keys.
@@ -177,18 +202,25 @@ class PlayerRenderer:
                 return self.idle_sprites[idle_key]
             if config.PLAYER_IDLE_FALLBACK_KEY in self.idle_sprites and self.idle_sprites[config.PLAYER_IDLE_FALLBACK_KEY]:
                 return self.idle_sprites[config.PLAYER_IDLE_FALLBACK_KEY]
-            return [] # Return an empty list if no idle sprites are found.
+            return []
+
+        weapon_type = None
+        if hasattr(self.player, 'equipped_weapon_type'):
+            weapon_type = self.player.equipped_weapon_type()
+        if weapon_type and state in {'attack', 'block', 'parry'}:
+            action_sprites = self.get_weapon_action_sprites(weapon_type, state, direction)
+            if action_sprites:
+                return action_sprites
 
         if sprite_key in self.movement_sprites and self.movement_sprites[sprite_key]:
-            return self.movement_sprites[sprite_key] # Return the movement sprites for this state and direction.
-        # Missing sprint/run/etc.: try walk, then idle for this facing
+            return self.movement_sprites[sprite_key]
         if state != 'walk':
             walk_key = f'walk_{direction}'
             if walk_key in self.movement_sprites and self.movement_sprites[walk_key]:
-                return self.movement_sprites[walk_key] # Return the walk sprites for this direction.
+                return self.movement_sprites[walk_key]
         if idle_key in self.idle_sprites and self.idle_sprites[idle_key]:
-            return self.idle_sprites[idle_key] # Return the idle sprites for this direction.
-        return [] # Return an empty list if no sprites are found.
+            return self.idle_sprites[idle_key]
+        return []
     
     def update_animation(self, state, direction, axis_scancodes_held, previous_state=None, previous_direction=None):
         """Update the current animation frame for the given state and direction."""
@@ -220,8 +252,9 @@ class PlayerRenderer:
                 self.animation_counter = 0 # Set the animation counter to 0.
             self.current_sprite = sprites[self.animation_frame][1]
         else:
-            # Only advance frames when movement keys are pressed
-            if self.is_key_pressed(axis_scancodes_held):
+            # Advance frames for all non-idle states, including weapon actions.
+            advance_frames = self.is_key_pressed(axis_scancodes_held) or state in {'attack', 'block', 'parry'}
+            if advance_frames:
                 self.animation_counter += 1
                 if self.animation_counter >= self.animation_speed:
                     self.animation_counter = 0
@@ -234,29 +267,68 @@ class PlayerRenderer:
             sprite_rect = self.current_sprite.get_rect(center=position)
             screen.blit(self.current_sprite, sprite_rect)
     
-    def update(self, axis_scancodes_held, keys_pressed): 
-        """Update player sprite: walk/sprint for all facings (W, S, A, D, AW, WD, AS, SD); idle keeps last facing."""
+    def update(self, axis_scancodes_held, keys_pressed, mouse_buttons=None):
+        """Update player sprite: handle weapon actions, movement, and idle state based on input."""
         previous_state = self.current_state
         previous_direction = self.facing_direction
 
         moving = self._any_movement_held(axis_scancodes_held)
-
+        direction = self.facing_direction
         if moving:
-            direction = self.get_current_direction(axis_scancodes_held) 
+            direction = self.get_current_direction(axis_scancodes_held)
+
+        action_state = self._get_weapon_action_state(mouse_buttons, direction)
+        if action_state:
+            state = action_state
+            self.movement_press_start = None
+        elif moving:
             raw_state = self.get_current_state(axis_scancodes_held, keys_pressed)
             if self.movement_press_start is None:
                 self.movement_press_start = pygame.time.get_ticks()
             if pygame.time.get_ticks() - self.movement_press_start >= self.min_hold_time:
                 state = raw_state
             else:
-                state = 'idle' # Start in idle until min hold time is reached, then switch to walk/sprint based on shift key. This prevents instant sprinting and allows for a more natural transition from idle to movement.
+                state = 'idle'
         else:
-            self.movement_press_start = None # Reset movement press timer when no movement keys are held
-            state = 'idle' # When no movement keys are held, switch to idle but keep last facing direction for idle animation (e.g., if player was moving diagonally AW, then releases keys, they should still face that direction in idle)
-            direction = self.facing_direction # Keep last facing direction when idle (e.g., if player was moving diagonally AW, then releases keys, they should still face that direction in idle)
+            self.movement_press_start = None
+            state = 'idle'
 
+        self.animation_speed = config.ANIMATION_SPEED_DASH if state == 'dash' else config.ANIMATION_SPEED_WALK
         self.update_animation(state, direction, axis_scancodes_held, previous_state, previous_direction)
         self.current_state = state
+
+    def _get_weapon_action_state(self, mouse_buttons, direction):
+        if not mouse_buttons or self.player is None:
+            return None
+        weapon_type = None
+        if hasattr(self.player, 'equipped_weapon_type'):
+            weapon_type = self.player.equipped_weapon_type()
+        if not weapon_type:
+            return None
+
+        if len(mouse_buttons) > config.MOUSE_BUTTON_ATTACK_INDEX and mouse_buttons[config.MOUSE_BUTTON_ATTACK_INDEX]:
+            if self._has_weapon_action_sprite(weapon_type, 'attack', direction):
+                return 'attack'
+        if len(mouse_buttons) > config.MOUSE_BUTTON_BLOCK_INDEX and mouse_buttons[config.MOUSE_BUTTON_BLOCK_INDEX]:
+            if self._has_weapon_action_sprite(weapon_type, 'block', direction):
+                return 'block'
+        return None
+
+    def _has_weapon_action_sprite(self, weapon_type, action, direction):
+        return bool(
+            self.weapon_action_sprites
+            .get(weapon_type, {})
+            .get(action, {})
+            .get(direction)
+        )
+
+    def get_weapon_action_sprites(self, weapon_type, action, direction):
+        return (
+            self.weapon_action_sprites
+            .get(weapon_type, {})
+            .get(action, {})
+            .get(direction, [])
+        )
 
 class UIRenderer:
     def __init__(self, player):

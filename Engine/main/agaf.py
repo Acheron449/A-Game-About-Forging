@@ -72,6 +72,29 @@ class Player:
                     return item # Return the item
         return None # Return None if the item is None
 
+    def equipped_weapon(self):
+        """Return the currently equipped weapon item, if any."""
+        return self.equipped_items.get('weapon')
+
+    def equipped_weapon_type(self):
+        """Return the normalized weapon animation type for the currently equipped weapon."""
+        weapon = self.equipped_weapon()
+        if weapon is None:
+            return None
+        animation_type = getattr(weapon, 'animation_type', None)
+        if isinstance(animation_type, str) and animation_type:
+            return animation_type.lower()
+        name = getattr(weapon, 'name', '').lower()
+        if 'pickaxe' in name:
+            return 'pickaxe'
+        if 'greatsword' in name:
+            return 'greatsword'
+        if 'sword' in name:
+            return 'sword'
+        if getattr(weapon, 'type', '').lower() == 'weapon':
+            return 'sword'
+        return None
+
     def gain_xp(self, amount): # Gain xp from the player
         self.xp += amount
         if self.xp >= self.level * config.XP_PER_LEVEL_MULTIPLIER: # Check if the xp is greater than or equal to the level times the xp per level multiplier
@@ -107,12 +130,13 @@ class Player:
         pass # Do nothing
 
 class Item:
-    def __init__(self, name, item_type, stats_bonus=None, equippable=False, value=0): # Initialize an item
+    def __init__(self, name, item_type, stats_bonus=None, equippable=False, value=0, animation_type=None): # Initialize an item
         self.name = name # Set the name of the item
         self.type = item_type  # 'weapon', 'armor', etc., or 'gold', 'xp'
         self.stats_bonus = stats_bonus or {} # Set the stats bonus to the stats bonus
         self.equippable = equippable # Set the equippable to the equippable
         self.value = value # Set the value of the item
+        self.animation_type = animation_type # Set the animation type for equipped weapon/tool
 
 class Inventory:
     def __init__(self): # Initialize an inventory

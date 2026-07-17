@@ -100,6 +100,7 @@ class InventoryItem:
     sprite: Optional[Any] = None
     quantity: int = 1
     stats_bonus: Optional[Dict[str, int]] = None
+    animation_type: Optional[str] = None
 
 
 class InventoryScreen:

@@ -69,20 +69,36 @@ PLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')
 PLAYER_DEFAULT_FACING = 'S'
 PLAYER_DEFAULT_STATE = 'idle'
 PLAYER_IDLE_FALLBACK_KEY = 'idle_S'
-PLAYER_IDLE_SUBDIRS = ['Test - Static', 'Static', 'Armed']
+PLAYER_IDLE_SUBDIRS = ['MC - static']
 PLAYER_DIRECTION_KEYS = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']
 PLAYER_MOVEMENT_DIRECTORY_MAP: Dict[str, str] = {
-    'walk': 'test - walk',
+    'walk': 'MC - walk',
     'run': 'Run',
-    'sprint': 'Sprint',
+    'sprint': 'MC - Sprint',
     'dash': 'Dash',
     'jump': 'Jump',
     'roll': 'Roll',
     'crouch': 'Crouch',
 }
+PLAYER_WEAPON_ANIMATION_FOLDERS = {
+    'greatsword': {
+        'attack': 'Attack - Greatsword',
+        'block': 'Block - Greatsword',
+        'parry': 'Parry - Greatsword',
+    },
+    'sword': {
+        'attack': 'Attack - Sword',
+        'block': 'Block - Sword',
+        'parry': 'Parry - Sword',
+    },
+    'pickaxe': {
+        'attack': 'Attack - Pickaxe',
+    },
+}
 ANIMATION_SPEED_WALK = 10
+ANIMATION_SPEED_DASH = 25
 IDLE_ANIMATION_SPEED = 18
-SPRITE_SCALE = 0.45
+SPRITE_SCALE = 1
 MOVEMENT_MIN_HOLD_MS = 1
 
 # UIRenderer tuning — User Status composite bar (HP / MP / Stamina)
@@ -124,8 +140,8 @@ def get_game_font(size: int, bold: bool = False, italic: bool = False):
 # Player stamina & skills (pseudocode defaults)
 PLAYER_START_STAMINA = 100
 PLAYER_START_MAX_STAMINA = 100
-PLAYER_STATUS_DEFAULT_LEVEL = 4
-PLAYER_STATUS_DEFAULT_GOLD = 1298
+PLAYER_STATUS_DEFAULT_LEVEL = 1
+PLAYER_STATUS_DEFAULT_GOLD = 50
 DASH_STAMINA_COST = 25
 SKILL_ULT_MANA_COST = 30
 SKILL_1_MANA_COST = 15
@@ -144,6 +160,10 @@ BIND_ATTACK_LABEL = 'Left Mouse Button'
 BIND_BLOCK_LABEL = 'Right Mouse Button'
 BIND_INTERACT_LABEL = 'E'
 BIND_INTERACT_KEYS = [pygame.K_e]
+BIND_DASH_LABEL = 'Shift'
+BIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]
+MOUSE_BUTTON_ATTACK_INDEX = 0
+MOUSE_BUTTON_BLOCK_INDEX = 1
 SKILL_ULT_KEYS = [pygame.K_q]
 SKILL_1_KEYS = [pygame.K_e]
 SKILL_2_KEYS = [pygame.K_c]

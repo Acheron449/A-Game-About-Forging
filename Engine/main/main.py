@@ -128,9 +128,9 @@ def main(): # Main game loop
     inventory_hotbar = InventoryHotbar()
     inventory_screen = InventoryScreen(inventory_manager, inventory_hotbar)
     weapon_icons = Path(config.RESOURCES_PATH) / 'UI' / 'Items' / 'Arms' / '32 Free Weapon Icons' / 'Icons'
-    inventory_manager.bag_slots[0].set_item(InventoryItem('Forged Sword', 'weapon', weapon_icons / 'Iicon_32_01.png'))
+    inventory_manager.bag_slots[0].set_item(InventoryItem('Forged Sword', 'weapon', weapon_icons / 'Iicon_32_01.png', animation_type='sword'))
     inventory_manager.bag_slots[3].set_item(InventoryItem('Iron Ingot', 'material', weapon_icons / 'Iicon_32_12.png', quantity=12))
-    inventory_manager.bag_slots[12].set_item(InventoryItem('Runic Blade', 'weapon', weapon_icons / 'Iicon_32_06.png'))
+    inventory_manager.bag_slots[12].set_item(InventoryItem('Runic Blade', 'weapon', weapon_icons / 'Iicon_32_06.png', animation_type='greatsword'))
     inventory_hotbar.hotbar_slots[0].set_item(InventoryItem('Health Tonic', 'consumable', weapon_icons / 'Iicon_32_13.png', quantity=3))
 
     # Per-axis scancode sets: classify movement on KEYDOWN (event.key), release on KEYUP
@@ -183,10 +183,9 @@ def main(): # Main game loop
             else:
                 if not pause_menu.is_paused and not inventory_screen.is_open:
                     keys_pressed = pygame.key.get_pressed()
-                    # Update player sprite (shift/sprint uses keys_pressed; movement uses axis_scancodes_held)
-                    player_renderer.update(axis_scancodes_held, keys_pressed)
-
-                    # Update UI
+                        mouse_buttons = pygame.mouse.get_pressed()
+                        # Update player sprite (shift/sprint uses keys_pressed; movement uses axis_scancodes_held)
+                        player_renderer.update(axis_scancodes_held, keys_pressed, mouse_buttons)
                     ui_renderer.update_ui()
 
                 # Keep the latest gameplay frame visible underneath modal overlays.
