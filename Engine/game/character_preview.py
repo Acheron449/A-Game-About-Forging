@@ -21,6 +21,7 @@ class CharacterPreview:
         self.static_player_image = static_player_image
         self.current_render = static_player_image
         self._overlay_assets: List[str] = []
+        self.preview_base_size = 120
         self._on_display = on_display
 
     def update_image(self) -> str:

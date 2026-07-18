@@ -1,5 +1,5 @@
 {
-    "activeFile": "maps/tutorial.tmx",
+    "activeFile": "maps/cave.tmx",
     "expandedProjectPaths": [
     ],
     "fileStates": {
@@ -7,44 +7,60 @@
             "scaleInDock": 1,
             "scaleInEditor": 0.31
         },
+        "active/mining_nodes.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "active/mining_nodes_32x.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "maps/cave.tmx": {
-            "scale": 0.3388,
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 0.3981,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 807.2609208972847,
-                "y": 519.4805194805197
+                "x": 764.8831951770912,
+                "y": 886.7118814368249
             }
         },
         "maps/tutorial.tmx": {
             "scale": 0.4489,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 463.3548674537758,
-                "y": 526.8433949654711
+                "x": 480.0623746936957,
+                "y": 543.5509022053909
             }
         }
     },
-    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/tilesets/RPGW_Caves_v2.1",
+    "last.exportedFilePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/maps/maps",
+    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/tilesets/Mining Nodes",
     "map.height": 16,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 64,
     "map.tileWidth": 64,
     "map.width": 24,
     "openFiles": [
         "maps/cave.tmx",
-        "maps/tutorial.tmx"
+        "maps/tutorial.tmx",
+        "active/mining_nodes_32x.tsx"
     ],
     "project": "cave.tiled-project",
     "property.type": "object",
     "recentFiles": [
-        "maps/cave.tmx",
+        "active/mining_nodes_32x.tsx",
         "maps/tutorial.tmx",
+        "maps/cave.tmx",
+        "active/mining_nodes.tsx",
         "active/MainLev2.0.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 64,
-        "width": 64
+        "height": 32,
+        "width": 32
     },
     "tileset.useTransparentColor": true
 }

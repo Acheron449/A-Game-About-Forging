@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="25" height="16" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="46">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="50" height="33" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="46">
+ <editorsettings>
+  <export target="cave.csv" format="csv"/>
+ </editorsettings>
+ <tileset firstgid="1" source="../active/mining_nodes_32x.tsx"/>
  <imagelayer id="2" name="cave 1">
   <image source="../base/main.png" width="1615" height="1073"/>
  </imagelayer>
- <layer id="3" name="Walls" width="25" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApIBwAGQAAB
-  </data>
- </layer>
  <objectgroup id="5" name="wall_collisions" class="collision">
   <object id="38" x="914.273" y="366.148">
    <polygon points="0,0 43.85,17.54 57.005,43.85 74.5451,37.2725 111.818,74.5451 138.128,74.5451 157.86,89.8926 186.363,61.39 230.213,129.358 234.598,188.555 197.325,201.71 184.17,234.598 155.668,282.833 100.855,302.565 37.2725,302.565 -32.8875,298.18 -59.1975,271.87 -76.7376,245.56 -107.433,236.79 -120.588,203.903 -129.358,162.245 -133.743,131.55 -103.048,92.0851 -89.8926,65.775 -54.8125,54.8125 -76.7376,43.85 -111.818,50.4275 -118.395,-100.855 -48.235,-94.2776 -43.85,-37.2725"/>
