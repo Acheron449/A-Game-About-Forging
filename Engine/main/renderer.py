@@ -8,10 +8,15 @@ from .userStatusUi import UserStatusUI
 
 class WorldRenderer: # Placeholder for future world rendering logic (e.g., map, tiles, entities, etc.)
     def __init__(self): # Initialize any necessary variables for world rendering (e.g., tile size, camera position, etc.)
+        self.cave_map = config.CAVE_MAP_PATH  # Default map path, can be changed to other maps as needed
+        self.tutorial_map = config.CAVE_TUTORIAL_MAP_PATH  # Another map path for tutorial purposes, can be used to switch maps in the future
         pass
 
     def render_world(self, world, screen): # Render the world map, player, and entities to the screen. This will be called from World.render() and can be expanded with actual rendering logic as needed.
         # Render map and entities
+        if self.cave_map is not None:
+            # Load and render the cave map here (placeholder)
+            pass
         # Placeholder for rendering logic
         pass 
 
@@ -71,17 +76,31 @@ class PlayerRenderer:
     
     def _load_movement_sprites(self):
         """Load movement sprites for all directions from Player/Movement folders."""
+        # The 'walk' state uses the Mc - Walk directory for animation sequences.
         movement_sprites = {}
-        movement_directories = config.PLAYER_MOVEMENT_DIRECTORY_MAP
         
-        direction_keys = config.PLAYER_DIRECTION_KEYS
+        # --- Load Walk Animation Sequence (The requested feature) ---
+        walk_dir = os.path.join(self.player_resources_dir, "Movement", "Mc - Walk")
+        if os.path.isdir(walk_dir):
+            direction_keys = config.PLAYER_DIRECTION_KEYS
+            for dir_key in direction_keys:
+                sprite_key = f'walk_{dir_key}'
+                movement_sprites[sprite_key] = self._load_direction_images(walk_dir, dir_key)
+        # --- End of Walk Sequence Loading ---
+
+        # Load other states (run, dash, etc.) using the generic map for backward compatibility/future use
+        movement_directories = config.PLAYER_MOVEMENT_DIRECTORY_MAP
         for state, move_type in movement_directories.items():
+            if state == 'walk':
+                continue # Already handled above
+            
             move_dir = os.path.join(self.player_resources_dir, "Movement", move_type)
             if not os.path.isdir(move_dir):
                 continue
             
-            for dir_key in direction_keys: # Generate keys like 'walk_W', 'run_A', etc.
-                sprite_key = f'{state}_{dir_key}' # e.g. 'walk_W', 'run_A', etc.
+            direction_keys = config.PLAYER_DIRECTION_KEYS
+            for dir_key in direction_keys:
+                sprite_key = f'{state}_{dir_key}'
                 movement_sprites[sprite_key] = self._load_direction_images(move_dir, dir_key)
         
         return movement_sprites

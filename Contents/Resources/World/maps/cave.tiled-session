@@ -11,16 +11,16 @@
             "scale": 0.3388,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 560.8028335301063,
-                "y": 467.8276269185361
+                "x": 807.2609208972847,
+                "y": 519.4805194805197
             }
         },
         "maps/tutorial.tmx": {
             "scale": 0.4489,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 478.9485408777011,
-                "y": 544.6647360213856
+                "x": 463.3548674537758,
+                "y": 526.8433949654711
             }
         }
     },
@@ -35,6 +35,7 @@
         "maps/tutorial.tmx"
     ],
     "project": "cave.tiled-project",
+    "property.type": "object",
     "recentFiles": [
         "maps/cave.tmx",
         "maps/tutorial.tmx",

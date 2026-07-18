@@ -21,6 +21,10 @@ TARGET_FPS = 60
 SCREEN_CLEAR_COLOR = (20, 20, 20)
 QUIT_KEY = pygame.K_ESCAPE
 
+# Maps and map imports, add more maps as required
+CAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.tmx')
+CAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Tutorial.tmx')
+
 if pytmx is not None:
     try:
         tmx_data = pytmx.load_pygame('map.tmx')
@@ -28,6 +32,8 @@ if pytmx is not None:
         tmx_data = None
 else:
     tmx_data = None
+
+#Font import path, if font is to be changed later, simply adjust as required
 
 DEFAULT_FONT_PATH = os.path.join(
     RESOURCES_PATH,

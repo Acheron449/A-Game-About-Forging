@@ -183,9 +183,9 @@ def main(): # Main game loop
             else:
                 if not pause_menu.is_paused and not inventory_screen.is_open:
                     keys_pressed = pygame.key.get_pressed()
-                        mouse_buttons = pygame.mouse.get_pressed()
-                        # Update player sprite (shift/sprint uses keys_pressed; movement uses axis_scancodes_held)
-                        player_renderer.update(axis_scancodes_held, keys_pressed, mouse_buttons)
+                    mouse_buttons = pygame.mouse.get_pressed()
+                    # Update player sprite (shift/sprint uses keys_pressed; movement uses axis_scancodes_held)
+                    player_renderer.update(axis_scancodes_held, keys_pressed, mouse_buttons)
                     ui_renderer.update_ui()
 
                 # Keep the latest gameplay frame visible underneath modal overlays.
