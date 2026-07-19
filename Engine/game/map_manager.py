@@ -2,6 +2,7 @@
 
 from ..config import config
 from ..config import imports
+from ..main import worldRenderer
 
 class MapManager:
     def __init__(self):
@@ -27,14 +28,9 @@ class MapManager:
         # This method must return a simplified, renderable snapshot of the current map state.
         # This snapshot includes player dimensions, map dimensions, and necessary tile/layer info.
         if self.current_map_name and self.maps.get(self.current_map_name):
-            map_object = self.maps[self.current_map_name]
             # Pass the entire map object structure for the renderer to use for scaling/panning.
-            return {
-                "map_data": map_object, 
-                "player_pos": (100, 50) # Example: Player coordinates
-            }
+            return self.maps[self.current_map_name]
         return None
-
     def update_player_location(self, new_x, new_y):
         # This method is called by the game loop to keep track of player movement.
         # It must also handle collision/bounds checking against the loaded map data.
@@ -42,3 +38,4 @@ class MapManager:
             # TODO: Check if (new_x, new_y) is within map bounds and collision layers.
             pass
         # If the player moves outside the map bounds, this is where you'd handle despawning or transition.
+

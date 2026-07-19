@@ -1,3 +1,4 @@
+"""bridges the gap between the game logic and the rendering/UI components, ensuring that the game state is accurately represented visually."""
 from ..config.config import config
 from ..config.imports import * # Import the imports
 from .renderer import WorldRenderer, UIRenderer

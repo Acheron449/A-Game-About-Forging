@@ -1,9 +1,10 @@
+"""in charge of initializing the game, handling the main loop, and managing scenes and events."""
+
 import pygame
 import sys
 from pathlib import Path
 
 from ..config.config import config
-
 from ..game.inventory import InventoryItem, InventoryManager, InventoryScreen
 from ..game.inventory_hotbar import InventoryHotbar
 from ..game.pause_menu_manager import PauseMenuManager, PauseScreen
@@ -11,10 +12,12 @@ from ..game.save_manager import SaveManager
 from ..game.settings_modifier import SettingsModifier
 from ..game.settings_ui_manager import SettingsScreen, SettingsUIManager
 from .Title import Application, GameEngine, MainMenuManager, TitleScreen
+from .renderer import PlayerRenderer, UIRenderer
+from .worldRenderer import WorldRenderer
 
 
 def main(): # Main game loop
-    from .agaf import Player, Item, Inventory, World #, Ore, Enemy, UpgradeTree, UI
+    from .bridger import Player, Item, Inventory, World #, Ore, Enemy, UpgradeTree, UI
     from .renderer import PlayerRenderer, UIRenderer #, OreRenderer, EnemyRenderer
 
     # Initialize pygame

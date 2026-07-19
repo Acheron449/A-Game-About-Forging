@@ -2,11 +2,6 @@ import os
 import pygame
 from typing import Dict, Sequence, NamedTuple, Tuple
 
-try:
-    import pytmx
-except Exception:  # pragma: no cover - optional dependency for map loading
-    pytmx = None
-
 # Configuration constants
 CONFIGURATION = "CONFIGURATION"
 CONTENTS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'Contents')
@@ -14,24 +9,16 @@ RESOURCES_PATH = os.path.join(CONTENTS_PATH, 'Resources')
 RESOURCE_MANIFEST_FILE = os.path.join(RESOURCES_PATH, 'resource_paths.txt')
 
 # Display / main loop
-SCREEN_WIDTH = 1352
-SCREEN_HEIGHT = 878
+SCREEN_WIDTH = 1550
+SCREEN_HEIGHT = 850
 WINDOW_TITLE = "A Game About Forging"
 TARGET_FPS = 60
 SCREEN_CLEAR_COLOR = (20, 20, 20)
 QUIT_KEY = pygame.K_ESCAPE
 
 # Maps and map imports, add more maps as required
-CAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.tmx')
-CAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Tutorial.tmx')
-
-if pytmx is not None:
-    try:
-        tmx_data = pytmx.load_pygame('map.tmx')
-    except Exception:
-        tmx_data = None
-else:
-    tmx_data = None
+CAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')
+CAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')
 
 #Font import path, if font is to be changed later, simply adjust as required
 
