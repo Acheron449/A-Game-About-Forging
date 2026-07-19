@@ -4,7 +4,7 @@
  "layers":[
         {
          "id":2,
-         "image":"base/main.png",
+         "image":"..\/base\/main.png",
          "imageheight":1073,
          "imagewidth":1615,
          "name":"cave 1",

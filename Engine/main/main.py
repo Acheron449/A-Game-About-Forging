@@ -1,8 +1,11 @@
+# Engine/main/main.py
 """in charge of initializing the game, handling the main loop, and managing scenes and events."""
 
 import pygame
 import sys
+import json
 from pathlib import Path
+
 
 from ..config.config import config
 from ..game.inventory import InventoryItem, InventoryManager, InventoryScreen
@@ -13,7 +16,8 @@ from ..game.settings_modifier import SettingsModifier
 from ..game.settings_ui_manager import SettingsScreen, SettingsUIManager
 from .Title import Application, GameEngine, MainMenuManager, TitleScreen
 from .renderer import PlayerRenderer, UIRenderer
-from .worldRenderer import WorldRenderer
+from .worldRenderer import worldRenderer
+from ..game.map_loader import TiledMap, TiledImageLayer, TiledCollisionObject
 
 
 def main(): # Main game loop
@@ -32,8 +36,28 @@ def main(): # Main game loop
     clock = pygame.time.Clock()
 
     # Initialize game entities
-    player = Player(0, 0)
-    world = World(player)
+    player = Player(0, 0),
+
+# --- MAP LOADING INTEGRATION START ---
+    # 1. Define the true project root (goes up to 'A-Game-About-Forging')
+    # If main.py is in Engine/main/, .parent.parent is correct, but let's make sure it doesn't append Engine.
+    project_root = Path(__file__).resolve().parent.parent.parent # Go up 3 levels if needed, or fix the string below
+    
+    # Alternative & cleaner approach: target the exact folder structures
+    current_dir = Path(__file__).resolve().parent # Engine/main
+    project_root = current_dir.parent.parent     # A-Game-About-Forging
+    
+    # 2. Build the correct path without duplicating 'Engine'
+    map_json_path = project_root / 'Contents/Resources/World/maps/maps/cave.json'
+
+    # 3. Open and load the actual JSON data dictionary from the file
+    import json
+    with open(map_json_path, 'r') as f:
+        map_data = json.load(f)
+
+    # 4. Initialize TiledMap using the loaded data dictionary and the base path
+    tiled_map = TiledMap(map_data, map_json_path.parent) 
+    # --- MAP LOADING INTEGRATION END ---
 
     # Initialize sprite renderer
     player_renderer = PlayerRenderer(player)

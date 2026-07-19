@@ -1,7 +1,7 @@
 """bridges the gap between the game logic and the rendering/UI components, ensuring that the game state is accurately represented visually."""
 from ..config.config import config
 from ..config.imports import * # Import the imports
-from .renderer import WorldRenderer, UIRenderer
+from .renderer import worldRenderer, UIRenderer
 import pygame # Import pygame for the rectangle
 
 class Player:
@@ -162,12 +162,12 @@ class Inventory:
             self.add_item(item) # Add the item to the inventory
 
 class World:
-    def __init__(self, player, tile_size=config.WORLD_DEFAULT_TILE_SIZE): # Initialize a world
+    def __init__(self, player, screen): # Assuming 'screen' object is passed here
         self.player = player # Set the player to the player in the world
         self.entities = []  # List of enemies, collectables, etc.
         self.map = []  # Simple 2D list for map
-        self.tile_size = tile_size # Set the tile size to the tile size
-        self.renderer = WorldRenderer() # Set the renderer to the world renderer
+        self.tile_size = config.WORLD_DEFAULT_TILE_SIZE # Assuming this line was here
+        self.renderer = worldRenderer(screen) # Pass the screen object to the renderer
 
     def set_map(self, tile_grid): # Set the map to the tile grid
         self.map = tile_grid # Set the map to the tile grid
@@ -295,4 +295,6 @@ class Game:
     def run(self): # Run the game
         # Main game loop
         pass # Do nothing
+
+
 

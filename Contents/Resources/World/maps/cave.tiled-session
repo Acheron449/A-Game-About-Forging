@@ -35,6 +35,7 @@
             }
         }
     },
+    "frame.defaultDuration": 1000,
     "last.exportedFilePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/maps/maps",
     "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/tilesets/Mining Nodes",
     "map.height": 16,

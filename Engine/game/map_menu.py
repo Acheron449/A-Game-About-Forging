@@ -1,7 +1,10 @@
+# Engine/game/map_menu.py
 """opens upon interaction with M key or the minimap"""
 
 from ..config import config
 from ..config import imports
+# Assuming MapManager is available to handle commands
+# from .map_manager import MapManager 
 
 class MapMenu:
     def __init__(self, map_manager):
