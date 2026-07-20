@@ -107,7 +107,7 @@ class PlayerStatus:
             self._on_stamina_ui()
 
     def sync_from_player(self, player) -> None:
-        """Mirror fields from ``agaf.Player`` when both are used."""
+        """Mirror fields from ``bridger.Player`` when both are used."""
         self.current_health = player.health
         self.max_health = player.max_health
         self.current_mana = player.mana

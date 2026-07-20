@@ -1,5 +1,5 @@
 {
-    "activeFile": "maps/cave.tmx",
+    "activeFile": "active/mining_nodes_32x.tsx",
     "expandedProjectPaths": [
     ],
     "fileStates": {
@@ -13,7 +13,29 @@
         },
         "active/mining_nodes_32x.tsx": {
             "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInEditor": 2.6408
+        },
+        "maps/cave.json": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 0.6079,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 795.3610791248561,
+                "y": 603.7177167297253
+            }
+        },
+        "maps/cave.json.tmj": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 0.3981,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 739.763878422507,
+                "y": 756.0914343129866
+            }
         },
         "maps/cave.tmx": {
             "expandedObjectLayers": [
@@ -22,28 +44,51 @@
             "scale": 0.3981,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 764.8831951770912,
-                "y": 886.7118814368249
+                "x": 739.763878422507,
+                "y": 756.0914343129866
+            }
+        },
+        "maps/daemia's altar.json": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 0.4622,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 362.39723063608824,
+                "y": 607.9619212462137
             }
         },
         "maps/tutorial.tmx": {
             "scale": 0.4489,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 480.0623746936957,
-                "y": 543.5509022053909
+                "x": 509.0220539095566,
+                "y": 496.76988193361547
+            }
+        },
+        "maps/tutorial_rubble.json": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 0.337,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 743.3234421364984,
+                "y": 715.1335311572699
             }
         }
     },
     "frame.defaultDuration": 1000,
     "last.exportedFilePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/maps/maps",
-    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/tilesets/Mining Nodes",
-    "map.height": 16,
+    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/maps/base",
+    "map.fixedSize": true,
+    "map.height": 20,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
-    "map.lastUsedFormat": "tmx",
+    "map.lastUsedFormat": "json",
     "map.tileHeight": 64,
     "map.tileWidth": 64,
-    "map.width": 24,
+    "map.width": 20,
     "openFiles": [
         "maps/cave.tmx",
         "maps/tutorial.tmx",
@@ -52,16 +97,16 @@
     "project": "cave.tiled-project",
     "property.type": "object",
     "recentFiles": [
-        "active/mining_nodes_32x.tsx",
-        "maps/tutorial.tmx",
         "maps/cave.tmx",
+        "maps/tutorial.tmx",
+        "active/mining_nodes_32x.tsx",
         "active/mining_nodes.tsx",
         "active/MainLev2.0.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 32,
-        "width": 32
+        "height": 64,
+        "width": 64
     },
     "tileset.useTransparentColor": true
 }

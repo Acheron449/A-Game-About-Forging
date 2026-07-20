@@ -49,6 +49,7 @@ class TiledCollisionObject:
 class TiledMap:
     """Parses the raw Tiled JSON data into usable Python objects."""
     def __init__(self, data, base_path):
+        print("--- MAP LOADER: TiledMap initialized. Starting parsing. ---")
         self.tile_width = data['tilewidth']
         self.tile_height = data['tileheight']
         
@@ -58,15 +59,16 @@ class TiledMap:
         self.tilesets = {} 
 
         # 1. Parse Layers based on their unique types
+        print("--- DEBUG: Starting layer parsing. ---")
         for layer in data['layers']:
             
             # Handle Image Layers (like your "cave 1" background)
             if layer['type'] == 'imagelayer':
+                print("--- DEBUG: Found Image Layer: {name} ---")
                 # Fix Tiled escaped slashes (\/) and clean path
-                clean_img_path = layer['image'].replace('\\', '')
+                clean_img_path = layer['image'].replace('\\', '/')
                 full_image_path = Path(base_path) / clean_img_path
                 
-                # Now matches the updated constructor signature perfectly
                 self.image_layers.append(TiledImageLayer(
                     name=layer['name'],
                     image_path=full_image_path,
@@ -76,7 +78,11 @@ class TiledMap:
             
             # Handle Object Groups (like your "wall_collisions" polygon data)
             elif layer['type'] == 'objectgroup':
+                print("--- DEBUG: Found Object Group. ---")
                 for obj in layer.get('objects', []):
                     # We only care about shapes that have actual boundary points
                     if 'polygon' in obj:
                         self.collision_objects.append(TiledCollisionObject(obj))
+
+        # 2. (Optional) Load external tilesets if you use standard tiles later
+        print("--- DEBUG: TiledMap initialization complete. ---")

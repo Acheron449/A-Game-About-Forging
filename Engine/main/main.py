@@ -36,7 +36,7 @@ def main(): # Main game loop
     clock = pygame.time.Clock()
 
     # Initialize game entities
-    player = Player(0, 0),
+    player = Player(0, 0)
 
 # --- MAP LOADING INTEGRATION START ---
     # 1. Define the true project root (goes up to 'A-Game-About-Forging')

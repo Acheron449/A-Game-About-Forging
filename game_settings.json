@@ -1,0 +1,15 @@
+{
+  "difficulty": "Normal",
+  "mouse_sensitivity": 0.5,
+  "fps_limit": 30,
+  "resolution": "1352 x 878",
+  "master_volume": 0.5,
+  "music_volume": 1.0,
+  "sfx_volume": 1.0,
+  "save_file_location": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Saves",
+  "game_directory": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging",
+  "bind_attack": "Left Mouse Button",
+  "bind_block": "Right Mouse Button",
+  "bind_interact": "e",
+  "extra_binds": {}
+}

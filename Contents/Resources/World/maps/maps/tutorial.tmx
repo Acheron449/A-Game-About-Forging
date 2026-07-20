@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="16" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="3" nextobjectid="1">
- <imagelayer id="2" name="base" offsetx="-192" offsety="-64">
-  <image source="../base/tutorial.png" width="1402" height="1122"/>
- </imagelayer>
-</map>
