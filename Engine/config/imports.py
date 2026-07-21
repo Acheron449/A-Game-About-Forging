@@ -1,3 +1,4 @@
+from config import *
 from pygame import *
 from numpy import *
 import random

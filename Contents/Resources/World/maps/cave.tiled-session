@@ -1,11 +1,18 @@
 {
-    "activeFile": "active/mining_nodes_32x.tsx",
+    "activeFile": "maps/daemia's altar.json",
     "expandedProjectPaths": [
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "active/MainLev2.0.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 0.31
+        },
+        "active/daemia's altar.tsx": {
+            "scaleInDock": 1
+        },
+        "active/main.tsx": {
+            "scaleInDock": 1
         },
         "active/mining_nodes.tsx": {
             "scaleInDock": 1,
@@ -15,12 +22,15 @@
             "scaleInDock": 1,
             "scaleInEditor": 2.6408
         },
+        "active/tutorial_rubble.tsx": {
+            "scaleInDock": 1
+        },
         "maps/cave.json": {
             "expandedObjectLayers": [
                 5
             ],
             "scale": 0.6079,
-            "selectedLayer": -1,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 795.3610791248561,
                 "y": 603.7177167297253
@@ -55,7 +65,7 @@
             "scale": 0.4622,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 362.39723063608824,
+                "x": 362.3972306360883,
                 "y": 607.9619212462137
             }
         },
@@ -90,16 +100,20 @@
     "map.tileWidth": 64,
     "map.width": 20,
     "openFiles": [
-        "maps/cave.tmx",
-        "maps/tutorial.tmx",
-        "active/mining_nodes_32x.tsx"
+        "active/mining_nodes_32x.tsx",
+        "maps/tutorial_rubble.json",
+        "maps/cave.json",
+        "maps/daemia's altar.json"
     ],
     "project": "cave.tiled-project",
     "property.type": "object",
     "recentFiles": [
+        "active/mining_nodes_32x.tsx",
+        "maps/tutorial_rubble.json",
+        "maps/cave.json",
+        "maps/daemia's altar.json",
         "maps/cave.tmx",
         "maps/tutorial.tmx",
-        "active/mining_nodes_32x.tsx",
         "active/mining_nodes.tsx",
         "active/MainLev2.0.tsx"
     ],
