@@ -16,8 +16,8 @@ from ..game.settings_modifier import SettingsModifier
 from ..game.settings_ui_manager import SettingsScreen, SettingsUIManager
 from .Title import Application, GameEngine, MainMenuManager, TitleScreen
 from .renderer import PlayerRenderer, UIRenderer
-from .worldRenderer import worldRenderer
-from ..game.map_loader import TiledMap, TiledImageLayer, TiledCollisionObject
+from ...Contents.Resources.World.maps.worldRenderer import worldRenderer
+from ...Contents.Resources.World.maps.map_loader import TiledMap
 
 
 def main(): # Main game loop
@@ -64,6 +64,9 @@ def main(): # Main game loop
 
     # Initialize UI renderer
     ui_renderer = UIRenderer(player)
+
+    # Initialize World Renderer and pass the loaded map
+    world_renderer_instance = worldRenderer(screen, tiled_map) # <-- Ensuring worldRenderer uses the successfully loaded map
 
     # Title-screen state
     scene_state = {'name': config.SCENE_MAIN_MENU}
@@ -222,6 +225,9 @@ def main(): # Main game loop
                 player_center_x, player_center_y = (value // 2 for value in screen.get_size())
                 player_renderer.draw_player(screen, (player_center_x, player_center_y))
 
+                # Draw World Map Content (This draws the map based on the TiledMap object)
+                world_renderer_instance.render(player.x, player.y)
+
                 # Draw UI (User Status bars in top-left)
                 ui_renderer.draw_ui(screen)
                 inventory_screen.draw(screen, player_renderer.current_sprite)
@@ -235,10 +241,4 @@ def main(): # Main game loop
         # Cap frame rate
         clock.tick(settings_ui.current_config.fps_limit or config.TARGET_FPS)
 
-    # Cleanup
-    pygame.quit()
-    sys.exit()
 
-
-if __name__ == "__main__":
-    main() 

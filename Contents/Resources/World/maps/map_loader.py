@@ -1,10 +1,9 @@
-# engine/game/map_loader.py
 """map loader with structure in charge of handling Tiled JSON Exported maps with multi layer handling"""
 import json
 import pygame
 from pathlib import Path
-from ..config import config
-from ..config import imports
+from .....Engine.config.config import config
+from .....Engine.config.imports import imports
 
 class TiledImageLayer:
     """Handles Large single-image backgrounds"""
@@ -13,6 +12,7 @@ class TiledImageLayer:
         self.x = x
         self.y = y
         
+        print(f"[MapLoader DEBUG] TiledImageLayer '{name}' initialized. Path: {image_path}")
         # Load image directly
         self.surface = pygame.image.load(str(image_path)).convert_alpha()
         
@@ -35,6 +35,7 @@ class TiledCollisionObject:
         # Convert Tiled relative points into absolute screen points
         self.points = []
         if 'polygon' in obj_data:
+            print(f"[MapLoader DEBUG] Parsing collision object ID {self.id} with {len(obj_data['polygon'])} points.")
             for pt in obj_data['polygon']:
                 abs_x = obj_data['x'] + pt['x'] 
                 abs_y = obj_data['y'] + pt['y']
@@ -48,8 +49,9 @@ class TiledCollisionObject:
 
 class TiledMap:
     """Parses the raw Tiled JSON data into usable Python objects."""
-    def __init__(self, data, base_path):
-        print("--- MAP LOADER: TiledMap initialized. Starting parsing. ---")
+    def __init__(self, data, base_path, csv_data=None):
+        print("==============================================================")
+        print(f"[MapLoader DEBUG] TiledMap initialized. Starting parsing. Base Path: {base_path}")
         self.tile_width = data['tilewidth']
         self.tile_height = data['tileheight']
         
@@ -58,24 +60,20 @@ class TiledMap:
         self.collision_objects = []
         self.tilesets = {} 
 
+        # --- CSV INTEGRATION POINT ---
+        if csv_data:
+            print("--- DEBUG: CSV data provided. Integrating supplementary data. ---")
+            # TODO: Implement CSV parsing logic here.
+            pass # For now, we just acknowledge it was passed.
+
         # 1. Parse Layers based on their unique types
         print("--- DEBUG: Starting layer parsing. ---")
         for layer in data['layers']:
+            print(f"[MapLoader DEBUG] Processing Layer Type: {layer.get('type')}")
             
-            # Handle Image Layers (like your "cave 1" background)
+            # Handle Image Layers (like your "cave 1" background) - ***TEMPORARILY SKIPPED***
             if layer['type'] == 'imagelayer':
-                print("--- DEBUG: Found Image Layer: {name} ---")
-                # Fix Tiled escaped slashes (\/) and clean path
-                clean_img_path = layer['image'].replace('\\', '/')
-                full_image_path = Path(base_path) / clean_img_path
-                
-                self.image_layers.append(TiledImageLayer(
-                    name=layer['name'],
-                    image_path=full_image_path,
-                    x=layer['x'],
-                    y=layer['y']
-                ))
-            
+                pass
             # Handle Object Groups (like your "wall_collisions" polygon data)
             elif layer['type'] == 'objectgroup':
                 print("--- DEBUG: Found Object Group. ---")

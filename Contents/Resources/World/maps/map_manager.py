@@ -1,8 +1,11 @@
-# Engine/game/map_manager.py
 """Manages the current state of the map, including loading, camera position, and map data."""
+import json
 
 from .map_loader import load_tiled_map
+from .map_loader import TiledMap
 from typing import Optional
+from .....Engine.config.config import config
+from .....Engine.config.imports import imports
 
 class MapManager:
     def __init__(self):
