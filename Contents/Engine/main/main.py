@@ -3,21 +3,19 @@
 
 import pygame
 import sys
-import json
+import json as js
 from pathlib import Path
-
-
-from ..config.config import config
-from ..game.inventory import InventoryItem, InventoryManager, InventoryScreen
-from ..game.inventory_hotbar import InventoryHotbar
+from config.imports import config
+from ..game.Inventory.inventory import InventoryItem, InventoryManager, InventoryScreen
+from ..game.Inventory.inventory_hotbar import InventoryHotbar
 from ..game.pause_menu_manager import PauseMenuManager, PauseScreen
 from ..game.save_manager import SaveManager
-from ..game.settings_modifier import SettingsModifier
-from ..game.settings_ui_manager import SettingsScreen, SettingsUIManager
+from ..game.Settings.settings_modifier import SettingsModifier
+from ..game.Settings.settings_ui_manager import SettingsScreen, SettingsUIManager
 from .Title import Application, GameEngine, MainMenuManager, TitleScreen
 from .renderer import PlayerRenderer, UIRenderer
 from .worldRenderer import worldRenderer
-from ..game.map_loader import TiledMap, TiledImageLayer, TiledCollisionObject
+from ..game.Map.map_loader import TiledMap, TiledImageLayer, TiledCollisionObject
 
 
 def main(): # Main game loop

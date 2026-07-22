@@ -1,22 +1,20 @@
-from config import *
-from pygame import *
-from numpy import *
-import random as r
-from arcade import *
-import os as os
-import sys as sys
-import sysconfig as sysconfig
-import time as t
-import zipfile as zip
-import math as m
-import json as js
-import logging as log
-import pytmx as tmx
 import pygame as pg
+import numpy as np
+import random
+import arcade
+import os
+import sys
+import sysconfig
+import time
+import zipfile
+import math
+import json
+import logging
+import pytmx
 
+# Default paths are defined in config.py, but we keep the path definition here if needed for initialization context
 DEFAULT_FONT_PATH = os.path.join(
     os.path.dirname(__file__),
-    '..',
     '..',
     'Contents',
     'Resources',
@@ -24,3 +22,4 @@ DEFAULT_FONT_PATH = os.path.join(
     'Handjet',
     'Handjet-VariableFont_ELGR,ELSH,wght.ttf',
 )
+

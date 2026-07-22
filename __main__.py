@@ -8,12 +8,12 @@ from pathlib import Path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 if __name__ == "__main__":
-    from Engine.updater import ensure_runtime_dependencies
+    from Contents.Engine.updater import ensure_runtime_dependencies
 
     project_root = Path(__file__).resolve().parent
     ensure_runtime_dependencies(project_root, install_missing=True)
 
-    from Engine.main.main import main
+    from Contents.Engine.main.main import main
     main()
     
 

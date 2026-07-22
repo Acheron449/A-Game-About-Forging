@@ -3,7 +3,7 @@ from __future__ import annotations
 import random
 from typing import Callable, Optional, Protocol, Sequence
 
-from ..config.config import config, OreDrop
+from ....config.imports import config, OreDrop
 
 
 class SupportsAddItem(Protocol):

@@ -1,5 +1,5 @@
 {
-    "activeFile": "",
+    "activeFile": "tmx/cave.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -92,11 +92,11 @@
             "expandedObjectLayers": [
                 5
             ],
-            "scale": 0.4597,
+            "scale": 0.2964,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 784.2070915814661,
-                "y": 478.5729823798129
+                "x": 784.4129554655872,
+                "y": 1082.9959514170039
             }
         },
         "tmx/daemia's altar.tmx": {
@@ -114,11 +114,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 0.337,
+            "scale": 0.5685,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 743.3234421364984,
-                "y": 715.1335311572699
+                "x": 475.8135444151276,
+                "y": 487.2471416007035
             }
         }
     },
@@ -133,14 +133,17 @@
     "map.tileWidth": 64,
     "map.width": 20,
     "openFiles": [
+        "tmx/cave.tmx",
+        "tmx/daemia's altar.tmx",
+        "tmx/tutorial_rubble.tmx"
     ],
     "project": "cave.tiled-project",
     "property.type": "object",
     "recentFiles": [
-        "active/mining_nodes_32x.tsx",
         "tmx/tutorial_rubble.tmx",
-        "tmx/cave.tmx",
         "tmx/daemia's altar.tmx",
+        "tmx/cave.tmx",
+        "active/mining_nodes_32x.tsx",
         "maps/tutorial_rubble.json",
         "maps/cave.json",
         "maps/daemia's altar.json",

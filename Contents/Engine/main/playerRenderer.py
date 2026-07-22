@@ -2,8 +2,8 @@ import os
 import json
 import pygame
 
-from ..config.config import config
-from ..config.imports import *
+from ....config.imports import config
+from ....config.imports import *
 from .userStatusUi import UserStatusUI
 
 class PlayerRenderer:
