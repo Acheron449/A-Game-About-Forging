@@ -1,5 +1,5 @@
 {
-    "activeFile": "maps/daemia's altar.json",
+    "activeFile": "",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -29,11 +29,11 @@
             "expandedObjectLayers": [
                 5
             ],
-            "scale": 0.6079,
+            "scale": 0.4597,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 795.3610791248561,
-                "y": 603.7177167297253
+                "x": 784.2070915814661,
+                "y": 478.5729823798129
             }
         },
         "maps/cave.json.tmj": {
@@ -65,8 +65,8 @@
             "scale": 0.4622,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 362.3972306360883,
-                "y": 607.9619212462137
+                "x": 466.24837732583285,
+                "y": 685.8502812635222
             }
         },
         "maps/tutorial.tmx": {
@@ -87,6 +87,39 @@
                 "x": 743.3234421364984,
                 "y": 715.1335311572699
             }
+        },
+        "tmx/cave.tmx": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 0.4597,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 784.2070915814661,
+                "y": 478.5729823798129
+            }
+        },
+        "tmx/daemia's altar.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 0.4622,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 466.24837732583285,
+                "y": 685.8502812635222
+            }
+        },
+        "tmx/tutorial_rubble.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 0.337,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 743.3234421364984,
+                "y": 715.1335311572699
+            }
         }
     },
     "frame.defaultDuration": 1000,
@@ -95,20 +128,19 @@
     "map.fixedSize": true,
     "map.height": 20,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
-    "map.lastUsedFormat": "json",
+    "map.lastUsedFormat": "tmx",
     "map.tileHeight": 64,
     "map.tileWidth": 64,
     "map.width": 20,
     "openFiles": [
-        "active/mining_nodes_32x.tsx",
-        "maps/tutorial_rubble.json",
-        "maps/cave.json",
-        "maps/daemia's altar.json"
     ],
     "project": "cave.tiled-project",
     "property.type": "object",
     "recentFiles": [
         "active/mining_nodes_32x.tsx",
+        "tmx/tutorial_rubble.tmx",
+        "tmx/cave.tmx",
+        "tmx/daemia's altar.tmx",
         "maps/tutorial_rubble.json",
         "maps/cave.json",
         "maps/daemia's altar.json",
