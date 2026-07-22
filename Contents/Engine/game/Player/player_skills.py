@@ -6,7 +6,7 @@ from typing import Callable, Optional
 
 import pygame
 
-from ..config.config import config
+from config.config import config
 from .player_status import PlayerStatus
 
 

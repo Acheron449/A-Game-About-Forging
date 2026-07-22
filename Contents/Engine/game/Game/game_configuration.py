@@ -7,7 +7,7 @@ import os
 from dataclasses import asdict, dataclass, field
 from typing import Any, Dict, List, Optional
 
-from ..config.config import config
+from config.config import config
 
 
 @dataclass

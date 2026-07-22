@@ -6,7 +6,7 @@ from typing import Any, Callable, Dict, Optional
 
 import pygame
 
-from .game_configuration import GameConfiguration
+from ..Game.game_configuration import GameConfiguration
 
 
 class SettingsModifier:

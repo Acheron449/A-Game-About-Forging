@@ -6,7 +6,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import pygame
 
-from ..config.config import get_game_font
+from config.config import get_game_font
 from .save_manager import SaveManager
 
 

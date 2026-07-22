@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Callable, Dict, Optional
 
-from ..config.config import config
+from config.config import config
 
 
 class PlayerStatus:

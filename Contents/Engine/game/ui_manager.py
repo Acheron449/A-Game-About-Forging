@@ -6,7 +6,7 @@ from typing import Callable, List, Optional
 
 import pygame
 
-from ..config.config import config
+from config.config import config
 
 
 class UIManager:

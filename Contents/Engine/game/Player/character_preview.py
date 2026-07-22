@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Callable, List, Optional, TYPE_CHECKING
 
-from ..config.config import config
+from config.config import config
 
 if TYPE_CHECKING:
     from .equipment_manager import EquipmentManager

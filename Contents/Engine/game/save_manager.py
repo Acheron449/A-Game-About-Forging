@@ -8,7 +8,7 @@ import time
 import uuid
 from typing import Any, Callable, Dict, List, Optional
 
-from ..config.config import config
+from config.config import config
 
 
 class SaveManager:

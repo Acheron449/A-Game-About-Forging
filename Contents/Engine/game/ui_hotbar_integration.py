@@ -4,9 +4,9 @@ from __future__ import annotations
 
 from typing import Any, Callable, List, Optional, Tuple
 
-from ..config.config import config
-from .inventory_hotbar import InventoryHotbar
-from .inventory_manager import InventoryManager, InventorySlot
+from config.config import config
+from .Inventory.inventory_hotbar import InventoryHotbar
+from .Inventory.inventory_manager import InventoryManager, InventorySlot
 
 
 class UIHotbarIntegration: 

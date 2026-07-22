@@ -5,7 +5,8 @@ import pygame
 import sys
 import json as js
 from pathlib import Path
-from config.imports import config
+from config.config import *
+from config.imports import *
 from ..game.Inventory.inventory import InventoryItem, InventoryManager, InventoryScreen
 from ..game.Inventory.inventory_hotbar import InventoryHotbar
 from ..game.pause_menu_manager import PauseMenuManager, PauseScreen

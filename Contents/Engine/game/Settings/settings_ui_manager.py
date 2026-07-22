@@ -6,8 +6,8 @@ from typing import Any, Callable, Dict, List, Optional
 
 import pygame
 
-from ..config.config import config, get_game_font
-from .game_configuration import GameConfiguration
+from config.config import config, get_game_font
+from ..Game.game_configuration import GameConfiguration
 from .settings_modifier import SettingsModifier
 
 
