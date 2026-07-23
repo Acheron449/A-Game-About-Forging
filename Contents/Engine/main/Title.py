@@ -6,7 +6,7 @@ import pygame
 from dataclasses import dataclass
 from typing import Any, Callable, Dict, List, Optional
 
-from config.config import config, get_game_font
+from Contents.configuration.constants import config, get_game_font
 from ..game.save_manager import SaveManager
 from ..game.ui_manager import UIManager
 

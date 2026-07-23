@@ -1,6 +1,6 @@
 """bridges the gap between the game logic and the rendering/UI components, ensuring that the game state is accurately represented visually."""
-from ....config.imports import config
-from ....config.imports import * # Import the imports
+from ...configuration.imports import config
+from ...configuration.imports import * # Import the imports
 from .renderer import worldRenderer, UIRenderer
 import pygame # Import pygame for the rectangle
 
@@ -263,7 +263,7 @@ class Enemy:
 class UpgradeTree:
     def __init__(self, player): # Initialize an upgrade tree
         self.player = player # Set the player to the player in the upgrade tree
-        self.available_upgrades = dict(UPGRADE_TREE_INITIAL_COUNTS) # Set the available upgrades to the available upgrades
+#        self.available_upgrades = dict(UPGRADE_TREE_INITIAL_COUNTS) # Set the available upgrades to the available upgrades
 
     def apply_upgrade(self, stat): # Apply an upgrade to the player
         if self.available_upgrades[stat] > 0: # Check if the available upgrades is greater than 0

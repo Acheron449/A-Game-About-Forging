@@ -1,8 +1,8 @@
 """
 This is a test of using the pytmx library with Tiled.
 """
-from ....config.imports import *
-from ....config.config import *
+from ...configuration.imports import *
+from ...configuration.constants import *
 
 class Renderer(object):
     """

@@ -4,9 +4,14 @@
 import pygame
 import sys
 import json as js
+import os
 from pathlib import Path
-from config.config import *
-from config.imports import *
+
+root_dir = Path(__file__).resolve().parents[4] 
+sys.path.append(str(root_dir))
+
+from configuration.constants import config
+from configuration.imports import *
 from ..game.Inventory.inventory import InventoryItem, InventoryManager, InventoryScreen
 from ..game.Inventory.inventory_hotbar import InventoryHotbar
 from ..game.pause_menu_manager import PauseMenuManager, PauseScreen
