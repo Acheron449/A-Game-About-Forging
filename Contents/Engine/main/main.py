@@ -7,11 +7,23 @@ import json as js
 import os
 from pathlib import Path
 
-root_dir = Path(__file__).resolve().parents[4] 
-sys.path.append(str(root_dir))
+# --- Path Setup ---
+# Determine the project root directory (A-Game-About-Forging)
+# This assumes main.py is located at Contents/Engine/main/main.py
+current_file_path = Path(__file__).resolve()
+# Go up from main.py's location to the project root
+project_root = current_file_path.parents[3] 
+sys.path.append(str(project_root))
+# --- End Path Setup ---irectory (A-Game-About-Forging)
+# This assumes main.py is located at Contents/Engine/main/main.py
+current_file_path = Path(__file__).resolve()
+# Go up from main.py's location to the project root
+project_root = current_file_path.parents[3] 
+sys.path.append(str(project_root))
+# --- End Path Setup ---
 
-from configuration.constants import config
-from configuration.imports import *
+from Contents.Engine.configuration.constants import config
+from Contents.Engine.configuration.imports import *
 from ..game.Inventory.inventory import InventoryItem, InventoryManager, InventoryScreen
 from ..game.Inventory.inventory_hotbar import InventoryHotbar
 from ..game.pause_menu_manager import PauseMenuManager, PauseScreen
@@ -45,14 +57,11 @@ def main(): # Main game loop
 # --- MAP LOADING INTEGRATION START ---
     # 1. Define the true project root (goes up to 'A-Game-About-Forging')
     # If main.py is in Engine/main/, .parent.parent is correct, but let's make sure it doesn't append Engine.
-    project_root = Path(__file__).resolve().parent.parent.parent # Go up 3 levels if needed, or fix the string below
-    
-    # Alternative & cleaner approach: target the exact folder structures
     current_dir = Path(__file__).resolve().parent # Engine/main
     project_root = current_dir.parent.parent     # A-Game-About-Forging
     
     # 2. Build the correct path without duplicating 'Engine'
-    map_json_path = project_root / 'Contents/Resources/World/maps/maps/cave.json'
+    map_json_path = project_root / 'Contents/Engine/Resources/World/maps/maps/cave.json'
 
     # 3. Open and load the actual JSON data dictionary from the file
     import json
@@ -168,6 +177,343 @@ def main(): # Main game loop
     # (event.scancode) so macOS/SDL mismatched KEYUP key codes don't stick or break input.
     # key_to_scancode() can disagree with event.scancode — do not use it for comparisons.
     axis_scancodes_held = {axis: set() for axis in config.KEYBINDS}
+
+# --- START: Added Error Handling ---
+    try:
+        while running_state['running']:
+            # ... (rest of the game loop content) ...
+            for event in pygame.event.get():
+                # ... (event handling) ...
+                pass # Keep the rest of your loop body here
+            
+            # ... (rest of the loop body) ...
+            
+    except Exception as e:
+        print(f"FATAL GAME CRASH: {type(e).__name__} - {e}")
+        # Optionally, you can add a final cleanup/quit sequence here
+        running_state['running'] = False
+# --- END: Added Error Handling ---
+
+
+    # Game loop
+    while running_state['running']:
+        for event in pygame.event.get():
+            """Lines 206-263 omitted/
+        /* Lines 264-271 omitted */
+    /* Lines 272-275 omitted */
+# --- MAP LOADING INTEGRATION START ---
+    # 1. Define the true project root (goes up to 'A-Game-About-Forging')
+    # If main.py is in Engine/main/, .parent.parent is correct, but let's make sure it doesn't append Engine.
+    current_dir = Path(__file__).resolve().parent # Engine/main
+    project_root = current_dir.parent.parent     # A-Game-About-Forging
+    
+    # 2. Build the correct path without duplicating 'Engine'
+    map_json_path = project_root / 'Contents/Engine/Resources/World/maps/maps/cave.json'
+
+    # 3. Open and load the actual JSON data dictionary from the file
+    import json
+    with open(map_json_path, 'r') as f:
+        map_data = json.load(f)
+
+    # 4. Initialize TiledMap using the loaded data dictionary and the base path
+    tiled_map = TiledMap(map_data, map_json_path.parent) 
+    # --- MAP LOADING INTEGRATION END ---
+"""
+    # Initialize sprite renderer
+    player_renderer = PlayerRenderer(player)
+
+    # Initialize UI renderer
+    ui_renderer = UIRenderer(player)
+
+    # Title-screen state
+    scene_state = {'name': config.SCENE_MAIN_MENU}
+    running_state = {'running': True}
+    title_prompt_text = {'message': ''}
+
+    def on_load_scene(scene_name: str) -> None:
+        scene_state['name'] = scene_name
+
+    def on_apply_save_data(save_data: dict) -> None:
+        player.health = save_data.get('health', getattr(player, 'health', 0))
+        player.max_health = save_data.get('max_health', getattr(player, 'max_health', 0))
+        player.mana = save_data.get('mana', getattr(player, 'mana', 0))
+        player.max_mana = save_data.get('max_mana', getattr(player, 'max_mana', 0))
+        player.level = save_data.get('level', getattr(player, 'level', 1))
+        player.gold = save_data.get('gold', getattr(player, 'gold', 0))
+
+    def on_initialize_game_start() -> None:
+        on_load_scene('TutorialLevel')
+
+    def on_display_prompt(message: str) -> None:
+        title_prompt_text['message'] = message
+
+    def on_quit() -> None:
+        running_state['running'] = False
+
+    def apply_runtime_settings(configuration) -> None:
+        """Apply settings that Pygame can change immediately."""
+        nonlocal screen
+        if pygame.mixer.get_init():
+            pygame.mixer.music.set_volume(configuration.music_volume * configuration.master_volume)
+        try:
+            width, height = (int(value.strip()) for value in configuration.resolution.split('x', 1))
+            screen = pygame.display.set_mode((width, height))
+            title_screen.screen_size = (width, height)
+            pause_screen.screen_size = (width, height)
+        except (TypeError, ValueError):
+            pass
+
+    def capture_current_state() -> dict:
+        return {
+            'health': getattr(player, 'health', 0),
+            'max_health': getattr(player, 'max_health', 0),
+            'mana': getattr(player, 'mana', 0),
+            'max_mana': getattr(player, 'max_mana', 0),
+            'level': getattr(player, 'level', 1),
+            'gold': getattr(player, 'gold', 0),
+            'scene': 'MainWorld',
+        }
+
+    settings_ui = SettingsUIManager(on_apply_engine=apply_runtime_settings)
+    settings_modifier = SettingsModifier(current_config=settings_ui.current_config)
+    settings_screen = SettingsScreen(
+        settings_ui,
+        settings_modifier,
+        on_close=lambda: setattr(title_menu, 'is_settings_menu_open', False),
+    )
+
+    def open_settings() -> None:
+        settings_screen.open()
+
+    save_manager = SaveManager()
+    pause_menu = PauseMenuManager(
+        save_manager=save_manager,
+        on_capture_state=capture_current_state,
+        on_notification=on_display_prompt,
+        on_open_settings=open_settings,
+        on_return_main_menu=lambda: on_load_scene(config.SCENE_MAIN_MENU),
+        on_quit_game=on_quit,
+    )
+
+    title_menu = MainMenuManager(
+        game_engine=GameEngine(
+            on_load_scene=on_load_scene,
+            on_apply_save_data=on_apply_save_data,
+            on_initialize_game_start=on_initialize_game_start,
+        ),
+        application=Application(on_quit=on_quit),
+        on_display_prompt=on_display_prompt,
+        on_open_settings=open_settings,
+        user_confirms=lambda: True,
+    )
+    settings_modifier._on_warning = lambda message: setattr(settings_screen, 'status_message', message)
+
+    title_screen = TitleScreen(title_menu, (config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+    pause_screen = PauseScreen(pause_menu, (config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+
+    inventory_manager = InventoryManager()
+    inventory_hotbar = InventoryHotbar()
+    inventory_screen = InventoryScreen(inventory_manager, inventory_hotbar)
+    weapon_icons = Path(config.RESOURCES_PATH) / 'UI' / 'Items' / 'Arms' / '32 Free Weapon Icons' / 'Icons'
+    inventory_manager.bag_slots[0].set_item(InventoryItem('Forged Sword', 'weapon', weapon_icons / 'Iicon_32_01.png', animation_type='sword'))
+    inventory_manager.bag_slots[3].set_item(InventoryItem('Iron Ingot', 'material', weapon_icons / 'Iicon_32_12.png', quantity=12))
+    inventory_manager.bag_slots[12].set_item(InventoryItem('Runic Blade', 'weapon', weapon_icons / 'Iicon_32_06.png', animation_type='greatsword'))
+    inventory_hotbar.hotbar_slots[0].set_item(InventoryItem('Health Tonic', 'consumable', weapon_icons / 'Iicon_32_13.png', quantity=3))
+
+    # Per-axis scancode sets: classify movement on KEYDOWN (event.key), release on KEYUP
+    # (event.scancode) so macOS/SDL mismatched KEYUP key codes don't stick or break input.
+    # key_to_scancode() can disagree with event.scancode — do not use it for comparisons.
+    axis_scancodes_held = {axis: set() for axis in config.KEYBINDS}
+
+# --- START: Added Error Handling ---
+    try:
+        while running_state['running']:
+            # ... (rest of the game loop content) ...
+            for event in pygame.event.get():
+                # ... (event handling) ...
+                pass # Keep the rest of your loop body here
+            
+            # ... (rest of the loop body) ...
+            
+    except Exception as e:
+        print(f"FATAL GAME CRASH: {type(e).__name__} - {e}")
+        # Optionally, you can add a final cleanup/quit sequence here
+        running_state['running'] = False
+# --- END: Added Error Handling ---
+
+
+    # Game loop
+    while running_state['running']:
+        for event in pygame.event.get():
+            """/* Lines 206-263 omitted */
+        /* Lines 264-271 omitted */
+    /* Lines 272-275 omitted */"""
+# --- MAP LOADING INTEGRATION START ---
+    # 1. Define the true project root (goes up to 'A-Game-About-Forging')
+    # If main.py is in Engine/main/, .parent.parent is correct, but let's make sure it doesn't append Engine.
+    current_dir = Path(__file__).resolve().parent # Engine/main
+    project_root = current_dir.parent.parent     # A-Game-About-Forging
+    
+    # 2. Build the correct path without duplicating 'Engine'
+    map_json_path = project_root / 'Contents/Engine/Resources/World/maps/maps/cave.json'
+
+    # 3. Open and load the actual JSON data dictionary from the file
+    import json
+    with open(map_json_path, 'r') as f:
+        map_data = json.load(f)
+
+    # 4. Initialize TiledMap using the loaded data dictionary and the base path
+    tiled_map = TiledMap(map_data, map_json_path.parent) 
+    # --- MAP LOADING INTEGRATION END ---
+
+    # Initialize sprite renderer
+    player_renderer = PlayerRenderer(player)
+
+    # Initialize UI renderer
+    ui_renderer = UIRenderer(player)
+
+    # Title-screen state
+    scene_state = {'name': config.SCENE_MAIN_MENU}
+    running_state = {'running': True}
+    title_prompt_text = {'message': ''}
+
+    def on_load_scene(scene_name: str) -> None:
+        scene_state['name'] = scene_name
+
+    def on_apply_save_data(save_data: dict) -> None:
+        player.health = save_data.get('health', getattr(player, 'health', 0))
+        player.max_health = save_data.get('max_health', getattr(player, 'max_health', 0))
+        player.mana = save_data.get('mana', getattr(player, 'mana', 0))
+        player.max_mana = save_data.get('max_mana', getattr(player, 'max_mana', 0))
+        player.level = save_data.get('level', getattr(player, 'level', 1))
+        player.gold = save_data.get('gold', getattr(player, 'gold', 0))
+
+    def on_initialize_game_start() -> None:
+        on_load_scene('TutorialLevel')
+
+    def on_display_prompt(message: str) -> None:
+        title_prompt_text['message'] = message
+
+    def on_quit() -> None:
+        running_state['running'] = False
+
+    def apply_runtime_settings(configuration) -> None:
+        """Apply settings that Pygame can change immediately."""
+        nonlocal screen
+        if pygame.mixer.get_init():
+            pygame.mixer.music.set_volume(configuration.music_volume * configuration.master_volume)
+        try:
+            width, height = (int(value.strip()) for value in configuration.resolution.split('x', 1))
+            screen = pygame.display.set_mode((width, height))
+            title_screen.screen_size = (width, height)
+            pause_screen.screen_size = (width, height)
+        except (TypeError, ValueError):
+            pass
+
+    def capture_current_state() -> dict:
+        return {
+            'health': getattr(player, 'health', 0),
+            'max_health': getattr(player, 'max_health', 0),
+            'mana': getattr(player, 'mana', 0),
+            'max_mana': getattr(player, 'max_mana', 0),
+            'level': getattr(player, 'level', 1),
+            'gold': getattr(player, 'gold', 0),
+            'scene': 'MainWorld',
+        }
+
+    settings_ui = SettingsUIManager(on_apply_engine=apply_runtime_settings)
+    settings_modifier = SettingsModifier(current_config=settings_ui.current_config)
+    settings_screen = SettingsScreen(
+        settings_ui,
+        settings_modifier,
+        on_close=lambda: setattr(title_menu, 'is_settings_menu_open', False),
+    )
+
+    def open_settings() -> None:
+        settings_screen.open()
+
+    save_manager = SaveManager()
+    pause_menu = PauseMenuManager(
+        save_manager=save_manager,
+        on_capture_state=capture_current_state,
+        on_notification=on_display_prompt,
+        on_open_settings=open_settings,
+        on_return_main_menu=lambda: on_load_scene(config.SCENE_MAIN_MENU),
+        on_quit_game=on_quit,
+    )
+
+    title_menu = MainMenuManager(
+        game_engine=GameEngine(
+            on_load_scene=on_load_scene,
+            on_apply_save_data=on_apply_save_data,
+            on_initialize_game_start=on_initialize_game_start,
+        ),
+        application=Application(on_quit=on_quit),
+        on_display_prompt=on_display_prompt,
+        on_open_settings=open_settings,
+        user_confirms=lambda: True,
+    )
+    settings_modifier._on_warning = lambda message: setattr(settings_screen, 'status_message', message)
+
+    title_screen = TitleScreen(title_menu, (config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+    pause_screen = PauseScreen(pause_menu, (config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+
+    inventory_manager = InventoryManager()
+    inventory_hotbar = InventoryHotbar()
+    inventory_screen = InventoryScreen(inventory_manager, inventory_hotbar)
+    weapon_icons = Path(config.RESOURCES_PATH) / 'UI' / 'Items' / 'Arms' / '32 Free Weapon Icons' / 'Icons'
+    inventory_manager.bag_slots[0].set_item(InventoryItem('Forged Sword', 'weapon', weapon_icons / 'Iicon_32_01.png', animation_type='sword'))
+    inventory_manager.bag_slots[3].set_item(InventoryItem('Iron Ingot', 'material', weapon_icons / 'Iicon_32_12.png', quantity=12))
+    inventory_manager.bag_slots[12].set_item(InventoryItem('Runic Blade', 'weapon', weapon_icons / 'Iicon_32_06.png', animation_type='greatsword'))
+    inventory_hotbar.hotbar_slots[0].set_item(InventoryItem('Health Tonic', 'consumable', weapon_icons / 'Iicon_32_13.png', quantity=3))
+
+    # Per-axis scancode sets: classify movement on KEYDOWN (event.key), release on KEYUP
+    # (event.scancode) so macOS/SDL mismatched KEYUP key codes don't stick or break input.
+    # key_to_scancode() can disagree with event.scancode — do not use it for comparisons.
+    axis_scancodes_held = {axis: set() for axis in config.KEYBINDS}
+
+# --- START: Added Error Handling ---
+    try:
+        while running_state['running']:
+            # ... (rest of the game loop content) ...
+            for event in pygame.event.get():
+                # ... (event handling) ...
+                pass # Keep the rest of your loop body here
+            
+            # ... (rest of the loop body) ...
+            
+    except Exception as e:
+        print(f"FATAL GAME CRASH: {type(e).__name__} - {e}")
+        # Optionally, you can add a final cleanup/quit sequence here
+        running_state['running'] = False
+# --- END: Added Error Handling ---
+
+
+    # Game loop
+    while running_state['running']:
+        for event in pygame.event.get():
+            """/* Lines 206-263 omitted */
+        /* Lines 264-271 omitted */
+    /* Lines 272-275 omitted */"""
+
+        # ... (code before the loop) ...
+
+    # --- START: Added Error Handling ---
+    try:
+        while running_state['running']:
+            # ... (rest of the game loop content) ...
+            for event in pygame.event.get():
+                # ... (event handling) ...
+                pass # Keep the rest of your loop body here
+            
+            # ... (rest of the loop body) ...
+            
+    except Exception as e:
+        print(f"FATAL GAME CRASH: {type(e).__name__} - {e}")
+        # Optionally, you can add a final cleanup/quit sequence here
+        running_state['running'] = False
+    # --- END: Added Error Handling ---
+
 
     # Game loop
     while running_state['running']:

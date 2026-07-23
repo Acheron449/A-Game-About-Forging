@@ -6,7 +6,7 @@ from typing import Any, Callable, List, Optional
 
 import pygame
 
-from Contents.configuration.constants import config # import the hotbar key offset and slot count from the config
+from Contents.Engine.configuration.constants import config # import the hotbar key offset and slot count from the config
 from .inventory_manager import InventorySlot # import the inventory slot from the inventory manager class
 
 

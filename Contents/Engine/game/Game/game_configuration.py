@@ -7,7 +7,7 @@ import os
 from dataclasses import asdict, dataclass, field
 from typing import Any, Dict, List, Optional
 
-from Contents.configuration.constants import config
+from Contents.Engine.configuration.constants import config
 
 
 @dataclass

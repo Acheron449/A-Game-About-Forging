@@ -6,7 +6,7 @@ from typing import Any, Callable, Optional, Tuple
 
 import pygame
 
-from ..config.config import config
+from ..configuration.constants import config
 
 
 class StatusBarTracker:

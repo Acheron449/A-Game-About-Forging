@@ -1,6 +1,6 @@
 """bridges the gap between the game logic and the rendering/UI components, ensuring that the game state is accurately represented visually."""
-from ...configuration.imports import config
-from ...configuration.imports import * # Import the imports
+from ..configuration.constants import *
+from ..configuration.imports import * # Import the imports
 from .renderer import worldRenderer, UIRenderer
 import pygame # Import pygame for the rectangle
 

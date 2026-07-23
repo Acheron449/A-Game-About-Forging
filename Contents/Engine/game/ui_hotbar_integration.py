@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Callable, List, Optional, Tuple
 
-from Contents.configuration.constants import config
+from Contents.Engine.configuration.constants import config
 from .Inventory.inventory_hotbar import InventoryHotbar
 from .Inventory.inventory_manager import InventoryManager, InventorySlot
 

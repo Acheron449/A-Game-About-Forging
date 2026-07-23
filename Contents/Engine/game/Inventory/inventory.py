@@ -8,7 +8,7 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import pygame
 
-from Contents.configuration.constants import config, get_game_font
+from Contents.Engine.configuration.constants import config, get_game_font
 
 
 class InventorySlot:

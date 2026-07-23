@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Any, Callable, List, Optional, TYPE_CHECKING
 
 # Reverting to the original structure based on file system layout
-from ....configuration.constants import config
+from ...configuration.constants import config
 
 if TYPE_CHECKING:
     from .equipment_manager import EquipmentManager

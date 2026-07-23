@@ -6,7 +6,7 @@ from typing import Any, Callable, Dict, List, Optional
 
 import pygame
 
-from Contents.configuration.constants import config, get_game_font
+from Contents.Engine.configuration.constants import config, get_game_font
 from ..Game.game_configuration import GameConfiguration
 from .settings_modifier import SettingsModifier
 
