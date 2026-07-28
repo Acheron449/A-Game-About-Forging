@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="15" height="16" tilewidth="64" tileheight="64" infinite="0" nextlayerid="4" nextobjectid="4">
  <tileset firstgid="1" source="../active/daemia's altar.tsx"/>
- <layer id="1" name="Tile Layer 1" width="15" height="16">
+ <layer id="1" name="Tile Layer 1" width="15" height="16" visible="1">
   <data encoding="csv">
 24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,
 44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,

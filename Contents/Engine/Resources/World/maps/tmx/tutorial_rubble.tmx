@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" class="wall_collisions" orientation="orthogonal" renderorder="right-down" width="16" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="5" nextobjectid="3">
  <tileset firstgid="1" source="../active/tutorial_rubble.tsx"/>
- <layer id="4" name="base" width="16" height="15">
+ <layer id="4" name="base" width="16" height="15" visible = "1">
   <data encoding="csv">
 25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
 46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,

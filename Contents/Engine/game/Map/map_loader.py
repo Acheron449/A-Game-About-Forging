@@ -1,14 +1,12 @@
-# Engine/game/map_loader.py
 """
 Map loader using pytmx library to handle Tiled TMX maps.
-This replaces the previous custom JSON parsing structure.
+This class now encapsulates loading, parsing, and rendering logic.
 """
 import pygame as pg
 from pathlib import Path
 import pytmx
 
-# NOTE: The constants and paths defined in config.py are likely still needed for resources,
-# but the map loading itself is now handled by pytmx.
+# --- Helper Classes (Kept for logical separation of concerns) ---
 
 class TiledImageLayer:
     """Handles Large single-image backgrounds loaded via pytmx."""
@@ -27,23 +25,24 @@ class TiledImageLayer:
     def draw(self, screen, camera_x=0, camera_y=0):
         """Draws the layer, applying camera offsets."""
         # Draw at the anchor point relative to the camera view
-        screen.blit(self.surface, (self.x - camera_x, self.y - camera_y))
+        screen.blit(self.surface, (int(self.x - camera_x), int(self.y - camera_y)))
 
 
 class TiledCollisionObject:
     """Handling of individual polygon data for walls/collisions."""
     def __init__(self, obj_data):
-        self.id = obj_data['id']
+        self.id = obj_data.id
         # The base spawn point of the object
-        self.x = obj_data['x']
-        self.y = obj_data['y']
+        self.x = obj_data.x
+        self.y = obj_data.y
 
         # Convert Tiled relative points into absolute screen points
         self.points = []
-        if 'polygon' in obj_data:
-            for pt in obj_data['polygon']:
-                abs_x = obj_data['x'] + pt['x'] 
-                abs_y = obj_data['y'] + pt['y']
+        if hasattr(obj_data, 'polygon') and obj_data.polygon:
+            for pt in obj_data.polygon:
+                # pytmx polygon points are tuples of (x, y)
+                abs_x = obj_data.x + pt[0] 
+                abs_y = obj_data.y + pt[1]
                 self.points.append((abs_x, abs_y))
                 
     def draw_debug(self, screen, color=(255, 0, 0)):
@@ -53,46 +52,58 @@ class TiledCollisionObject:
 
 
 class TiledMap:
-    """Parses the raw Tiled data (via pytmx) into usable Python objects."""
-    def __init__(self, tmx_data, base_path): # tmx_data is the loaded pytmx object
-        print("--- MAP LOADER: TiledMap initialized. Starting parsing. ---")
+    def __init__(self, tmx_data, base_path): 
+        self.tmx_data = tmx_data # <-- ADD THIS: Save the raw data for rendering tiles
         self.tile_width = tmx_data.tilewidth
         self.tile_height = tmx_data.tileheight
-        
-        # Categorized lists for easier processing
+
         self.image_layers = []
         self.collision_objects = []
-        self.tilesets = {}
+        self.tile_layers = [] # <-- ADD THIS: List to hold standard tile layers
 
-        # 1. Parse Layers based on their unique types
         print("--- DEBUG: Starting layer parsing. ---")
-        for layer in tmx_data.visibleLayers:
+        for layer in tmx_data.visible_layers:
             
-            # Handle Image Layers (like your "cave 1" background)
-            if isinstance(layer, pytmx.TiledImageLayer):
-                print("--- DEBUG: Found Image Layer: {name} ---")
-                # IMPORTANT: You must ensure layer.image_path, layer.x, and layer.y 
-                # correctly hold the data needed for TiledImageLayer.__init__
+            # 1. NEW: Handle Standard Grid Tile Layers
+            if isinstance(layer, pytmx.TiledTileLayer):
+                print(f"--- DEBUG: Found Tile Layer: {layer.name} ---")
+                self.tile_layers.append(layer)
+            
+            # 2. Handle Image Layers
+            elif isinstance(layer, pytmx.TiledImageLayer):
+                print(f"--- DEBUG: Found Image Layer: {layer.name} ---")
                 self.image_layers.append(TiledImageLayer(
                     name=layer.name,
-                    image_path=layer.image_path, # <<< This needs to be reliable from pytmx data
-                    x=layer.x,
-                    y=layer.y
+                    image_path=layer.source, 
+                    x=getattr(layer, 'offsetx', 0), 
+                    y=getattr(layer, 'offsety', 0)
                 ))
             
-            # Handle Object Groups (like your "wall_collisions" polygon data)
+            # 3. Handle Object Groups 
             elif isinstance(layer, pytmx.TiledObjectGroup):
-                print("--- DEBUG: Found Object Group. ---")
-                for obj in layer.objects:
-                    # We only care about shapes that have actual boundary points
-                    if 'polygon' in obj:
+                print(f"--- DEBUG: Found Object Group: {layer.name} ---")
+                for obj in layer:
+                    if hasattr(obj, 'polygon') and obj.polygon:
                         self.collision_objects.append(TiledCollisionObject(obj))
 
-        # 2. (Optional) Load external tilesets if you use standard tiles later
         print("--- DEBUG: TiledMap initialization complete. ---")
+        
+    def render(self, screen, camera_x=0, camera_y=0):
+        """Renders all parsed layers onto the screen surface."""
+        
+        # 1. Draw standard Tile Layers
+        for layer in self.tile_layers:
+            # pytmx allows us to loop through every tile's x, y, and image data
+            for x, y, gid in layer:
+                tile_surface = self.tmx_data.get_tile_image_by_gid(gid)
+                if tile_surface:
+                    # Calculate position and subtract camera offset
+                    pos_x = (x * self.tile_width) - camera_x
+                    pos_y = (y * self.tile_height) - camera_y
+                    screen.blit(tile_surface, (pos_x, pos_y))
 
-# The function that drives loading must now use pytmx.load_pygame()
-# Example signature for the function that replaces the old load_tiled_map:
-# def load_tiled_map(tmx_filepath: str, base_resource_path: Path) -> TiledMap:
-#     tm = pytmx.load_pygame(tmx_filepath, pixelalpha=True)
-#     return TiledMap(tm, base_resource_path)
+        # 2. Draw massive background Image Layers (if you have any)
+        for layer in self.image_layers:
+            layer.draw(screen, camera_x, camera_y)
+        
+# --- End of map_loader.py ---
