@@ -1,16 +1,12 @@
-import pygame
+import pygame as pg
 import sys
-import os
 from pathlib import Path
-import pytmx # <-- Ensure this is present
+import pytmx
 
 # --- Path Setup ---
-# This block MUST correctly point to the 'A-Game-About-Forging' root directory
 current_file_path = Path(__file__).resolve()
 project_root = current_file_path.parents[3] 
-# Add project root to path for sibling imports
 sys.path.append(str(project_root)) 
-# --- End Path Setup --- 
 
 # Game Dependencies
 from ..game.Settings.settings_ui_manager import SettingsScreen, SettingsUIManager
@@ -20,64 +16,75 @@ from .worldRenderer import worldRenderer
 from ..game.Map.map_loader import TiledMap
 
 
-# --- Game Setup Function --- 
-
-screen = pygame.display.set_mode((800, 600)) # Example screen size; adjust as needed
-
-# --- Game Setup Function --- 
-# (Removed the screen variable from out here)
-
-def main(): # Main game loop
-    # Initialize pygame FIRST
-    pygame.init()
-    pygame.font.init()
+def main(): 
+    pg.init()
+    pg.font.init()
     
-    # Create the screen AFTER initialization
-    screen = pygame.display.set_mode((800, 600))
-    pygame.display.set_caption("A Game About Forging")
+    screen = pg.display.set_mode((800, 600))
+    pg.display.set_caption("A Game About Forging")
 
-    # 1. --- Initialize Map Loading --- 
+    # 1. --- Pre-load the Map --- 
     try:
         base_dir = Path(__file__).parent.parent.parent 
         map_json_path = base_dir / 'Engine' / 'Resources' / 'World' /'maps'/ 'tmx' / 'cave.tmx'
-        
-        print(f"Attempting to load map from: {map_json_path}") 
         tmx_data = pytmx.load_pygame(str(map_json_path), pixelalpha=True) 
         game_map = TiledMap(tmx_data, map_json_path.parent)
-    except FileNotFoundError: 
-        print("CRITICAL ERROR: Map file not found at generated path.")
-        return
     except Exception as e:
         print(f"CRITICAL ERROR DURING MAP INITIALIZATION: {e}")
         return 
 
-    # --- THE GAME LOOP ---
-    clock = pygame.time.Clock()
+    # 2. --- State Setup and Menu Callbacks ---
+    game_state = "MENU" 
     running = True
+
+    # These functions allow the menu to talk to our main loop!
+    def trigger_play(scene_name=""):
+        nonlocal game_state # This tells Python to modify the game_state variable above
+        print(f"Loading scene: {scene_name}. Switching to PLAYING state!")
+        game_state = "PLAYING"
+
+    def trigger_quit():
+        nonlocal running
+        print("Quit button pressed. Closing game...")
+        running = False
+
+    # 3. --- Initialize Your UI/Menu Managers ---
+    # We pass our custom functions into your engines
+    engine = GameEngine(on_load_scene=trigger_play)
+    app = Application(on_quit=trigger_quit)
+    
+    # Initialize the menu and title screen
+    menu_manager = MainMenuManager(game_engine=engine, application=app)
+    title_screen = TitleScreen(title_menu=menu_manager, screen_size=(800, 600))
+
+    # --- THE GAME LOOP ---
+    clock = pg.time.Clock()
     
     while running:
-        # 1. Process Events (Input)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        # --- PROCESS EVENTS (Input) ---
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
                 running = False
-                
-        # 2. Update Game State (Player movement, physics, etc.)
-        # (This is where your Application/GameEngine updates will go)
+            
+            # Feed mouse clicks directly to the Title Screen!
+            if game_state == "MENU":
+                title_screen.handle_event(event)
+
+        # --- RENDER GRAPHICS ---
+        screen.fill((0, 0, 0)) 
         
-        # 3. Render Graphics
-        screen.fill((0, 0, 0)) # Clear the screen with black each frame
+        if game_state == "MENU":
+            # Draw your main menu UI
+            title_screen.render(screen)
+            
+        elif game_state == "PLAYING":
+            # Render the game map
+            game_map.render(screen)
         
-        # Render our newly loaded map!
-        game_map.render(screen)
-        
-        # Update the display
-        pygame.display.flip()
-        
-        # Cap the frame rate at 60 FPS
+        pg.display.flip()
         clock.tick(60)
 
-    # Clean exit when the loop breaks
-    pygame.quit()
+    pg.quit()
     sys.exit()
 
 if __name__ == '__main__':
