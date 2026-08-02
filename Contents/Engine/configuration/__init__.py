@@ -5,8 +5,10 @@ from typing import Dict, Sequence, NamedTuple, Tuple
 
 # Configuration constants
 CONFIGURATION = "CONFIGURATION"
-CONTENTS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'Contents')
-RESOURCES_PATH = os.path.join(CONTENTS_PATH, 'Resources')
+ENGINE_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
+PROJECT_ROOT = os.path.normpath(os.path.join(ENGINE_ROOT, '..'))
+CONTENTS_PATH = PROJECT_ROOT
+RESOURCES_PATH = os.path.join(ENGINE_ROOT, 'Resources')
 RESOURCE_MANIFEST_FILE = os.path.join(RESOURCES_PATH, 'resource_paths.txt')
 
 #Map constants
@@ -26,8 +28,8 @@ SCREEN_CLEAR_COLOR = (20, 20, 20)
 QUIT_KEY = pygame.K_ESCAPE
 
 # Maps and map imports, add more maps as required
-CAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')
-CAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')
+CAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'World', 'maps', 'tmx', 'cave.tmx')
+CAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'World', 'maps', 'tmx', 'tutorial_rubble.tmx')
 
 #Font import path, if font is to be changed later, simply adjust as required
 
@@ -35,7 +37,8 @@ DEFAULT_FONT_PATH = os.path.join(
     RESOURCES_PATH,
     'Fonts',
     'Handjet',
-    'Handjet-VariableFont_ELGR,ELSH,wght.ttf',
+    'static',
+    'Handjet-Regular.ttf',
 )
 
 # Player & world tuning
@@ -116,7 +119,6 @@ USER_STATUS_MP_COLOR: Tuple[int, int, int] = (45, 130, 220)
 USER_STATUS_STAMINA_COLOR: Tuple[int, int, int] = (220, 185, 45)
 
 # Save / appearance
-PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', '..'))
 SAVE_DIRECTORY = os.path.join(PROJECT_ROOT, 'Saves')
 SAVE_FILE_EXTENSION = '.dat'
 PLAYER_APPEARANCE_SAVE_DIR = 'Saves/player config'

@@ -15,7 +15,7 @@ class PlayerController:
         self,
         player: Any,
         player_status: Optional[PlayerStatus] = None,
-        on_move: Optional[Callable[[], None]] = None,
+        on_move: Optional[Callable[[Any], None]] = None,
         on_dash: Optional[Callable[[], None]] = None,
         on_attack: Optional[Callable[[], None]] = None,
         on_block: Optional[Callable[[], None]] = None,
@@ -53,7 +53,7 @@ class PlayerController:
     ) -> None:
         mouse_buttons = mouse_buttons or (0, 0, 0)
         if self._movement_pressed(keys_pressed):
-            self.move_player()
+            self.move_player(keys_pressed)
 
         dash_pressed = self._dash_pressed(keys_pressed)
         if dash_pressed and not self._dash_is_held:
@@ -67,9 +67,9 @@ class PlayerController:
         if len(mouse_buttons) > 1 and mouse_buttons[1]:
             self.execute_block()
 
-    def move_player(self) -> None:
+    def move_player(self, keys_pressed=None) -> None:
         if self._on_move:
-            self._on_move()
+            self._on_move(keys_pressed)
 
     def execute_dash(self) -> None:
         if self._on_dash:

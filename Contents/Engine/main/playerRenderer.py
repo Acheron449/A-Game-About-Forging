@@ -39,6 +39,7 @@ class PlayerRenderer:
         idle_s_key = config.PLAYER_IDLE_FALLBACK_KEY
         if idle_s_key in self.idle_sprites and self.idle_sprites[idle_s_key]:
             self.current_sprite = self.idle_sprites[idle_s_key][0][1]  # First frame
+ 
 
     def _axis_held(self, axis_scancodes_held, axis):
         return bool(axis_scancodes_held[axis])
@@ -216,7 +217,11 @@ class PlayerRenderer:
 
         weapon_type = None
         if hasattr(self.player, 'equipped_weapon_type'):
-            weapon_type = self.player.equipped_weapon_type()
+            value = getattr(self.player, 'equipped_weapon_type')
+            if callable(value):
+                weapon_type = value()
+            else:
+                weapon_type = value
         if weapon_type and state in {'attack', 'block', 'parry'}:
             action_sprites = self.get_weapon_action_sprites(weapon_type, state, direction)
             if action_sprites:
@@ -312,7 +317,11 @@ class PlayerRenderer:
             return None
         weapon_type = None
         if hasattr(self.player, 'equipped_weapon_type'):
-            weapon_type = self.player.equipped_weapon_type()
+            value = getattr(self.player, 'equipped_weapon_type')
+            if callable(value):
+                weapon_type = value()
+            else:
+                weapon_type = value
         if not weapon_type:
             return None
 

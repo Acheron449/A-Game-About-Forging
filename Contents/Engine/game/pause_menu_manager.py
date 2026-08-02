@@ -8,6 +8,7 @@ import pygame
 
 from Contents.Engine.configuration.constants import get_game_font
 from .save_manager import SaveManager
+from .Settings.settings_ui_manager import SettingsUIManager
 
 
 class PauseMenuManager:
