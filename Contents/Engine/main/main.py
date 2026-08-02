@@ -8,12 +8,28 @@ current_file_path = Path(__file__).resolve()
 project_root = current_file_path.parents[3] 
 sys.path.append(str(project_root)) 
 
+import pygame as pg
+import sys
+from pathlib import Path
+import pytmx
+
+# --- Path Setup ---
+current_file_path = Path(__file__).resolve()
+project_root = current_file_path.parents[3] 
+sys.path.append(str(project_root)) 
+
 # Game Dependencies
 from ..game.Settings.settings_ui_manager import SettingsScreen, SettingsUIManager
 from .Title import Application, GameEngine, MainMenuManager, TitleScreen
 from .renderer import PlayerRenderer, UIRenderer
 from .worldRenderer import worldRenderer
 from ..game.Map.map_loader import TiledMap
+from ..game.Player.player_status import PlayerStatus
+from ..game.ui_manager import UIManager
+from ..game.ui_hotbar_integration import UIHotbarIntegration
+from ..game.Player.player_status import PlayerStatus
+from ..game.ui_manager import UIManager
+from ..game.ui_hotbar_integration import UIHotbarIntegration
 
 
 def main(): 
@@ -42,6 +58,13 @@ def main():
         nonlocal game_state # This tells Python to modify the game_state variable above
         print(f"Loading scene: {scene_name}. Switching to PLAYING state!")
         game_state = "PLAYING"
+        
+        # Initialize game components needed for PLAYING state
+        # These components handle the game logic, rendering, and input mapping.
+        player_status = PlayerStatus()
+        player_renderer = PlayerRenderer(player=player)
+        ui_manager = UIManager()
+        hotbar_integration = UIHotbarIntegration(hotbar=hotbar)
 
     def trigger_quit():
         nonlocal running
