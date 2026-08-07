@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple 
 
 import pygame
 
@@ -11,8 +11,9 @@ from .save_manager import SaveManager
 from .Settings.settings_ui_manager import SettingsUIManager
 
 
-class PauseMenuManager:
+class PauseMenuManager: # Manage the pause menu state and handle user interactions with the pause menu.
     def __init__(
+        # Manage the pause menu state and handle user interactions with the pause menu.
         self,
         save_manager: Optional[SaveManager] = None,
         active_save_id: Optional[str] = None,
@@ -37,24 +38,24 @@ class PauseMenuManager:
         self._on_quit_game = on_quit_game
         self._on_prompt = on_prompt
 
-    def set_active_save_id(self, save_id: str) -> None:
+    def set_active_save_id(self, save_id: str) -> None: # Set the current active save file ID for the pause menu manager.
         self.current_save_file_id = save_id
 
-    def toggle_pause_menu(self) -> None:
-        self.is_paused = not self.is_paused
+    def toggle_pause_menu(self) -> None: # Toggle the pause menu state and trigger the appropriate callbacks for pausing/resuming the game and rendering the pause UI.
+        self.is_paused = not self.is_paused # Toggle the pause state
         if self.is_paused:
-            if self._on_pause_time:
+            if self._on_pause_time: # Trigger the callback to pause the game time when the pause menu is activated.
                 self._on_pause_time(True)
-            if self._on_render_pause_ui:
+            if self._on_render_pause_ui: # Trigger the callback to render the pause UI when the pause menu is activated.
                 self._on_render_pause_ui(True)
         else:
-            if self._on_pause_time:
+            if self._on_pause_time: # Trigger the callback to resume the game time when the pause menu is deactivated.
                 self._on_pause_time(False)
             if self._on_render_pause_ui:
                 self._on_render_pause_ui(False)
 
     def handle_input(self, button_clicked: str) -> None:
-        handlers = {
+        handlers = { # Map button click identifiers to their corresponding handler methods for the pause menu actions.
             'save': self.on_save_clicked,
             'save_as_new': self.on_save_as_new_clicked,
             'settings': self.on_settings_clicked,
@@ -64,43 +65,47 @@ class PauseMenuManager:
         if handler:
             handler()
 
-    def on_save_clicked(self) -> None:
+    def on_save_clicked(self) -> None: # Handle the "Save" button click event by saving the current game state to the active save file, if one is selected. If no save file is selected, the method will return early without performing any action.
         if not self.current_save_file_id:
             return
         current_game_state = self._capture_state()
         self.save_manager.overwrite_save(self.current_save_file_id, current_game_state)
         self._notify('Game Saved Successfully.')
 
-    def on_save_as_new_clicked(self) -> None:
+    def on_save_as_new_clicked(self) -> None: # Handle the "Save as New" button click event by creating a new save file with the current game state and updating the active save file ID to the newly created save file. A notification is sent to inform the user that a new save has been created.
         current_game_state = self._capture_state()
         new_save_id = self.save_manager.create_new_save(current_game_state)
         self.current_save_file_id = new_save_id
         self._notify('New Save Created.')
 
-    def on_settings_clicked(self) -> None:
+    def on_settings_clicked(self) -> None: # Handle the "Settings" button click event by triggering the callback to open the settings UI, if one is provided. This allows the user to access and modify game settings while in the pause menu.
+        self.open_settings_screen()
+
+    def open_settings_screen(self) -> None:
+        """Open the settings overlay from the pause menu."""
         if self._on_open_settings:
             self._on_open_settings()
 
-    def on_quit_clicked(self) -> None:
-        """Close the application, matching the title menu's Quit Game action."""
-        if self._on_quit_game:
-            self._on_quit_game()
+    def on_quit_clicked(self) -> None: # Handle the "Quit Game" button click event by triggering the callback to quit the game, if one is provided. This allows the user to exit the game from the pause menu.
+        """Close the application, matching the title menu's Quit Game action.""" 
+        self._on_quit_game()
 
-    def _capture_state(self) -> Dict[str, Any]:
+    def _capture_state(self) -> Dict[str, Any]: # Capture the current game state by invoking the provided callback, if available. If no callback is provided, a default starting state is generated using the SaveManager. This method is used to obtain the current game state for saving purposes.
         if self._on_capture_state:
             return self._on_capture_state()
         return SaveManager.generate_default_starting_stats()
 
-    def _notify(self, message: str) -> None:
+    def _notify(self, message: str) -> None: # Send a notification message to the user by invoking the provided callback, if available. This method is used to inform the user of important events or actions taken within the pause menu, such as successful saves or errors.
+    # Render a paused game overlay with save/settings/quit buttons.
         if self._on_notification:
             self._on_notification(message)
 
-    def _get_prompt_response(self, message: str, options: List[str]) -> str:
+    def _get_prompt_response(self, message: str, options: List[str]) -> str: # Get a response from the user for a prompt message with specified options by invoking the provided callback, if available. If no callback is provided, the method returns a default response of 'Cancel'. This method is used to obtain user input for decisions that require confirmation or selection from multiple options.
         if self._on_prompt:
-            return self._on_prompt(message, options)
+            return self._on_prompt(message, options) # If a prompt callback is provided, call it with the message and options to get the user's response.
         return 'Cancel'
 
-    def _return_to_main_menu(self) -> None:
+    def _return_to_main_menu(self) -> None: # Return the user to the main menu by triggering the appropriate callback, if available.
         if self._on_return_main_menu:
             self._on_return_main_menu()
 
@@ -192,11 +197,27 @@ class PauseScreen:
         return rects
 
     def handle_event(self, event: pygame.event.Event) -> None:
+        """Handle pygame events directed at the pause screen (mouse clicks).
+
+        This method is safe to call even if render() has not been called yet; it
+        will compute button rects from the configured screen size when needed.
+        """
         if event.type != pygame.MOUSEBUTTONDOWN or event.button != 1:
             return
-        for button_id, rect in self.button_rects:
+
+        # Ensure button rects are available (render may not have been called yet)
+        if not self.button_rects: # If button rects are not available, compute them based on the screen size and panel layout.      
+            panel_width = 560
+            panel_height = 420
+            panel_rect = pygame.Rect(0, 0, panel_width, panel_height)
+            panel_rect.center = (self.screen_size[0] // 2, self.screen_size[1] // 2)
+            self.button_rects = self.layout_buttons(panel_rect)
+
+        for button_id, rect in self.button_rects: # Check if the mouse click event occurred within the bounds of any button rect. If so, handle the corresponding button action.
             if rect.collidepoint(event.pos):
+                # Prevent 'save' action if there's no active save file
                 if button_id == 'save' and not self.pause_menu.current_save_file_id:
                     return
+                # Delegate handling to the PauseMenuManager
                 self.pause_menu.handle_input(button_id)
                 break

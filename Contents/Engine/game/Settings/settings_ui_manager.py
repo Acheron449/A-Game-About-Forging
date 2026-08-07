@@ -11,8 +11,8 @@ from ..Game.game_configuration import GameConfiguration
 from .settings_modifier import SettingsModifier
 
 
-class SettingsUIManager:
-    def __init__(
+class SettingsUIManager: # Manages the settings UI, including rendering categories, panels, and handling user interactions.
+    def __init__( # Initialize the settings UI manager with the given configuration and callbacks.
         self,
         initial_config: Optional[GameConfiguration] = None,
         on_draw_category: Optional[Callable[[str], None]] = None,
@@ -26,13 +26,13 @@ class SettingsUIManager:
         self._on_draw_panel = on_draw_panel
         self._on_apply_engine = on_apply_engine
 
-    def render_menu(self) -> None:
+    def render_menu(self) -> None: # Render the settings menu by drawing each category and the active settings panel.
         for category in self.categories:
             if self._on_draw_category:
                 self._on_draw_category(category)
         self.draw_settings_panel(self.active_category, self.current_config.to_dict())
 
-    def draw_settings_panel(self, category: str, config_data: Dict[str, Any]) -> None:
+    def draw_settings_panel(self, category: str, config_data: Dict[str, Any]) -> None: # Draw the settings panel for the specified category using the provided configuration data.
         if self._on_draw_panel:
             self._on_draw_panel(category, config_data)
 

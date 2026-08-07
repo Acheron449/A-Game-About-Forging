@@ -17,6 +17,8 @@ from ..game.Map.map_loader import TiledMap
 from ..game.pause_menu_manager import PauseMenuManager, PauseScreen
 from ..game.Player.movement_controller import PlayerController
 from ..game.Player.player_status import PlayerStatus
+from ..game.Settings.settings_modifier import SettingsModifier
+from ..game.Settings.settings_ui_manager import SettingsScreen, SettingsUIManager
 from .Title import Application, GameEngine, MainMenuManager, TitleScreen
 from .playerRenderer import PlayerRenderer
 
@@ -26,7 +28,7 @@ class GameplayPlayerStub(SimpleNamespace):
         return None
 
 
-def initialize_play_state(screen_size=(900, 700), on_quit_game=None): # Initialize the play state with all necessary gameplay systems
+def initialize_play_state(screen_size=(900, 700), on_quit_game=None, settings_screen=None): # Initialize the play state with all necessary gameplay systems
     """Create the gameplay systems once the player enters the play state."""
     player_status = PlayerStatus()
     player = GameplayPlayerStub(
@@ -44,7 +46,10 @@ def initialize_play_state(screen_size=(900, 700), on_quit_game=None): # Initiali
     inventory_manager = InventoryManager()
     hotbar = InventoryHotbar()
     inventory_screen = InventoryScreen(inventory_manager=inventory_manager, hotbar=hotbar)
-    pause_menu = PauseMenuManager(on_quit_game=on_quit_game)
+    pause_menu = PauseMenuManager(
+        on_quit_game=on_quit_game,
+        on_open_settings=lambda: settings_screen.open() if settings_screen else None,
+    )
     pause_screen = PauseScreen(pause_menu=pause_menu, screen_size=screen_size)
     movement_controller = PlayerController(player=player, player_status=player_status)
 
@@ -93,6 +98,7 @@ def main():
             play_state = initialize_play_state(
                 screen_size=screen.get_size(),
                 on_quit_game=lambda: set_running(False),
+                settings_screen=settings_screen,
             )
             play_state["world_position"] = [300, 300]
             play_state["camera"] = [0, 0]
@@ -111,7 +117,18 @@ def main():
     engine = GameEngine(on_load_scene=trigger_play)
     app = Application(on_quit=trigger_quit)
 
-    menu_manager = MainMenuManager(game_engine=engine, application=app)
+    settings_ui = SettingsUIManager()
+    settings_modifier = SettingsModifier(current_config=settings_ui.current_config)
+    settings_screen = SettingsScreen(
+        settings_ui=settings_ui,
+        modifier=settings_modifier,
+    )
+
+    menu_manager = MainMenuManager(
+        game_engine=engine,
+        application=app,
+        on_open_settings=lambda: settings_screen.open(),
+    )
     title_screen = TitleScreen(title_menu=menu_manager, screen_size=(900, 700))
 
     def update_player_position(keys_pressed):
@@ -152,9 +169,15 @@ def main():
     clock = pg.time.Clock()
 
     while running:
-        for event in pg.event.get():
+        # Collect events once per frame so the queue isn't drained by multiple loops.
+        events = pg.event.get()
+        for event in events:
             if event.type == pg.QUIT:
                 running = False
+                continue
+
+            if settings_screen.is_open:
+                settings_screen.handle_event(event)
                 continue
 
             if game_state == "MENU":
@@ -164,6 +187,10 @@ def main():
                     play_state["pause_menu"].toggle_pause_menu()
                 elif event.type == pg.KEYDOWN and event.key == pg.K_i:
                     play_state["inventory_screen"].toggle()
+                # Forward left-mouse clicks to the pause screen when paused
+                if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
+                    if play_state["pause_menu"].is_paused:
+                        play_state["pause_screen"].handle_event(event)
 
         screen.fill((0, 0, 0))
 
@@ -190,6 +217,14 @@ def main():
                 }
                 play_state["movement_controller"].handle_input(keys_pressed, mouse_buttons=mouse_buttons)
                 play_state["player_renderer"].update(axis_scancodes_held, keys_pressed, mouse_buttons)
+
+        if settings_screen.is_open:
+            settings_screen.draw(screen)
+        else:
+            if game_state == "MENU":
+                title_screen.render(screen)
+            elif game_state == "PLAYING" and play_state is not None:
+                pass
 
         pg.display.flip()
         clock.tick(60)

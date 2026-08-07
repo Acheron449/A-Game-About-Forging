@@ -136,14 +136,16 @@ class MainMenuManager:
             self.game_engine.load_scene(config.SCENE_TUTORIAL)
 
     def on_settings_clicked(self) -> None:
-        """Toggle the in-game settings menu from the title screen."""
-        self.is_settings_menu_open = not self.is_settings_menu_open
-        self.ui_manager.toggle_settings_menu(self.is_settings_menu_open)
-        if self.is_settings_menu_open and self._on_open_settings:
+        """Open the settings screen from the title screen."""
+        self.open_settings_screen()
+
+    def open_settings_screen(self) -> None:
+        """Open the settings overlay and notify the host UI if requested."""
+        self.is_settings_menu_open = True
+        self.ui_manager.toggle_settings_menu(True)
+        if self._on_open_settings:
             self._on_open_settings()
-        self.display_prompt(
-            'Settings menu opened.' if self.is_settings_menu_open else ''
-        )
+        self.display_prompt('Settings menu opened.')
 
     def on_quit_clicked(self) -> None:
         """Prompt before quitting the game."""
