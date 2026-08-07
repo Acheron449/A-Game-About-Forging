@@ -1,7 +1,7 @@
 """manages and renders the minimap in the game, including zooming and panning functionality."""
 
-from ..config import config
-from ..config import imports
+from ...configuration.constants import config
+from ...configuration.imports import imports
 
 class Minimap:
     def __init__(self, map_manager):

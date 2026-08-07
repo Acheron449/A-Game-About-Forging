@@ -53,13 +53,21 @@ class TiledCollisionObject:
 
 class TiledMap:
     def __init__(self, tmx_data, base_path): 
-        self.tmx_data = tmx_data # <-- ADD THIS: Save the raw data for rendering tiles
+        self.tmx_data = tmx_data # Save the raw data for rendering tiles
         self.tile_width = tmx_data.tilewidth
         self.tile_height = tmx_data.tileheight
 
+        self.width_in_tiles = tmx_data.width
+        self.height_in_tiles = tmx_data.height
+
+        self.pixels_width = self.width_in_tiles * self.tile_width
+        self.pixels_height = self.height_in_tiles * self.tile_height
+
         self.image_layers = []
         self.collision_objects = []
-        self.tile_layers = [] # <-- ADD THIS: List to hold standard tile layers
+        self.tile_layers = [] # List to hold standard tile layers
+
+
 
         print("--- DEBUG: Starting layer parsing. ---")
         for layer in tmx_data.visible_layers:

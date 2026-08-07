@@ -19,8 +19,8 @@ DAEMIAS_ALTAR = 'Daemias Altar'
 
 
 # Display / main loop
-SCREEN_WIDTH = 1550
-SCREEN_HEIGHT = 850
+SCREEN_WIDTH = 1550 # redundant with config.SCREEN_WIDTH, but kept for backward compatibility
+SCREEN_HEIGHT = 850 # redundant with config.SCREEN_HEIGHT, but kept for backward compatibility
 WINDOW_TITLE = "A Game About Forging"
 TARGET_FPS = 60
 SCREEN_CLEAR_COLOR = (20, 20, 20)

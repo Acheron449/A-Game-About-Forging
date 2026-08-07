@@ -28,7 +28,7 @@ class GameplayPlayerStub(SimpleNamespace):
         return None
 
 
-def initialize_play_state(screen_size=(900, 700), on_quit_game=None, settings_screen=None): # Initialize the play state with all necessary gameplay systems
+def initialize_play_state(screen_size=(1000, 800), on_quit_game=None, settings_screen=None): # Initialize the play state with all necessary gameplay systems
     """Create the gameplay systems once the player enters the play state."""
     player_status = PlayerStatus()
     player = GameplayPlayerStub(
@@ -70,7 +70,7 @@ def main():
     pg.init()
     pg.font.init()
 
-    screen = pg.display.set_mode((900, 700))
+    screen = pg.display.set_mode((1200, 800))
     pg.display.set_caption("A Game About Forging")
 
     try:
@@ -129,7 +129,7 @@ def main():
         application=app,
         on_open_settings=lambda: settings_screen.open(),
     )
-    title_screen = TitleScreen(title_menu=menu_manager, screen_size=(900, 700))
+    title_screen = TitleScreen(title_menu=menu_manager, screen_size=(1200, 800))
 
     def update_player_position(keys_pressed):
         if play_state is None:
