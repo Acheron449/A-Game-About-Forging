@@ -92,11 +92,11 @@
             "expandedObjectLayers": [
                 5
             ],
-            "scale": 0.2964,
-            "selectedLayer": 0,
+            "scale": 0.3737,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 784.4129554655872,
-                "y": 1082.9959514170039
+                "x": 821.5145838908215,
+                "y": 512.4431362055125
             }
         },
         "tmx/daemia's altar.tmx": {
@@ -106,8 +106,8 @@
             "scale": 0.4622,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 466.24837732583285,
-                "y": 685.8502812635222
+                "x": 465.1665945478148,
+                "y": 684.7684984855041
             }
         },
         "tmx/tutorial_rubble.tmx": {
@@ -117,8 +117,8 @@
             "scale": 0.5685,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 475.8135444151276,
-                "y": 487.2471416007035
+                "x": 476.69305189094104,
+                "y": 486.36763412489006
             }
         }
     },
@@ -140,9 +140,9 @@
     "project": "cave.tiled-project",
     "property.type": "object",
     "recentFiles": [
+        "tmx/cave.tmx",
         "tmx/tutorial_rubble.tmx",
         "tmx/daemia's altar.tmx",
-        "tmx/cave.tmx",
         "active/mining_nodes_32x.tsx",
         "maps/tutorial_rubble.json",
         "maps/cave.json",
@@ -152,6 +152,7 @@
         "active/mining_nodes.tsx",
         "active/MainLev2.0.tsx"
     ],
+    "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
         "height": 64,

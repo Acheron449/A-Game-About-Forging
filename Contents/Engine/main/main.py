@@ -19,6 +19,7 @@ from ..game.Player.movement_controller import PlayerController
 from ..game.Player.player_status import PlayerStatus
 from ..game.Settings.settings_modifier import SettingsModifier
 from ..game.Settings.settings_ui_manager import SettingsScreen, SettingsUIManager
+
 from .Title import Application, GameEngine, MainMenuManager, TitleScreen
 from .playerRenderer import PlayerRenderer
 
@@ -40,7 +41,7 @@ def initialize_play_state(screen_size=(1000, 800), on_quit_game=None, settings_s
         gold=player_status.gold,
     )
 
-
+    
 
     player_renderer = PlayerRenderer(player)
     inventory_manager = InventoryManager()
@@ -75,9 +76,12 @@ def main():
 
     try:
         base_dir = Path(__file__).parent.parent.parent
-        map_json_path = base_dir / "Engine" / "Resources" / "World" / "maps" / "tmx" / "cave.tmx"
-        tmx_data = pytmx.load_pygame(str(map_json_path), pixelalpha=True)
-        game_map = TiledMap(tmx_data, map_json_path.parent)
+        map_tmx_path = base_dir / "Engine" / "Resources" / "World" / "maps" / "tmx" / "cave.tmx"
+        print("MAP PATH:", map_tmx_path)
+        print("EXISTS:", Path(map_tmx_path).exists())
+        print("EXTENSION:", Path(map_tmx_path).suffix)
+        tmx_data = pytmx.load_pygame(str(map_tmx_path), pixelalpha=True)
+        game_map = TiledMap(tmx_data, map_tmx_path.parent, scale=1.0)  # Adjust scale as needed
     except Exception as exc:
         print(f"CRITICAL ERROR DURING MAP INITIALIZATION: {exc}")
         return
@@ -100,8 +104,12 @@ def main():
                 on_quit_game=lambda: set_running(False),
                 settings_screen=settings_screen,
             )
+            play_state["player_rect"] = pg.Rect(300, 300, 24, 20)
             play_state["world_position"] = [300, 300]
-            play_state["camera"] = [0, 0]
+
+            view_width, view_height = screen.get_size()
+
+            play_state["camera"] = [max(0, 300 - view_width // 2), max(0, 300 - view_height // 2)]
             play_state["movement_controller"] = PlayerController(
                 player=play_state["player"],
                 player_status=play_state["player_status"],
@@ -153,10 +161,31 @@ def main():
             dy *= 0.7
 
         world_x, world_y = play_state["world_position"]
-        play_state["world_position"] = [world_x + dx, world_y + dy]
+        play_state["player_rect"].x = (int(world_x) + dx)
 
-        map_width = game_map.tmx_data.width * game_map.tmx_data.tilewidth
-        map_height = game_map.tmx_data.height * game_map.tmx_data.tileheight
+        for blocker in game_map.collision_objects:
+            if play_state["player_rect"].colliderect(blocker.rect):
+                if dx > 0:
+                    play_state["player_rect"].right = blocker.rect.left
+                elif dx < 0:
+                    play_state["player_rect"].left = blocker.rect.right
+
+        world_x = play_state["player_rect"].x
+        play_state["player_rect"].y = (int(world_y) + dy)
+
+        for blocker in game_map.collision_objects:
+            if play_state["player_rect"].colliderect(blocker.rect):
+                if dy > 0:
+                    play_state["player_rect"].bottom = blocker.rect.top
+                elif dy < 0:
+                    play_state["player_rect"].top = blocker.rect.bottom
+
+        world_y = play_state["player_rect"].y
+
+        play_state["world_position"] = [world_x, world_y]
+        
+        map_width = game_map.pixels_width
+        map_height = game_map.pixels_height
         view_width, view_height = screen.get_size()
         max_camera_x = max(0, map_width - view_width)
         max_camera_y = max(0, map_height - view_height)
@@ -195,11 +224,23 @@ def main():
         screen.fill((0, 0, 0))
 
         if game_state == "MENU":
-            title_screen.render(screen)
+            for collision in game_map.collision_objects: # debug draw for collision objects
+                collision.draw_debug( screen, camera_x, camera_y )  # Debug draw for collision objects
+
+
+
         elif game_state == "PLAYING" and play_state is not None:
             camera_x, camera_y = play_state.get("camera", (0, 0))
             game_map.render(screen, camera_x, camera_y)
-            screen_center_x, screen_center_y = screen.get_size()[0] // 2, screen.get_size()[1] // 2
+
+
+
+
+
+            screen_center_x = screen.get_size()[0] // 2
+            screen_center_y = screen.get_size()[1] // 2
+
+            
             play_state["player_renderer"].draw_player(screen, (screen_center_x, screen_center_y))
             if play_state["inventory_screen"].is_open:
                 play_state["inventory_screen"].draw(screen, None)

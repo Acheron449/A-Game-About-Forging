@@ -2,6 +2,7 @@
 """Manages the current state of the map, including loading, camera position, and map data."""
 
 from .map_loader import load_tiled_map
+from .map_loader import TiledMap
 from typing import Optional
 
 class MapManager:

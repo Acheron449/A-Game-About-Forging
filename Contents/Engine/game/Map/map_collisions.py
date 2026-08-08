@@ -1,7 +1,7 @@
 from ...configuration.imports import *
 import random
 import pygame as pg
-from ...configuration.constants import constants as c
+from ...configuration.constants import config
 
 class CollisionHandler(object):
     """Handles collisions between the user, blockers and computer

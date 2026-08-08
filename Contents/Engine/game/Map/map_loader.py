@@ -52,10 +52,11 @@ class TiledCollisionObject:
 
 
 class TiledMap:
-    def __init__(self, tmx_data, base_path): 
+    def __init__(self, tmx_data, base_path, scale=1.0): 
         self.tmx_data = tmx_data # Save the raw data for rendering tiles
-        self.tile_width = tmx_data.tilewidth
-        self.tile_height = tmx_data.tileheight
+        self.scale = scale
+        self.tile_width = int(tmx_data.tilewidth * scale)
+        self.tile_height = int(tmx_data.tileheight * scale)
 
         self.width_in_tiles = tmx_data.width
         self.height_in_tiles = tmx_data.height
@@ -105,6 +106,10 @@ class TiledMap:
             for x, y, gid in layer:
                 tile_surface = self.tmx_data.get_tile_image_by_gid(gid)
                 if tile_surface:
+                    # Scale the tile surface to match the desired tile size 
+                    if self.scale != 1.0:
+                        tile_surface = pg.transform.scale(tile_surface, (self.tile_width, self.tile_height))
+
                     # Calculate position and subtract camera offset
                     pos_x = (x * self.tile_width) - camera_x
                     pos_y = (y * self.tile_height) - camera_y
