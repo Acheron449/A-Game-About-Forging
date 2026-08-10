@@ -230,7 +230,7 @@ def main():
         player_rect = play_state["player_rect"]
 
         return map_manager.current_map.get_interaction(
-            player_rect
+            play_state["player_rect"]
         )
 
     # --------------------------------------------------------
@@ -547,82 +547,90 @@ def main():
                     event.type == pg.KEYDOWN
                     and event.key == pg.K_e
                 ):
-                    interactive = get_player_interaction()
+                    activate_interaction()
 
-                    if interactive is not None:
+        def activate_interaction():
 
-                        class_name = (
-                            interactive.class_name.lower()
-                        )
+            if play_state is None:
+                return
 
-                        # ================================================
-                        # DOOR
-                        # ================================================
+            interactive = get_player_interaction()
 
-                        if class_name == "door":
+            if interactive is None:
+                return
 
-                            if interactive.target_map:
+            class_name = interactive.class_name.lower()
 
-                                print(
-                                    "Using door:",
-                                    interactive.name,
-                                    "->",
-                                    interactive.target_map,
-                                )
+            # ----------------------------
+            # DOOR
+            # ----------------------------
 
-                                map_manager.load_map(
-                                    interactive.target_map,
-                                    spawn_position=(
-                                        interactive.target_x or 0,
-                                        interactive.target_y or 0,
-                                    ),
-                                )
+            if class_name == "door":
 
-                                # Update player position
-                                spawn_x, spawn_y = (
-                                    map_manager.spawn_position
-                                )
+                if interactive.target_map:
 
-                                play_state["player_rect"].topleft = (
-                                    spawn_x,
-                                    spawn_y,
-                                )
+                    print(
+                        "Using door:",
+                        interactive.name,
+                        "->",
+                        interactive.target_map,
+                    )
 
-                                play_state["world_position"] = [
-                                    spawn_x,
-                                    spawn_y,
-                                ]
+                    map_manager.load_map(
+                        interactive.target_map,
+                        spawn_position=(
+                            interactive.target_x or 0,
+                            interactive.target_y or 0,
+                        ),
+                    )
 
-                        # ================================================
-                        # LOOT POINT
-                        # ================================================
+                    spawn_x, spawn_y = map_manager.spawn_position
 
-                        elif class_name == "loot_point":
+                    play_state["player_rect"].topleft = (
+                        spawn_x,
+                        spawn_y,
+                    )
 
-                            print(
-                                "Opening loot point:",
-                                interactive.name,
-                            )
+                    play_state["world_position"] = [
+                        spawn_x,
+                        spawn_y,
+                    ]
 
-                            # Later:
-                            # play_state["loot_screen"].open(
-                            #     interactive
-                            # )
+            # ----------------------------
+            # LOOT POINT
+            # ----------------------------
 
-                        # ================================================
-                        # MINING NODE
-                        # ================================================
+            elif class_name == "loot_point":
 
-                        elif class_name == "mining_node":
+                print(
+                    "Opening loot point:",
+                    interactive.name,
+                )
 
-                            print(
-                                "Mining:",
-                                interactive.name,
-                                interactive.resource,
-                            )
+                loot_screen = play_state.get("loot_screen")
 
-                            # Later:
-                            # mining system handles this
+                if loot_screen:
+                    loot_screen.open(interactive)
+
+            # ----------------------------
+            # MINING NODE
+            # ----------------------------
+
+            elif class_name == "mining_node":
+
+                print(
+                    "Mining:",
+                    interactive.name,
+                    interactive.resource,
+                )
+
+                mining_system = play_state.get(
+                    "mining_system"
+                )
+
+                if mining_system:
+                    mining_system.mine(interactive)
+
 
         # ----------------------------------------------------
         # CLEAR SCREEN
@@ -651,7 +659,6 @@ def main():
                 "camera",
                 (0, 0),
             )
-
             # ----------------------------
             # Map
             # ----------------------------

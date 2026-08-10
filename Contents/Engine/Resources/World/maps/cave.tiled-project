@@ -8,16 +8,6 @@
         "."
     ],
     "properties": [
-        {
-            "name": "collisions",
-            "type": "object",
-            "value": 0
-        },
-        {
-            "name": "door",
-            "type": "object",
-            "value": 0
-        }
     ],
     "propertyTypes": [
         {

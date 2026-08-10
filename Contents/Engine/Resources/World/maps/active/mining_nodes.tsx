@@ -1,82 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.12.2" name="mining_nodes" tilewidth="64" tileheight="64" tilecount="78" columns="6">
- <image source="../../tilesets/Mining Nodes/spritesheet64x.png" trans="ff00ff" width="384" height="832"/>
- <tile id="0" type="Mining Node"/>
- <tile id="1" type="Mining Node"/>
- <tile id="2" type="Mining Node"/>
- <tile id="3" type="Mining Node"/>
- <tile id="4" type="Mining Node"/>
- <tile id="5" type="Mining Node"/>
- <tile id="6" type="Mining Node"/>
- <tile id="7" type="Mining Node"/>
- <tile id="8" type="Mining Node"/>
- <tile id="9" type="Mining Node" probability="0.1"/>
- <tile id="10" type="Mining Node"/>
- <tile id="11" type="Mining Node"/>
- <tile id="12" type="Mining Node" probability="0.1"/>
- <tile id="13" type="Mining Node" probability="0.1"/>
- <tile id="14" type="Mining Node" probability="0.1"/>
- <tile id="15" type="Mining Node" probability="0.5"/>
- <tile id="16" type="Mining Node"/>
- <tile id="17" type="Mining Node"/>
- <tile id="18" type="Mining Node"/>
- <tile id="19" type="Mining Node"/>
- <tile id="20" type="Mining Node"/>
- <tile id="21" type="Mining Node"/>
- <tile id="22" type="Mining Node"/>
- <tile id="23" type="Mining Node"/>
- <tile id="24" type="Mining Node"/>
- <tile id="25" type="Mining Node"/>
- <tile id="26" type="Mining Node"/>
- <tile id="27" type="Mining Node"/>
- <tile id="28" type="Mining Node"/>
- <tile id="29" type="Mining Node"/>
- <tile id="30" type="Mining Node"/>
- <tile id="31" type="Mining Node"/>
- <tile id="32" type="Mining Node"/>
- <tile id="33" type="Mining Node"/>
- <tile id="34" type="Mining Node"/>
- <tile id="35" type="Mining Node"/>
- <tile id="36" type="Mining Node"/>
- <tile id="37" type="Mining Node"/>
- <tile id="38" type="Mining Node"/>
- <tile id="39" type="Mining Node"/>
- <tile id="40" type="Mining Node"/>
- <tile id="41" type="Mining Node"/>
- <tile id="42" type="Mining Node"/>
- <tile id="43" type="Mining Node"/>
- <tile id="44" type="Mining Node"/>
- <tile id="45" type="Mining Node"/>
- <tile id="46" type="Mining Node"/>
- <tile id="47" type="Mining Node"/>
- <tile id="48" type="Mining Node"/>
- <tile id="49" type="Mining Node"/>
- <tile id="50" type="Mining Node"/>
- <tile id="51" type="Mining Node"/>
- <tile id="52" type="Mining Node"/>
- <tile id="53" type="Mining Node"/>
- <tile id="54" type="Mining Node"/>
- <tile id="55" type="Mining Node"/>
- <tile id="56" type="Mining Node"/>
- <tile id="57" type="Mining Node"/>
- <tile id="58" type="Mining Node"/>
- <tile id="59" type="Mining Node"/>
- <tile id="60" type="Mining Node"/>
- <tile id="61" type="Mining Node"/>
- <tile id="62" type="Mining Node"/>
- <tile id="63" type="Mining Node"/>
- <tile id="64" type="Mining Node"/>
- <tile id="65" type="Mining Node"/>
- <tile id="66" type="Mining Node"/>
- <tile id="67" type="Mining Node"/>
- <tile id="68" type="Mining Node"/>
- <tile id="69" type="Mining Node"/>
- <tile id="70" type="Mining Node"/>
- <tile id="71" type="Mining Node"/>
- <tile id="72" type="Mining Node"/>
- <tile id="73" type="Mining Node"/>
- <tile id="74" type="Mining Node"/>
- <tile id="75" type="Mining Node"/>
- <tile id="76" type="Mining Node"/>
- <tile id="77" type="Mining Node"/>
+<tileset version="1.10" tiledversion="1.12.2" name="mining_nodes" class="mining_node" tilewidth="80" tileheight="44" tilecount="180" columns="4" objectalignment="topright">
+ <grid orientation="orthogonal" width="64" height="64"/>
+ <transformations hflip="0" vflip="0" rotate="0" preferuntransformed="1"/>
+ <properties>
+  <property name="mineral_pool" value="ores"/>
+  <property name="quantity_max" type="int" value="3"/>
+  <property name="quantity_min" type="int" value="1"/>
+  <property name="respawn_time" type="float" value="30"/>
+ </properties>
+ <image source="../../tilesets/Pixel Art Rock Pile Pack/Rock Pile - USE.png" trans="ff00ff" width="320" height="1980"/>
+ <tile id="0" type="mining_node"/>
+ <tile id="1" type="mining_node"/>
+ <tile id="2" type="mining_node"/>
+ <tile id="3" type="mining_node"/>
+ <tile id="4" type="mining_node"/>
+ <tile id="5" type="mining_node"/>
+ <tile id="6" type="mining_node"/>
+ <tile id="7" type="mining_node"/>
+ <tile id="8" type="mining_node" probability="0.1"/>
+ <tile id="9" type="mining_node" probability="0.1"/>
+ <tile id="10" type="mining_node" probability="0.1"/>
+ <tile id="11" type="mining_node"/>
+ <tile id="12" type="mining_node"/>
+ <tile id="13" type="mining_node"/>
+ <tile id="14" type="mining_node"/>
+ <tile id="15" type="mining_node"/>
+ <tile id="16" type="mining_node"/>
+ <tile id="17" type="mining_node"/>
+ <tile id="18" type="mining_node"/>
+ <tile id="19" type="mining_node"/>
+ <tile id="20" type="mining_node"/>
+ <tile id="21" type="mining_node"/>
+ <tile id="22" type="mining_node"/>
+ <tile id="23" type="mining_node"/>
+ <tile id="24" type="mining_node"/>
+ <tile id="25" type="mining_node"/>
+ <tile id="26" type="mining_node"/>
+ <tile id="27" type="mining_node"/>
+ <tile id="28" type="mining_node"/>
+ <tile id="29" type="mining_node"/>
+ <tile id="30" type="mining_node"/>
+ <tile id="31" type="mining_node"/>
+ <tile id="32" type="mining_node"/>
+ <tile id="33" type="mining_node"/>
+ <tile id="34" type="mining_node"/>
+ <tile id="35" type="mining_node"/>
+ <tile id="36" type="mining_node"/>
+ <tile id="37" type="mining_node"/>
+ <tile id="38" type="mining_node"/>
+ <tile id="39" type="mining_node"/>
+ <tile id="40" type="mining_node"/>
+ <tile id="41" type="mining_node"/>
+ <tile id="42" type="mining_node"/>
+ <tile id="43" type="mining_node"/>
+ <tile id="44" type="mining_node"/>
+ <tile id="45" type="mining_node"/>
+ <tile id="46" type="mining_node"/>
+ <tile id="47" type="mining_node"/>
+ <tile id="48" type="mining_node"/>
+ <tile id="49" type="mining_node"/>
+ <tile id="50" type="mining_node"/>
+ <tile id="51" type="mining_node"/>
+ <tile id="52" type="mining_node"/>
+ <tile id="53" type="mining_node"/>
+ <tile id="54" type="mining_node"/>
+ <tile id="55" type="mining_node"/>
+ <tile id="56" type="mining_node"/>
+ <tile id="57" type="mining_node"/>
+ <tile id="58" type="mining_node"/>
+ <tile id="59" type="mining_node"/>
+ <tile id="60" type="mining_node"/>
+ <tile id="61" type="mining_node"/>
+ <tile id="62" type="mining_node"/>
+ <tile id="63" type="mining_node"/>
+ <tile id="64" type="mining_node"/>
+ <tile id="65" type="mining_node"/>
+ <tile id="66" type="mining_node"/>
+ <tile id="67" type="mining_node"/>
+ <tile id="68" type="mining_node"/>
+ <tile id="69" type="mining_node"/>
+ <tile id="70" type="mining_node"/>
+ <tile id="71" type="mining_node"/>
+ <tile id="72" type="mining_node"/>
+ <tile id="73" type="mining_node"/>
+ <tile id="74" type="mining_node"/>
+ <tile id="75" type="mining_node"/>
+ <tile id="76" type="mining_node"/>
+ <tile id="77" type="mining_node"/>
+ <tile id="78" type="mining_node"/>
+ <tile id="79" type="mining_node"/>
+ <tile id="80" type="mining_node"/>
+ <tile id="81" type="mining_node"/>
+ <tile id="82" type="mining_node"/>
+ <tile id="83" type="mining_node"/>
+ <tile id="84" type="mining_node"/>
+ <tile id="85" type="mining_node"/>
+ <tile id="86" type="mining_node"/>
+ <tile id="87" type="mining_node"/>
+ <tile id="88" type="mining_node"/>
+ <tile id="89" type="mining_node"/>
+ <tile id="90" type="mining_node"/>
+ <tile id="91" type="mining_node"/>
+ <tile id="92" type="mining_node"/>
+ <tile id="93" type="mining_node"/>
+ <tile id="94" type="mining_node"/>
+ <tile id="95" type="mining_node"/>
+ <tile id="96" type="mining_node"/>
+ <tile id="97" type="mining_node"/>
+ <tile id="98" type="mining_node"/>
+ <tile id="99" type="mining_node"/>
+ <tile id="100" type="mining_node"/>
+ <tile id="101" type="mining_node"/>
+ <tile id="102" type="mining_node"/>
+ <tile id="103" type="mining_node"/>
+ <tile id="104" type="mining_node"/>
+ <tile id="105" type="mining_node"/>
+ <tile id="106" type="mining_node"/>
+ <tile id="107" type="mining_node"/>
+ <tile id="108" type="mining_node"/>
+ <tile id="109" type="mining_node"/>
+ <tile id="110" type="mining_node"/>
+ <tile id="111" type="mining_node"/>
+ <tile id="112" type="mining_node"/>
+ <tile id="113" type="mining_node"/>
+ <tile id="114" type="mining_node"/>
+ <tile id="115" type="mining_node"/>
+ <tile id="116" type="mining_node"/>
+ <tile id="117" type="mining_node"/>
+ <tile id="118" type="mining_node"/>
+ <tile id="119" type="mining_node"/>
+ <tile id="120" type="mining_node"/>
+ <tile id="121" type="mining_node"/>
+ <tile id="122" type="mining_node"/>
+ <tile id="123" type="mining_node"/>
+ <tile id="124" type="mining_node"/>
+ <tile id="125" type="mining_node"/>
+ <tile id="126" type="mining_node"/>
+ <tile id="127" type="mining_node"/>
+ <tile id="128" type="mining_node"/>
+ <tile id="129" type="mining_node"/>
+ <tile id="130" type="mining_node"/>
+ <tile id="131" type="mining_node"/>
+ <tile id="132" type="mining_node"/>
+ <tile id="133" type="mining_node"/>
+ <tile id="134" type="mining_node"/>
+ <tile id="135" type="mining_node"/>
+ <tile id="136" type="mining_node"/>
+ <tile id="137" type="mining_node"/>
+ <tile id="138" type="mining_node"/>
+ <tile id="139" type="mining_node"/>
+ <tile id="140" type="mining_node"/>
+ <tile id="141" type="mining_node"/>
+ <tile id="142" type="mining_node"/>
+ <tile id="143" type="mining_node"/>
+ <tile id="144" type="mining_node"/>
+ <tile id="145" type="mining_node"/>
+ <tile id="146" type="mining_node"/>
+ <tile id="147" type="mining_node"/>
+ <tile id="148" type="mining_node"/>
+ <tile id="149" type="mining_node"/>
+ <tile id="150" type="mining_node"/>
+ <tile id="151" type="mining_node"/>
+ <tile id="152" type="mining_node"/>
+ <tile id="153" type="mining_node"/>
+ <tile id="154" type="mining_node"/>
+ <tile id="155" type="mining_node"/>
+ <tile id="156" type="mining_node"/>
+ <tile id="157" type="mining_node"/>
+ <tile id="158" type="mining_node"/>
+ <tile id="159" type="mining_node"/>
+ <tile id="160" type="mining_node"/>
+ <tile id="161" type="mining_node"/>
+ <tile id="162" type="mining_node"/>
+ <tile id="163" type="mining_node"/>
+ <tile id="164" type="mining_node"/>
+ <tile id="165" type="mining_node"/>
+ <tile id="166" type="mining_node"/>
+ <tile id="167" type="mining_node"/>
+ <tile id="168" type="mining_node"/>
+ <tile id="169" type="mining_node"/>
+ <tile id="170" type="mining_node"/>
+ <tile id="171" type="mining_node"/>
+ <tile id="172" type="mining_node"/>
+ <tile id="173" type="mining_node"/>
+ <tile id="174" type="mining_node"/>
+ <tile id="175" type="mining_node"/>
+ <tile id="176" type="mining_node"/>
+ <tile id="177" type="mining_node"/>
+ <tile id="178" type="mining_node"/>
+ <tile id="179" type="mining_node"/>
 </tileset>

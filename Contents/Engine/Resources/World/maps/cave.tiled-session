@@ -175,16 +175,19 @@
             }
         },
         "tmx/cave.tmx": {
+            "expandedGroupLayers": [
+                14
+            ],
             "expandedObjectLayers": [
-                15,
                 5,
+                15,
                 9
             ],
-            "scale": 0.0757,
-            "selectedLayer": 8,
+            "scale": 0.2527,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 3150.594451783356,
-                "y": 1988.1109643328928
+                "x": 3201.4246141669964,
+                "y": 2049.8614958448757
             }
         },
         "tmx/daemia's altar.tmx": {
@@ -195,8 +198,8 @@
             "scale": 0.4223,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 621.5960217854606,
-                "y": 479.51693109164097
+                "x": 639.3559081221879,
+                "y": 497.2768174283685
             }
         },
         "tmx/overworld.tmx": {
@@ -209,18 +212,18 @@
         },
         "tmx/tutorial.tmx": {
             "expandedGroupLayers": [
-                7
+                7,
+                11
             ],
             "expandedObjectLayers": [
-                3,
-                6,
-                9
+                9,
+                3
             ],
-            "scale": 0.3324,
-            "selectedLayer": 4,
+            "scale": 0.4386,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 949.1576413959089,
-                "y": 1295.1263537906138
+                "x": 1181.030551755586,
+                "y": 1502.5079799361606
             }
         },
         "tmx/tutorial_rubble.tmx": {
@@ -255,8 +258,9 @@
         "active/tutorial_rubble.tsx"
     ],
     "project": "cave.tiled-project",
-    "property.type": "object",
+    "property.type": "string",
     "recentFiles": [
+        "active/tutorial_rubble.tsx",
         "tmx/overworld.tmx",
         "active/Overworld_5.tsx",
         "tmx/daemia's altar.tmx",
@@ -267,8 +271,7 @@
         "active/Overworld_2.tsx",
         "active/Overworld_3.tsx",
         "active/Overworld_4.tsx",
-        "active/Overworld_6.tsx",
-        "active/Overworld_7.tsx"
+        "active/Overworld_6.tsx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
