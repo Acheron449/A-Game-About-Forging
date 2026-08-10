@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" class="wall_collisions" orientation="orthogonal" renderorder="right-down" width="9" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="11" nextobjectid="57">
+ <tileset firstgid="1" source="../active/tutorial_rubble.tsx"/>
+ <tileset firstgid="81" source="../active/NPCs_Tutorial.tsx"/>
+ <layer id="4" name="base" width="9" height="8">
+  <data encoding="csv">
+2,3,4,5,6,7,8,9,10,
+12,13,14,15,16,17,18,19,20,
+22,23,24,25,26,27,28,29,30,
+32,33,34,35,36,37,38,39,40,
+42,43,44,45,46,47,48,49,50,
+52,53,54,55,56,57,58,59,60,
+62,63,64,65,66,67,68,69,70,
+72,73,74,75,76,77,78,79,80
+</data>
+ </layer>
+ <objectgroup id="3" name="wall_collisions" class="collision">
+  <object id="8" type="collision" x="-6.59351" y="16.3793" width="417.234" height="2029.33"/>
+  <object id="9" type="collision" x="407.681" y="16.3793" width="161.57" height="1030.51"/>
+  <object id="10" type="collision" x="541.726" y="11.8532" width="313.405" height="843.791"/>
+  <object id="11" type="collision" x="838.65" y="10.8303" width="231.029" height="610.518"/>
+  <object id="12" type="collision" x="1073.01" y="4.82101" width="316.624" height="661.405"/>
+  <object id="13" type="collision" x="1387.16" y="4.82101" width="314.146" height="611.539"/>
+  <object id="14" type="collision" x="1697.61" y="-4.12896" width="603.855" height="804.158"/>
+  <object id="15" type="collision" x="1906.62" y="761.523" width="400.723" height="373.429"/>
+  <object id="17" type="collision" x="2085.25" y="1134.82" width="218.124" height="908.177"/>
+  <object id="18" type="collision" x="1920.71" y="1643.57" width="169.539" height="406.329"/>
+  <object id="19" type="collision" x="1776.1" y="1748.28" width="139.62" height="307.939"/>
+  <object id="20" type="collision" x="1676.37" y="1818.09" width="94.7424" height="232.827"/>
+  <object id="21" type="collision" x="1506.83" y="1867.96" width="164.552" height="183.986"/>
+  <object id="22" type="collision" x="1162.77" y="1799.75" width="344.064" height="243.057"/>
+  <object id="23" type="collision" x="888.513" y="1803.13" width="269.268" height="230.91"/>
+  <object id="24" type="collision" x="748.894" y="1733.32" width="134.634" height="309.67"/>
+  <object id="25" type="collision" x="584.341" y="1628.61" width="159.566" height="417.326"/>
+  <object id="26" type="collision" x="388.541" y="1578.74" width="190.813" height="463.226"/>
+  <object id="27" type="collision" x="399.843" y="1309.48" width="94.7424" height="279.24"/>
+  <object id="30" type="collision" x="1085.38" y="822.479" width="299.083" height="373.854"/>
+  <object id="31" type="collision" x="875.543" y="979.257" width="248.432" height="299.083"/>
+  <object id="32" type="collision" x="962.373" y="1338.64" width="120.598" height="79.5948"/>
+  <object id="34" type="collision" x="1671.49" y="1000.96" width="108.538" height="84.4187"/>
+  <object id="35" type="collision" x="1782.44" y="1097.44" width="120.598" height="74.7709"/>
+  <object id="36" type="collision" x="1825.86" y="976.845" width="38.5914" height="123.01"/>
+  <object id="39" type="collision" x="1620.84" y="697.057" width="91.6546" height="130.246"/>
+  <object id="40" type="collision" x="1606.37" y="1312.11" width="282.2" height="117.468"/>
+  <object id="41" type="collision" x="1707.12" y="1567.72" width="112.537" height="143.866"/>
+  <object id="42" type="collision" x="1765.53" y="1547.64" width="124.543" height="138.881"/>
+  <object id="43" type="collision" x="1765.56" y="1415.98" width="142.306" height="132.497"/>
+  <object id="44" type="collision" x="808.008" y="1560.54" width="65.123" height="214.665"/>
+  <object id="45" type="collision" x="762.18" y="1681.14" width="142.306" height="86.8307"/>
+  <object id="46" type="collision" x="397.974" y="1145.68" width="125.422" height="103.714"/>
+  <object id="47" type="collision" x="395.562" y="1095.03" width="110.95" height="55.4752"/>
+  <object id="48" type="collision" x="670.526" y="904.486" width="94.0666" height="74.7709"/>
+ </objectgroup>
+ <objectgroup color="#00fcff" draworder="index" id="6" name="doors" class="door">
+  <object id="29" name="daemia's altar" type="door" x="1560.91" y="1434.64" width="93.6055" height="91.478"/>
+  <object id="56" name="exit" type="door" x="988.756" y="1028.02" width="299.839" height="207.032"/>
+ </objectgroup>
+ <layer id="8" name="NPCs" class="NPC" width="9" height="8">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,
+0,0,86,0,0,81,0,0,0,
+0,0,0,85,87,0,0,0,0,
+0,0,0,0,88,0,0,0,0,
+0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup color="#8eff4e" id="9" name="loot_point" class="loot_point">
+  <object id="50" name="4" type="loot_point" x="1053.2" y="1469.35" width="127.936" height="42.995"/>
+  <object id="51" name="3" type="loot_point" x="999.18" y="1720.33" width="177.223" height="52.4329"/>
+  <object id="52" name="2" type="loot_point" x="772.678" y="1463.42" width="120.596" height="46.1409"/>
+  <object id="53" name="1" type="loot_point" x="514.536" y="1207.72" width="120.596" height="55.5789"/>
+  <object id="54" name="5" type="loot_point" x="1292.98" y="1208.94" width="99.6225" height="54.5302"/>
+ </objectgroup>
+</map>

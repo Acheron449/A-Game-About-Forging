@@ -6,7 +6,7 @@ from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .character_preview import CharacterPreview
-    from .inventory_manager import InventoryManager
+    from ..Inventory.inventory_manager import InventoryManager
     from .player_status import PlayerStatus
 
 
@@ -75,6 +75,8 @@ class EquipmentManager:
             self.ranged_weapon_slot,
         ]
 
+
+
     def slot_by_name(self, name: str) -> Optional[EquipmentSlot]:
         for slot in self.get_all_slots():
             if slot.name == name:
@@ -126,3 +128,61 @@ class EquipmentManager:
         if self.character_preview:
             self.character_preview.update_image()
         return True
+
+    def get_equipped_item(self) -> Optional[Any]:
+        """Return the item currently equipped for attacking."""
+
+        # Primary weapon takes priority
+        if self.primary_weapon_slot.has_item():
+            return self.primary_weapon_slot.get_item()
+
+        # Otherwise use the tool slot
+        if self.tool_slot.has_item():
+            return self.tool_slot.get_item()
+
+        # Nothing usable is equipped
+        return None
+
+    def get_equipped_attack_type(self) -> Optional[str]:
+        """Return the attack type of the currently equipped item."""
+
+        item = self.get_equipped_item()
+
+        if item is None:
+            return None
+
+        return getattr(item, "attack_type", None)
+
+    def has_tool(self, tool_type: str) -> bool:
+        for slot in self.get_all_slots():
+            if not slot.has_item():
+                continue
+
+            item = slot.get_item()
+
+            if getattr(item, "attack_type", None) == tool_type:
+                return True
+
+        return False
+
+    def get_equipped_weapon(self):
+        """Return the currently equipped primary weapon."""
+
+        if self.primary_weapon_slot.has_item():
+            return self.primary_weapon_slot.get_item()
+
+        return None
+
+
+    def get_tool(self, tool_type):
+        """Return the required tool if it is equipped."""
+
+        if not self.tool_slot.has_item():
+            return None
+
+        item = self.tool_slot.get_item()
+
+        if getattr(item, "item_type", None) == tool_type:
+            return item
+
+        return None

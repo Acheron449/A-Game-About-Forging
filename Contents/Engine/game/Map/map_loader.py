@@ -29,32 +29,217 @@ class TiledImageLayer:
 
 
 class TiledCollisionObject:
-    """Handling of individual polygon data for walls/collisions."""
-    def __init__(self, obj_data):
+
+    def __init__(self, obj_data, scale=1.0):
+
         self.id = obj_data.id
-        # The base spawn point of the object
-        self.x = obj_data.x
-        self.y = obj_data.y
+        self.name = obj_data.name
 
-        # Convert Tiled relative points into absolute screen points
-        self.points = []
-        if hasattr(obj_data, 'polygon') and obj_data.polygon:
-            for pt in obj_data.polygon:
-                # pytmx polygon points are tuples of (x, y)
-                abs_x = obj_data.x + pt[0] 
-                abs_y = obj_data.y + pt[1]
-                self.points.append((abs_x, abs_y))
-                
-    def draw_debug(self, screen, color=(255, 0, 0)):
-        """Draws the polygon outlines for debugging."""
-        if len(self.points) > 1:
-            pg.draw.polygon(screen, color, self.points, 2)
+        # ----------------------------------------------------
+        # Collision property
+        # ----------------------------------------------------
+        #
+        # Objects on the Collision layer are solid by default.
+        #
+        # In Tiled, you can set:
+        #
+        # collision = false
+        #
+        # on things such as doors.
+        #
+        self.collision_enabled = obj_data.properties.get(
+            "collision",
+            True
+        )
 
+        # ----------------------------------------------------
+        # Polygon collision object
+        # ----------------------------------------------------
+
+        polygon = getattr(obj_data, "polygon", None)
+
+        if polygon:
+
+            self.points = [
+                (
+                    (obj_data.x + point.x) * scale,
+                    (obj_data.y + point.y) * scale
+                )
+                for point in polygon
+            ]
+
+        # ----------------------------------------------------
+        # Normal rectangle collision object
+        # ----------------------------------------------------
+
+        else:
+
+            x = obj_data.x * scale
+            y = obj_data.y * scale
+            width = obj_data.width * scale
+            height = obj_data.height * scale
+
+            self.points = [
+                (x, y),
+                (x + width, y),
+                (x + width, y + height),
+                (x, y + height),
+            ]
+
+        # ----------------------------------------------------
+        # Bounding rectangle
+        #
+        # Used only for broad-phase collision checking
+        # and compatibility/debugging.
+        # ----------------------------------------------------
+
+        xs = [point[0] for point in self.points]
+        ys = [point[1] for point in self.points]
+
+        self.rect = pg.Rect(
+            int(min(xs)),
+            int(min(ys)),
+            int(max(xs) - min(xs)),
+            int(max(ys) - min(ys)),
+        )
+
+    # ========================================================
+    # COLLISION TEST
+    # ========================================================
+
+    def collides_with_rect(self, player_rect):
+
+        if not self.collision_enabled:
+            return False
+
+        # ----------------------------------------------------
+        # Broad-phase check
+        #
+        # Quickly reject objects that are nowhere near player.
+        # ----------------------------------------------------
+
+        if not self.rect.colliderect(player_rect):
+            return False
+
+        # ----------------------------------------------------
+        # Convert player rectangle to polygon
+        # ----------------------------------------------------
+
+        player_points = [
+            (player_rect.left, player_rect.top),
+            (player_rect.right, player_rect.top),
+            (player_rect.right, player_rect.bottom),
+            (player_rect.left, player_rect.bottom),
+        ]
+
+        # ----------------------------------------------------
+        # SAT collision test
+        # ----------------------------------------------------
+
+        polygons = [
+            self.points,
+            player_points,
+        ]
+
+        for polygon in polygons:
+
+            for i in range(len(polygon)):
+
+                p1 = polygon[i]
+                p2 = polygon[(i + 1) % len(polygon)]
+
+                # Edge vector
+                edge_x = p2[0] - p1[0]
+                edge_y = p2[1] - p1[1]
+
+                # Perpendicular axis
+                axis_x = -edge_y
+                axis_y = edge_x
+
+                # Normalize axis
+                length = (axis_x ** 2 + axis_y ** 2) ** 0.5
+
+                if length == 0:
+                    continue
+
+                axis_x /= length
+                axis_y /= length
+
+                # Project first polygon
+                projections_a = [
+                    point[0] * axis_x + point[1] * axis_y
+                    for point in self.points
+                ]
+
+                min_a = min(projections_a)
+                max_a = max(projections_a)
+
+                # Project second polygon
+                projections_b = [
+                    point[0] * axis_x + point[1] * axis_y
+                    for point in player_points
+                ]
+
+                min_b = min(projections_b)
+                max_b = max(projections_b)
+
+                # If there's a gap, polygons do not collide.
+                if max_a < min_b or max_b < min_a:
+                    return False
+
+        return True
+
+    # ========================================================
+    # DEBUG DRAW
+    # ========================================================
+
+    def draw_debug(
+        self,
+        screen,
+        camera_x=0,
+        camera_y=0,
+        color=(255, 255, 255),
+    ):
+
+        if not self.collision_enabled:
+            return
+
+        debug_points = [
+            (
+                int(x - camera_x),
+                int(y - camera_y)
+            )
+            for x, y in self.points
+        ]
+
+        if len(debug_points) >= 3:
+
+            pg.draw.polygon(
+                screen,
+                color,
+                debug_points,
+                2
+            )
+
+        else:
+
+            debug_rect = self.rect.move(
+                -camera_x,
+                -camera_y
+            )
+
+            pg.draw.rect(
+                screen,
+                color,
+                debug_rect,
+                2
+            )
 
 class TiledMap:
     def __init__(self, tmx_data, base_path, scale=1.0): 
         self.tmx_data = tmx_data # Save the raw data for rendering tiles
         self.scale = scale
+
         self.tile_width = int(tmx_data.tilewidth * scale)
         self.tile_height = int(tmx_data.tileheight * scale)
 
@@ -90,10 +275,22 @@ class TiledMap:
             
             # 3. Handle Object Groups 
             elif isinstance(layer, pytmx.TiledObjectGroup):
+
                 print(f"--- DEBUG: Found Object Group: {layer.name} ---")
-                for obj in layer:
-                    if hasattr(obj, 'polygon') and obj.polygon:
-                        self.collision_objects.append(TiledCollisionObject(obj))
+
+                # Only objects on the Collision layer become barriers
+                if layer.name == "Collision":
+
+                    for obj in layer:
+
+                        collision_object = TiledCollisionObject(
+                            obj,
+                            scale=self.scale
+                        )
+
+                        self.collision_objects.append(
+                            collision_object
+                        )
 
         print("--- DEBUG: TiledMap initialization complete. ---")
         

@@ -1,12 +1,12 @@
-"""Player movement, dash, attack, block input (Mvmtctrl.txt)."""
+"""Player movement, dash, attack, block input."""
 
 from __future__ import annotations
 
 from typing import Any, Callable, Optional
 
 import pygame
-
 from Contents.Engine.configuration.constants import config
+from Contents.Engine.game.Player import equipment_manager
 from .player_status import PlayerStatus
 
 
@@ -15,6 +15,7 @@ class PlayerController:
         self,
         player: Any,
         player_status: Optional[PlayerStatus] = None,
+        equipment_manager: Optional[Any] = None,
         on_move: Optional[Callable[[Any], None]] = None,
         on_dash: Optional[Callable[[], None]] = None,
         on_attack: Optional[Callable[[], None]] = None,
@@ -26,44 +27,73 @@ class PlayerController:
         self._on_dash = on_dash
         self._on_attack = on_attack
         self._on_block = on_block
+
         self._dash_is_held = False
+        self._mouse_was_held = False
+
+        self.equipment_manager = equipment_manager
 
     def _is_key_pressed(self, keys_pressed, key: int) -> bool:
         if isinstance(keys_pressed, dict):
             return bool(keys_pressed.get(key, False))
+
         try:
             return bool(keys_pressed[key])
         except (KeyError, IndexError, TypeError):
             return False
 
     def _movement_pressed(self, keys_pressed) -> bool:
-        for axis in config.KEYBINDS:
-            for key in config.KEYBINDS[axis]:
-                if self._is_key_pressed(keys_pressed, key):
-                    return True
-        return False
+        movement_keys = (
+            pygame.K_w,
+            pygame.K_a,
+            pygame.K_s,
+            pygame.K_d,
+            pygame.K_UP,
+            pygame.K_DOWN,
+            pygame.K_LEFT,
+            pygame.K_RIGHT,
+        )
+
+        return any(
+            self._is_key_pressed(keys_pressed, key)
+            for key in movement_keys
+        )
 
     def _dash_pressed(self, keys_pressed) -> bool:
-        return any(self._is_key_pressed(keys_pressed, key) for key in config.BIND_DASH_KEYS)
+        return any(
+            self._is_key_pressed(keys_pressed, key)
+            for key in config.BIND_DASH_KEYS
+        )
 
     def handle_input(
         self,
         keys_pressed,
-        mouse_buttons: Optional[tuple] = None,
+        mouse_buttons=None,
     ) -> None:
+
         mouse_buttons = mouse_buttons or (0, 0, 0)
-        if self._movement_pressed(keys_pressed):
-            self.move_player(keys_pressed)
+
+        # Always update movement
+        self.move_player(keys_pressed)
 
         dash_pressed = self._dash_pressed(keys_pressed)
+
         if dash_pressed and not self._dash_is_held:
-            if self.player_status and self.player_status.current_stamina >= config.DASH_STAMINA_COST:
+            if (
+                self.player_status
+                and self.player_status.current_stamina
+                >= config.DASH_STAMINA_COST
+            ):
                 self.execute_dash()
-                self.player_status.use_stamina(config.DASH_STAMINA_COST)
+                self.player_status.use_stamina(
+                    config.DASH_STAMINA_COST
+                )
+
         self._dash_is_held = dash_pressed
 
         if mouse_buttons[0]:
             self.execute_attack()
+
         if len(mouse_buttons) > 1 and mouse_buttons[1]:
             self.execute_block()
 

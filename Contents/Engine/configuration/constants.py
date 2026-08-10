@@ -29,6 +29,8 @@ QUIT_KEY = pygame.K_ESCAPE
 # Maps and map imports, add more maps as required
 CAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'World', 'maps', 'tmx', 'cave.tmx')
 CAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'World', 'maps', 'tmx', 'tutorial_rubble.tmx')
+OVERWORLD_MAP_PATH = os.path.join(RESOURCES_PATH, 'World', 'maps', 'tmx', 'overworld.tmx')
+DAEMIAS_ALTAR_MAP_PATH = os.path.join(RESOURCES_PATH, 'World', 'maps', 'tmx', 'daemias_altar.tmx')
 
 #Font import path, if font is to be changed later, simply adjust as required
 
@@ -99,8 +101,8 @@ PLAYER_WEAPON_ANIMATION_FOLDERS = {
         'attack': 'Attack - Pickaxe',
     },
 }
-ANIMATION_SPEED_WALK = 10
-ANIMATION_SPEED_DASH = 25
+ANIMATION_SPEED_WALK = 20
+ANIMATION_SPEED_DASH = 35
 IDLE_ANIMATION_SPEED = 18
 SPRITE_SCALE = 1
 MOVEMENT_MIN_HOLD_MS = 1

@@ -1,49 +1,155 @@
-# Engine/game/map_manager.py
-"""Manages the current state of the map, including loading, camera position, and map data."""
-
-from .map_loader import load_tiled_map
-from .map_loader import TiledMap
+from pathlib import Path
 from typing import Optional
+from ...configuration.constants import config
+from ...configuration.imports import pg
+
+from .map_loader import TiledMap
+
 
 class MapManager:
-    def __init__(self):
+
+    def __init__(self, maps_directory: Path, scale: float = 1.0):
+        self.maps_directory = Path(maps_directory)
+        self.scale = scale
+
         self.current_map: Optional[TiledMap] = None
+        self.current_map_name: Optional[str] = None
+
+        self.spawn_position = (0, 0)
+
         self.camera_x = 0
         self.camera_y = 0
-        self.map_loaded = False
 
-    def load_map(self, json_filepath: str):
-        """Loads a new map from a JSON file path."""
-        print(f"Attempting to load map from: {json_filepath}")
-        try:
-            # This call handles all the heavy lifting of parsing and image loading
-            tiled_map = load_tiled_map(json_filepath)
-            self.current_map = tiled_map
-            self.map_loaded = True
-            # Reset camera to map origin upon successful load
-            self.camera_x = 0
-            self.camera_y = 0
-            print("Map loaded successfully.")
-        except Exception as e:
-            print(f"Error loading map: {e}")
-            self.current_map = None
-            self.map_loaded = False
+
+
+
+    def load_map(self, map_name: str, spawn_position=(0, 0)):
+        """
+        Load a map from the maps directory.
+
+        Example:
+            load_map("cave", spawn_position=(300, 300))
+        """
+
+        map_path = self.maps_directory / f"{map_name}.tmx"
+
+        print("MAP DIRECTORY:", self.maps_directory)
+        print("MAPS FOUND:")
+
+        for file in self.maps_directory.glob("*.tmx"):
+            print("  ", file.name)
+
+        print(f"Loading map: {map_path}")
+
+        if not map_path.exists():
+            raise FileNotFoundError(
+                f"Map does not exist: {map_path}"
+            )
+
+        # pytmx loading
+        import pytmx
+
+        tmx_data = pytmx.load_pygame(
+            str(map_path),
+            pixelalpha=True
+        )
+
+        self.current_map = TiledMap(
+            tmx_data,
+            map_path.parent,
+            scale=self.scale
+        )
+
+        self.current_map_name = map_name
+        self.spawn_position = spawn_position
+
+        # Reset camera
+        self.camera_x = 0
+        self.camera_y = 0
+
+        print(f"Map '{map_name}' loaded successfully.")
 
     @property
-    def current_map_data(self) -> Optional[TiledMap]:
-        """Provides the current map data to the renderer."""
+    def collision_objects(self):
+        if self.current_map is None:
+            return []
+
+        return self.current_map.collision_objects
+
+    @property
+    def current_map_data(self):
         return self.current_map
 
+    def set_camera(self, x, y):
+        self.camera_x = x
+        self.camera_y = y
+
     @property
-    def camera_position(self) -> tuple[int, int]:
-        """Returns the current camera offset."""
+    def camera_position(self):
         return self.camera_x, self.camera_y
 
-    def update_camera(self, dx: float, dy: float):
-        """Updates the camera position based on movement/panning."""
-        self.camera_x += dx
-        self.camera_y += dy
+class TiledCollisionObject:
 
-    def get_render_offsets(self) -> tuple[int, int]:
-        """Returns the current camera offsets needed by the renderer."""
-        return self.camera_x, self.camera_y
+    def __init__(self, obj_data):
+        self.id = obj_data.id
+
+        self.x = obj_data.x
+        self.y = obj_data.y
+
+        self.points = []
+
+        if hasattr(obj_data, "polygon") and obj_data.polygon:
+
+            for pt in obj_data.polygon:
+                abs_x = obj_data.x + pt[0]
+                abs_y = obj_data.y + pt[1]
+
+                self.points.append(
+                    (abs_x, abs_y)
+                )
+
+        # Create collision rectangle
+        if self.points:
+            xs = [point[0] for point in self.points]
+            ys = [point[1] for point in self.points]
+
+            left = min(xs)
+            right = max(xs)
+            top = min(ys)
+            bottom = max(ys)
+
+            self.rect = pg.Rect(
+                left,
+                top,
+                right - left,
+                bottom - top
+            )
+
+        else:
+            self.rect = pg.Rect(
+                self.x,
+                self.y,
+                obj_data.width,
+                obj_data.height
+            )
+
+    def draw_debug(
+        self,
+        screen,
+        camera_x=0,
+        camera_y=0,
+        color=(255, 0, 0)
+    ):
+
+        # Draw collision rectangle
+        debug_rect = self.rect.move(
+            -camera_x,
+            -camera_y
+        )
+
+        pg.draw.rect(
+            screen,
+            color,
+            debug_rect,
+            2
+        )
