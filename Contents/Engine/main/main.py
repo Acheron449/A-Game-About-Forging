@@ -221,6 +221,17 @@ def main():
     play_state = None
 
     player_speed = 4
+    interaction_prompt = None
+    def get_player_interaction():
+
+        if play_state is None:
+            return None
+
+        player_rect = play_state["player_rect"]
+
+        return map_manager.current_map.get_interaction(
+            player_rect
+        )
 
     # --------------------------------------------------------
     # QUIT
@@ -532,6 +543,87 @@ def main():
                         "pause_screen"
                     ].handle_event(event)
 
+                if (
+                    event.type == pg.KEYDOWN
+                    and event.key == pg.K_e
+                ):
+                    interactive = get_player_interaction()
+
+                    if interactive is not None:
+
+                        class_name = (
+                            interactive.class_name.lower()
+                        )
+
+                        # ================================================
+                        # DOOR
+                        # ================================================
+
+                        if class_name == "door":
+
+                            if interactive.target_map:
+
+                                print(
+                                    "Using door:",
+                                    interactive.name,
+                                    "->",
+                                    interactive.target_map,
+                                )
+
+                                map_manager.load_map(
+                                    interactive.target_map,
+                                    spawn_position=(
+                                        interactive.target_x or 0,
+                                        interactive.target_y or 0,
+                                    ),
+                                )
+
+                                # Update player position
+                                spawn_x, spawn_y = (
+                                    map_manager.spawn_position
+                                )
+
+                                play_state["player_rect"].topleft = (
+                                    spawn_x,
+                                    spawn_y,
+                                )
+
+                                play_state["world_position"] = [
+                                    spawn_x,
+                                    spawn_y,
+                                ]
+
+                        # ================================================
+                        # LOOT POINT
+                        # ================================================
+
+                        elif class_name == "loot_point":
+
+                            print(
+                                "Opening loot point:",
+                                interactive.name,
+                            )
+
+                            # Later:
+                            # play_state["loot_screen"].open(
+                            #     interactive
+                            # )
+
+                        # ================================================
+                        # MINING NODE
+                        # ================================================
+
+                        elif class_name == "mining_node":
+
+                            print(
+                                "Mining:",
+                                interactive.name,
+                                interactive.resource,
+                            )
+
+                            # Later:
+                            # mining system handles this
+
         # ----------------------------------------------------
         # CLEAR SCREEN
         # ----------------------------------------------------
@@ -609,6 +701,62 @@ def main():
             # ----------------------------
             # UI
             # ----------------------------
+            interactive = get_player_interaction()
+
+            if interactive is not None:
+
+                class_name = interactive.class_name.lower()
+
+                prompt_text = f"E  {class_name}"
+
+                def draw_interaction_prompt(
+                        screen,
+                        text,
+                    ):
+
+                        font = pg.font.Font(None, 28)
+
+                        text_surface = font.render(
+                            text,
+                            True,
+                            (255, 255, 255),
+                        )
+
+                        padding = 10
+
+                        rect = text_surface.get_rect()
+
+                        rect.inflate_ip(
+                            padding * 2,
+                            padding * 2,
+                        )
+
+                        rect.center = (
+                            screen.get_width() // 2,
+                            screen.get_height() - 80,
+                        )
+
+                        pg.draw.rect(
+                            screen,
+                            (30, 30, 30),
+                            rect,
+                            border_radius=6,
+                        )
+
+                        pg.draw.rect(
+                            screen,
+                            (255, 255, 255),
+                            rect,
+                            2,
+                            border_radius=6,
+                        )
+
+                        screen.blit(
+                            text_surface,
+                            text_surface.get_rect(
+                                center=rect.center
+                            ),
+                        )
 
             if play_state[
                 "inventory_screen"

@@ -1,319 +1,538 @@
 """
 Map loader using pytmx library to handle Tiled TMX maps.
-This class now encapsulates loading, parsing, and rendering logic.
+Handles:
+    - Tile layers
+    - Image layers
+    - Collision objects
+    - Interactive objects
+        - doors
+        - loot_point
+        - mining_node
 """
+
 import pygame as pg
 from pathlib import Path
 import pytmx
 
-# --- Helper Classes (Kept for logical separation of concerns) ---
+
+# ============================================================
+# IMAGE LAYER
+# ============================================================
 
 class TiledImageLayer:
-    """Handles Large single-image backgrounds loaded via pytmx."""
+
     def __init__(self, name, image_path, x, y):
+
         self.name = name
         self.x = x
         self.y = y
-        
-        # Load image directly using pygame
-        self.surface = pg.image.load(str(image_path)).convert_alpha()
-        
-        # Automatically pull dimensions directly from the loaded surface
+
+        self.surface = pg.image.load(
+            str(image_path)
+        ).convert_alpha()
+
         self.width = self.surface.get_width()
         self.height = self.surface.get_height()
 
     def draw(self, screen, camera_x=0, camera_y=0):
-        """Draws the layer, applying camera offsets."""
-        # Draw at the anchor point relative to the camera view
-        screen.blit(self.surface, (int(self.x - camera_x), int(self.y - camera_y)))
 
+        screen.blit(
+            self.surface,
+            (
+                int(self.x - camera_x),
+                int(self.y - camera_y),
+            ),
+        )
+
+
+# ============================================================
+# COLLISION OBJECT
+# ============================================================
 
 class TiledCollisionObject:
 
-    def __init__(self, obj_data, scale=1.0):
+    def __init__(self, obj_data):
 
         self.id = obj_data.id
         self.name = obj_data.name
 
-        # ----------------------------------------------------
-        # Collision property
-        # ----------------------------------------------------
-        #
-        # Objects on the Collision layer are solid by default.
-        #
-        # In Tiled, you can set:
-        #
-        # collision = false
-        #
-        # on things such as doors.
-        #
-        self.collision_enabled = obj_data.properties.get(
-            "collision",
-            True
-        )
-
-        # ----------------------------------------------------
-        # Polygon collision object
-        # ----------------------------------------------------
-
-        polygon = getattr(obj_data, "polygon", None)
-
-        if polygon:
-
-            self.points = [
-                (
-                    (obj_data.x + point.x) * scale,
-                    (obj_data.y + point.y) * scale
-                )
-                for point in polygon
-            ]
-
-        # ----------------------------------------------------
-        # Normal rectangle collision object
-        # ----------------------------------------------------
-
-        else:
-
-            x = obj_data.x * scale
-            y = obj_data.y * scale
-            width = obj_data.width * scale
-            height = obj_data.height * scale
-
-            self.points = [
-                (x, y),
-                (x + width, y),
-                (x + width, y + height),
-                (x, y + height),
-            ]
-
-        # ----------------------------------------------------
-        # Bounding rectangle
-        #
-        # Used only for broad-phase collision checking
-        # and compatibility/debugging.
-        # ----------------------------------------------------
-
-        xs = [point[0] for point in self.points]
-        ys = [point[1] for point in self.points]
-
         self.rect = pg.Rect(
-            int(min(xs)),
-            int(min(ys)),
-            int(max(xs) - min(xs)),
-            int(max(ys) - min(ys)),
+            int(obj_data.x),
+            int(obj_data.y),
+            int(obj_data.width),
+            int(obj_data.height),
         )
-
-    # ========================================================
-    # COLLISION TEST
-    # ========================================================
-
-    def collides_with_rect(self, player_rect):
-
-        if not self.collision_enabled:
-            return False
-
-        # ----------------------------------------------------
-        # Broad-phase check
-        #
-        # Quickly reject objects that are nowhere near player.
-        # ----------------------------------------------------
-
-        if not self.rect.colliderect(player_rect):
-            return False
-
-        # ----------------------------------------------------
-        # Convert player rectangle to polygon
-        # ----------------------------------------------------
-
-        player_points = [
-            (player_rect.left, player_rect.top),
-            (player_rect.right, player_rect.top),
-            (player_rect.right, player_rect.bottom),
-            (player_rect.left, player_rect.bottom),
-        ]
-
-        # ----------------------------------------------------
-        # SAT collision test
-        # ----------------------------------------------------
-
-        polygons = [
-            self.points,
-            player_points,
-        ]
-
-        for polygon in polygons:
-
-            for i in range(len(polygon)):
-
-                p1 = polygon[i]
-                p2 = polygon[(i + 1) % len(polygon)]
-
-                # Edge vector
-                edge_x = p2[0] - p1[0]
-                edge_y = p2[1] - p1[1]
-
-                # Perpendicular axis
-                axis_x = -edge_y
-                axis_y = edge_x
-
-                # Normalize axis
-                length = (axis_x ** 2 + axis_y ** 2) ** 0.5
-
-                if length == 0:
-                    continue
-
-                axis_x /= length
-                axis_y /= length
-
-                # Project first polygon
-                projections_a = [
-                    point[0] * axis_x + point[1] * axis_y
-                    for point in self.points
-                ]
-
-                min_a = min(projections_a)
-                max_a = max(projections_a)
-
-                # Project second polygon
-                projections_b = [
-                    point[0] * axis_x + point[1] * axis_y
-                    for point in player_points
-                ]
-
-                min_b = min(projections_b)
-                max_b = max(projections_b)
-
-                # If there's a gap, polygons do not collide.
-                if max_a < min_b or max_b < min_a:
-                    return False
-
-        return True
-
-    # ========================================================
-    # DEBUG DRAW
-    # ========================================================
 
     def draw_debug(
         self,
         screen,
         camera_x=0,
         camera_y=0,
-        color=(255, 255, 255),
+        color=(255, 0, 0),
     ):
 
-        if not self.collision_enabled:
-            return
+        debug_rect = self.rect.move(
+            -camera_x,
+            -camera_y,
+        )
 
-        debug_points = [
-            (
-                int(x - camera_x),
-                int(y - camera_y)
+        pg.draw.rect(
+            screen,
+            color,
+            debug_rect,
+            2,
+        )
+
+
+# ============================================================
+# INTERACTIVE OBJECT
+# ============================================================
+
+class TiledInteractiveObject:
+
+    def __init__(self, obj_data):
+
+        self.id = obj_data.id
+        self.name = obj_data.name
+
+        # Tiled class name
+        self.class_name = getattr(
+            obj_data,
+            "class_",
+            "",
+        )
+
+        # Fallback for older pytmx versions
+        if not self.class_name:
+            self.class_name = getattr(
+                obj_data,
+                "type",
+                "",
             )
-            for x, y in self.points
-        ]
 
-        if len(debug_points) >= 3:
+        self.rect = pg.Rect(
+            int(obj_data.x),
+            int(obj_data.y),
+            int(obj_data.width),
+            int(obj_data.height),
+        )
 
-            pg.draw.polygon(
-                screen,
-                color,
-                debug_points,
-                2
-            )
+        # Store the actual world-space coordinates
+        self.coordinates = (
+            self.rect.x,
+            self.rect.y,
+        )
 
-        else:
+        # Store the centre as well
+        self.center = self.rect.center
 
-            debug_rect = self.rect.move(
-                -camera_x,
-                -camera_y
-            )
+        # ----------------------------------------------------
+        # Read custom Tiled properties
+        # ----------------------------------------------------
 
-            pg.draw.rect(
-                screen,
-                color,
-                debug_rect,
-                2
-            )
+        properties = getattr(
+            obj_data,
+            "properties",
+            {}
+        ) or {}
+
+        self.properties = properties
+
+        # Door properties
+        self.target_map = properties.get(
+            "target_map"
+        )
+
+        self.target_x = properties.get(
+            "target_x"
+        )
+
+        self.target_y = properties.get(
+            "target_y"
+        )
+
+        # Loot properties
+        self.capacity = properties.get(
+            "capacity",
+            10,
+        )
+
+        # Mining properties
+        self.resource = properties.get(
+            "resource",
+            "ore",
+        )
+
+        self.health = properties.get(
+            "health",
+            3,
+        )
+
+        self.respawn_time = properties.get(
+            "respawn_time",
+            0,
+        )
+
+    def is_player_inside(self, player_rect):
+
+        return self.rect.colliderect(player_rect)
+
+    def is_player_near(
+        self,
+        player_rect,
+        distance=50,
+    ):
+
+        expanded_rect = self.rect.inflate(
+            distance * 2,
+            distance * 2,
+        )
+
+        return expanded_rect.colliderect(
+            player_rect
+        )
+
+    def draw_debug(
+        self,
+        screen,
+        camera_x=0,
+        camera_y=0,
+        color=(0, 255, 255),
+    ):
+
+        debug_rect = self.rect.move(
+            -camera_x,
+            -camera_y,
+        )
+
+        pg.draw.rect(
+            screen,
+            color,
+            debug_rect,
+            2,
+        )
+
+
+# ============================================================
+# TILED MAP
+# ============================================================
 
 class TiledMap:
-    def __init__(self, tmx_data, base_path, scale=1.0): 
-        self.tmx_data = tmx_data # Save the raw data for rendering tiles
+
+    def __init__(
+        self,
+        tmx_data,
+        base_path,
+        scale=1.0,
+    ):
+
+        self.tmx_data = tmx_data
         self.scale = scale
 
-        self.tile_width = int(tmx_data.tilewidth * scale)
-        self.tile_height = int(tmx_data.tileheight * scale)
+        self.tile_width = int(
+            tmx_data.tilewidth * scale
+        )
+
+        self.tile_height = int(
+            tmx_data.tileheight * scale
+        )
 
         self.width_in_tiles = tmx_data.width
         self.height_in_tiles = tmx_data.height
 
-        self.pixels_width = self.width_in_tiles * self.tile_width
-        self.pixels_height = self.height_in_tiles * self.tile_height
+        self.pixels_width = (
+            self.width_in_tiles *
+            self.tile_width
+        )
+
+        self.pixels_height = (
+            self.height_in_tiles *
+            self.tile_height
+        )
+
+        # ----------------------------------------------------
+        # Layers
+        # ----------------------------------------------------
 
         self.image_layers = []
+        self.tile_layers = []
+
+        # ----------------------------------------------------
+        # Collision
+        # ----------------------------------------------------
+
         self.collision_objects = []
-        self.tile_layers = [] # List to hold standard tile layers
 
+        # ----------------------------------------------------
+        # Interactive objects
+        # ----------------------------------------------------
 
+        self.interactive_objects = []
 
-        print("--- DEBUG: Starting layer parsing. ---")
+        self.doors = []
+        self.loot_points = []
+        self.mining_nodes = []
+
+        # ----------------------------------------------------
+        # Parse Tiled
+        # ----------------------------------------------------
+
+        print(
+            "--- DEBUG: Starting layer parsing. ---"
+        )
+
         for layer in tmx_data.visible_layers:
-            
-            # 1. NEW: Handle Standard Grid Tile Layers
-            if isinstance(layer, pytmx.TiledTileLayer):
-                print(f"--- DEBUG: Found Tile Layer: {layer.name} ---")
+
+            # =================================================
+            # TILE LAYER
+            # =================================================
+
+            if isinstance(
+                layer,
+                pytmx.TiledTileLayer,
+            ):
+
+                print(
+                    f"--- Tile Layer: {layer.name} ---"
+                )
+
                 self.tile_layers.append(layer)
-            
-            # 2. Handle Image Layers
-            elif isinstance(layer, pytmx.TiledImageLayer):
-                print(f"--- DEBUG: Found Image Layer: {layer.name} ---")
-                self.image_layers.append(TiledImageLayer(
-                    name=layer.name,
-                    image_path=layer.source, 
-                    x=getattr(layer, 'offsetx', 0), 
-                    y=getattr(layer, 'offsety', 0)
-                ))
-            
-            # 3. Handle Object Groups 
-            elif isinstance(layer, pytmx.TiledObjectGroup):
 
-                print(f"--- DEBUG: Found Object Group: {layer.name} ---")
+            # =================================================
+            # IMAGE LAYER
+            # =================================================
 
-                # Only objects on the Collision layer become barriers
-                if layer.name == "Collision":
+            elif isinstance(
+                layer,
+                pytmx.TiledImageLayer,
+            ):
 
-                    for obj in layer:
+                print(
+                    f"--- Image Layer: {layer.name} ---"
+                )
 
-                        collision_object = TiledCollisionObject(
-                            obj,
-                            scale=self.scale
+                self.image_layers.append(
+                    TiledImageLayer(
+                        name=layer.name,
+                        image_path=layer.source,
+                        x=getattr(
+                            layer,
+                            "offsetx",
+                            0,
+                        ),
+                        y=getattr(
+                            layer,
+                            "offsety",
+                            0,
+                        ),
+                    )
+                )
+
+            # =================================================
+            # OBJECT GROUP
+            # =================================================
+
+            elif isinstance(
+                layer,
+                pytmx.TiledObjectGroup,
+            ):
+
+                print(
+                    f"--- Object Group: {layer.name} ---"
+                )
+
+                for obj in layer:
+
+                    # -----------------------------------------
+                    # COLLISION OBJECTS
+                    # -----------------------------------------
+
+                    if layer.name == "Collision":
+
+                        if (
+                            obj.width > 0
+                            and obj.height > 0
+                        ):
+
+                            self.collision_objects.append(
+                                TiledCollisionObject(obj)
+                            )
+
+                    # -----------------------------------------
+                    # INTERACTIVE OBJECTS
+                    # -----------------------------------------
+
+                    elif layer.name == "Objects":
+
+                        if (
+                            obj.width <= 0
+                            or obj.height <= 0
+                        ):
+                            continue
+
+                        interactive = (
+                            TiledInteractiveObject(obj)
                         )
 
-                        self.collision_objects.append(
-                            collision_object
+                        self.interactive_objects.append(
+                            interactive
                         )
 
-        print("--- DEBUG: TiledMap initialization complete. ---")
-        
-    def render(self, screen, camera_x=0, camera_y=0):
-        """Renders all parsed layers onto the screen surface."""
-        
-        # 1. Draw standard Tile Layers
+                        class_name = (
+                            interactive.class_name.lower()
+                        )
+
+                        # -------------------------------------
+                        # DOOR
+                        # -------------------------------------
+
+                        if class_name == "door":
+
+                            self.doors.append(
+                                interactive
+                            )
+
+                        # -------------------------------------
+                        # LOOT POINT
+                        # -------------------------------------
+
+                        elif class_name == "loot_point":
+
+                            self.loot_points.append(
+                                interactive
+                            )
+
+                        # -------------------------------------
+                        # MINING NODE
+                        # -------------------------------------
+
+                        elif class_name in (
+                            "mining_node",
+                            "mining",
+                            "mine",
+                        ):
+
+                            self.mining_nodes.append(
+                                interactive
+                            )
+
+        print(
+            "--- DEBUG: TiledMap initialization complete. ---"
+        )
+
+        print(
+            "Doors:",
+            len(self.doors),
+        )
+
+        print(
+            "Loot points:",
+            len(self.loot_points),
+        )
+
+        print(
+            "Mining nodes:",
+            len(self.mining_nodes),
+        )
+
+    # ========================================================
+    # FIND INTERACTIVE OBJECT
+    # ========================================================
+
+    def get_interaction(
+        self,
+        player_rect,
+    ):
+
+        """
+        Returns the first interactive object whose
+        rectangle contains the player.
+
+        Priority:
+            door
+            loot_point
+            mining_node
+        """
+
+        for obj in self.doors:
+
+            if obj.is_player_inside(player_rect):
+                return obj
+
+        for obj in self.loot_points:
+
+            if obj.is_player_inside(player_rect):
+                return obj
+
+        for obj in self.mining_nodes:
+
+            if obj.is_player_inside(player_rect):
+                return obj
+
+        return None
+
+    # ========================================================
+    # RENDER
+    # ========================================================
+
+    def render(
+        self,
+        screen,
+        camera_x=0,
+        camera_y=0,
+    ):
+
+        # ----------------------------------------------------
+        # Tile layers
+        # ----------------------------------------------------
+
         for layer in self.tile_layers:
-            # pytmx allows us to loop through every tile's x, y, and image data
+
             for x, y, gid in layer:
-                tile_surface = self.tmx_data.get_tile_image_by_gid(gid)
+
+                tile_surface = (
+                    self.tmx_data
+                    .get_tile_image_by_gid(gid)
+                )
+
                 if tile_surface:
-                    # Scale the tile surface to match the desired tile size 
+
                     if self.scale != 1.0:
-                        tile_surface = pg.transform.scale(tile_surface, (self.tile_width, self.tile_height))
 
-                    # Calculate position and subtract camera offset
-                    pos_x = (x * self.tile_width) - camera_x
-                    pos_y = (y * self.tile_height) - camera_y
-                    screen.blit(tile_surface, (pos_x, pos_y))
+                        tile_surface = pg.transform.scale(
+                            tile_surface,
+                            (
+                                self.tile_width,
+                                self.tile_height,
+                            ),
+                        )
 
-        # 2. Draw massive background Image Layers (if you have any)
+                    pos_x = (
+                        x * self.tile_width
+                        - camera_x
+                    )
+
+                    pos_y = (
+                        y * self.tile_height
+                        - camera_y
+                    )
+
+                    screen.blit(
+                        tile_surface,
+                        (
+                            pos_x,
+                            pos_y,
+                        ),
+                    )
+
+        # ----------------------------------------------------
+        # Image layers
+        # ----------------------------------------------------
+
         for layer in self.image_layers:
-            layer.draw(screen, camera_x, camera_y)
-        
-# --- End of map_loader.py ---
+
+            layer.draw(
+                screen,
+                camera_x,
+                camera_y,
+            )

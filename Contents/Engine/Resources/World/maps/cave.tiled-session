@@ -13,6 +13,81 @@
             "scaleInDock": 1,
             "scaleInEditor": 0.31
         },
+        "active/NPCs_Tutorial.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.5315
+        },
+        "active/Overworld.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 0.0235,
+            "scaleInEditor": 0.0665
+        },
+        "active/Overworld_1.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.0362,
+            "scaleInEditor": 0.2341
+        },
+        "active/Overworld_10.tsx": {
+            "scaleInDock": 0.0548,
+            "scaleInEditor": 0.1518
+        },
+        "active/Overworld_11.tsx": {
+            "scaleInDock": 0.0506,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_12.tsx": {
+            "scaleInDock": 0.058,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_13.tsx": {
+            "scaleInDock": 0.0708,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_14.tsx": {
+            "scaleInDock": 0.0632,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_15.tsx": {
+            "scaleInDock": 0.0651,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_16.tsx": {
+            "scaleInDock": 0.0511,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_2.tsx": {
+            "scaleInDock": 0.0755,
+            "scaleInEditor": 0.1024
+        },
+        "active/Overworld_3.tsx": {
+            "scaleInDock": 0.0709,
+            "scaleInEditor": 0.1794
+        },
+        "active/Overworld_4.tsx": {
+            "scaleInDock": 0.0682,
+            "scaleInEditor": 0.1278
+        },
+        "active/Overworld_5.tsx": {
+            "scaleInDock": 0.0576,
+            "scaleInEditor": 0.2577
+        },
+        "active/Overworld_6.tsx": {
+            "scaleInDock": 0.0625,
+            "scaleInEditor": 0.2254
+        },
+        "active/Overworld_7.tsx": {
+            "scaleInDock": 0.0704,
+            "scaleInEditor": 0.1548
+        },
+        "active/Overworld_8.tsx": {
+            "scaleInDock": 0.0549,
+            "scaleInEditor": 0.207
+        },
+        "active/Overworld_9.tsx": {
+            "scaleInDock": 0.0595,
+            "scaleInEditor": 0.2403
+        },
         "active/daemia's altar.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 0.1048,
@@ -32,8 +107,9 @@
             "scaleInEditor": 2.6408
         },
         "active/tutorial_rubble.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 0.1326,
-            "scaleInEditor": 0.2157
+            "scaleInEditor": 0.3066
         },
         "maps/cave.json": {
             "expandedObjectLayers": [
@@ -107,8 +183,8 @@
             "scale": 0.0757,
             "selectedLayer": 8,
             "viewCenter": {
-                "x": 3249.6697490092474,
-                "y": 2087.186261558785
+                "x": 3150.594451783356,
+                "y": 1988.1109643328928
             }
         },
         "tmx/daemia's altar.tmx": {
@@ -117,10 +193,18 @@
                 5
             ],
             "scale": 0.4223,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 639.3559081221879,
-                "y": 497.2768174283685
+                "x": 621.5960217854606,
+                "y": 479.51693109164097
+            }
+        },
+        "tmx/overworld.tmx": {
+            "scale": 0.0271,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 7195.571955719558,
+                "y": 2232.472324723247
             }
         },
         "tmx/tutorial.tmx": {
@@ -128,13 +212,15 @@
                 7
             ],
             "expandedObjectLayers": [
-                3
+                3,
+                6,
+                9
             ],
-            "scale": 0.2035,
-            "selectedLayer": 2,
+            "scale": 0.3324,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 1282.5552825552827,
-                "y": 1130.2211302211304
+                "x": 949.1576413959089,
+                "y": 1295.1263537906138
             }
         },
         "tmx/tutorial_rubble.tmx": {
@@ -152,14 +238,15 @@
     },
     "frame.defaultDuration": 1000,
     "last.exportedFilePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/maps/maps",
-    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Engine/Resources/World/tilesets/NPCs",
-    "map.fixedSize": true,
+    "last.externalTilesetPath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Engine/Resources/World/maps/active",
+    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Engine/Resources/World/maps/base/Overworld",
+    "map.fixedSize": false,
     "map.height": 20,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
-    "map.tileHeight": 64,
-    "map.tileWidth": 64,
-    "map.width": 20,
+    "map.tileHeight": 256,
+    "map.tileWidth": 256,
+    "map.width": 37,
     "openFiles": [
         "tmx/daemia's altar.tmx",
         "tmx/cave.tmx",
@@ -170,23 +257,24 @@
     "project": "cave.tiled-project",
     "property.type": "object",
     "recentFiles": [
+        "tmx/overworld.tmx",
+        "active/Overworld_5.tsx",
         "tmx/daemia's altar.tmx",
         "tmx/cave.tmx",
         "active/mining_nodes.tsx",
         "tmx/tutorial.tmx",
-        "active/tutorial_rubble.tsx",
-        "tmx/tutorial_rubble.tmx",
-        "active/main.tsx",
-        "active/Invisible interaction point.tsx",
-        "active/daemia's altar.tsx",
-        "active/mining_nodes_32x.tsx",
-        "maps/tutorial_rubble.json",
-        "maps/cave.json"
+        "active/Overworld_1.tsx",
+        "active/Overworld_2.tsx",
+        "active/Overworld_3.tsx",
+        "active/Overworld_4.tsx",
+        "active/Overworld_6.tsx",
+        "active/Overworld_7.tsx"
     ],
     "resizeMap.removeObjects": false,
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 128,
+        "height": 256,
         "width": 256
     },
     "tileset.type": 0,
