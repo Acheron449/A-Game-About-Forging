@@ -1,5 +1,5 @@
 {
-    "activeFile": "active/tutorial_rubble.tsx",
+    "activeFile": "tmx/daemia's altar.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -179,27 +179,26 @@
                 14
             ],
             "expandedObjectLayers": [
-                5,
                 15,
                 9
             ],
-            "scale": 0.2527,
-            "selectedLayer": 1,
+            "scale": 0.1745,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 3201.4246141669964,
-                "y": 2049.8614958448757
+                "x": 1684.813753581662,
+                "y": 3363.8968481375355
             }
         },
         "tmx/daemia's altar.tmx": {
             "expandedObjectLayers": [
-                4,
-                5
+                5,
+                4
             ],
             "scale": 0.4223,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 639.3559081221879,
-                "y": 497.2768174283685
+                "x": 621.5960217854606,
+                "y": 479.516931091641
             }
         },
         "tmx/overworld.tmx": {
@@ -222,8 +221,8 @@
             "scale": 0.4386,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1181.030551755586,
-                "y": 1502.5079799361606
+                "x": 1251.7099863201097,
+                "y": 1429.5485636114913
             }
         },
         "tmx/tutorial_rubble.tmx": {
@@ -261,12 +260,12 @@
     "property.type": "string",
     "recentFiles": [
         "active/tutorial_rubble.tsx",
+        "tmx/tutorial.tmx",
+        "active/mining_nodes.tsx",
+        "tmx/cave.tmx",
+        "tmx/daemia's altar.tmx",
         "tmx/overworld.tmx",
         "active/Overworld_5.tsx",
-        "tmx/daemia's altar.tmx",
-        "tmx/cave.tmx",
-        "active/mining_nodes.tsx",
-        "tmx/tutorial.tmx",
         "active/Overworld_1.tsx",
         "active/Overworld_2.tsx",
         "active/Overworld_3.tsx",

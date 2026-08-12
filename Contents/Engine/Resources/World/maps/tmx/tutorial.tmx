@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" class="wall_collisions" orientation="orthogonal" renderorder="right-down" width="9" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="13" nextobjectid="57">
+<map version="1.10" tiledversion="1.12.2" class="wall_collisions" orientation="orthogonal" renderorder="right-down" width="9" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="15" nextobjectid="60">
  <tileset firstgid="1" source="../active/tutorial_rubble.tsx"/>
  <tileset firstgid="81" source="../active/NPCs_Tutorial.tsx"/>
- <objectgroup color="#89f859" id="9" name="Interactions" class="loot_point">
+ <objectgroup color="#89f859" id="9" name="Objects" class="loot_point">
   <object id="50" name="4" type="loot_point" x="1053.2" y="1469.35" width="127.936" height="42.995"/>
   <object id="51" name="3" type="loot_point" x="999.18" y="1720.33" width="177.223" height="52.4329"/>
   <object id="52" name="2" type="loot_point" x="772.678" y="1463.42" width="120.596" height="46.1409"/>
@@ -10,6 +10,9 @@
   <object id="54" name="5" type="loot_point" x="1292.98" y="1208.94" width="99.6225" height="54.5302"/>
   <object id="29" name="daemia's altar" type="door" x="1560.91" y="1434.64" width="93.6055" height="91.478"/>
   <object id="56" name="exit" type="door" x="988.756" y="1028.02" width="299.839" height="207.032"/>
+ </objectgroup>
+ <objectgroup id="13" name="SpawnPoints">
+  <object id="59" name="default" type="spawn_point" x="1187.87" y="1338.35" width="98.0392" height="50.1596"/>
  </objectgroup>
  <layer id="4" name="Ground" width="9" height="8">
   <data encoding="csv">

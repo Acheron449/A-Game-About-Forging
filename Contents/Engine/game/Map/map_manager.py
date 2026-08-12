@@ -23,7 +23,7 @@ class MapManager:
 
 
 
-    def load_map(self, map_name: str, spawn_position=(0, 0)):
+    def load_map(self, map_name: str, spawn_id="default"):
         """
         Load a map from the maps directory.
 
@@ -61,7 +61,7 @@ class MapManager:
         )
 
         self.current_map_name = map_name
-        self.spawn_position = spawn_position
+        self.spawn_position = self.current_map.get_spawn_position(spawn_id)
 
         # Reset camera
         self.camera_x = 0

@@ -1,23 +1,27 @@
 """
 Map loader using pytmx library to handle Tiled TMX maps.
+
 Handles:
     - Tile layers
     - Image layers
     - Collision objects
     - Interactive objects
         - doors
-        - loot_point
-        - mining_node
+        - loot points
+        - mining nodes
 """
 
 import pygame as pg
-from pathlib import Path
 import pytmx
 
+from .interactive.door import Door
+from .interactive.loot_point import LootPoint
+from .interactive.mining_node import MiningNode
 
-# ============================================================
+
+
 # IMAGE LAYER
-# ============================================================
+
 
 class TiledImageLayer:
 
@@ -45,9 +49,9 @@ class TiledImageLayer:
         )
 
 
-# ============================================================
+
 # COLLISION OBJECT
-# ============================================================
+
 
 class TiledCollisionObject:
 
@@ -62,6 +66,10 @@ class TiledCollisionObject:
             int(obj_data.width),
             int(obj_data.height),
         )
+
+    def collides_with_rect(self, rect):
+
+        return self.rect.colliderect(rect)
 
     def draw_debug(
         self,
@@ -84,138 +92,9 @@ class TiledCollisionObject:
         )
 
 
-# ============================================================
-# INTERACTIVE OBJECT
-# ============================================================
 
-class TiledInteractiveObject:
-
-    def __init__(self, obj_data):
-
-        self.id = obj_data.id
-        self.name = obj_data.name
-
-        # Tiled class name
-        self.class_name = getattr(
-            obj_data,
-            "class_",
-            "",
-        )
-
-        # Fallback for older pytmx versions
-        if not self.class_name:
-            self.class_name = getattr(
-                obj_data,
-                "type",
-                "",
-            )
-
-        self.rect = pg.Rect(
-            int(obj_data.x),
-            int(obj_data.y),
-            int(obj_data.width),
-            int(obj_data.height),
-        )
-
-        # Store the actual world-space coordinates
-        self.coordinates = (
-            self.rect.x,
-            self.rect.y,
-        )
-
-        # Store the centre as well
-        self.center = self.rect.center
-
-        # ----------------------------------------------------
-        # Read custom Tiled properties
-        # ----------------------------------------------------
-
-        properties = getattr(
-            obj_data,
-            "properties",
-            {}
-        ) or {}
-
-        self.properties = properties
-
-        # Door properties
-        self.target_map = properties.get(
-            "target_map"
-        )
-
-        self.target_x = properties.get(
-            "target_x"
-        )
-
-        self.target_y = properties.get(
-            "target_y"
-        )
-
-        # Loot properties
-        self.capacity = properties.get(
-            "capacity",
-            10,
-        )
-
-        # Mining properties
-        self.resource = properties.get(
-            "resource",
-            "ore",
-        )
-
-        self.health = properties.get(
-            "health",
-            3,
-        )
-
-        self.respawn_time = properties.get(
-            "respawn_time",
-            0,
-        )
-
-    def is_player_inside(self, player_rect):
-
-        return self.rect.colliderect(player_rect)
-
-    def is_player_near(
-        self,
-        player_rect,
-        distance=50,
-    ):
-
-        expanded_rect = self.rect.inflate(
-            distance * 2,
-            distance * 2,
-        )
-
-        return expanded_rect.colliderect(
-            player_rect
-        )
-
-    def draw_debug(
-        self,
-        screen,
-        camera_x=0,
-        camera_y=0,
-        color=(0, 255, 255),
-    ):
-
-        debug_rect = self.rect.move(
-            -camera_x,
-            -camera_y,
-        )
-
-        pg.draw.rect(
-            screen,
-            color,
-            debug_rect,
-            2,
-        )
-
-
-# ============================================================
 # TILED MAP
-# ============================================================
+
 
 class TiledMap:
 
@@ -228,6 +107,8 @@ class TiledMap:
 
         self.tmx_data = tmx_data
         self.scale = scale
+
+        # Map dimensions
 
         self.tile_width = int(
             tmx_data.tilewidth * scale
@@ -250,32 +131,32 @@ class TiledMap:
             self.tile_height
         )
 
-        # ----------------------------------------------------
+        
         # Layers
-        # ----------------------------------------------------
+        
 
         self.image_layers = []
         self.tile_layers = []
 
-        # ----------------------------------------------------
+        
         # Collision
-        # ----------------------------------------------------
 
         self.collision_objects = []
 
-        # ----------------------------------------------------
         # Interactive objects
-        # ----------------------------------------------------
-
+        
         self.interactive_objects = []
 
         self.doors = []
         self.loot_points = []
         self.mining_nodes = []
 
-        # ----------------------------------------------------
+        # Spawn points
+
+        self.spawn_points = {}
+        
         # Parse Tiled
-        # ----------------------------------------------------
+        
 
         print(
             "--- DEBUG: Starting layer parsing. ---"
@@ -283,9 +164,7 @@ class TiledMap:
 
         for layer in tmx_data.visible_layers:
 
-            # =================================================
             # TILE LAYER
-            # =================================================
 
             if isinstance(
                 layer,
@@ -298,9 +177,7 @@ class TiledMap:
 
                 self.tile_layers.append(layer)
 
-            # =================================================
             # IMAGE LAYER
-            # =================================================
 
             elif isinstance(
                 layer,
@@ -328,9 +205,7 @@ class TiledMap:
                     )
                 )
 
-            # =================================================
             # OBJECT GROUP
-            # =================================================
 
             elif isinstance(
                 layer,
@@ -343,9 +218,7 @@ class TiledMap:
 
                 for obj in layer:
 
-                    # -----------------------------------------
-                    # COLLISION OBJECTS
-                    # -----------------------------------------
+                    # COLLISION
 
                     if layer.name == "Collision":
 
@@ -354,13 +227,15 @@ class TiledMap:
                             and obj.height > 0
                         ):
 
-                            self.collision_objects.append(
+                            collision = (
                                 TiledCollisionObject(obj)
                             )
 
-                    # -----------------------------------------
+                            self.collision_objects.append(
+                                collision
+                            )
+
                     # INTERACTIVE OBJECTS
-                    # -----------------------------------------
 
                     elif layer.name == "Objects":
 
@@ -371,50 +246,65 @@ class TiledMap:
                             continue
 
                         interactive = (
-                            TiledInteractiveObject(obj)
+                            self._create_interactive_object(
+                                obj
+                            )
                         )
 
-                        self.interactive_objects.append(
-                            interactive
-                        )
+                        if interactive is not None:
 
-                        class_name = (
-                            interactive.class_name.lower()
-                        )
-
-                        # -------------------------------------
-                        # DOOR
-                        # -------------------------------------
-
-                        if class_name == "door":
-
-                            self.doors.append(
+                            self.interactive_objects.append(
                                 interactive
                             )
 
-                        # -------------------------------------
-                        # LOOT POINT
-                        # -------------------------------------
+                            # Store in the
+                            # appropriate category.
 
-                        elif class_name == "loot_point":
+                            if isinstance(
+                                interactive,
+                                Door,
+                            ):
 
-                            self.loot_points.append(
-                                interactive
+                                self.doors.append(
+                                    interactive
+                                )
+
+                            elif isinstance(
+                                interactive,
+                                LootPoint,
+                            ):
+
+                                self.loot_points.append(
+                                    interactive
+                                )
+
+                            elif isinstance(
+                                interactive,
+                                MiningNode,
+                            ):
+
+                                self.mining_nodes.append(
+                                    interactive
+                                )
+
+                    # SPAWN POINTS
+
+                    elif layer.name == "SpawnPoints":
+
+                        for obj in layer:
+                            spawn_id = obj.name or "default"
+
+                            position = (
+                                int(obj.x +obj.width /2 ),
+                                int(obj.y +obj.height / 2),
                             )
 
-                        # -------------------------------------
-                        # MINING NODE
-                        # -------------------------------------
+                        self.spawn_points[spawn_id] = position
 
-                        elif class_name in (
-                            "mining_node",
-                            "mining",
-                            "mine",
-                        ):
-
-                            self.mining_nodes.append(
-                                interactive
-                            )
+                        print(
+                            f"spawn point:"
+                            f"{spawn_id}, {position}",
+                        )
 
         print(
             "--- DEBUG: TiledMap initialization complete. ---"
@@ -435,9 +325,159 @@ class TiledMap:
             len(self.mining_nodes),
         )
 
-    # ========================================================
+    # SPAWN LOOKUP
+    def get_spawn_position(self, spawn_id="default"):
+
+        spawn_point = self.spawn_points.get(spawn_id)
+
+        if spawn_point is None:
+
+            print(
+                f"WARNING: Spawn point "
+                f"'{spawn_id}' not found."
+            )
+
+            # Fallback
+            default_spawn = self.spawn_points.get("default")
+
+            if default_spawn is not None:
+                return default_spawn.position
+
+            return (0, 0)
+
+        return spawn_point
+
+
+    
+    # CREATE INTERACTIVE OBJECT
+    
+
+    def _create_interactive_object(self, obj_data):
+
+        """
+        Converts a Tiled object into the appropriate
+        Python interactive object.
+        """
+
+        
+        # Get Tiled class
+        
+
+        class_name = getattr(
+            obj_data,
+            "class_",
+            "",
+        )
+
+        # Fallback for older pytmx versions
+        if not class_name:
+
+            class_name = getattr(
+                obj_data,
+                "type",
+                "",
+            )
+
+        class_name = class_name.lower().strip()
+
+        
+        # Rectangle
+        
+
+        rect = pg.Rect(
+            int(obj_data.x),
+            int(obj_data.y),
+            int(obj_data.width),
+            int(obj_data.height),
+        )
+
+        
+        # Tiled custom properties
+        
+
+        properties = (
+            getattr(
+                obj_data,
+                "properties",
+                {},
+            )
+            or {}
+        )
+
+
+        # DOOR
+
+
+        if class_name == "door":
+
+            return Door(
+                rect=rect,
+
+                name=obj_data.name,
+
+                target_map=properties.get(
+                    "target_map"
+                ),
+
+                target_x=properties.get(
+                    "target_x",
+                    0,
+                ),
+
+                target_y=properties.get(
+                    "target_y",
+                    0,
+                ),
+            )
+
+        # LOOT POINT
+
+        if class_name == "loot_point":
+
+            return LootPoint(
+                rect=rect,
+
+                name=obj_data.name,
+
+                capacity=properties.get(
+                    "capacity",
+                    10,
+                ),
+            )
+
+        # MINING NODE
+
+        if class_name in (
+            "mining_node",
+            "mining",
+            "mine",
+        ):
+
+            return MiningNode(
+                rect=rect,
+
+                name=obj_data.name,
+
+                respawn_time=properties.get(
+                    "respawn_time",
+                    10.0,
+                ),
+            )
+
+
+        # UNKNOWN CLASS
+
+
+        print(
+            f"--- DEBUG: Unknown interactive class: "
+            f"{class_name} ---"
+        )
+
+        return None
+
+    
     # FIND INTERACTIVE OBJECT
-    # ========================================================
+    
 
     def get_interaction(
         self,
@@ -445,35 +485,74 @@ class TiledMap:
     ):
 
         """
-        Returns the first interactive object whose
-        rectangle contains the player.
-
-        Priority:
-            door
-            loot_point
-            mining_node
+        Returns the first interactive object
+        currently being touched by the player.
         """
 
-        for obj in self.doors:
+        for obj in self.interactive_objects:
 
-            if obj.is_player_inside(player_rect):
-                return obj
+            if obj.can_interact(player_rect):
 
-        for obj in self.loot_points:
-
-            if obj.is_player_inside(player_rect):
-                return obj
-
-        for obj in self.mining_nodes:
-
-            if obj.is_player_inside(player_rect):
                 return obj
 
         return None
 
-    # ========================================================
+    
+    # UPDATE INTERACTIVE OBJECTS
+    
+
+    def update(
+        self,
+        dt,
+    ):
+
+        """
+        Updates interactive objects such as
+        mining-node respawn timers.
+        """
+
+        for obj in self.interactive_objects:
+
+            update_method = getattr(
+                obj,
+                "update",
+                None,
+            )
+
+            if update_method is not None:
+
+                update_method(dt)
+
+    
+    # DEBUG INTERACTIVE OBJECTS
+    
+
+    def draw_interactive_debug(
+        self,
+        screen,
+        camera_x=0,
+        camera_y=0,
+    ):
+
+        for obj in self.interactive_objects:
+
+            draw_method = getattr(
+                obj,
+                "draw_debug",
+                None,
+            )
+
+            if draw_method is not None:
+
+                draw_method(
+                    screen,
+                    camera_x,
+                    camera_y,
+                )
+
+    
     # RENDER
-    # ========================================================
+    
 
     def render(
         self,
@@ -482,9 +561,9 @@ class TiledMap:
         camera_y=0,
     ):
 
-        # ----------------------------------------------------
+        
         # Tile layers
-        # ----------------------------------------------------
+        
 
         for layer in self.tile_layers:
 
@@ -525,9 +604,9 @@ class TiledMap:
                         ),
                     )
 
-        # ----------------------------------------------------
+        
         # Image layers
-        # ----------------------------------------------------
+        
 
         for layer in self.image_layers:
 

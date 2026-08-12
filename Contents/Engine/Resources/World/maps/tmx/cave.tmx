@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="25" height="16" tilewidth="256" tileheight="256" infinite="0" nextlayerid="16" nextobjectid="139">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="25" height="16" tilewidth="256" tileheight="256" infinite="0" nextlayerid="16" nextobjectid="141">
  <editorsettings>
   <export format="json"/>
  </editorsettings>
@@ -106,8 +106,10 @@
   <object id="134" x="5034.8" y="3303.94" width="552.204" height="227.378"/>
   <object id="135" x="5164.73" y="3535.96" width="264.501" height="83.5267"/>
  </objectgroup>
- <objectgroup id="15" name="Doors" class="door">
+ <objectgroup id="15" name="interactions" class="door">
   <object id="137" x="5461.72" y="519.722" width="167.053" height="129.93"/>
   <object id="138" x="983.759" y="3990.72" width="283.063" height="102.088"/>
+  <object id="139" name="Chest" type="loot_point" x="1260.4" y="3008.32" width="104.043" height="130.797"/>
+  <object id="140" name="Entrance_point" type="spawn_point" x="1016.65" y="3938.76" width="208.086" height="50.5351"/>
  </objectgroup>
 </map>

@@ -32,6 +32,10 @@ CAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'World', 'maps', 'tmx', 't
 OVERWORLD_MAP_PATH = os.path.join(RESOURCES_PATH, 'World', 'maps', 'tmx', 'overworld.tmx')
 DAEMIAS_ALTAR_MAP_PATH = os.path.join(RESOURCES_PATH, 'World', 'maps', 'tmx', 'daemias_altar.tmx')
 
+#spawns
+DEFAULT_SPAWN_ID = "default"
+
+
 #Font import path, if font is to be changed later, simply adjust as required
 
 DEFAULT_FONT_PATH = os.path.join(

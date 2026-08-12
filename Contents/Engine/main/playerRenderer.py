@@ -17,6 +17,11 @@ class PlayerRenderer:
     def __init__(self, player):
         self.player = player
         self.player_resources_dir = config.PLAYER_RESOURCES_DIR
+
+        self.action = None
+        self.action_frame = 0
+        self.action_finished = False
+
         
         self.facing_direction = config.PLAYER_DEFAULT_FACING
         self.current_state = config.PLAYER_DEFAULT_STATE
@@ -46,6 +51,32 @@ class PlayerRenderer:
 
     def _any_movement_held(self, axis_scancodes_held):
         return any(axis_scancodes_held[ax] for ax in config.KEYBINDS)
+
+    def start_action(self, action):
+
+        if self.action is not None:
+            return False
+
+        sprites = self.get_sprite(
+            action,
+            self.facing_direction
+        )
+
+        if not sprites:
+            print(
+                f"No animation found for action: {action}"
+            )
+            return False
+
+        self.action = action
+        self.action_frame = 0
+        self.animation_counter = 0
+        self.action_finished = False
+
+        self.current_sprite = sprites[0][1]
+
+        return True
+
         
     def _load_idle_sprites(self):
         """Load idle sprites for all directions from Player/Idle folders.""" #TEST - Updated to load from all subfolders in Idle, not just 'Test - Static'
@@ -215,6 +246,7 @@ class PlayerRenderer:
                 return self.idle_sprites[config.PLAYER_IDLE_FALLBACK_KEY]
             return []
 
+
         weapon_type = None
         if hasattr(self.player, 'equipped_weapon_type'):
             value = getattr(self.player, 'equipped_weapon_type')
@@ -222,10 +254,11 @@ class PlayerRenderer:
                 weapon_type = value()
             else:
                 weapon_type = value
-        if weapon_type and state in {'attack', 'block', 'parry'}:
+        if weapon_type and state in {'attack', 'block', 'parry','mine',}:
             action_sprites = self.get_weapon_action_sprites(weapon_type, state, direction)
             if action_sprites:
                 return action_sprites
+    
 
         if sprite_key in self.movement_sprites and self.movement_sprites[sprite_key]:
             return self.movement_sprites[sprite_key]
@@ -236,6 +269,45 @@ class PlayerRenderer:
         if idle_key in self.idle_sprites and self.idle_sprites[idle_key]:
             return self.idle_sprites[idle_key]
         return []
+
+
+    def update_action(self):
+        """Update a one-shot action such as mining."""
+
+        if self.action is None:
+            return False
+
+        sprites = self.get_sprite(
+            self.action,
+            self.facing_direction
+        )
+
+        if not sprites:
+            self.action = None
+            return False
+
+        self.animation_counter += 1
+
+        if self.animation_counter >= self.animation_speed:
+
+            self.animation_counter = 0
+            self.action_frame += 1
+
+            # Animation finished
+            if self.action_frame >= len(sprites):
+
+                self.action = None
+                self.action_frame = 0
+                self.action_finished = True
+
+                return True
+
+        self.current_sprite = sprites[
+            self.action_frame
+        ][1]
+
+        return False
+
     
     def update_animation(self, state, direction, axis_scancodes_held, previous_state=None, previous_direction=None):
         """Update the current animation frame for the given state and direction."""
@@ -268,7 +340,7 @@ class PlayerRenderer:
             self.current_sprite = sprites[self.animation_frame][1]
         else:
             # Advance frames for all non-idle states, including weapon actions.
-            advance_frames = self.is_key_pressed(axis_scancodes_held) or state in {'attack', 'block', 'parry'}
+            advance_frames = self.is_key_pressed(axis_scancodes_held) or state in {'attack', 'block', 'parry', 'mine'}
             if advance_frames:
                 self.animation_counter += 1
                 if self.animation_counter >= self.animation_speed:
@@ -286,6 +358,11 @@ class PlayerRenderer:
         """Update player sprite: handle weapon actions, movement, and idle state based on input."""
         previous_state = self.current_state
         previous_direction = self.facing_direction
+
+        if self.action is not None:
+            self.update_action()
+            return
+
 
         moving = self._any_movement_held(axis_scancodes_held)
         direction = self.facing_direction
