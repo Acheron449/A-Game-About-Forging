@@ -1,0 +1,3329 @@
+[
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "asdict",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "field",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TYPE_CHECKING",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TYPE_CHECKING",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Protocol",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Protocol",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "NamedTuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_game_font",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_game_font",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_game_font",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_game_font",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "isExtraImport": true,
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "pygame",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pygame",
+        "description": "pygame",
+        "detail": "pygame",
+        "documentation": {}
+    },
+    {
+        "label": "the hotbar key offset and slot count from the config",
+        "importPath": "Contents.config.config import config #",
+        "description": "Contents.config.config import config #",
+        "isExtraImport": true,
+        "detail": "Contents.config.config import config #",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "pytmx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytmx",
+        "description": "pytmx",
+        "detail": "pytmx",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "importlib.util",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "importlib.util",
+        "description": "importlib.util",
+        "detail": "importlib.util",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "Contents.config.imports",
+        "description": "Contents.config.imports",
+        "isExtraImport": true,
+        "detail": "Contents.config.imports",
+        "documentation": {}
+    },
+    {
+        "label": "ast",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ast",
+        "description": "ast",
+        "detail": "ast",
+        "documentation": {}
+    },
+    {
+        "label": "importlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "importlib",
+        "description": "importlib",
+        "detail": "importlib",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleNamespace",
+        "importPath": "types",
+        "description": "types",
+        "isExtraImport": true,
+        "detail": "types",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "arcade",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "arcade",
+        "description": "arcade",
+        "detail": "arcade",
+        "documentation": {}
+    },
+    {
+        "label": "sysconfig",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sysconfig",
+        "description": "sysconfig",
+        "detail": "sysconfig",
+        "documentation": {}
+    },
+    {
+        "label": "zipfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zipfile",
+        "description": "zipfile",
+        "detail": "zipfile",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Engine.config.config",
+        "description": "Engine.config.config",
+        "isExtraImport": true,
+        "detail": "Engine.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_game_font",
+        "importPath": "Engine.config.config",
+        "description": "Engine.config.config",
+        "isExtraImport": true,
+        "detail": "Engine.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "Engine.config.config",
+        "description": "Engine.config.config",
+        "isExtraImport": true,
+        "detail": "Engine.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PlayerController",
+        "importPath": "Engine.game.movement_controller",
+        "description": "Engine.game.movement_controller",
+        "isExtraImport": true,
+        "detail": "Engine.game.movement_controller",
+        "documentation": {}
+    },
+    {
+        "label": "PlayerStatus",
+        "importPath": "Engine.game.player_status",
+        "description": "Engine.game.player_status",
+        "isExtraImport": true,
+        "detail": "Engine.game.player_status",
+        "documentation": {}
+    },
+    {
+        "label": "QuestManager",
+        "importPath": "Engine.game.quest_manager",
+        "description": "Engine.game.quest_manager",
+        "isExtraImport": true,
+        "detail": "Engine.game.quest_manager",
+        "documentation": {}
+    },
+    {
+        "label": "QuestMenu",
+        "importPath": "Engine.game.quest_menu",
+        "description": "Engine.game.quest_menu",
+        "isExtraImport": true,
+        "detail": "Engine.game.quest_menu",
+        "documentation": {}
+    },
+    {
+        "label": "QuestRouter",
+        "importPath": "Engine.main.Quests.quest_router",
+        "description": "Engine.main.Quests.quest_router",
+        "isExtraImport": true,
+        "detail": "Engine.main.Quests.quest_router",
+        "documentation": {}
+    },
+    {
+        "label": "collect_dependency_packages",
+        "importPath": "Engine.updater",
+        "description": "Engine.updater",
+        "isExtraImport": true,
+        "detail": "Engine.updater",
+        "documentation": {}
+    },
+    {
+        "label": "GameConfiguration",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Game.game_configuration",
+        "description": "Contents.Engine.game.Game.game_configuration",
+        "peekOfCode": "class GameConfiguration:\n    \"\"\"General, video, audio, directory, and keybind settings.\"\"\"\n    difficulty: str = config.DEFAULT_DIFFICULTY\n    mouse_sensitivity: float = config.DEFAULT_MOUSE_SENSITIVITY\n    fps_limit: int = config.DEFAULT_SETTINGS_FPS_LIMIT\n    resolution: str = config.DEFAULT_RESOLUTION_LABEL\n    master_volume: float = config.DEFAULT_MASTER_VOLUME\n    music_volume: float = config.DEFAULT_MUSIC_VOLUME\n    sfx_volume: float = config.DEFAULT_SFX_VOLUME\n    save_file_location: str = field(default_factory=lambda: config.SAVE_DIRECTORY)",
+        "detail": "Contents.Engine.game.Game.game_configuration",
+        "documentation": {}
+    },
+    {
+        "label": "GameSession",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Game.game_session",
+        "description": "Contents.Engine.game.Game.game_session",
+        "peekOfCode": "class GameSession:\n    \"\"\"\n    Central holder for pseudocode managers. Pass an ``agaf.Player`` (or None for menus only).\n    \"\"\"\n    def __init__(self, player: Optional[Any] = None):\n        self.player = player\n        self.save_manager = SaveManager()\n        self.player_status = PlayerStatus()\n        if player is not None:\n            self.player_status.sync_from_player(player)",
+        "detail": "Contents.Engine.game.Game.game_session",
+        "documentation": {}
+    },
+    {
+        "label": "InventorySlot",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Inventory.inventory",
+        "description": "Contents.Engine.game.Inventory.inventory",
+        "peekOfCode": "class InventorySlot:\n    \"\"\"One persistent storage location in the bag or hotbar.\"\"\"\n    def __init__(self) -> None:\n        self._item: Optional[Any] = None\n    def is_empty(self) -> bool:\n        return self._item is None\n    def get_item(self) -> Optional[Any]:\n        return self._item\n    def set_item(self, item: Any) -> None:\n        self._item = item",
+        "detail": "Contents.Engine.game.Inventory.inventory",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Inventory.inventory",
+        "description": "Contents.Engine.game.Inventory.inventory",
+        "peekOfCode": "class InventoryManager:\n    \"\"\"Owns the bag slots and moves item references between compatible grids.\"\"\"\n    def __init__(\n        self,\n        total_bag_slots: int = config.INVENTORY_BAG_SLOT_COUNT,\n        on_open: Optional[Callable[[], None]] = None,\n        on_close: Optional[Callable[[], None]] = None,\n        on_render: Optional[Callable[[], None]] = None,\n        on_pause: Optional[Callable[[bool], None]] = None,\n    ) -> None:",
+        "detail": "Contents.Engine.game.Inventory.inventory",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryItem",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Inventory.inventory",
+        "description": "Contents.Engine.game.Inventory.inventory",
+        "peekOfCode": "class InventoryItem:\n    \"\"\"Renderer-friendly item data. Existing game items work without conversion.\"\"\"\n    name: str\n    type: str = 'material'\n    sprite: Optional[Any] = None\n    quantity: int = 1\n    stats_bonus: Optional[Dict[str, int]] = None\n    animation_type: Optional[str] = None\nclass InventoryScreen:\n    \"\"\"The in-game inventory overlay shown with ``I``.",
+        "detail": "Contents.Engine.game.Inventory.inventory",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryScreen",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Inventory.inventory",
+        "description": "Contents.Engine.game.Inventory.inventory",
+        "peekOfCode": "class InventoryScreen:\n    \"\"\"The in-game inventory overlay shown with ``I``.\n    It renders the 10 x 5 bag grid from the reference layout and the existing\n    ten-slot hotbar. Dragging between any two slots moves or swaps item objects.\n    \"\"\"\n    OVERLAY = (4, 18, 13, 190)\n    PANEL = (210, 177, 128)\n    PANEL_DARK = (48, 57, 49)\n    PANEL_BORDER = (127, 77, 47)\n    SLOT = (110, 113, 108)",
+        "detail": "Contents.Engine.game.Inventory.inventory",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryHotbar",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Inventory.inventory_hotbar",
+        "description": "Contents.Engine.game.Inventory.inventory_hotbar",
+        "peekOfCode": "class InventoryHotbar: # define the inventory hotbar class\n    def __init__(\n        self,\n        slot_count: int = config.HOTBAR_SLOT_COUNT, # set the slot count to the hotbar slot count from the config\n        on_equip_or_use: Optional[Callable[[Any], None]] = None, # set the on equip or use function to None if no function is provided in the constructor\n    ):\n        self.hotbar_slots: List[InventorySlot] = [ # create a list of inventory slots and initialize each slot with an inventory slot object\n            InventorySlot() for _ in range(slot_count) # initialize each slot with an inventory slot object\n        ] # create a list of inventory slots and initialize each slot with an inventory slot object\n        self._on_equip_or_use = on_equip_or_use # set the on equip or use function",
+        "detail": "Contents.Engine.game.Inventory.inventory_hotbar",
+        "documentation": {}
+    },
+    {
+        "label": "InventorySlot",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Inventory.inventory_manager",
+        "description": "Contents.Engine.game.Inventory.inventory_manager",
+        "peekOfCode": "class InventorySlot:\n    def __init__(self):\n        self._item: Optional[Any] = None\n    def is_empty(self) -> bool:\n        return self._item is None\n    def get_item(self) -> Optional[Any]:\n        return self._item\n    def set_item(self, item: Any) -> None:\n        self._item = item\n    def clear(self) -> None:",
+        "detail": "Contents.Engine.game.Inventory.inventory_manager",
+        "documentation": {}
+    },
+    {
+        "label": "InventoryManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Inventory.inventory_manager",
+        "description": "Contents.Engine.game.Inventory.inventory_manager",
+        "peekOfCode": "class InventoryManager:\n    def __init__(\n        self,\n        total_bag_slots: int = config.INVENTORY_BAG_SLOT_COUNT,\n        on_open: Optional[Callable[[], None]] = None,\n        on_close: Optional[Callable[[], None]] = None,\n        on_render: Optional[Callable[[], None]] = None,\n        on_pause: Optional[Callable[[bool], None]] = None,\n    ):\n        self.is_inventory_open = False",
+        "detail": "Contents.Engine.game.Inventory.inventory_manager",
+        "documentation": {}
+    },
+    {
+        "label": "CollisionHandler",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Map.map_collisions",
+        "description": "Contents.Engine.game.Map.map_collisions",
+        "peekOfCode": "class CollisionHandler(object):\n    \"\"\"Handles collisions between the user, blockers and computer\n    characters\"\"\"\n    def __init__(self, player, blockers, sprites, portals, level):\n        self.player = player\n        self.static_blockers = blockers\n        self.blockers = self.make_blocker_list(blockers, sprites)\n        self.sprites = sprites\n        self.portals = portals\n        self.level = level",
+        "detail": "Contents.Engine.game.Map.map_collisions",
+        "documentation": {}
+    },
+    {
+        "label": "TiledImageLayer",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Map.map_loader",
+        "description": "Contents.Engine.game.Map.map_loader",
+        "peekOfCode": "class TiledImageLayer:\n    \"\"\"Handles Large single-image backgrounds loaded via pytmx.\"\"\"\n    def __init__(self, name, image_path, x, y):\n        self.name = name\n        self.x = x\n        self.y = y\n        # Load image directly using pygame\n        self.surface = pg.image.load(str(image_path)).convert_alpha()\n        # Automatically pull dimensions directly from the loaded surface\n        self.width = self.surface.get_width()",
+        "detail": "Contents.Engine.game.Map.map_loader",
+        "documentation": {}
+    },
+    {
+        "label": "TiledCollisionObject",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Map.map_loader",
+        "description": "Contents.Engine.game.Map.map_loader",
+        "peekOfCode": "class TiledCollisionObject:\n    \"\"\"Handling of individual polygon data for walls/collisions.\"\"\"\n    def __init__(self, obj_data):\n        self.id = obj_data['id']\n        # The base spawn point of the object\n        self.x = obj_data['x']\n        self.y = obj_data['y']\n        # Convert Tiled relative points into absolute screen points\n        self.points = []\n        if 'polygon' in obj_data:",
+        "detail": "Contents.Engine.game.Map.map_loader",
+        "documentation": {}
+    },
+    {
+        "label": "TiledMap",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Map.map_loader",
+        "description": "Contents.Engine.game.Map.map_loader",
+        "peekOfCode": "class TiledMap:\n    \"\"\"Parses the raw Tiled data (via pytmx) into usable Python objects.\"\"\"\n    def __init__(self, tmx_data, base_path): # tmx_data is the loaded pytmx object\n        print(\"--- MAP LOADER: TiledMap initialized. Starting parsing. ---\")\n        self.tile_width = tmx_data.tilewidth\n        self.tile_height = tmx_data.tileheight\n        # Categorized lists for easier processing\n        self.image_layers = []\n        self.collision_objects = []\n        self.tilesets = {}",
+        "detail": "Contents.Engine.game.Map.map_loader",
+        "documentation": {}
+    },
+    {
+        "label": "MapManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Map.map_manager",
+        "description": "Contents.Engine.game.Map.map_manager",
+        "peekOfCode": "class MapManager:\n    def __init__(self):\n        self.current_map: Optional[TiledMap] = None\n        self.camera_x = 0\n        self.camera_y = 0\n        self.map_loaded = False\n    def load_map(self, json_filepath: str):\n        \"\"\"Loads a new map from a JSON file path.\"\"\"\n        print(f\"Attempting to load map from: {json_filepath}\")\n        try:",
+        "detail": "Contents.Engine.game.Map.map_manager",
+        "documentation": {}
+    },
+    {
+        "label": "MapMenu",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Map.map_menu",
+        "description": "Contents.Engine.game.Map.map_menu",
+        "peekOfCode": "class MapMenu:\n    def __init__(self, map_manager):\n        self.map_manager = map_manager # Dependency injected\n        self.is_open = False\n        self.zoom_level = 1.0  # Default zoom level\n        self.pan_offset = (0, 0)  # Default pan offset\n        self.current_selected_map = None\n    def toggle(self):\n        \"\"\"Toggle the map menu open or closed.\"\"\"\n        self.is_open = not self.is_open",
+        "detail": "Contents.Engine.game.Map.map_menu",
+        "documentation": {}
+    },
+    {
+        "label": "Minimap",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Map.minimap",
+        "description": "Contents.Engine.game.Map.minimap",
+        "peekOfCode": "class Minimap:\n    def __init__(self, map_manager):\n        self.map_manager = map_manager\n        self.is_visible = True  # Minimap is visible by default\n        self.zoom_level = 1.0   # Default zoom level\n        self.pan_offset = (0, 0) # Default pan offset\n        # Constants for Minimap display size and location (Top Right Corner)\n        self.MINIMAP_WIDTH = 200\n        self.MINIMAP_HEIGHT = 200\n        # These coordinates define where the minimap window is drawn on the main screen buffer.",
+        "detail": "Contents.Engine.game.Map.minimap",
+        "documentation": {}
+    },
+    {
+        "label": "CharacterPreview",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Player.character_preview",
+        "description": "Contents.Engine.game.Player.character_preview",
+        "peekOfCode": "class CharacterPreview:\n    def __init__(\n        self,\n        equipment_manager: Optional['EquipmentManager'] = None,\n        static_player_image: str = config.CHARACTER_PREVIEW_BASE_IMAGE,\n        on_display: Optional[Callable[[str, List[str]], None]] = None,\n    ):\n        self.equipment_manager = equipment_manager\n        self.static_player_image = static_player_image\n        self.current_render = static_player_image",
+        "detail": "Contents.Engine.game.Player.character_preview",
+        "documentation": {}
+    },
+    {
+        "label": "EquipmentSlot",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Player.equipment_manager",
+        "description": "Contents.Engine.game.Player.equipment_manager",
+        "peekOfCode": "class EquipmentSlot:\n    def __init__(self, name: str, allowed_types: List[str]):\n        self.name = name\n        self.allowed_types = allowed_types\n        self.current_item: Optional[Any] = None\n    def has_item(self) -> bool:\n        return self.current_item is not None\n    def set_item(self, item: Any) -> None:\n        self.current_item = item\n    def clear(self) -> None:",
+        "detail": "Contents.Engine.game.Player.equipment_manager",
+        "documentation": {}
+    },
+    {
+        "label": "EquipmentManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Player.equipment_manager",
+        "description": "Contents.Engine.game.Player.equipment_manager",
+        "peekOfCode": "class EquipmentManager:\n    \"\"\"Armor (left) and weapon/tool (right) slots from pseudocode.\"\"\"\n    def __init__(\n        self,\n        inventory_manager: Optional['InventoryManager'] = None,\n        player_status: Optional['PlayerStatus'] = None,\n        character_preview: Optional['CharacterPreview'] = None,\n        on_stats_apply: Optional[Callable[[Dict[str, int]], None]] = None,\n        on_stats_remove: Optional[Callable[[Dict[str, int]], None]] = None,\n    ):",
+        "detail": "Contents.Engine.game.Player.equipment_manager",
+        "documentation": {}
+    },
+    {
+        "label": "PlayerController",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Player.movement_controller",
+        "description": "Contents.Engine.game.Player.movement_controller",
+        "peekOfCode": "class PlayerController:\n    def __init__(\n        self,\n        player: Any,\n        player_status: Optional[PlayerStatus] = None,\n        on_move: Optional[Callable[[], None]] = None,\n        on_dash: Optional[Callable[[], None]] = None,\n        on_attack: Optional[Callable[[], None]] = None,\n        on_block: Optional[Callable[[], None]] = None,\n    ):",
+        "detail": "Contents.Engine.game.Player.movement_controller",
+        "documentation": {}
+    },
+    {
+        "label": "PlayerSkills",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Player.player_skills",
+        "description": "Contents.Engine.game.Player.player_skills",
+        "peekOfCode": "class PlayerSkills:\n    def __init__(\n        self,\n        player_status: PlayerStatus,\n        on_ultimate: Optional[Callable[[], None]] = None,\n        on_skill1: Optional[Callable[[], None]] = None,\n        on_skill2: Optional[Callable[[], None]] = None,\n    ):\n        self.player_status = player_status\n        self.ult_cost = config.SKILL_ULT_MANA_COST",
+        "detail": "Contents.Engine.game.Player.player_skills",
+        "documentation": {}
+    },
+    {
+        "label": "PlayerStatus",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Player.player_status",
+        "description": "Contents.Engine.game.Player.player_status",
+        "peekOfCode": "class PlayerStatus:\n    def __init__(\n        self,\n        *,\n        max_health: int = config.PLAYER_START_MAX_HEALTH,\n        max_mana: int = config.PLAYER_START_MAX_MANA,\n        max_stamina: int = config.PLAYER_START_MAX_STAMINA,\n        level: int = config.PLAYER_STATUS_DEFAULT_LEVEL,\n        gold: int = config.PLAYER_STATUS_DEFAULT_GOLD,\n        item_stats: Optional[Dict[str, int]] = None,",
+        "detail": "Contents.Engine.game.Player.player_status",
+        "documentation": {}
+    },
+    {
+        "label": "QuestEntry",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Quest.quest_manager",
+        "description": "Contents.Engine.game.Quest.quest_manager",
+        "peekOfCode": "class QuestEntry:\n    \"\"\"Represents a single quest in the quest log.\"\"\"\n    id: str\n    title: str\n    description: str = ''\n    completed: bool = False\n    folder: Optional[str] = None\n    data: Dict[str, object] = field(default_factory=dict)\nclass QuestManager:\n    \"\"\"Stores and updates quest state for the quest menu and UI.\"\"\"",
+        "detail": "Contents.Engine.game.Quest.quest_manager",
+        "documentation": {}
+    },
+    {
+        "label": "QuestManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Quest.quest_manager",
+        "description": "Contents.Engine.game.Quest.quest_manager",
+        "peekOfCode": "class QuestManager:\n    \"\"\"Stores and updates quest state for the quest menu and UI.\"\"\"\n    def __init__(self) -> None:\n        self._quests: Dict[str, QuestEntry] = {}\n    def add_quest(self, quest_id: str, title: str, description: str = '', *, folder: Optional[str] = None, data: Optional[Dict[str, object]] = None) -> QuestEntry:\n        quest = QuestEntry(id=quest_id, title=title, description=description, folder=folder, data=data or {})\n        self._quests[quest_id] = quest\n        return quest\n    def get_quest(self, quest_id: str) -> Optional[QuestEntry]:\n        return self._quests.get(quest_id)",
+        "detail": "Contents.Engine.game.Quest.quest_manager",
+        "documentation": {}
+    },
+    {
+        "label": "QuestMenu",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Quest.quest_menu",
+        "description": "Contents.Engine.game.Quest.quest_menu",
+        "peekOfCode": "class QuestMenu:\n    \"\"\"Render helper for the quest log UI.\"\"\"\n    def __init__(self, quest_manager: Optional[QuestManager] = None, selected_id: Optional[str] = None) -> None:\n        self.quest_manager = quest_manager or QuestManager()\n        self.selected_id = selected_id\n    def get_menu_lines(self) -> List[str]:\n        lines = ['Quests']\n        for quest in self.quest_manager.get_all_quests():\n            marker = '>' if quest.id == self.selected_id else ' '\n            status = '✓' if quest.completed else '•'",
+        "detail": "Contents.Engine.game.Quest.quest_menu",
+        "documentation": {}
+    },
+    {
+        "label": "SettingsModifier",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Settings.settings_modifier",
+        "description": "Contents.Engine.game.Settings.settings_modifier",
+        "peekOfCode": "class SettingsModifier:\n    def __init__(\n        self,\n        current_config: Optional[GameConfiguration] = None,\n        on_audio_update: Optional[Callable[[str, float], None]] = None,\n        on_overlay: Optional[Callable[[str], None]] = None,\n        on_close_overlay: Optional[Callable[[], None]] = None,\n        on_warning: Optional[Callable[[str], None]] = None,\n        on_refresh_panel: Optional[Callable[[], None]] = None,\n        get_next_input: Optional[Callable[[], Optional[str]]] = None,",
+        "detail": "Contents.Engine.game.Settings.settings_modifier",
+        "documentation": {}
+    },
+    {
+        "label": "SettingsUIManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Settings.settings_ui_manager",
+        "description": "Contents.Engine.game.Settings.settings_ui_manager",
+        "peekOfCode": "class SettingsUIManager:\n    def __init__(\n        self,\n        initial_config: Optional[GameConfiguration] = None,\n        on_draw_category: Optional[Callable[[str], None]] = None,\n        on_draw_panel: Optional[Callable[[str, Dict[str, Any]], None]] = None,\n        on_apply_engine: Optional[Callable[[GameConfiguration], None]] = None,\n    ):\n        self.current_config = initial_config or GameConfiguration.load_from_file()\n        self.active_category = 'General'",
+        "detail": "Contents.Engine.game.Settings.settings_ui_manager",
+        "documentation": {}
+    },
+    {
+        "label": "SettingsScreen",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.Settings.settings_ui_manager",
+        "description": "Contents.Engine.game.Settings.settings_ui_manager",
+        "peekOfCode": "class SettingsScreen:\n    \"\"\"Interactive Pygame settings panel for the project's configuration model.\"\"\"\n    OVERLAY = (8, 13, 14, 215)\n    PANEL = (91, 108, 109)\n    PANEL_DARK = (47, 61, 61)\n    PANEL_LIGHT = (113, 132, 131)\n    ACCENT = (246, 207, 54)\n    TEXT = (250, 242, 209)\n    MUTED = (210, 204, 174)\n    DANGER = (164, 76, 62)",
+        "detail": "Contents.Engine.game.Settings.settings_ui_manager",
+        "documentation": {}
+    },
+    {
+        "label": "BossStatus",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.boss_status",
+        "description": "Contents.Engine.game.boss_status",
+        "peekOfCode": "class BossStatus:\n    def __init__(\n        self,\n        boss_name: str = 'Boss Name',\n        max_boss_health: float = 100.0,\n        on_ui_update: Optional[Callable[[float, str], None]] = None,\n    ):\n        self.boss_name = boss_name\n        self.max_boss_health = max_boss_health\n        self.current_health = max_boss_health",
+        "detail": "Contents.Engine.game.boss_status",
+        "documentation": {}
+    },
+    {
+        "label": "PauseMenuManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.pause_menu_manager",
+        "description": "Contents.Engine.game.pause_menu_manager",
+        "peekOfCode": "class PauseMenuManager:\n    def __init__(\n        self,\n        save_manager: Optional[SaveManager] = None,\n        active_save_id: Optional[str] = None,\n        on_pause_time: Optional[Callable[[bool], None]] = None,\n        on_render_pause_ui: Optional[Callable[[bool], None]] = None,\n        on_capture_state: Optional[Callable[[], Dict[str, Any]]] = None,\n        on_notification: Optional[Callable[[str], None]] = None,\n        on_open_settings: Optional[Callable[[], None]] = None,",
+        "detail": "Contents.Engine.game.pause_menu_manager",
+        "documentation": {}
+    },
+    {
+        "label": "PauseScreen",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.pause_menu_manager",
+        "description": "Contents.Engine.game.pause_menu_manager",
+        "peekOfCode": "class PauseScreen:\n    \"\"\"Render a paused game overlay with save/settings/quit buttons.\"\"\"\n    PANEL_COLOR = (36, 36, 46)\n    PANEL_BORDER_COLOR = (192, 160, 96)\n    BUTTON_COLOR = (80, 74, 60)\n    BUTTON_DISABLED_COLOR = (60, 60, 60)\n    BUTTON_BORDER_COLOR = (210, 190, 130)\n    TEXT_COLOR = (240, 236, 220)\n    OVERLAY_COLOR = (8, 8, 12, 190)\n    BUTTON_LABELS = {",
+        "detail": "Contents.Engine.game.pause_menu_manager",
+        "documentation": {}
+    },
+    {
+        "label": "SaveManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.save_manager",
+        "description": "Contents.Engine.game.save_manager",
+        "peekOfCode": "class SaveManager:\n    def __init__(\n        self,\n        save_directory: str = None,\n        serialize: Optional[Callable[[Dict[str, Any]], str]] = None,\n        deserialize: Optional[Callable[[str], Dict[str, Any]]] = None,\n    ):\n        self.save_directory = save_directory or config.SAVE_DIRECTORY\n        os.makedirs(self.save_directory, exist_ok=True)\n        self._serialize = serialize or self._default_serialize",
+        "detail": "Contents.Engine.game.save_manager",
+        "documentation": {}
+    },
+    {
+        "label": "UIHotbarIntegration",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.ui_hotbar_integration",
+        "description": "Contents.Engine.game.ui_hotbar_integration",
+        "peekOfCode": "class UIHotbarIntegration: \n    def __init__( # initialize the UIHotbarIntegration class\n        self,\n        hotbar: Optional[InventoryHotbar] = None, # the hotbar to integrate\n        inventory_manager: Optional[InventoryManager] = None, # the inventory manager to integrate\n        on_draw_slot: Optional[Callable[[Optional[Any], int, int], None]] = None, # the function to call when drawing a slot\n    ):\n        self.hotbar = hotbar or InventoryHotbar() # the hotbar to integrate or create a new one if none is provided\n        self.inventory_manager = inventory_manager # the inventory manager to integrate\n        self.hotbar_slots: List[InventorySlot] = self.hotbar.hotbar_slots",
+        "detail": "Contents.Engine.game.ui_hotbar_integration",
+        "documentation": {}
+    },
+    {
+        "label": "UIManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.game.ui_manager",
+        "description": "Contents.Engine.game.ui_manager",
+        "peekOfCode": "class UIManager:\n    def __init__(\n        self,\n        on_toggle_quest: Optional[Callable[[bool], None]] = None,\n        on_toggle_minimap: Optional[Callable[[bool], None]] = None,\n        on_toggle_settings: Optional[Callable[[bool], None]] = None,\n        on_pause: Optional[Callable[[bool], None]] = None,\n        on_render_quests: Optional[Callable[[List[str]], None]] = None,\n    ):\n        self.is_quest_list_open = False",
+        "detail": "Contents.Engine.game.ui_manager",
+        "documentation": {}
+    },
+    {
+        "label": "QuestRouter",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.Quests.quest_router",
+        "description": "Contents.Engine.main.Quests.quest_router",
+        "peekOfCode": "class QuestRouter:\n    \"\"\"Load quest modules from the quest folders and expose discoverable quest data.\"\"\"\n    def __init__(self, root_dir: Optional[Path] = None, quest_manager: Optional[QuestManager] = None) -> None:\n        self.root_dir = Path(root_dir or Path(__file__).resolve().parent)\n        self.quest_manager = quest_manager or QuestManager()\n    def discover_quests(self) -> List[QuestEntry]:\n        quests: List[QuestEntry] = []\n        if not self.root_dir.exists():\n            return quests\n        for folder in sorted(self.root_dir.iterdir()):",
+        "detail": "Contents.Engine.main.Quests.quest_router",
+        "documentation": {}
+    },
+    {
+        "label": "MenuButton",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.Title",
+        "description": "Contents.Engine.main.Title",
+        "peekOfCode": "class MenuButton:\n    \"\"\"Represents a title menu button and its enabled state.\"\"\"\n    id: str\n    label: str\n    enabled: bool = True\nclass GameEngine:\n    \"\"\"Scene and save hooks referenced by the title menu pseudocode.\"\"\"\n    def __init__(\n        self,\n        on_load_scene: Optional[Callable[[str], None]] = None,",
+        "detail": "Contents.Engine.main.Title",
+        "documentation": {}
+    },
+    {
+        "label": "GameEngine",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.Title",
+        "description": "Contents.Engine.main.Title",
+        "peekOfCode": "class GameEngine:\n    \"\"\"Scene and save hooks referenced by the title menu pseudocode.\"\"\"\n    def __init__(\n        self,\n        on_load_scene: Optional[Callable[[str], None]] = None,\n        on_apply_save_data: Optional[Callable[[Dict[str, Any]], None]] = None,\n        on_initialize_game_start: Optional[Callable[[], None]] = None,\n    ):\n        self._on_load_scene = on_load_scene\n        self._on_apply_save_data = on_apply_save_data",
+        "detail": "Contents.Engine.main.Title",
+        "documentation": {}
+    },
+    {
+        "label": "Application",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.Title",
+        "description": "Contents.Engine.main.Title",
+        "peekOfCode": "class Application:\n    \"\"\"Application-level actions from the title menu pseudocode.\"\"\"\n    def __init__(self, on_quit: Optional[Callable[[], None]] = None):\n        self._on_quit = on_quit\n    def quit(self) -> None:\n        if self._on_quit:\n            self._on_quit()\nclass MainMenuManager:\n    \"\"\"Title screen flow for Continue / New Game / Settings / Quit.\"\"\"\n    MENU_ORDER = ['continue', 'new_game', 'settings', 'quit']",
+        "detail": "Contents.Engine.main.Title",
+        "documentation": {}
+    },
+    {
+        "label": "MainMenuManager",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.Title",
+        "description": "Contents.Engine.main.Title",
+        "peekOfCode": "class MainMenuManager:\n    \"\"\"Title screen flow for Continue / New Game / Settings / Quit.\"\"\"\n    MENU_ORDER = ['continue', 'new_game', 'settings', 'quit']\n    BUTTON_LABELS = {\n        'continue': 'Continue',\n        'new_game': 'New Game',\n        'settings': 'Settings',\n        'quit': 'Quit Game',\n    }\n    def __init__(",
+        "detail": "Contents.Engine.main.Title",
+        "documentation": {}
+    },
+    {
+        "label": "TitleScreen",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.Title",
+        "description": "Contents.Engine.main.Title",
+        "peekOfCode": "class TitleScreen:\n    \"\"\"Render the title-screen panel, menu buttons, and prompt text.\"\"\"\n    BACKGROUND_COLOR = (24, 24, 28)\n    PANEL_COLOR = (34, 34, 44)\n    PANEL_BORDER_COLOR = (180, 130, 80)\n    BUTTON_COLOR = (80, 68, 52)\n    BUTTON_DISABLED_COLOR = (64, 64, 64)\n    BUTTON_BORDER_COLOR = (220, 200, 160)\n    TEXT_COLOR = (236, 216, 180)\n    SUBTEXT_COLOR = (220, 220, 220)",
+        "detail": "Contents.Engine.main.Title",
+        "documentation": {}
+    },
+    {
+        "label": "Player",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class Player:\n    def __init__(self, x, y): # Initialize the player at the given coordinates  \n        self.x = x # Set the x coordinate   \n        self.y = y # Set the y coordinate   \n        self.width = config.PLAYER_HITBOX_WIDTH # Set the width of the hitbox\n        self.height = config.PLAYER_HITBOX_HEIGHT # Set the height of the hitbox\n        self.rect = pygame.Rect(self.x, self.y, self.width, self.height) # Create a rectangle for the player\n        self.health = config.PLAYER_START_HEALTH # Set the starting health\n        self.max_health = config.PLAYER_START_MAX_HEALTH # Set the maximum health\n        self.mana = config.PLAYER_START_MANA # Set the starting mana",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "Item",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class Item:\n    def __init__(self, name, item_type, stats_bonus=None, equippable=False, value=0, animation_type=None): # Initialize an item\n        self.name = name # Set the name of the item\n        self.type = item_type  # 'weapon', 'armor', etc., or 'gold', 'xp'\n        self.stats_bonus = stats_bonus or {} # Set the stats bonus to the stats bonus\n        self.equippable = equippable # Set the equippable to the equippable\n        self.value = value # Set the value of the item\n        self.animation_type = animation_type # Set the animation type for equipped weapon/tool\nclass Inventory:\n    def __init__(self): # Initialize an inventory",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "Inventory",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class Inventory:\n    def __init__(self): # Initialize an inventory\n        self.items = [] # Set the items to the items\n    def add_item(self, item): # Add an item to the inventory\n        self.items.append(item)\n    def remove_item(self, item): # Remove an item from the inventory\n        if item in self.items:\n            self.items.remove(item) # Remove the item from the inventory\n    def equip(self, player, item): # Equip an item\n        if item in self.items:",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "World",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class World:\n    def __init__(self, player, screen): # Assuming 'screen' object is passed here\n        self.player = player # Set the player to the player in the world\n        self.entities = []  # List of enemies, collectables, etc.\n        self.map = []  # Simple 2D list for map\n        self.tile_size = config.WORLD_DEFAULT_TILE_SIZE # Assuming this line was here\n        self.renderer = worldRenderer(screen) # Pass the screen object to the renderer\n    def set_map(self, tile_grid): # Set the map to the tile grid\n        self.map = tile_grid # Set the map to the tile grid\n    def tile_at(self, tile_x, tile_y): # Get the tile at the given coordinates",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "Collectable",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class Collectable:\n    def __init__(self, x, y, item): # Initialize a collectable\n        self.x = x\n        self.y = y\n        self.item = item # Set the item to the item\nclass MiningSpot:\n    def __init__(self, x, y, item=None): # Initialize a mining spot\n        self.x = x\n        self.y = y\n        self.width = config.MINING_SPOT_WIDTH # Set the width of the mining spot",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "MiningSpot",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class MiningSpot:\n    def __init__(self, x, y, item=None): # Initialize a mining spot\n        self.x = x\n        self.y = y\n        self.width = config.MINING_SPOT_WIDTH # Set the width of the mining spot\n        self.height = config.MINING_SPOT_HEIGHT # Set the height of the mining spot\n        self.rect = pygame.Rect(self.x, self.y, self.width, self.height)\n        self.item = item or Item(\n            config.DEFAULT_MINING_ITEM_NAME,\n            config.DEFAULT_MINING_ITEM_TYPE,",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "Enemy",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class Enemy:\n    def __init__(self, x, y, health, damage): # Initialize an enemy\n        self.x = x\n        self.y = y\n        self.health = health # Set the health to the health\n        self.damage = damage # Set the damage to the damage\n    def take_damage(self, damage): # Take damage from the enemy\n        self.health -= damage # Subtract the damage from the health\n        if self.health <= 0: # Check if the health is less than or equal to 0\n            self.die() # Die",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "UpgradeTree",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class UpgradeTree:\n    def __init__(self, player): # Initialize an upgrade tree\n        self.player = player # Set the player to the player in the upgrade tree\n#        self.available_upgrades = dict(UPGRADE_TREE_INITIAL_COUNTS) # Set the available upgrades to the available upgrades\n    def apply_upgrade(self, stat): # Apply an upgrade to the player\n        if self.available_upgrades[stat] > 0: # Check if the available upgrades is greater than 0\n            self.player.stats[stat] += 1 # Add 1 to the stat\n            self.available_upgrades[stat] -= 1 # Subtract 1 from the available upgrades\nclass UI:\n    def __init__(self, player): # Initialize a UI",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "UI",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class UI:\n    def __init__(self, player): # Initialize a UI\n        self.player = player # Set the player to the player in the UI\n        self.renderer = UIRenderer(player) # Set the renderer to the UI renderer\n    def draw(self, screen): # Draw the UI\n        self.renderer.draw_ui(screen) # Draw the UI\n    def update(self): # Update the UI\n        self.renderer.update_ui() # Update the UI\n    def configure_appearance(self, appearance): # Configure the appearance of the UI\n        self.renderer.configure_appearance(appearance) # Configure the appearance of the UI",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "Game",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.bridger",
+        "description": "Contents.Engine.main.bridger",
+        "peekOfCode": "class Game:\n    def __init__(self): # Initialize a game\n        self.player = Player(0, 0) # Set the player to the player in the game\n        self.world = World(self.player) # Set the world to the world in the game\n        self.ui = UI(self.player) # Set the UI to the UI in the game\n        self.upgrade_tree = UpgradeTree(self.player) # Set the upgrade tree to the upgrade tree in the game\n    def run(self): # Run the game\n        # Main game loop\n        pass # Do nothing",
+        "detail": "Contents.Engine.main.bridger",
+        "documentation": {}
+    },
+    {
+        "label": "SupportsAddItem",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.itemProvider",
+        "description": "Contents.Engine.main.itemProvider",
+        "peekOfCode": "class SupportsAddItem(Protocol):\n    def add_item(self, item) -> None: ...\ndef _choose_weighted(pool: Sequence[OreDrop], rng: random.Random) -> OreDrop:\n    if not pool:\n        raise ValueError(\"ORE_POOL must not be empty\")\n    total_weight = sum(max(0, ore.weight) for ore in pool)\n    if total_weight <= 0:\n        raise ValueError(\"ORE_POOL must contain at least one positive weight\")\n    # Inclusive 1..total_weight, matching the original pseudocode.\n    roll = rng.randint(1, total_weight)",
+        "detail": "Contents.Engine.main.itemProvider",
+        "documentation": {}
+    },
+    {
+        "label": "provide_random_ore",
+        "kind": 2,
+        "importPath": "Contents.Engine.main.itemProvider",
+        "description": "Contents.Engine.main.itemProvider",
+        "peekOfCode": "def provide_random_ore(\n    target_object,\n    *,\n    inventory: Optional[SupportsAddItem] = None,\n    make_item: Optional[Callable[[str], object]] = None,\n    rng: Optional[random.Random] = None,\n    on_popup: Optional[Callable[[str], None]] = None,\n    on_destroy: Optional[Callable[[object], None]] = None,\n    on_sound: Optional[Callable[[str], None]] = None,\n    damage: int = 1,",
+        "detail": "Contents.Engine.main.itemProvider",
+        "documentation": {}
+    },
+    {
+        "label": "ProvideRandomOres",
+        "kind": 5,
+        "importPath": "Contents.Engine.main.itemProvider",
+        "description": "Contents.Engine.main.itemProvider",
+        "peekOfCode": "ProvideRandomOres = provide_random_ore",
+        "detail": "Contents.Engine.main.itemProvider",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "Contents.Engine.main.main",
+        "description": "Contents.Engine.main.main",
+        "peekOfCode": "def main(): # Main game loop\n    from .bridger import Player, Item, Inventory, World #, Ore, Enemy, UpgradeTree, UI\n    from .renderer import PlayerRenderer, UIRenderer #, OreRenderer, EnemyRenderer\n    # Initialize pygame\n    pygame.init()\n    pygame.font.init()\n    # Create windowed mode\n    screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))\n    pygame.display.set_caption(config.WINDOW_TITLE)\n    # Clock for FPS",
+        "detail": "Contents.Engine.main.main",
+        "documentation": {}
+    },
+    {
+        "label": "PlayerRenderer",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.playerRenderer",
+        "description": "Contents.Engine.main.playerRenderer",
+        "peekOfCode": "class PlayerRenderer:\n# moved player rendering to this file\n        # Initialize map-specific variables here\n        pass\nclass PlayerRenderer:\n    \"\"\"Handles loading and rendering directional player sprites.\"\"\"\n    def __init__(self, player):\n        self.player = player\n        self.player_resources_dir = config.PLAYER_RESOURCES_DIR\n        self.facing_direction = config.PLAYER_DEFAULT_FACING",
+        "detail": "Contents.Engine.main.playerRenderer",
+        "documentation": {}
+    },
+    {
+        "label": "PlayerRenderer",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.playerRenderer",
+        "description": "Contents.Engine.main.playerRenderer",
+        "peekOfCode": "class PlayerRenderer:\n    \"\"\"Handles loading and rendering directional player sprites.\"\"\"\n    def __init__(self, player):\n        self.player = player\n        self.player_resources_dir = config.PLAYER_RESOURCES_DIR\n        self.facing_direction = config.PLAYER_DEFAULT_FACING\n        self.current_state = config.PLAYER_DEFAULT_STATE\n        self.animation_frame = 0\n        self.animation_counter = 0\n        self.animation_speed = config.ANIMATION_SPEED_WALK",
+        "detail": "Contents.Engine.main.playerRenderer",
+        "documentation": {}
+    },
+    {
+        "label": "UIRenderer",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.playerRenderer",
+        "description": "Contents.Engine.main.playerRenderer",
+        "peekOfCode": "class UIRenderer:\n    def __init__(self, player):\n        self.player = player\n        self.elements = {}\n        self.user_status = UserStatusUI(player)\n    def draw_ui(self, screen):\n        self.user_status.draw(screen)\n    def update_ui(self):\n        self.user_status.refresh_status()\n    def configure_appearance(self, appearance):",
+        "detail": "Contents.Engine.main.playerRenderer",
+        "documentation": {}
+    },
+    {
+        "label": "Renderer",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.tile_render",
+        "description": "Contents.Engine.main.tile_render",
+        "peekOfCode": "class Renderer(object):\n    \"\"\"\n    This object renders tile maps from Tiled\n    \"\"\"\n    def __init__(self, filename):\n        tm = pytmx.load_pygame(filename, pixelalpha=True)\n        self.size = tm.width * tm.tilewidth, tm.height * tm.tileheight\n        self.tmx_data = tm\n    def render(self, surface):\n        tw = self.tmx_data.tilewidth",
+        "detail": "Contents.Engine.main.tile_render",
+        "documentation": {}
+    },
+    {
+        "label": "StatusBarTracker",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.userStatusUi",
+        "description": "Contents.Engine.main.userStatusUi",
+        "peekOfCode": "class StatusBarTracker:\n    \"\"\"Reads one player stat each frame and exposes a 0–1 fill ratio.\"\"\"\n    stat_name: str = 'stat'\n    def __init__(\n        self,\n        player: Any,\n        current_attr: str,\n        max_attr: str,\n    ):\n        self.player = player",
+        "detail": "Contents.Engine.main.userStatusUi",
+        "documentation": {}
+    },
+    {
+        "label": "HPStatusBar",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.userStatusUi",
+        "description": "Contents.Engine.main.userStatusUi",
+        "peekOfCode": "class HPStatusBar(StatusBarTracker):\n    stat_name = 'hp' # set the stat name to 'hp'\n    def __init__(self, player: Any):\n        super().__init__(player, 'health', 'max_health') # initialize the HP status bar with the player and the current and max health attributes\nclass MPStatusBar(StatusBarTracker):\n    stat_name = 'mp' # set the stat name to 'mp'\n    def __init__(self, player: Any):\n        super().__init__(player, 'mana', 'max_mana') # initialize the MP status bar with the player and the current and max mana attributes\nclass StaminaStatusBar(StatusBarTracker):\n    stat_name = 'stamina' # set the stat name to 'stamina'",
+        "detail": "Contents.Engine.main.userStatusUi",
+        "documentation": {}
+    },
+    {
+        "label": "MPStatusBar",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.userStatusUi",
+        "description": "Contents.Engine.main.userStatusUi",
+        "peekOfCode": "class MPStatusBar(StatusBarTracker):\n    stat_name = 'mp' # set the stat name to 'mp'\n    def __init__(self, player: Any):\n        super().__init__(player, 'mana', 'max_mana') # initialize the MP status bar with the player and the current and max mana attributes\nclass StaminaStatusBar(StatusBarTracker):\n    stat_name = 'stamina' # set the stat name to 'stamina'\n    def __init__(self, player: Any):\n        super().__init__(player, 'stamina', 'max_stamina') # initialize the stamina status bar with the player and the current and max stamina attributes\nclass StatusBarFillRenderer:\n    \"\"\"Draws a single coloured fill rectangle for one bar slot.\"\"\"",
+        "detail": "Contents.Engine.main.userStatusUi",
+        "documentation": {}
+    },
+    {
+        "label": "StaminaStatusBar",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.userStatusUi",
+        "description": "Contents.Engine.main.userStatusUi",
+        "peekOfCode": "class StaminaStatusBar(StatusBarTracker):\n    stat_name = 'stamina' # set the stat name to 'stamina'\n    def __init__(self, player: Any):\n        super().__init__(player, 'stamina', 'max_stamina') # initialize the stamina status bar with the player and the current and max stamina attributes\nclass StatusBarFillRenderer:\n    \"\"\"Draws a single coloured fill rectangle for one bar slot.\"\"\"\n    def __init__(\n        self,\n        tracker: StatusBarTracker,\n        slot: Tuple[int, int, int, int],",
+        "detail": "Contents.Engine.main.userStatusUi",
+        "documentation": {}
+    },
+    {
+        "label": "StatusBarFillRenderer",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.userStatusUi",
+        "description": "Contents.Engine.main.userStatusUi",
+        "peekOfCode": "class StatusBarFillRenderer:\n    \"\"\"Draws a single coloured fill rectangle for one bar slot.\"\"\"\n    def __init__(\n        self,\n        tracker: StatusBarTracker,\n        slot: Tuple[int, int, int, int],\n        color: Tuple[int, int, int],\n    ): # initialize the status bar fill renderer with the tracker, slot, and color\n        self.tracker = tracker\n        self.slot_x, self.slot_y, self.slot_height, self.max_fill_width = slot # set the slot x, y, height, and max fill width to the slot x, y, height, and max fill width from the slot",
+        "detail": "Contents.Engine.main.userStatusUi",
+        "documentation": {}
+    },
+    {
+        "label": "UserStatusUI",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.userStatusUi",
+        "description": "Contents.Engine.main.userStatusUi",
+        "peekOfCode": "class UserStatusUI:\n    \"\"\"\n    Composite User Status frame with HP (top), MP (middle), and Stamina (bottom).\n    Fills are drawn behind the frame sprite each frame.\n    \"\"\"\n    def __init__(\n        self,\n        player: Any,\n        sprite_path: str = config.USER_STATUS_SPRITE_PATH,\n        position: Tuple[int, int] = config.USER_STATUS_POSITION,",
+        "detail": "Contents.Engine.main.userStatusUi",
+        "documentation": {}
+    },
+    {
+        "label": "worldRenderer",
+        "kind": 6,
+        "importPath": "Contents.Engine.main.worldRenderer",
+        "description": "Contents.Engine.main.worldRenderer",
+        "peekOfCode": "class worldRenderer:\n    def __init__(self, screen, tiled_map=None): # Accept the map object here\n        self.screen = screen\n        self.tiled_map = tiled_map # Store the map object\n    def render(self, cam_x, cam_y):\n        if not self.tiled_map:\n            return\n        # --- START: Using the new TiledMap structure for rendering ---\n        # Draw all background images first (Image Layers)\n        for layer in self.tiled_map.image_layers:",
+        "detail": "Contents.Engine.main.worldRenderer",
+        "documentation": {}
+    },
+    {
+        "label": "GreatswordController",
+        "kind": 6,
+        "importPath": "Contents.Engine.world.tools.greatsword",
+        "description": "Contents.Engine.world.tools.greatsword",
+        "peekOfCode": "class GreatswordController:\n    player: Any\n    def attack(self) -> bool:\n        \"\"\"Perform a greatsword attack action.\"\"\"\n        return True\n    def block(self) -> bool:\n        \"\"\"Perform a greatsword block action.\"\"\"\n        return True\n    def dash(self) -> bool:\n        \"\"\"Greatsword dash interaction; can be used for heavier forward movement.\"\"\"",
+        "detail": "Contents.Engine.world.tools.greatsword",
+        "documentation": {}
+    },
+    {
+        "label": "get_greatsword_controller",
+        "kind": 2,
+        "importPath": "Contents.Engine.world.tools.greatsword",
+        "description": "Contents.Engine.world.tools.greatsword",
+        "peekOfCode": "def get_greatsword_controller(player: Any) -> GreatswordController:\n    return GreatswordController(player=player)",
+        "detail": "Contents.Engine.world.tools.greatsword",
+        "documentation": {}
+    },
+    {
+        "label": "SupportsMine",
+        "kind": 6,
+        "importPath": "Contents.Engine.world.tools.pickaxe",
+        "description": "Contents.Engine.world.tools.pickaxe",
+        "peekOfCode": "class SupportsMine(Protocol):\n    def mine(self, world, mouse_buttons) -> object: ... # Mine a nearby mining spot when left mouse is pressed\n@dataclass\nclass PickaxeController:\n    \"\"\"\n    Minimal controller that turns the pickaxe pseudocode into usable Python.\n    It’s intentionally engine-agnostic:\n    - `get_target()` can be any function that returns the thing you're mining\n      (e.g. a raycast hit, nearby entity, collision target, etc.)\n    - `mine_action()` can award drops / call `provide_random_ore` / etc.",
+        "detail": "Contents.Engine.world.tools.pickaxe",
+        "documentation": {}
+    },
+    {
+        "label": "PickaxeController",
+        "kind": 6,
+        "importPath": "Contents.Engine.world.tools.pickaxe",
+        "description": "Contents.Engine.world.tools.pickaxe",
+        "peekOfCode": "class PickaxeController:\n    \"\"\"\n    Minimal controller that turns the pickaxe pseudocode into usable Python.\n    It’s intentionally engine-agnostic:\n    - `get_target()` can be any function that returns the thing you're mining\n      (e.g. a raycast hit, nearby entity, collision target, etc.)\n    - `mine_action()` can award drops / call `provide_random_ore` / etc.\n    \"\"\"\n    is_mining: bool = False # Set the is mining to the is mining\n    get_target: Optional[Callable[[], object]] = None # Set the get target to the get target",
+        "detail": "Contents.Engine.world.tools.pickaxe",
+        "documentation": {}
+    },
+    {
+        "label": "mine_with_equipped_pickaxe",
+        "kind": 2,
+        "importPath": "Contents.Engine.world.tools.pickaxe",
+        "description": "Contents.Engine.world.tools.pickaxe",
+        "peekOfCode": "def mine_with_equipped_pickaxe(player: SupportsMine, world, mouse_buttons) -> object: # Mine with the equipped pickaxe\n    \"\"\"\n    Convenience wrapper that matches your current engine design in `agaf.py`:\n    if the player has a `mine()` method, delegate to it.\n    \"\"\"\n    return player.mine(world, mouse_buttons) # Return the mined item",
+        "detail": "Contents.Engine.world.tools.pickaxe",
+        "documentation": {}
+    },
+    {
+        "label": "SwordController",
+        "kind": 6,
+        "importPath": "Contents.Engine.world.tools.sword",
+        "description": "Contents.Engine.world.tools.sword",
+        "peekOfCode": "class SwordController:\n    player: Any\n    def attack(self) -> bool:\n        \"\"\"Perform a sword attack action.\"\"\"\n        return True\n    def block(self) -> bool:\n        \"\"\"Perform a sword block action.\"\"\"\n        return True\n    def parry(self) -> bool:\n        \"\"\"Perform a sword parry action if supported.\"\"\"",
+        "detail": "Contents.Engine.world.tools.sword",
+        "documentation": {}
+    },
+    {
+        "label": "get_sword_controller",
+        "kind": 2,
+        "importPath": "Contents.Engine.world.tools.sword",
+        "description": "Contents.Engine.world.tools.sword",
+        "peekOfCode": "def get_sword_controller(player: Any) -> SwordController:\n    return SwordController(player=player)",
+        "detail": "Contents.Engine.world.tools.sword",
+        "documentation": {}
+    },
+    {
+        "label": "ImportUpdater",
+        "kind": 6,
+        "importPath": "Contents.Engine.updater",
+        "description": "Contents.Engine.updater",
+        "peekOfCode": "class ImportUpdater(ast.NodeTransformer):\n    \"\"\"Walks the AST and updates import statements based on a mapping.\"\"\"\n    def __init__(self, mapping):\n        self.mapping = mapping\n    def _get_updated_name(self, name):\n        for old_import, new_import in self.mapping.items():\n            if name == old_import:\n                return new_import\n            elif name.startswith(old_import + \".\"):\n                return name.replace(old_import + \".\", new_import + \".\", 1)",
+        "detail": "Contents.Engine.updater",
+        "documentation": {}
+    },
+    {
+        "label": "update_python_imports",
+        "kind": 2,
+        "importPath": "Contents.Engine.updater",
+        "description": "Contents.Engine.updater",
+        "peekOfCode": "def update_python_imports(file_path, import_mapping):\n    \"\"\"Reads a Python file, updates imports using the AST, and overwrites the file.\"\"\"\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        source_code = f.read()\n    tree = ast.parse(source_code)\n    transformer = ImportUpdater(import_mapping)\n    modified_tree = transformer.visit(tree)\n    ast.fix_missing_locations(modified_tree)\n    updated_code = ast.unparse(modified_tree)\n    with open(file_path, \"w\", encoding=\"utf-8\") as f:",
+        "detail": "Contents.Engine.updater",
+        "documentation": {}
+    },
+    {
+        "label": "collect_dependency_packages",
+        "kind": 2,
+        "importPath": "Contents.Engine.updater",
+        "description": "Contents.Engine.updater",
+        "peekOfCode": "def collect_dependency_packages(project_root: Path) -> Set[str]:\n    \"\"\"Collect third-party packages that the shared imports module requires.\"\"\"\n    imports_file = project_root / 'Engine' / 'config' / 'imports.py'\n    if not imports_file.exists():\n        return set()\n    packages: Set[str] = set()\n    try:\n        source = imports_file.read_text(encoding='utf-8')\n    except (UnicodeDecodeError, OSError):\n        return set()",
+        "detail": "Contents.Engine.updater",
+        "documentation": {}
+    },
+    {
+        "label": "check_and_install_dependencies",
+        "kind": 2,
+        "importPath": "Contents.Engine.updater",
+        "description": "Contents.Engine.updater",
+        "peekOfCode": "def check_and_install_dependencies(project_root: Path, install_missing: bool = True) -> Dict[str, object]:\n    \"\"\"Check whether required third-party packages are installed and install them if needed.\"\"\"\n    required_packages = sorted(collect_dependency_packages(project_root))\n    results: Dict[str, object] = {'checked': required_packages, 'missing': [], 'installed': []}\n    for package in required_packages:\n        try:\n            importlib.import_module(package)\n        except Exception:\n            results['missing'].append(package)\n    if install_missing and results['missing']:",
+        "detail": "Contents.Engine.updater",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_runtime_dependencies",
+        "kind": 2,
+        "importPath": "Contents.Engine.updater",
+        "description": "Contents.Engine.updater",
+        "peekOfCode": "def ensure_runtime_dependencies(project_root: Path | None = None, install_missing: bool = True) -> Dict[str, object]:\n    \"\"\"Run dependency checks before the game launches.\"\"\"\n    root = Path(project_root or Path(__file__).resolve().parent.parent)\n    return check_and_install_dependencies(root, install_missing=install_missing)\nif __name__ == \"__main__\":\n    ensure_runtime_dependencies()",
+        "detail": "Contents.Engine.updater",
+        "documentation": {}
+    },
+    {
+        "label": "OreDrop",
+        "kind": 6,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "class OreDrop(NamedTuple):\n    name: str\n    weight: int\n# Ore types: rarity label plus slice of a 0–100 roll (half-open interval [low, high)).\n# Draw roll in [0, 100); the first matching range wins. Ranges must partition 0–100.\nORE_RARITY_BY_PERCENT_RANGE = {\n    'Stone': {'rarity': 'common', 'percent_range': (0, 42)},\n    'Coal': {'rarity': 'common', 'percent_range': (42, 60)},\n    'Iron': {'rarity': 'uncommon', 'percent_range': (60, 72)},\n    'Silver': {'rarity': 'uncommon', 'percent_range': (72, 80)},",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_game_font",
+        "kind": 2,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "def get_game_font(size: int, bold: bool = False, italic: bool = False):\n    \"\"\"Load the in-game font from the bundled Handjet asset when available.\"\"\"\n    pygame.font.init()\n    if os.path.exists(DEFAULT_FONT_PATH):\n        try:\n            return pygame.font.Font(DEFAULT_FONT_PATH, size)\n        except pygame.error:\n            pass\n    return pygame.font.SysFont('serif', size, bold=bold, italic=italic)\n# Player stamina & skills (pseudocode defaults)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_resources",
+        "kind": 2,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "def get_all_resources(base_path):\n    \"\"\"\n    Recursively scans the base_path and returns a dictionary of relative paths to absolute paths.\n    Keys are relative paths with forward slashes, values are absolute file paths.\n    \"\"\"\n    resources = {}\n    for root, dirs, files in os.walk(base_path):\n        rel_root = os.path.relpath(root, base_path)\n        if rel_root == '.':\n            rel_root = ''",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "CONFIGURATION",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "CONFIGURATION = \"CONFIGURATION\"\nCONTENTS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'Contents')\nRESOURCES_PATH = os.path.join(CONTENTS_PATH, 'Resources')\nRESOURCE_MANIFEST_FILE = os.path.join(RESOURCES_PATH, 'resource_paths.txt')\n#Map constants\nCAVE = 'Cave'\nTUTORIAL_CAVE = 'Tutorial Cave'\nOVERWORLD = 'Overworld'\nDAEMIAS_ALTAR = 'Daemias Altar'\n# Display / main loop",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "CONTENTS_PATH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "CONTENTS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'Contents')\nRESOURCES_PATH = os.path.join(CONTENTS_PATH, 'Resources')\nRESOURCE_MANIFEST_FILE = os.path.join(RESOURCES_PATH, 'resource_paths.txt')\n#Map constants\nCAVE = 'Cave'\nTUTORIAL_CAVE = 'Tutorial Cave'\nOVERWORLD = 'Overworld'\nDAEMIAS_ALTAR = 'Daemias Altar'\n# Display / main loop\nSCREEN_WIDTH = 1550",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "RESOURCES_PATH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "RESOURCES_PATH = os.path.join(CONTENTS_PATH, 'Resources')\nRESOURCE_MANIFEST_FILE = os.path.join(RESOURCES_PATH, 'resource_paths.txt')\n#Map constants\nCAVE = 'Cave'\nTUTORIAL_CAVE = 'Tutorial Cave'\nOVERWORLD = 'Overworld'\nDAEMIAS_ALTAR = 'Daemias Altar'\n# Display / main loop\nSCREEN_WIDTH = 1550\nSCREEN_HEIGHT = 850",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "RESOURCE_MANIFEST_FILE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "RESOURCE_MANIFEST_FILE = os.path.join(RESOURCES_PATH, 'resource_paths.txt')\n#Map constants\nCAVE = 'Cave'\nTUTORIAL_CAVE = 'Tutorial Cave'\nOVERWORLD = 'Overworld'\nDAEMIAS_ALTAR = 'Daemias Altar'\n# Display / main loop\nSCREEN_WIDTH = 1550\nSCREEN_HEIGHT = 850\nWINDOW_TITLE = \"A Game About Forging\"",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "CAVE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "CAVE = 'Cave'\nTUTORIAL_CAVE = 'Tutorial Cave'\nOVERWORLD = 'Overworld'\nDAEMIAS_ALTAR = 'Daemias Altar'\n# Display / main loop\nSCREEN_WIDTH = 1550\nSCREEN_HEIGHT = 850\nWINDOW_TITLE = \"A Game About Forging\"\nTARGET_FPS = 60\nSCREEN_CLEAR_COLOR = (20, 20, 20)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "TUTORIAL_CAVE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "TUTORIAL_CAVE = 'Tutorial Cave'\nOVERWORLD = 'Overworld'\nDAEMIAS_ALTAR = 'Daemias Altar'\n# Display / main loop\nSCREEN_WIDTH = 1550\nSCREEN_HEIGHT = 850\nWINDOW_TITLE = \"A Game About Forging\"\nTARGET_FPS = 60\nSCREEN_CLEAR_COLOR = (20, 20, 20)\nQUIT_KEY = pygame.K_ESCAPE",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "OVERWORLD",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "OVERWORLD = 'Overworld'\nDAEMIAS_ALTAR = 'Daemias Altar'\n# Display / main loop\nSCREEN_WIDTH = 1550\nSCREEN_HEIGHT = 850\nWINDOW_TITLE = \"A Game About Forging\"\nTARGET_FPS = 60\nSCREEN_CLEAR_COLOR = (20, 20, 20)\nQUIT_KEY = pygame.K_ESCAPE\n# Maps and map imports, add more maps as required",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DAEMIAS_ALTAR",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DAEMIAS_ALTAR = 'Daemias Altar'\n# Display / main loop\nSCREEN_WIDTH = 1550\nSCREEN_HEIGHT = 850\nWINDOW_TITLE = \"A Game About Forging\"\nTARGET_FPS = 60\nSCREEN_CLEAR_COLOR = (20, 20, 20)\nQUIT_KEY = pygame.K_ESCAPE\n# Maps and map imports, add more maps as required\nCAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SCREEN_WIDTH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SCREEN_WIDTH = 1550\nSCREEN_HEIGHT = 850\nWINDOW_TITLE = \"A Game About Forging\"\nTARGET_FPS = 60\nSCREEN_CLEAR_COLOR = (20, 20, 20)\nQUIT_KEY = pygame.K_ESCAPE\n# Maps and map imports, add more maps as required\nCAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')\nCAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')\n#Font import path, if font is to be changed later, simply adjust as required",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SCREEN_HEIGHT",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SCREEN_HEIGHT = 850\nWINDOW_TITLE = \"A Game About Forging\"\nTARGET_FPS = 60\nSCREEN_CLEAR_COLOR = (20, 20, 20)\nQUIT_KEY = pygame.K_ESCAPE\n# Maps and map imports, add more maps as required\nCAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')\nCAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')\n#Font import path, if font is to be changed later, simply adjust as required\nDEFAULT_FONT_PATH = os.path.join(",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "WINDOW_TITLE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "WINDOW_TITLE = \"A Game About Forging\"\nTARGET_FPS = 60\nSCREEN_CLEAR_COLOR = (20, 20, 20)\nQUIT_KEY = pygame.K_ESCAPE\n# Maps and map imports, add more maps as required\nCAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')\nCAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')\n#Font import path, if font is to be changed later, simply adjust as required\nDEFAULT_FONT_PATH = os.path.join(\n    RESOURCES_PATH,",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "TARGET_FPS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "TARGET_FPS = 60\nSCREEN_CLEAR_COLOR = (20, 20, 20)\nQUIT_KEY = pygame.K_ESCAPE\n# Maps and map imports, add more maps as required\nCAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')\nCAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')\n#Font import path, if font is to be changed later, simply adjust as required\nDEFAULT_FONT_PATH = os.path.join(\n    RESOURCES_PATH,\n    'Fonts',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SCREEN_CLEAR_COLOR",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SCREEN_CLEAR_COLOR = (20, 20, 20)\nQUIT_KEY = pygame.K_ESCAPE\n# Maps and map imports, add more maps as required\nCAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')\nCAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')\n#Font import path, if font is to be changed later, simply adjust as required\nDEFAULT_FONT_PATH = os.path.join(\n    RESOURCES_PATH,\n    'Fonts',\n    'Handjet',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "QUIT_KEY",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "QUIT_KEY = pygame.K_ESCAPE\n# Maps and map imports, add more maps as required\nCAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')\nCAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')\n#Font import path, if font is to be changed later, simply adjust as required\nDEFAULT_FONT_PATH = os.path.join(\n    RESOURCES_PATH,\n    'Fonts',\n    'Handjet',\n    'Handjet-VariableFont_ELGR,ELSH,wght.ttf',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "CAVE_MAP_PATH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "CAVE_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'Cave.json')\nCAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')\n#Font import path, if font is to be changed later, simply adjust as required\nDEFAULT_FONT_PATH = os.path.join(\n    RESOURCES_PATH,\n    'Fonts',\n    'Handjet',\n    'Handjet-VariableFont_ELGR,ELSH,wght.ttf',\n)\n# Player & world tuning",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "CAVE_TUTORIAL_MAP_PATH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "CAVE_TUTORIAL_MAP_PATH = os.path.join(RESOURCES_PATH, 'Maps', 'tutorial.json')\n#Font import path, if font is to be changed later, simply adjust as required\nDEFAULT_FONT_PATH = os.path.join(\n    RESOURCES_PATH,\n    'Fonts',\n    'Handjet',\n    'Handjet-VariableFont_ELGR,ELSH,wght.ttf',\n)\n# Player & world tuning\nPLAYER_HITBOX_WIDTH = 16",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_FONT_PATH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_FONT_PATH = os.path.join(\n    RESOURCES_PATH,\n    'Fonts',\n    'Handjet',\n    'Handjet-VariableFont_ELGR,ELSH,wght.ttf',\n)\n# Player & world tuning\nPLAYER_HITBOX_WIDTH = 16\nPLAYER_HITBOX_HEIGHT = 16\nPLAYER_START_HEALTH = 100",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_HITBOX_WIDTH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_HITBOX_WIDTH = 16\nPLAYER_HITBOX_HEIGHT = 16\nPLAYER_START_HEALTH = 100\nPLAYER_START_MAX_HEALTH = 100\nPLAYER_START_MANA = 50\nPLAYER_START_MAX_MANA = 50\nPLAYER_START_XP = 0\nPLAYER_START_LEVEL = 1\nPLAYER_START_GOLD = 0\nPLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_HITBOX_HEIGHT",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_HITBOX_HEIGHT = 16\nPLAYER_START_HEALTH = 100\nPLAYER_START_MAX_HEALTH = 100\nPLAYER_START_MANA = 50\nPLAYER_START_MAX_MANA = 50\nPLAYER_START_XP = 0\nPLAYER_START_LEVEL = 1\nPLAYER_START_GOLD = 0\nPLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}\nXP_PER_LEVEL_MULTIPLIER = 100",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_START_HEALTH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_START_HEALTH = 100\nPLAYER_START_MAX_HEALTH = 100\nPLAYER_START_MANA = 50\nPLAYER_START_MAX_MANA = 50\nPLAYER_START_XP = 0\nPLAYER_START_LEVEL = 1\nPLAYER_START_GOLD = 0\nPLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}\nXP_PER_LEVEL_MULTIPLIER = 100\nLEVEL_UP_MAX_HEALTH_BONUS = 10",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_START_MAX_HEALTH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_START_MAX_HEALTH = 100\nPLAYER_START_MANA = 50\nPLAYER_START_MAX_MANA = 50\nPLAYER_START_XP = 0\nPLAYER_START_LEVEL = 1\nPLAYER_START_GOLD = 0\nPLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}\nXP_PER_LEVEL_MULTIPLIER = 100\nLEVEL_UP_MAX_HEALTH_BONUS = 10\nDEFAULT_PLAYER_APPEARANCE = 'default'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_START_MANA",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_START_MANA = 50\nPLAYER_START_MAX_MANA = 50\nPLAYER_START_XP = 0\nPLAYER_START_LEVEL = 1\nPLAYER_START_GOLD = 0\nPLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}\nXP_PER_LEVEL_MULTIPLIER = 100\nLEVEL_UP_MAX_HEALTH_BONUS = 10\nDEFAULT_PLAYER_APPEARANCE = 'default'\nPICKAXE_NAME_KEY = 'pickaxe'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_START_MAX_MANA",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_START_MAX_MANA = 50\nPLAYER_START_XP = 0\nPLAYER_START_LEVEL = 1\nPLAYER_START_GOLD = 0\nPLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}\nXP_PER_LEVEL_MULTIPLIER = 100\nLEVEL_UP_MAX_HEALTH_BONUS = 10\nDEFAULT_PLAYER_APPEARANCE = 'default'\nPICKAXE_NAME_KEY = 'pickaxe'\nWORLD_DEFAULT_TILE_SIZE = 16",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_START_XP",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_START_XP = 0\nPLAYER_START_LEVEL = 1\nPLAYER_START_GOLD = 0\nPLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}\nXP_PER_LEVEL_MULTIPLIER = 100\nLEVEL_UP_MAX_HEALTH_BONUS = 10\nDEFAULT_PLAYER_APPEARANCE = 'default'\nPICKAXE_NAME_KEY = 'pickaxe'\nWORLD_DEFAULT_TILE_SIZE = 16\nMINING_SPOT_WIDTH = 16",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_START_LEVEL",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_START_LEVEL = 1\nPLAYER_START_GOLD = 0\nPLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}\nXP_PER_LEVEL_MULTIPLIER = 100\nLEVEL_UP_MAX_HEALTH_BONUS = 10\nDEFAULT_PLAYER_APPEARANCE = 'default'\nPICKAXE_NAME_KEY = 'pickaxe'\nWORLD_DEFAULT_TILE_SIZE = 16\nMINING_SPOT_WIDTH = 16\nMINING_SPOT_HEIGHT = 16",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_START_GOLD",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_START_GOLD = 0\nPLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}\nXP_PER_LEVEL_MULTIPLIER = 100\nLEVEL_UP_MAX_HEALTH_BONUS = 10\nDEFAULT_PLAYER_APPEARANCE = 'default'\nPICKAXE_NAME_KEY = 'pickaxe'\nWORLD_DEFAULT_TILE_SIZE = 16\nMINING_SPOT_WIDTH = 16\nMINING_SPOT_HEIGHT = 16\nDEFAULT_MINING_ITEM_NAME = 'Stone Ore'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "XP_PER_LEVEL_MULTIPLIER",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "XP_PER_LEVEL_MULTIPLIER = 100\nLEVEL_UP_MAX_HEALTH_BONUS = 10\nDEFAULT_PLAYER_APPEARANCE = 'default'\nPICKAXE_NAME_KEY = 'pickaxe'\nWORLD_DEFAULT_TILE_SIZE = 16\nMINING_SPOT_WIDTH = 16\nMINING_SPOT_HEIGHT = 16\nDEFAULT_MINING_ITEM_NAME = 'Stone Ore'\nDEFAULT_MINING_ITEM_TYPE = 'ore'\nDEFAULT_MINING_ITEM_VALUE = 1",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "LEVEL_UP_MAX_HEALTH_BONUS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "LEVEL_UP_MAX_HEALTH_BONUS = 10\nDEFAULT_PLAYER_APPEARANCE = 'default'\nPICKAXE_NAME_KEY = 'pickaxe'\nWORLD_DEFAULT_TILE_SIZE = 16\nMINING_SPOT_WIDTH = 16\nMINING_SPOT_HEIGHT = 16\nDEFAULT_MINING_ITEM_NAME = 'Stone Ore'\nDEFAULT_MINING_ITEM_TYPE = 'ore'\nDEFAULT_MINING_ITEM_VALUE = 1\nUPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_PLAYER_APPEARANCE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_PLAYER_APPEARANCE = 'default'\nPICKAXE_NAME_KEY = 'pickaxe'\nWORLD_DEFAULT_TILE_SIZE = 16\nMINING_SPOT_WIDTH = 16\nMINING_SPOT_HEIGHT = 16\nDEFAULT_MINING_ITEM_NAME = 'Stone Ore'\nDEFAULT_MINING_ITEM_TYPE = 'ore'\nDEFAULT_MINING_ITEM_VALUE = 1\nUPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}\n# Asset roots (under Contents/Resources)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PICKAXE_NAME_KEY",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PICKAXE_NAME_KEY = 'pickaxe'\nWORLD_DEFAULT_TILE_SIZE = 16\nMINING_SPOT_WIDTH = 16\nMINING_SPOT_HEIGHT = 16\nDEFAULT_MINING_ITEM_NAME = 'Stone Ore'\nDEFAULT_MINING_ITEM_TYPE = 'ore'\nDEFAULT_MINING_ITEM_VALUE = 1\nUPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}\n# Asset roots (under Contents/Resources)\nPLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "WORLD_DEFAULT_TILE_SIZE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "WORLD_DEFAULT_TILE_SIZE = 16\nMINING_SPOT_WIDTH = 16\nMINING_SPOT_HEIGHT = 16\nDEFAULT_MINING_ITEM_NAME = 'Stone Ore'\nDEFAULT_MINING_ITEM_TYPE = 'ore'\nDEFAULT_MINING_ITEM_VALUE = 1\nUPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}\n# Asset roots (under Contents/Resources)\nPLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')\n# PlayerRenderer tuning",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "MINING_SPOT_WIDTH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "MINING_SPOT_WIDTH = 16\nMINING_SPOT_HEIGHT = 16\nDEFAULT_MINING_ITEM_NAME = 'Stone Ore'\nDEFAULT_MINING_ITEM_TYPE = 'ore'\nDEFAULT_MINING_ITEM_VALUE = 1\nUPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}\n# Asset roots (under Contents/Resources)\nPLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')\n# PlayerRenderer tuning\nPLAYER_DEFAULT_FACING = 'S'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "MINING_SPOT_HEIGHT",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "MINING_SPOT_HEIGHT = 16\nDEFAULT_MINING_ITEM_NAME = 'Stone Ore'\nDEFAULT_MINING_ITEM_TYPE = 'ore'\nDEFAULT_MINING_ITEM_VALUE = 1\nUPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}\n# Asset roots (under Contents/Resources)\nPLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')\n# PlayerRenderer tuning\nPLAYER_DEFAULT_FACING = 'S'\nPLAYER_DEFAULT_STATE = 'idle'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_MINING_ITEM_NAME",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_MINING_ITEM_NAME = 'Stone Ore'\nDEFAULT_MINING_ITEM_TYPE = 'ore'\nDEFAULT_MINING_ITEM_VALUE = 1\nUPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}\n# Asset roots (under Contents/Resources)\nPLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')\n# PlayerRenderer tuning\nPLAYER_DEFAULT_FACING = 'S'\nPLAYER_DEFAULT_STATE = 'idle'\nPLAYER_IDLE_FALLBACK_KEY = 'idle_S'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_MINING_ITEM_TYPE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_MINING_ITEM_TYPE = 'ore'\nDEFAULT_MINING_ITEM_VALUE = 1\nUPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}\n# Asset roots (under Contents/Resources)\nPLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')\n# PlayerRenderer tuning\nPLAYER_DEFAULT_FACING = 'S'\nPLAYER_DEFAULT_STATE = 'idle'\nPLAYER_IDLE_FALLBACK_KEY = 'idle_S'\nPLAYER_IDLE_SUBDIRS = ['MC - static']",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_MINING_ITEM_VALUE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_MINING_ITEM_VALUE = 1\nUPGRADE_TREE_INITIAL_COUNTS: Dict[str, int] = {'strength': 0, 'defense': 0, 'speed': 0}\n# Asset roots (under Contents/Resources)\nPLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')\n# PlayerRenderer tuning\nPLAYER_DEFAULT_FACING = 'S'\nPLAYER_DEFAULT_STATE = 'idle'\nPLAYER_IDLE_FALLBACK_KEY = 'idle_S'\nPLAYER_IDLE_SUBDIRS = ['MC - static']\nPLAYER_DIRECTION_KEYS = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_RESOURCES_DIR",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_RESOURCES_DIR = os.path.join(RESOURCES_PATH, 'Player')\n# PlayerRenderer tuning\nPLAYER_DEFAULT_FACING = 'S'\nPLAYER_DEFAULT_STATE = 'idle'\nPLAYER_IDLE_FALLBACK_KEY = 'idle_S'\nPLAYER_IDLE_SUBDIRS = ['MC - static']\nPLAYER_DIRECTION_KEYS = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']\nPLAYER_MOVEMENT_DIRECTORY_MAP: Dict[str, str] = {\n    'walk': 'MC - walk',\n    'run': 'Run',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_DEFAULT_FACING",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_DEFAULT_FACING = 'S'\nPLAYER_DEFAULT_STATE = 'idle'\nPLAYER_IDLE_FALLBACK_KEY = 'idle_S'\nPLAYER_IDLE_SUBDIRS = ['MC - static']\nPLAYER_DIRECTION_KEYS = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']\nPLAYER_MOVEMENT_DIRECTORY_MAP: Dict[str, str] = {\n    'walk': 'MC - walk',\n    'run': 'Run',\n    'sprint': 'MC - Sprint',\n    'dash': 'Dash',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_DEFAULT_STATE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_DEFAULT_STATE = 'idle'\nPLAYER_IDLE_FALLBACK_KEY = 'idle_S'\nPLAYER_IDLE_SUBDIRS = ['MC - static']\nPLAYER_DIRECTION_KEYS = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']\nPLAYER_MOVEMENT_DIRECTORY_MAP: Dict[str, str] = {\n    'walk': 'MC - walk',\n    'run': 'Run',\n    'sprint': 'MC - Sprint',\n    'dash': 'Dash',\n    'jump': 'Jump',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_IDLE_FALLBACK_KEY",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_IDLE_FALLBACK_KEY = 'idle_S'\nPLAYER_IDLE_SUBDIRS = ['MC - static']\nPLAYER_DIRECTION_KEYS = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']\nPLAYER_MOVEMENT_DIRECTORY_MAP: Dict[str, str] = {\n    'walk': 'MC - walk',\n    'run': 'Run',\n    'sprint': 'MC - Sprint',\n    'dash': 'Dash',\n    'jump': 'Jump',\n    'roll': 'Roll',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_IDLE_SUBDIRS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_IDLE_SUBDIRS = ['MC - static']\nPLAYER_DIRECTION_KEYS = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']\nPLAYER_MOVEMENT_DIRECTORY_MAP: Dict[str, str] = {\n    'walk': 'MC - walk',\n    'run': 'Run',\n    'sprint': 'MC - Sprint',\n    'dash': 'Dash',\n    'jump': 'Jump',\n    'roll': 'Roll',\n    'crouch': 'Crouch',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_DIRECTION_KEYS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_DIRECTION_KEYS = ['W', 'S', 'A', 'D', 'AW', 'AS', 'WD', 'SD']\nPLAYER_MOVEMENT_DIRECTORY_MAP: Dict[str, str] = {\n    'walk': 'MC - walk',\n    'run': 'Run',\n    'sprint': 'MC - Sprint',\n    'dash': 'Dash',\n    'jump': 'Jump',\n    'roll': 'Roll',\n    'crouch': 'Crouch',\n}",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_WEAPON_ANIMATION_FOLDERS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_WEAPON_ANIMATION_FOLDERS = {\n    'greatsword': {\n        'attack': 'Attack - Greatsword',\n        'block': 'Block - Greatsword',\n        'parry': 'Parry - Greatsword',\n    },\n    'sword': {\n        'attack': 'Attack - Sword',\n        'block': 'Block - Sword',\n        'parry': 'Parry - Sword',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "ANIMATION_SPEED_WALK",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "ANIMATION_SPEED_WALK = 10\nANIMATION_SPEED_DASH = 25\nIDLE_ANIMATION_SPEED = 18\nSPRITE_SCALE = 1\nMOVEMENT_MIN_HOLD_MS = 1\n# UIRenderer tuning — User Status composite bar (HP / MP / Stamina)\nUSER_STATUS_SPRITE_PATH = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'User Status', '0.png')\nUSER_STATUS_POSITION: Tuple[int, int] = (8, 8)\nUSER_STATUS_SCALE = 1.0\n# Fill slots within the sprite (x, y, height, max_fill_width) at native resolution",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "ANIMATION_SPEED_DASH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "ANIMATION_SPEED_DASH = 25\nIDLE_ANIMATION_SPEED = 18\nSPRITE_SCALE = 1\nMOVEMENT_MIN_HOLD_MS = 1\n# UIRenderer tuning — User Status composite bar (HP / MP / Stamina)\nUSER_STATUS_SPRITE_PATH = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'User Status', '0.png')\nUSER_STATUS_POSITION: Tuple[int, int] = (8, 8)\nUSER_STATUS_SCALE = 1.0\n# Fill slots within the sprite (x, y, height, max_fill_width) at native resolution\nUSER_STATUS_HP_SLOT: Tuple[int, int, int, int] = (50, 14, 16, 248)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "IDLE_ANIMATION_SPEED",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "IDLE_ANIMATION_SPEED = 18\nSPRITE_SCALE = 1\nMOVEMENT_MIN_HOLD_MS = 1\n# UIRenderer tuning — User Status composite bar (HP / MP / Stamina)\nUSER_STATUS_SPRITE_PATH = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'User Status', '0.png')\nUSER_STATUS_POSITION: Tuple[int, int] = (8, 8)\nUSER_STATUS_SCALE = 1.0\n# Fill slots within the sprite (x, y, height, max_fill_width) at native resolution\nUSER_STATUS_HP_SLOT: Tuple[int, int, int, int] = (50, 14, 16, 248)\nUSER_STATUS_MP_SLOT: Tuple[int, int, int, int] = (75, 34, 14, 194)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SPRITE_SCALE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SPRITE_SCALE = 1\nMOVEMENT_MIN_HOLD_MS = 1\n# UIRenderer tuning — User Status composite bar (HP / MP / Stamina)\nUSER_STATUS_SPRITE_PATH = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'User Status', '0.png')\nUSER_STATUS_POSITION: Tuple[int, int] = (8, 8)\nUSER_STATUS_SCALE = 1.0\n# Fill slots within the sprite (x, y, height, max_fill_width) at native resolution\nUSER_STATUS_HP_SLOT: Tuple[int, int, int, int] = (50, 14, 16, 248)\nUSER_STATUS_MP_SLOT: Tuple[int, int, int, int] = (75, 34, 14, 194)\nUSER_STATUS_STAMINA_SLOT: Tuple[int, int, int, int] = (50, 54, 14, 185)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "MOVEMENT_MIN_HOLD_MS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "MOVEMENT_MIN_HOLD_MS = 1\n# UIRenderer tuning — User Status composite bar (HP / MP / Stamina)\nUSER_STATUS_SPRITE_PATH = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'User Status', '0.png')\nUSER_STATUS_POSITION: Tuple[int, int] = (8, 8)\nUSER_STATUS_SCALE = 1.0\n# Fill slots within the sprite (x, y, height, max_fill_width) at native resolution\nUSER_STATUS_HP_SLOT: Tuple[int, int, int, int] = (50, 14, 16, 248)\nUSER_STATUS_MP_SLOT: Tuple[int, int, int, int] = (75, 34, 14, 194)\nUSER_STATUS_STAMINA_SLOT: Tuple[int, int, int, int] = (50, 54, 14, 185)\nUSER_STATUS_HP_COLOR: Tuple[int, int, int] = (200, 45, 45)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_STATUS_SPRITE_PATH",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "USER_STATUS_SPRITE_PATH = os.path.join(RESOURCES_PATH, 'UI', 'Bars', 'User Status', '0.png')\nUSER_STATUS_POSITION: Tuple[int, int] = (8, 8)\nUSER_STATUS_SCALE = 1.0\n# Fill slots within the sprite (x, y, height, max_fill_width) at native resolution\nUSER_STATUS_HP_SLOT: Tuple[int, int, int, int] = (50, 14, 16, 248)\nUSER_STATUS_MP_SLOT: Tuple[int, int, int, int] = (75, 34, 14, 194)\nUSER_STATUS_STAMINA_SLOT: Tuple[int, int, int, int] = (50, 54, 14, 185)\nUSER_STATUS_HP_COLOR: Tuple[int, int, int] = (200, 45, 45)\nUSER_STATUS_MP_COLOR: Tuple[int, int, int] = (45, 130, 220)\nUSER_STATUS_STAMINA_COLOR: Tuple[int, int, int] = (220, 185, 45)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "USER_STATUS_SCALE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "USER_STATUS_SCALE = 1.0\n# Fill slots within the sprite (x, y, height, max_fill_width) at native resolution\nUSER_STATUS_HP_SLOT: Tuple[int, int, int, int] = (50, 14, 16, 248)\nUSER_STATUS_MP_SLOT: Tuple[int, int, int, int] = (75, 34, 14, 194)\nUSER_STATUS_STAMINA_SLOT: Tuple[int, int, int, int] = (50, 54, 14, 185)\nUSER_STATUS_HP_COLOR: Tuple[int, int, int] = (200, 45, 45)\nUSER_STATUS_MP_COLOR: Tuple[int, int, int] = (45, 130, 220)\nUSER_STATUS_STAMINA_COLOR: Tuple[int, int, int] = (220, 185, 45)\n# Save / appearance\nPROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', '..'))",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PROJECT_ROOT",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', '..'))\nSAVE_DIRECTORY = os.path.join(PROJECT_ROOT, 'Saves')\nSAVE_FILE_EXTENSION = '.dat'\nPLAYER_APPEARANCE_SAVE_DIR = 'Saves/player config'\nPLAYER_APPEARANCE_JSON_NAME = 'appearance.json'\nGAME_SETTINGS_FILENAME = 'game_settings.json'\n# Inventory & hotbar\nHOTBAR_SLOT_COUNT = 10\nHOTBAR_HEIGHT = 128\nINVENTORY_BAG_SLOT_COUNT = 50",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SAVE_DIRECTORY",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SAVE_DIRECTORY = os.path.join(PROJECT_ROOT, 'Saves')\nSAVE_FILE_EXTENSION = '.dat'\nPLAYER_APPEARANCE_SAVE_DIR = 'Saves/player config'\nPLAYER_APPEARANCE_JSON_NAME = 'appearance.json'\nGAME_SETTINGS_FILENAME = 'game_settings.json'\n# Inventory & hotbar\nHOTBAR_SLOT_COUNT = 10\nHOTBAR_HEIGHT = 128\nINVENTORY_BAG_SLOT_COUNT = 50\nINVENTORY_BAG_COLUMNS = 10",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SAVE_FILE_EXTENSION",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SAVE_FILE_EXTENSION = '.dat'\nPLAYER_APPEARANCE_SAVE_DIR = 'Saves/player config'\nPLAYER_APPEARANCE_JSON_NAME = 'appearance.json'\nGAME_SETTINGS_FILENAME = 'game_settings.json'\n# Inventory & hotbar\nHOTBAR_SLOT_COUNT = 10\nHOTBAR_HEIGHT = 128\nINVENTORY_BAG_SLOT_COUNT = 50\nINVENTORY_BAG_COLUMNS = 10\ndef get_game_font(size: int, bold: bool = False, italic: bool = False):",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_APPEARANCE_SAVE_DIR",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_APPEARANCE_SAVE_DIR = 'Saves/player config'\nPLAYER_APPEARANCE_JSON_NAME = 'appearance.json'\nGAME_SETTINGS_FILENAME = 'game_settings.json'\n# Inventory & hotbar\nHOTBAR_SLOT_COUNT = 10\nHOTBAR_HEIGHT = 128\nINVENTORY_BAG_SLOT_COUNT = 50\nINVENTORY_BAG_COLUMNS = 10\ndef get_game_font(size: int, bold: bool = False, italic: bool = False):\n    \"\"\"Load the in-game font from the bundled Handjet asset when available.\"\"\"",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_APPEARANCE_JSON_NAME",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_APPEARANCE_JSON_NAME = 'appearance.json'\nGAME_SETTINGS_FILENAME = 'game_settings.json'\n# Inventory & hotbar\nHOTBAR_SLOT_COUNT = 10\nHOTBAR_HEIGHT = 128\nINVENTORY_BAG_SLOT_COUNT = 50\nINVENTORY_BAG_COLUMNS = 10\ndef get_game_font(size: int, bold: bool = False, italic: bool = False):\n    \"\"\"Load the in-game font from the bundled Handjet asset when available.\"\"\"\n    pygame.font.init()",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "GAME_SETTINGS_FILENAME",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "GAME_SETTINGS_FILENAME = 'game_settings.json'\n# Inventory & hotbar\nHOTBAR_SLOT_COUNT = 10\nHOTBAR_HEIGHT = 128\nINVENTORY_BAG_SLOT_COUNT = 50\nINVENTORY_BAG_COLUMNS = 10\ndef get_game_font(size: int, bold: bool = False, italic: bool = False):\n    \"\"\"Load the in-game font from the bundled Handjet asset when available.\"\"\"\n    pygame.font.init()\n    if os.path.exists(DEFAULT_FONT_PATH):",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "HOTBAR_SLOT_COUNT",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "HOTBAR_SLOT_COUNT = 10\nHOTBAR_HEIGHT = 128\nINVENTORY_BAG_SLOT_COUNT = 50\nINVENTORY_BAG_COLUMNS = 10\ndef get_game_font(size: int, bold: bool = False, italic: bool = False):\n    \"\"\"Load the in-game font from the bundled Handjet asset when available.\"\"\"\n    pygame.font.init()\n    if os.path.exists(DEFAULT_FONT_PATH):\n        try:\n            return pygame.font.Font(DEFAULT_FONT_PATH, size)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "HOTBAR_HEIGHT",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "HOTBAR_HEIGHT = 128\nINVENTORY_BAG_SLOT_COUNT = 50\nINVENTORY_BAG_COLUMNS = 10\ndef get_game_font(size: int, bold: bool = False, italic: bool = False):\n    \"\"\"Load the in-game font from the bundled Handjet asset when available.\"\"\"\n    pygame.font.init()\n    if os.path.exists(DEFAULT_FONT_PATH):\n        try:\n            return pygame.font.Font(DEFAULT_FONT_PATH, size)\n        except pygame.error:",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "INVENTORY_BAG_SLOT_COUNT",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "INVENTORY_BAG_SLOT_COUNT = 50\nINVENTORY_BAG_COLUMNS = 10\ndef get_game_font(size: int, bold: bool = False, italic: bool = False):\n    \"\"\"Load the in-game font from the bundled Handjet asset when available.\"\"\"\n    pygame.font.init()\n    if os.path.exists(DEFAULT_FONT_PATH):\n        try:\n            return pygame.font.Font(DEFAULT_FONT_PATH, size)\n        except pygame.error:\n            pass",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "INVENTORY_BAG_COLUMNS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "INVENTORY_BAG_COLUMNS = 10\ndef get_game_font(size: int, bold: bool = False, italic: bool = False):\n    \"\"\"Load the in-game font from the bundled Handjet asset when available.\"\"\"\n    pygame.font.init()\n    if os.path.exists(DEFAULT_FONT_PATH):\n        try:\n            return pygame.font.Font(DEFAULT_FONT_PATH, size)\n        except pygame.error:\n            pass\n    return pygame.font.SysFont('serif', size, bold=bold, italic=italic)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_START_STAMINA",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_START_STAMINA = 100\nPLAYER_START_MAX_STAMINA = 100\nPLAYER_STATUS_DEFAULT_LEVEL = 1\nPLAYER_STATUS_DEFAULT_GOLD = 50\nDASH_STAMINA_COST = 25\nSKILL_ULT_MANA_COST = 30\nSKILL_1_MANA_COST = 15\nSKILL_2_MANA_COST = 15\nSTAMINA_REGEN_BASE = 2.0\nHEALTH_REGEN_IDLE_BASE = 1.0",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_START_MAX_STAMINA",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_START_MAX_STAMINA = 100\nPLAYER_STATUS_DEFAULT_LEVEL = 1\nPLAYER_STATUS_DEFAULT_GOLD = 50\nDASH_STAMINA_COST = 25\nSKILL_ULT_MANA_COST = 30\nSKILL_1_MANA_COST = 15\nSKILL_2_MANA_COST = 15\nSTAMINA_REGEN_BASE = 2.0\nHEALTH_REGEN_IDLE_BASE = 1.0\nMANA_REGEN_IDLE_BASE = 1.5",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_STATUS_DEFAULT_LEVEL",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_STATUS_DEFAULT_LEVEL = 1\nPLAYER_STATUS_DEFAULT_GOLD = 50\nDASH_STAMINA_COST = 25\nSKILL_ULT_MANA_COST = 30\nSKILL_1_MANA_COST = 15\nSKILL_2_MANA_COST = 15\nSTAMINA_REGEN_BASE = 2.0\nHEALTH_REGEN_IDLE_BASE = 1.0\nMANA_REGEN_IDLE_BASE = 1.5\n# UI toggles (keyboard)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "PLAYER_STATUS_DEFAULT_GOLD",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "PLAYER_STATUS_DEFAULT_GOLD = 50\nDASH_STAMINA_COST = 25\nSKILL_ULT_MANA_COST = 30\nSKILL_1_MANA_COST = 15\nSKILL_2_MANA_COST = 15\nSTAMINA_REGEN_BASE = 2.0\nHEALTH_REGEN_IDLE_BASE = 1.0\nMANA_REGEN_IDLE_BASE = 1.5\n# UI toggles (keyboard)\nUI_QUEST_TOGGLE_KEY = pygame.K_j",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DASH_STAMINA_COST",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DASH_STAMINA_COST = 25\nSKILL_ULT_MANA_COST = 30\nSKILL_1_MANA_COST = 15\nSKILL_2_MANA_COST = 15\nSTAMINA_REGEN_BASE = 2.0\nHEALTH_REGEN_IDLE_BASE = 1.0\nMANA_REGEN_IDLE_BASE = 1.5\n# UI toggles (keyboard)\nUI_QUEST_TOGGLE_KEY = pygame.K_j\nUI_MINIMAP_TOGGLE_KEY = pygame.K_m",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SKILL_ULT_MANA_COST",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SKILL_ULT_MANA_COST = 30\nSKILL_1_MANA_COST = 15\nSKILL_2_MANA_COST = 15\nSTAMINA_REGEN_BASE = 2.0\nHEALTH_REGEN_IDLE_BASE = 1.0\nMANA_REGEN_IDLE_BASE = 1.5\n# UI toggles (keyboard)\nUI_QUEST_TOGGLE_KEY = pygame.K_j\nUI_MINIMAP_TOGGLE_KEY = pygame.K_m\nHOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SKILL_1_MANA_COST",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SKILL_1_MANA_COST = 15\nSKILL_2_MANA_COST = 15\nSTAMINA_REGEN_BASE = 2.0\nHEALTH_REGEN_IDLE_BASE = 1.0\nMANA_REGEN_IDLE_BASE = 1.5\n# UI toggles (keyboard)\nUI_QUEST_TOGGLE_KEY = pygame.K_j\nUI_MINIMAP_TOGGLE_KEY = pygame.K_m\nHOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9\n# Action binds (display labels; runtime uses pygame keys where applicable)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SKILL_2_MANA_COST",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SKILL_2_MANA_COST = 15\nSTAMINA_REGEN_BASE = 2.0\nHEALTH_REGEN_IDLE_BASE = 1.0\nMANA_REGEN_IDLE_BASE = 1.5\n# UI toggles (keyboard)\nUI_QUEST_TOGGLE_KEY = pygame.K_j\nUI_MINIMAP_TOGGLE_KEY = pygame.K_m\nHOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9\n# Action binds (display labels; runtime uses pygame keys where applicable)\nBIND_ATTACK_LABEL = 'Left Mouse Button'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "STAMINA_REGEN_BASE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "STAMINA_REGEN_BASE = 2.0\nHEALTH_REGEN_IDLE_BASE = 1.0\nMANA_REGEN_IDLE_BASE = 1.5\n# UI toggles (keyboard)\nUI_QUEST_TOGGLE_KEY = pygame.K_j\nUI_MINIMAP_TOGGLE_KEY = pygame.K_m\nHOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9\n# Action binds (display labels; runtime uses pygame keys where applicable)\nBIND_ATTACK_LABEL = 'Left Mouse Button'\nBIND_BLOCK_LABEL = 'Right Mouse Button'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "HEALTH_REGEN_IDLE_BASE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "HEALTH_REGEN_IDLE_BASE = 1.0\nMANA_REGEN_IDLE_BASE = 1.5\n# UI toggles (keyboard)\nUI_QUEST_TOGGLE_KEY = pygame.K_j\nUI_MINIMAP_TOGGLE_KEY = pygame.K_m\nHOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9\n# Action binds (display labels; runtime uses pygame keys where applicable)\nBIND_ATTACK_LABEL = 'Left Mouse Button'\nBIND_BLOCK_LABEL = 'Right Mouse Button'\nBIND_INTERACT_LABEL = 'E'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "MANA_REGEN_IDLE_BASE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "MANA_REGEN_IDLE_BASE = 1.5\n# UI toggles (keyboard)\nUI_QUEST_TOGGLE_KEY = pygame.K_j\nUI_MINIMAP_TOGGLE_KEY = pygame.K_m\nHOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9\n# Action binds (display labels; runtime uses pygame keys where applicable)\nBIND_ATTACK_LABEL = 'Left Mouse Button'\nBIND_BLOCK_LABEL = 'Right Mouse Button'\nBIND_INTERACT_LABEL = 'E'\nBIND_INTERACT_KEYS = [pygame.K_e]",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "UI_QUEST_TOGGLE_KEY",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "UI_QUEST_TOGGLE_KEY = pygame.K_j\nUI_MINIMAP_TOGGLE_KEY = pygame.K_m\nHOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9\n# Action binds (display labels; runtime uses pygame keys where applicable)\nBIND_ATTACK_LABEL = 'Left Mouse Button'\nBIND_BLOCK_LABEL = 'Right Mouse Button'\nBIND_INTERACT_LABEL = 'E'\nBIND_INTERACT_KEYS = [pygame.K_e]\nBIND_DASH_LABEL = 'Shift'\nBIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "UI_MINIMAP_TOGGLE_KEY",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "UI_MINIMAP_TOGGLE_KEY = pygame.K_m\nHOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9\n# Action binds (display labels; runtime uses pygame keys where applicable)\nBIND_ATTACK_LABEL = 'Left Mouse Button'\nBIND_BLOCK_LABEL = 'Right Mouse Button'\nBIND_INTERACT_LABEL = 'E'\nBIND_INTERACT_KEYS = [pygame.K_e]\nBIND_DASH_LABEL = 'Shift'\nBIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]\nMOUSE_BUTTON_ATTACK_INDEX = 0",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "HOTBAR_KEY_OFFSET",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "HOTBAR_KEY_OFFSET = pygame.K_1  # keys 1–0 map to slots 0–9\n# Action binds (display labels; runtime uses pygame keys where applicable)\nBIND_ATTACK_LABEL = 'Left Mouse Button'\nBIND_BLOCK_LABEL = 'Right Mouse Button'\nBIND_INTERACT_LABEL = 'E'\nBIND_INTERACT_KEYS = [pygame.K_e]\nBIND_DASH_LABEL = 'Shift'\nBIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]\nMOUSE_BUTTON_ATTACK_INDEX = 0\nMOUSE_BUTTON_BLOCK_INDEX = 1",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "BIND_ATTACK_LABEL",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "BIND_ATTACK_LABEL = 'Left Mouse Button'\nBIND_BLOCK_LABEL = 'Right Mouse Button'\nBIND_INTERACT_LABEL = 'E'\nBIND_INTERACT_KEYS = [pygame.K_e]\nBIND_DASH_LABEL = 'Shift'\nBIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]\nMOUSE_BUTTON_ATTACK_INDEX = 0\nMOUSE_BUTTON_BLOCK_INDEX = 1\nSKILL_ULT_KEYS = [pygame.K_q]\nSKILL_1_KEYS = [pygame.K_e]",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "BIND_BLOCK_LABEL",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "BIND_BLOCK_LABEL = 'Right Mouse Button'\nBIND_INTERACT_LABEL = 'E'\nBIND_INTERACT_KEYS = [pygame.K_e]\nBIND_DASH_LABEL = 'Shift'\nBIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]\nMOUSE_BUTTON_ATTACK_INDEX = 0\nMOUSE_BUTTON_BLOCK_INDEX = 1\nSKILL_ULT_KEYS = [pygame.K_q]\nSKILL_1_KEYS = [pygame.K_e]\nSKILL_2_KEYS = [pygame.K_c]",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "BIND_INTERACT_LABEL",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "BIND_INTERACT_LABEL = 'E'\nBIND_INTERACT_KEYS = [pygame.K_e]\nBIND_DASH_LABEL = 'Shift'\nBIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]\nMOUSE_BUTTON_ATTACK_INDEX = 0\nMOUSE_BUTTON_BLOCK_INDEX = 1\nSKILL_ULT_KEYS = [pygame.K_q]\nSKILL_1_KEYS = [pygame.K_e]\nSKILL_2_KEYS = [pygame.K_c]\n# Settings UI",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "BIND_INTERACT_KEYS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "BIND_INTERACT_KEYS = [pygame.K_e]\nBIND_DASH_LABEL = 'Shift'\nBIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]\nMOUSE_BUTTON_ATTACK_INDEX = 0\nMOUSE_BUTTON_BLOCK_INDEX = 1\nSKILL_ULT_KEYS = [pygame.K_q]\nSKILL_1_KEYS = [pygame.K_e]\nSKILL_2_KEYS = [pygame.K_c]\n# Settings UI\nSETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "BIND_DASH_LABEL",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "BIND_DASH_LABEL = 'Shift'\nBIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]\nMOUSE_BUTTON_ATTACK_INDEX = 0\nMOUSE_BUTTON_BLOCK_INDEX = 1\nSKILL_ULT_KEYS = [pygame.K_q]\nSKILL_1_KEYS = [pygame.K_e]\nSKILL_2_KEYS = [pygame.K_c]\n# Settings UI\nSETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']\nDEFAULT_DIFFICULTY = 'Normal'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "BIND_DASH_KEYS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "BIND_DASH_KEYS = [pygame.K_LSHIFT, pygame.K_RSHIFT]\nMOUSE_BUTTON_ATTACK_INDEX = 0\nMOUSE_BUTTON_BLOCK_INDEX = 1\nSKILL_ULT_KEYS = [pygame.K_q]\nSKILL_1_KEYS = [pygame.K_e]\nSKILL_2_KEYS = [pygame.K_c]\n# Settings UI\nSETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']\nDEFAULT_DIFFICULTY = 'Normal'\nDEFAULT_MOUSE_SENSITIVITY = 0.5",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "MOUSE_BUTTON_ATTACK_INDEX",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "MOUSE_BUTTON_ATTACK_INDEX = 0\nMOUSE_BUTTON_BLOCK_INDEX = 1\nSKILL_ULT_KEYS = [pygame.K_q]\nSKILL_1_KEYS = [pygame.K_e]\nSKILL_2_KEYS = [pygame.K_c]\n# Settings UI\nSETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']\nDEFAULT_DIFFICULTY = 'Normal'\nDEFAULT_MOUSE_SENSITIVITY = 0.5\nDEFAULT_SETTINGS_FPS_LIMIT = 30",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "MOUSE_BUTTON_BLOCK_INDEX",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "MOUSE_BUTTON_BLOCK_INDEX = 1\nSKILL_ULT_KEYS = [pygame.K_q]\nSKILL_1_KEYS = [pygame.K_e]\nSKILL_2_KEYS = [pygame.K_c]\n# Settings UI\nSETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']\nDEFAULT_DIFFICULTY = 'Normal'\nDEFAULT_MOUSE_SENSITIVITY = 0.5\nDEFAULT_SETTINGS_FPS_LIMIT = 30\nDEFAULT_RESOLUTION_LABEL = '1920 x 1080'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SKILL_ULT_KEYS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SKILL_ULT_KEYS = [pygame.K_q]\nSKILL_1_KEYS = [pygame.K_e]\nSKILL_2_KEYS = [pygame.K_c]\n# Settings UI\nSETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']\nDEFAULT_DIFFICULTY = 'Normal'\nDEFAULT_MOUSE_SENSITIVITY = 0.5\nDEFAULT_SETTINGS_FPS_LIMIT = 30\nDEFAULT_RESOLUTION_LABEL = '1920 x 1080'\nDEFAULT_MASTER_VOLUME = 0.50",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SKILL_1_KEYS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SKILL_1_KEYS = [pygame.K_e]\nSKILL_2_KEYS = [pygame.K_c]\n# Settings UI\nSETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']\nDEFAULT_DIFFICULTY = 'Normal'\nDEFAULT_MOUSE_SENSITIVITY = 0.5\nDEFAULT_SETTINGS_FPS_LIMIT = 30\nDEFAULT_RESOLUTION_LABEL = '1920 x 1080'\nDEFAULT_MASTER_VOLUME = 0.50\nDEFAULT_MUSIC_VOLUME = 1.00",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SKILL_2_KEYS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SKILL_2_KEYS = [pygame.K_c]\n# Settings UI\nSETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']\nDEFAULT_DIFFICULTY = 'Normal'\nDEFAULT_MOUSE_SENSITIVITY = 0.5\nDEFAULT_SETTINGS_FPS_LIMIT = 30\nDEFAULT_RESOLUTION_LABEL = '1920 x 1080'\nDEFAULT_MASTER_VOLUME = 0.50\nDEFAULT_MUSIC_VOLUME = 1.00\nDEFAULT_SFX_VOLUME = 1.00",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SETTINGS_CATEGORIES",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SETTINGS_CATEGORIES = ['General', 'Video', 'Audio', 'Directories', 'Keybinds']\nDEFAULT_DIFFICULTY = 'Normal'\nDEFAULT_MOUSE_SENSITIVITY = 0.5\nDEFAULT_SETTINGS_FPS_LIMIT = 30\nDEFAULT_RESOLUTION_LABEL = '1920 x 1080'\nDEFAULT_MASTER_VOLUME = 0.50\nDEFAULT_MUSIC_VOLUME = 1.00\nDEFAULT_SFX_VOLUME = 1.00\n# Character preview\nCHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_DIFFICULTY",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_DIFFICULTY = 'Normal'\nDEFAULT_MOUSE_SENSITIVITY = 0.5\nDEFAULT_SETTINGS_FPS_LIMIT = 30\nDEFAULT_RESOLUTION_LABEL = '1920 x 1080'\nDEFAULT_MASTER_VOLUME = 0.50\nDEFAULT_MUSIC_VOLUME = 1.00\nDEFAULT_SFX_VOLUME = 1.00\n# Character preview\nCHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'\n# Scenes (logical names for menu/load flow)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_MOUSE_SENSITIVITY",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_MOUSE_SENSITIVITY = 0.5\nDEFAULT_SETTINGS_FPS_LIMIT = 30\nDEFAULT_RESOLUTION_LABEL = '1920 x 1080'\nDEFAULT_MASTER_VOLUME = 0.50\nDEFAULT_MUSIC_VOLUME = 1.00\nDEFAULT_SFX_VOLUME = 1.00\n# Character preview\nCHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'\n# Scenes (logical names for menu/load flow)\nSCENE_MAIN_WORLD = 'MainWorld'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_SETTINGS_FPS_LIMIT",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_SETTINGS_FPS_LIMIT = 30\nDEFAULT_RESOLUTION_LABEL = '1920 x 1080'\nDEFAULT_MASTER_VOLUME = 0.50\nDEFAULT_MUSIC_VOLUME = 1.00\nDEFAULT_SFX_VOLUME = 1.00\n# Character preview\nCHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'\n# Scenes (logical names for menu/load flow)\nSCENE_MAIN_WORLD = 'MainWorld'\nSCENE_TUTORIAL = 'TutorialLevel'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_RESOLUTION_LABEL",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_RESOLUTION_LABEL = '1920 x 1080'\nDEFAULT_MASTER_VOLUME = 0.50\nDEFAULT_MUSIC_VOLUME = 1.00\nDEFAULT_SFX_VOLUME = 1.00\n# Character preview\nCHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'\n# Scenes (logical names for menu/load flow)\nSCENE_MAIN_WORLD = 'MainWorld'\nSCENE_TUTORIAL = 'TutorialLevel'\nSCENE_MAIN_MENU = 'MainMenu'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_MASTER_VOLUME",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_MASTER_VOLUME = 0.50\nDEFAULT_MUSIC_VOLUME = 1.00\nDEFAULT_SFX_VOLUME = 1.00\n# Character preview\nCHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'\n# Scenes (logical names for menu/load flow)\nSCENE_MAIN_WORLD = 'MainWorld'\nSCENE_TUTORIAL = 'TutorialLevel'\nSCENE_MAIN_MENU = 'MainMenu'\n# Pickaxe / mining feedback (string hooks for audio/VFX)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_MUSIC_VOLUME",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_MUSIC_VOLUME = 1.00\nDEFAULT_SFX_VOLUME = 1.00\n# Character preview\nCHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'\n# Scenes (logical names for menu/load flow)\nSCENE_MAIN_WORLD = 'MainWorld'\nSCENE_TUTORIAL = 'TutorialLevel'\nSCENE_MAIN_MENU = 'MainMenu'\n# Pickaxe / mining feedback (string hooks for audio/VFX)\nSOUND_CLINK_METAL_ON_STONE = 'Clink_Metal_On_Stone'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_SFX_VOLUME",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DEFAULT_SFX_VOLUME = 1.00\n# Character preview\nCHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'\n# Scenes (logical names for menu/load flow)\nSCENE_MAIN_WORLD = 'MainWorld'\nSCENE_TUTORIAL = 'TutorialLevel'\nSCENE_MAIN_MENU = 'MainMenu'\n# Pickaxe / mining feedback (string hooks for audio/VFX)\nSOUND_CLINK_METAL_ON_STONE = 'Clink_Metal_On_Stone'\nSOUND_ROCK_SHATTER = 'Rock_Shatter'",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "CHARACTER_PREVIEW_BASE_IMAGE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "CHARACTER_PREVIEW_BASE_IMAGE = 'BasePlayerModel.png'\n# Scenes (logical names for menu/load flow)\nSCENE_MAIN_WORLD = 'MainWorld'\nSCENE_TUTORIAL = 'TutorialLevel'\nSCENE_MAIN_MENU = 'MainMenu'\n# Pickaxe / mining feedback (string hooks for audio/VFX)\nSOUND_CLINK_METAL_ON_STONE = 'Clink_Metal_On_Stone'\nSOUND_ROCK_SHATTER = 'Rock_Shatter'\nEFFECT_SPARKLES_IMPACT = 'Sparkles at impact point'\n# Keybinding Configuration",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SCENE_MAIN_WORLD",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SCENE_MAIN_WORLD = 'MainWorld'\nSCENE_TUTORIAL = 'TutorialLevel'\nSCENE_MAIN_MENU = 'MainMenu'\n# Pickaxe / mining feedback (string hooks for audio/VFX)\nSOUND_CLINK_METAL_ON_STONE = 'Clink_Metal_On_Stone'\nSOUND_ROCK_SHATTER = 'Rock_Shatter'\nEFFECT_SPARKLES_IMPACT = 'Sparkles at impact point'\n# Keybinding Configuration\nKEYBINDS = {\n    'up': [pygame.K_w, pygame.K_UP],",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SCENE_TUTORIAL",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SCENE_TUTORIAL = 'TutorialLevel'\nSCENE_MAIN_MENU = 'MainMenu'\n# Pickaxe / mining feedback (string hooks for audio/VFX)\nSOUND_CLINK_METAL_ON_STONE = 'Clink_Metal_On_Stone'\nSOUND_ROCK_SHATTER = 'Rock_Shatter'\nEFFECT_SPARKLES_IMPACT = 'Sparkles at impact point'\n# Keybinding Configuration\nKEYBINDS = {\n    'up': [pygame.K_w, pygame.K_UP],\n    'down': [pygame.K_s, pygame.K_DOWN],",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SCENE_MAIN_MENU",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SCENE_MAIN_MENU = 'MainMenu'\n# Pickaxe / mining feedback (string hooks for audio/VFX)\nSOUND_CLINK_METAL_ON_STONE = 'Clink_Metal_On_Stone'\nSOUND_ROCK_SHATTER = 'Rock_Shatter'\nEFFECT_SPARKLES_IMPACT = 'Sparkles at impact point'\n# Keybinding Configuration\nKEYBINDS = {\n    'up': [pygame.K_w, pygame.K_UP],\n    'down': [pygame.K_s, pygame.K_DOWN],\n    'left': [pygame.K_a, pygame.K_LEFT],",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SOUND_CLINK_METAL_ON_STONE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SOUND_CLINK_METAL_ON_STONE = 'Clink_Metal_On_Stone'\nSOUND_ROCK_SHATTER = 'Rock_Shatter'\nEFFECT_SPARKLES_IMPACT = 'Sparkles at impact point'\n# Keybinding Configuration\nKEYBINDS = {\n    'up': [pygame.K_w, pygame.K_UP],\n    'down': [pygame.K_s, pygame.K_DOWN],\n    'left': [pygame.K_a, pygame.K_LEFT],\n    'right': [pygame.K_d, pygame.K_RIGHT],\n}",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "SOUND_ROCK_SHATTER",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "SOUND_ROCK_SHATTER = 'Rock_Shatter'\nEFFECT_SPARKLES_IMPACT = 'Sparkles at impact point'\n# Keybinding Configuration\nKEYBINDS = {\n    'up': [pygame.K_w, pygame.K_UP],\n    'down': [pygame.K_s, pygame.K_DOWN],\n    'left': [pygame.K_a, pygame.K_LEFT],\n    'right': [pygame.K_d, pygame.K_RIGHT],\n}\n# Direction mappings for sprite filenames",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "EFFECT_SPARKLES_IMPACT",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "EFFECT_SPARKLES_IMPACT = 'Sparkles at impact point'\n# Keybinding Configuration\nKEYBINDS = {\n    'up': [pygame.K_w, pygame.K_UP],\n    'down': [pygame.K_s, pygame.K_DOWN],\n    'left': [pygame.K_a, pygame.K_LEFT],\n    'right': [pygame.K_d, pygame.K_RIGHT],\n}\n# Direction mappings for sprite filenames\nDIRECTION_MAP = {",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "KEYBINDS",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "KEYBINDS = {\n    'up': [pygame.K_w, pygame.K_UP],\n    'down': [pygame.K_s, pygame.K_DOWN],\n    'left': [pygame.K_a, pygame.K_LEFT],\n    'right': [pygame.K_d, pygame.K_RIGHT],\n}\n# Direction mappings for sprite filenames\nDIRECTION_MAP = {\n    'up': 'W',\n    'down': 'S',",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DIRECTION_MAP",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "DIRECTION_MAP = {\n    'up': 'W',\n    'down': 'S',\n    'left': 'A',\n    'right': 'D',\n}\nclass OreDrop(NamedTuple):\n    name: str\n    weight: int\n# Ore types: rarity label plus slice of a 0–100 roll (half-open interval [low, high)).",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "ORE_RARITY_BY_PERCENT_RANGE",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "ORE_RARITY_BY_PERCENT_RANGE = {\n    'Stone': {'rarity': 'common', 'percent_range': (0, 42)},\n    'Coal': {'rarity': 'common', 'percent_range': (42, 60)},\n    'Iron': {'rarity': 'uncommon', 'percent_range': (60, 72)},\n    'Silver': {'rarity': 'uncommon', 'percent_range': (72, 80)},\n    'Gold': {'rarity': 'rare', 'percent_range': (80, 86)},\n    'Platinum': {'rarity': 'rare', 'percent_range': (86, 91)},\n    'Diamond': {'rarity': 'legendary', 'percent_range': (91, 95)},\n    'Mithril': {'rarity': 'mythical', 'percent_range': (95, 97)},\n    'Kyber': {'rarity': 'mythical', 'percent_range': (97, 99)},",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "GEAR_SPAWN_CHANCE_BY_RARITY",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "GEAR_SPAWN_CHANCE_BY_RARITY = {\n    'weapon': {\n        'common': (0, 40),\n        'uncommon': (40, 70),\n        'rare': (70, 88),\n        'epic': (88, 97),\n        'legendary': (97, 100),\n    },\n    'armor': {\n        'common': (0, 45),",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "ALL_RESOURCES",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "ALL_RESOURCES = get_all_resources(RESOURCES_PATH)\n# Create a module-level `config` object for easier, centralized access and\n# future runtime-config overrides. This preserves the uppercase constants\n# for backward compatibility while offering `config.<NAME>` attribute access.\nfrom types import SimpleNamespace\n_config_values = {k: v for k, v in globals().items() if k.isupper()}\nconfig = SimpleNamespace(**_config_values)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "_config_values",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "_config_values = {k: v for k, v in globals().items() if k.isupper()}\nconfig = SimpleNamespace(**_config_values)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "Contents.config.config",
+        "description": "Contents.config.config",
+        "peekOfCode": "config = SimpleNamespace(**_config_values)",
+        "detail": "Contents.config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_FONT_PATH",
+        "kind": 5,
+        "importPath": "Contents.config.imports",
+        "description": "Contents.config.imports",
+        "peekOfCode": "DEFAULT_FONT_PATH = os.path.join(\n    os.path.dirname(__file__),\n    '..',\n    'Contents',\n    'Resources',\n    'Fonts',\n    'Handjet',\n    'Handjet-VariableFont_ELGR,ELSH,wght.ttf',\n)",
+        "detail": "Contents.config.imports",
+        "documentation": {}
+    },
+    {
+        "label": "FontConfigTests",
+        "kind": 6,
+        "importPath": "Tests.test_font_config",
+        "description": "Tests.test_font_config",
+        "peekOfCode": "class FontConfigTests(unittest.TestCase):\n    def test_default_font_path_exists(self):\n        self.assertTrue(os.path.exists(config.DEFAULT_FONT_PATH), config.DEFAULT_FONT_PATH)\n    def test_get_game_font_returns_a_renderable_font(self):\n        font = get_game_font(18)\n        self.assertTrue(hasattr(font, 'render'))\n        self.assertTrue(isinstance(font, pygame.font.FontType))\nif __name__ == '__main__':\n    unittest.main()",
+        "detail": "Tests.test_font_config",
+        "documentation": {}
+    },
+    {
+        "label": "DummyPlayer",
+        "kind": 6,
+        "importPath": "Tests.test_player_controller",
+        "description": "Tests.test_player_controller",
+        "peekOfCode": "class DummyPlayer:\n    def __init__(self):\n        self.dash_count = 0\nclass PlayerControllerTests(unittest.TestCase):\n    def setUp(self):\n        pygame.init()\n        self.player = DummyPlayer()\n        self.player_status = PlayerStatus(max_stamina=100)\n        self.player_status.current_stamina = 100\n        self.controller = PlayerController(",
+        "detail": "Tests.test_player_controller",
+        "documentation": {}
+    },
+    {
+        "label": "PlayerControllerTests",
+        "kind": 6,
+        "importPath": "Tests.test_player_controller",
+        "description": "Tests.test_player_controller",
+        "peekOfCode": "class PlayerControllerTests(unittest.TestCase):\n    def setUp(self):\n        pygame.init()\n        self.player = DummyPlayer()\n        self.player_status = PlayerStatus(max_stamina=100)\n        self.player_status.current_stamina = 100\n        self.controller = PlayerController(\n            self.player,\n            self.player_status,\n            on_dash=self._record_dash,",
+        "detail": "Tests.test_player_controller",
+        "documentation": {}
+    },
+    {
+        "label": "QuestFrameworkTests",
+        "kind": 6,
+        "importPath": "Tests.test_quests",
+        "description": "Tests.test_quests",
+        "peekOfCode": "class QuestFrameworkTests(unittest.TestCase):\n    def test_router_discovers_quests_in_folder_structure(self):\n        root = Path(__file__).resolve().parent / 'Engine' / 'main' / 'Quests'\n        router = QuestRouter(root_dir=root)\n        quests = router.discover_quests()\n        self.assertGreaterEqual(len(quests), 2)\n        titles = {quest.title for quest in quests}\n        self.assertIn('Molten Ash', titles)\n        self.assertIn('Too much dust', titles)\n    def test_manager_tracks_completed_and_active_quests(self):",
+        "detail": "Tests.test_quests",
+        "documentation": {}
+    },
+    {
+        "label": "root_dir",
+        "kind": 5,
+        "importPath": "Tests.test_sprite_loading",
+        "description": "Tests.test_sprite_loading",
+        "peekOfCode": "root_dir = os.path.dirname(__file__)\nplayer_resources_dir = os.path.join(root_dir, \"Contents\", \"Resources\", \"Player\")\nprint(f\"Player resources dir: {player_resources_dir}\")\nprint(f\"Directory exists: {os.path.isdir(player_resources_dir)}\")\n# Test idle directory\nidle_dir = os.path.join(player_resources_dir, \"Idle\", \"Test - Static\")\nprint(f\"Idle dir: {idle_dir}\")\nprint(f\"Idle directory exists: {os.path.isdir(idle_dir)}\")\nif os.path.isdir(idle_dir):\n    files = os.listdir(idle_dir)",
+        "detail": "Tests.test_sprite_loading",
+        "documentation": {}
+    },
+    {
+        "label": "player_resources_dir",
+        "kind": 5,
+        "importPath": "Tests.test_sprite_loading",
+        "description": "Tests.test_sprite_loading",
+        "peekOfCode": "player_resources_dir = os.path.join(root_dir, \"Contents\", \"Resources\", \"Player\")\nprint(f\"Player resources dir: {player_resources_dir}\")\nprint(f\"Directory exists: {os.path.isdir(player_resources_dir)}\")\n# Test idle directory\nidle_dir = os.path.join(player_resources_dir, \"Idle\", \"Test - Static\")\nprint(f\"Idle dir: {idle_dir}\")\nprint(f\"Idle directory exists: {os.path.isdir(idle_dir)}\")\nif os.path.isdir(idle_dir):\n    files = os.listdir(idle_dir)\n    print(f\"Files in idle dir: {files}\")",
+        "detail": "Tests.test_sprite_loading",
+        "documentation": {}
+    },
+    {
+        "label": "idle_dir",
+        "kind": 5,
+        "importPath": "Tests.test_sprite_loading",
+        "description": "Tests.test_sprite_loading",
+        "peekOfCode": "idle_dir = os.path.join(player_resources_dir, \"Idle\", \"Test - Static\")\nprint(f\"Idle dir: {idle_dir}\")\nprint(f\"Idle directory exists: {os.path.isdir(idle_dir)}\")\nif os.path.isdir(idle_dir):\n    files = os.listdir(idle_dir)\n    print(f\"Files in idle dir: {files}\")\n    # Test loading files with 'A' in name\n    a_files = [f for f in files if 'A' in f.upper()]\n    print(f\"Files containing 'A': {a_files}\")\nprint(\"Test complete\")",
+        "detail": "Tests.test_sprite_loading",
+        "documentation": {}
+    },
+    {
+        "label": "UpdaterTests",
+        "kind": 6,
+        "importPath": "Tests.test_updater",
+        "description": "Tests.test_updater",
+        "peekOfCode": "class UpdaterTests(unittest.TestCase):\n    def test_collect_dependency_packages_finds_common_game_dependencies(self):\n        project_root = Path(__file__).resolve().parent\n        packages = collect_dependency_packages(project_root)\n        self.assertIn('pygame', packages)\n        self.assertIn('numpy', packages)\n        self.assertIn('arcade', packages)\n        self.assertIn('pytmx', packages)\nif __name__ == '__main__':\n    unittest.main()",
+        "detail": "Tests.test_updater",
+        "documentation": {}
+    }
+]

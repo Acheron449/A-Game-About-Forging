@@ -1,0 +1,9 @@
+{
+  "health": 100,
+  "max_health": 100,
+  "mana": 50,
+  "max_mana": 50,
+  "level": 1,
+  "gold": 0,
+  "scene": "MainWorld"
+}

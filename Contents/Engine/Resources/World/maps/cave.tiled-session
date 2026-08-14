@@ -1,0 +1,310 @@
+{
+    "activeFile": "tmx/daemia's altar.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "active/Invisible interaction point.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "active/MainLev2.0.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 0.31
+        },
+        "active/NPCs_Tutorial.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 0.5315
+        },
+        "active/Overworld.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 0.0235,
+            "scaleInEditor": 0.0665
+        },
+        "active/Overworld_1.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.0362,
+            "scaleInEditor": 0.2341
+        },
+        "active/Overworld_10.tsx": {
+            "scaleInDock": 0.0548,
+            "scaleInEditor": 0.1518
+        },
+        "active/Overworld_11.tsx": {
+            "scaleInDock": 0.0506,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_12.tsx": {
+            "scaleInDock": 0.058,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_13.tsx": {
+            "scaleInDock": 0.0708,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_14.tsx": {
+            "scaleInDock": 0.0632,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_15.tsx": {
+            "scaleInDock": 0.0651,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_16.tsx": {
+            "scaleInDock": 0.0511,
+            "scaleInEditor": 1
+        },
+        "active/Overworld_2.tsx": {
+            "scaleInDock": 0.0755,
+            "scaleInEditor": 0.1024
+        },
+        "active/Overworld_3.tsx": {
+            "scaleInDock": 0.0709,
+            "scaleInEditor": 0.1794
+        },
+        "active/Overworld_4.tsx": {
+            "scaleInDock": 0.0682,
+            "scaleInEditor": 0.1278
+        },
+        "active/Overworld_5.tsx": {
+            "scaleInDock": 0.0576,
+            "scaleInEditor": 0.2577
+        },
+        "active/Overworld_6.tsx": {
+            "scaleInDock": 0.0625,
+            "scaleInEditor": 0.2254
+        },
+        "active/Overworld_7.tsx": {
+            "scaleInDock": 0.0704,
+            "scaleInEditor": 0.1548
+        },
+        "active/Overworld_8.tsx": {
+            "scaleInDock": 0.0549,
+            "scaleInEditor": 0.207
+        },
+        "active/Overworld_9.tsx": {
+            "scaleInDock": 0.0595,
+            "scaleInEditor": 0.2403
+        },
+        "active/daemia's altar.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.1048,
+            "scaleInEditor": 0.1674
+        },
+        "active/daemias_altar.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "active/main.tsx": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 0.12
+        },
+        "active/mining_nodes.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1.5,
+            "scaleInEditor": 1.0616
+        },
+        "active/mining_nodes_32x.tsx": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 2.6408
+        },
+        "active/misc/trees.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 0.8035
+        },
+        "active/tutorial_rubble.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 0.1326,
+            "scaleInEditor": 0.1534
+        },
+        "maps/cave.json": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 0.4597,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 784.2070915814661,
+                "y": 478.5729823798129
+            }
+        },
+        "maps/cave.json.tmj": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 0.3981,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 739.763878422507,
+                "y": 756.0914343129866
+            }
+        },
+        "maps/cave.tmx": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 0.3981,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 739.763878422507,
+                "y": 756.0914343129866
+            }
+        },
+        "maps/daemia's altar.json": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 0.4622,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 466.24837732583285,
+                "y": 685.8502812635222
+            }
+        },
+        "maps/tutorial.tmx": {
+            "scale": 0.4489,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 509.0220539095566,
+                "y": 496.76988193361547
+            }
+        },
+        "maps/tutorial_rubble.json": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 0.337,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 743.3234421364984,
+                "y": 715.1335311572699
+            }
+        },
+        "tmx/cave.tmx": {
+            "expandedGroupLayers": [
+                14
+            ],
+            "expandedObjectLayers": [
+                15,
+                9
+            ],
+            "scale": 0.1745,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 1681.948424068768,
+                "y": 3363.8968481375355
+            }
+        },
+        "tmx/daemia's altar.tmx": {
+            "expandedObjectLayers": [
+                5,
+                4
+            ],
+            "scale": 0.4223,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 621.5960217854606,
+                "y": 479.516931091641
+            }
+        },
+        "tmx/daemias_altar.tmx": {
+            "expandedObjectLayers": [
+                6,
+                5,
+                4
+            ],
+            "scale": 0.348,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 1150.8620689655174,
+                "y": 1083.3333333333333
+            }
+        },
+        "tmx/overworld.tmx": {
+            "expandedObjectLayers": [
+                3,
+                2
+            ],
+            "scale": 0.1561,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 10009.609224855863,
+                "y": 7258.167841127483
+            }
+        },
+        "tmx/tutorial.tmx": {
+            "expandedGroupLayers": [
+                7,
+                11
+            ],
+            "expandedObjectLayers": [
+                3,
+                13,
+                9
+            ],
+            "scale": 0.4165,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1204.0816326530614,
+                "y": 1135.654261704682
+            }
+        },
+        "tmx/tutorial_rubble.tmx": {
+            "expandedObjectLayers": [
+                6,
+                3
+            ],
+            "scale": 0.8417,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 135.44018058690745,
+                "y": 418.20125935606507
+            }
+        }
+    },
+    "frame.defaultDuration": 1000,
+    "last.exportedFilePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/maps/maps",
+    "last.externalTilesetPath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Engine/Resources/World/maps/active",
+    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Engine/Resources/World/tilesets/ForgottenMemories",
+    "map.fixedSize": false,
+    "map.height": 20,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 256,
+    "map.tileWidth": 256,
+    "map.width": 37,
+    "openFiles": [
+        "tmx/daemia's altar.tmx",
+        "tmx/cave.tmx",
+        "active/mining_nodes.tsx",
+        "tmx/tutorial.tmx",
+        "active/tutorial_rubble.tsx"
+    ],
+    "project": "cave.tiled-project",
+    "property.type": "string",
+    "recentFiles": [
+        "active/misc/trees.tsx",
+        "active/daemia's altar.tsx",
+        "active/tutorial_rubble.tsx",
+        "active/daemias_altar.tsx",
+        "tmx/tutorial.tmx",
+        "active/mining_nodes.tsx",
+        "tmx/cave.tmx",
+        "tmx/daemia's altar.tmx",
+        "tmx/overworld.tmx",
+        "active/Overworld_5.tsx",
+        "active/Overworld_1.tsx",
+        "active/Overworld_2.tsx"
+    ],
+    "resizeMap.removeObjects": false,
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 1792,
+        "width": 1792
+    },
+    "tileset.type": 0,
+    "tileset.useTransparentColor": false
+}

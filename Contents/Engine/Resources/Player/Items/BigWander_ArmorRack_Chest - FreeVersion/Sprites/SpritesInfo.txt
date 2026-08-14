@@ -1,0 +1,1 @@
+Grid Size for the Atlas is 32x32, and so is the canvas size for each individual sprite
