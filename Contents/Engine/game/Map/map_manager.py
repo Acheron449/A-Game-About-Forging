@@ -132,24 +132,3 @@ class TiledCollisionObject:
                 obj_data.width,
                 obj_data.height
             )
-
-    def draw_debug(
-        self,
-        screen,
-        camera_x=0,
-        camera_y=0,
-        color=(255, 0, 0)
-    ):
-
-        # Draw collision rectangle
-        debug_rect = self.rect.move(
-            -camera_x,
-            -camera_y
-        )
-
-        pg.draw.rect(
-            screen,
-            color,
-            debug_rect,
-            2
-        )

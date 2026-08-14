@@ -7,8 +7,7 @@ class Door:
         self,
         rect,
         target_map,
-        target_x=0,
-        target_y=0,
+        spawn_id ="default",
         name="Door",
     ):
 
@@ -18,8 +17,8 @@ class Door:
         self.name = name
 
         self.target_map = target_map
-        self.target_x = target_x
-        self.target_y = target_y
+        self.spawn_id = spawn_id
+
 
     # --------------------------------------------------
     # INTERACTION
@@ -32,18 +31,24 @@ class Door:
     def interact(self, play_state):
 
         map_manager = play_state["map_manager"]
+        # updated to load based on Tiled file information and the requested spawn point from tiled.
+        
+        ##DEBUG :(
+        print()
+        print("========== DOOR DEBUG ==========")
+        print("Door:", self.name)
+        print("Target map:", repr(self.target_map))
+        print("Spawn ID:", repr(self.spawn_id))
+        print("================================")
+
+
 
         map_manager.load_map(
             self.target_map,
-            spawn_position=(
-                self.target_x,
-                self.target_y,
-            ),
+            spawn_id=self.spawn_id,
         )
-
-        spawn_x, spawn_y = (
-            map_manager.spawn_position
-        )
+        # move player to the spawn point
+        spawn_x, spawn_y = map_manager.spawn_position
 
         play_state["player_rect"].topleft = (
             spawn_x,
@@ -52,4 +57,5 @@ class Door:
 
         print(
             f"Entered {self.target_map}"
+            f"at spawn '{self.spawn_id}'"
         )

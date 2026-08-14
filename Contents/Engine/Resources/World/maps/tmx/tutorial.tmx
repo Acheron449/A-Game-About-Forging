@@ -8,8 +8,19 @@
   <object id="52" name="2" type="loot_point" x="772.678" y="1463.42" width="120.596" height="46.1409"/>
   <object id="53" name="1" type="loot_point" x="514.536" y="1207.72" width="120.596" height="55.5789"/>
   <object id="54" name="5" type="loot_point" x="1292.98" y="1208.94" width="99.6225" height="54.5302"/>
-  <object id="29" name="daemia's altar" type="door" x="1560.91" y="1434.64" width="93.6055" height="91.478"/>
-  <object id="56" name="exit" type="door" x="988.756" y="1028.02" width="299.839" height="207.032"/>
+  <object id="29" name="daemia's altar" type="door" x="1560.91" y="1434.64" width="93.6055" height="91.478">
+   <properties>
+    <property name="spawn_id" value="entrance"/>
+    <property name="target_map" value="daemias_altar"/>
+    <property name="target_spawn" value="entrance"/>
+   </properties>
+  </object>
+  <object id="56" name="exit" type="door" x="887.714" y="836.987" width="299.839" height="207.032">
+   <properties>
+    <property name="spawn_id" value="tutorial"/>
+    <property name="target_map" value="overworld"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="13" name="SpawnPoints">
   <object id="59" name="default" type="spawn_point" x="1187.87" y="1338.35" width="98.0392" height="50.1596"/>

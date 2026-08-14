@@ -378,7 +378,16 @@ class TiledMap:
                 "",
             )
 
-        class_name = class_name.lower().strip()
+        class_name = getattr(obj_data,"class_",None,)
+
+        if not class_name: # if initial class name detection fails, should search for a seperate property "type"
+            class_name = getattr(obj_data,"type",None,)
+
+        if class_name is None:
+
+            class_name = ""
+
+        class_name = str(class_name).lower().strip()
 
         
         # Rectangle
@@ -410,23 +419,28 @@ class TiledMap:
 
         if class_name == "door":
 
+            print("\n========== DOOR LOADED ==========")
+            print("Name:", obj_data.name)
+            print("Class:", class_name)
+            print("Properties:", properties)
+            print("target_map:", properties.get("target_map"))
+            print("spawn_id:", properties.get("spawn_id"))
+            print("=================================\n")
+
+
             return Door(
                 rect=rect,
 
                 name=obj_data.name,
-
+  
                 target_map=properties.get(
                     "target_map"
+                    
                 ),
 
-                target_x=properties.get(
-                    "target_x",
-                    0,
-                ),
-
-                target_y=properties.get(
-                    "target_y",
-                    0,
+                spawn_id=properties.get(
+                    "spawn_id",
+                    "default",
                 ),
             )
 

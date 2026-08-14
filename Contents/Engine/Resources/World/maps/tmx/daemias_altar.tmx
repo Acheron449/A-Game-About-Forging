@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="5" height="4" tilewidth="256" tileheight="256" infinite="0" nextlayerid="6" nextobjectid="29">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="10" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="7" nextobjectid="33">
  <tileset firstgid="1" source="../active/daemia's altar.tsx"/>
- <layer id="1" name="Tile Layer 1" width="5" height="4">
+ <layer id="1" name="Tile Layer 1" width="10" height="8">
   <data encoding="csv">
-1,2,3,4,5,
-6,7,8,9,10,
-11,12,13,14,15,
-16,17,18,19,20
+11,12,13,14,15,16,17,18,19,20,
+21,22,23,24,25,26,27,28,29,30,
+31,32,33,34,35,36,37,38,39,40,
+41,42,43,44,45,46,47,48,49,50,
+51,52,53,54,55,56,57,58,59,60,
+61,62,63,64,65,66,67,68,69,70,
+71,72,73,74,75,76,77,78,79,80,
+81,82,83,84,85,86,87,88,89,90
 </data>
  </layer>
- <objectgroup id="4" name="wall_collisions" class="collision">
-  <object id="5" x="0" y="0" width="262.846" height="1025.34"/>
-  <object id="6" x="262.846" y="689.084" width="61.5676" height="340.99"/>
-  <object id="7" x="329.15" y="724.603" width="40.2557" height="300.734"/>
-  <object id="8" x="374.142" y="760.123" width="104.191" height="265.214"/>
-  <object id="9" x="483.069" y="866.682" width="59.1996" height="158.655"/>
-  <object id="10" x="542.269" y="930.618" width="49.7277" height="97.0874"/>
-  <object id="11" x="700.924" y="899.834" width="108.927" height="125.503"/>
-  <object id="12" x="814.587" y="876.154" width="59.1996" height="151.551"/>
-  <object id="13" x="864.314" y="800.379" width="68.6716" height="217.855"/>
-  <object id="14" x="940.09" y="750.651" width="47.3597" height="274.686"/>
-  <object id="15" x="975.61" y="700.924" width="92.3514" height="312.574"/>
-  <object id="17" x="1101.11" y="-9.47194" width="184.703" height="1034.81"/>
-  <object id="18" x="1063.23" y="679.612" width="40.2557" height="340.99"/>
-  <object id="19" x="265.214" y="0" width="835.899" height="305.47"/>
-  <object id="20" x="840.635" y="307.838" width="258.11" height="151.551"/>
-  <object id="21" x="937.722" y="461.757" width="161.023" height="85.2475"/>
-  <object id="22" x="262.846" y="305.47" width="248.638" height="137.343"/>
-  <object id="23" x="260.478" y="442.813" width="172.863" height="63.9356"/>
-  <object id="24" x="258.11" y="511.485" width="106.559" height="61.5676"/>
-  <object id="25" x="547.004" y="419.133" width="246.27" height="104.191"/>
+ <objectgroup id="4" name="Collision" class="collision">
+  <object id="5" x="0" y="9.48478" width="526.048" height="2052.07"/>
+  <object id="7" x="518.798" y="1165.24" width="164.594" height="891.742"/>
+  <object id="8" x="670.469" y="1270.57" width="335.918" height="786.417"/>
+  <object id="9" x="1002.17" y="1586.54" width="193.799" height="470.447"/>
+  <object id="10" x="1195.97" y="1776.12" width="196.145" height="287.885"/>
+  <object id="11" x="1402.8" y="1533.44" width="218.002" height="528.109"/>
+  <object id="12" x="1624.19" y="1449.53" width="124.566" height="616.759"/>
+  <object id="13" x="1729.8" y="1319.18" width="137.436" height="728.154"/>
+  <object id="14" x="1863.2" y="1219.66" width="113.043" height="841.893"/>
+  <object id="15" x="1952.54" y="1138.39" width="184.828" height="899.461"/>
+  <object id="17" x="2203.71" y="-9.47194" width="369.656" height="2071.02"/>
+  <object id="18" x="2127.9" y="1092.7" width="80.566" height="959.375"/>
+  <object id="19" x="530.788" y="9.48478" width="1672.93" height="611.354"/>
+  <object id="20" x="1855.87" y="625.578" width="343.107" height="187.665"/>
+  <object id="30" x="2004.99" y="817.301" width="206.162" height="321.567"/>
+  <object id="31" x="516.859" y="613.405" width="206.162" height="257.659"/>
+  <object id="25" x="1091.71" y="565.3" width="492.874" height="208.523"/>
  </objectgroup>
- <objectgroup id="5" name="doors" class="door">
-  <object id="26" x="603.836" y="985.082" width="85.2475" height="33.1518"/>
+ <objectgroup id="5" name="Objects" class="door">
+  <object id="32" name="altar" type="loot_point" x="1250" y="692.529" width="172.414" height="183.908"/>
+ </objectgroup>
+ <objectgroup id="6" name="SpawnPoints">
+  <object id="29" name="entrance" type="spawn_point" x="1240.76" y="1692.4" width="133.478" height="36.4031"/>
  </objectgroup>
 </map>

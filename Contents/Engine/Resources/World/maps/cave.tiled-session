@@ -91,7 +91,11 @@
         "active/daemia's altar.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 0.1048,
-            "scaleInEditor": 0.5179
+            "scaleInEditor": 0.1674
+        },
+        "active/daemias_altar.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "active/main.tsx": {
             "scaleInDock": 1.5,
@@ -106,10 +110,14 @@
             "scaleInDock": 1.5,
             "scaleInEditor": 2.6408
         },
+        "active/misc/trees.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 0.8035
+        },
         "active/tutorial_rubble.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 0.1326,
-            "scaleInEditor": 0.3066
+            "scaleInEditor": 0.1534
         },
         "maps/cave.json": {
             "expandedObjectLayers": [
@@ -185,7 +193,7 @@
             "scale": 0.1745,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 1684.813753581662,
+                "x": 1681.948424068768,
                 "y": 3363.8968481375355
             }
         },
@@ -201,12 +209,29 @@
                 "y": 479.516931091641
             }
         },
-        "tmx/overworld.tmx": {
-            "scale": 0.0271,
-            "selectedLayer": 0,
+        "tmx/daemias_altar.tmx": {
+            "expandedObjectLayers": [
+                6,
+                5,
+                4
+            ],
+            "scale": 0.348,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 7195.571955719558,
-                "y": 2232.472324723247
+                "x": 1150.8620689655174,
+                "y": 1083.3333333333333
+            }
+        },
+        "tmx/overworld.tmx": {
+            "expandedObjectLayers": [
+                3,
+                2
+            ],
+            "scale": 0.1561,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 10009.609224855863,
+                "y": 7258.167841127483
             }
         },
         "tmx/tutorial.tmx": {
@@ -215,14 +240,15 @@
                 11
             ],
             "expandedObjectLayers": [
-                9,
-                3
+                3,
+                13,
+                9
             ],
-            "scale": 0.4386,
+            "scale": 0.4165,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1251.7099863201097,
-                "y": 1429.5485636114913
+                "x": 1204.0816326530614,
+                "y": 1135.654261704682
             }
         },
         "tmx/tutorial_rubble.tmx": {
@@ -241,7 +267,7 @@
     "frame.defaultDuration": 1000,
     "last.exportedFilePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Resources/World/maps/maps",
     "last.externalTilesetPath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Engine/Resources/World/maps/active",
-    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Engine/Resources/World/maps/base/Overworld",
+    "last.imagePath": "/Users/ChristineC/My Drive/Year 12/3 4 COM/A-Game-About-Forging/Contents/Engine/Resources/World/tilesets/ForgottenMemories",
     "map.fixedSize": false,
     "map.height": 20,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
@@ -259,7 +285,10 @@
     "project": "cave.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "active/misc/trees.tsx",
+        "active/daemia's altar.tsx",
         "active/tutorial_rubble.tsx",
+        "active/daemias_altar.tsx",
         "tmx/tutorial.tmx",
         "active/mining_nodes.tsx",
         "tmx/cave.tmx",
@@ -267,18 +296,15 @@
         "tmx/overworld.tmx",
         "active/Overworld_5.tsx",
         "active/Overworld_1.tsx",
-        "active/Overworld_2.tsx",
-        "active/Overworld_3.tsx",
-        "active/Overworld_4.tsx",
-        "active/Overworld_6.tsx"
+        "active/Overworld_2.tsx"
     ],
     "resizeMap.removeObjects": false,
     "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 256,
-        "width": 256
+        "height": 1792,
+        "width": 1792
     },
     "tileset.type": 0,
-    "tileset.useTransparentColor": true
+    "tileset.useTransparentColor": false
 }
