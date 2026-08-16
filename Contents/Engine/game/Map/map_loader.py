@@ -11,9 +11,14 @@ Handles:
         - mining nodes
 """
 
+from __future__ import annotations
+from typing import Any, Optional
+
 import pygame as pg
 import pytmx
 
+from ...configuration.constants import config
+from typing import Optional, Any
 from .interactive.door import Door
 from .interactive.loot_point import LootPoint
 from .interactive.mining_node import MiningNode
@@ -71,25 +76,6 @@ class TiledCollisionObject:
 
         return self.rect.colliderect(rect)
 
-    def draw_debug(
-        self,
-        screen,
-        camera_x=0,
-        camera_y=0,
-        color=(255, 0, 0),
-    ):
-
-        debug_rect = self.rect.move(
-            -camera_x,
-            -camera_y,
-        )
-
-        pg.draw.rect(
-            screen,
-            color,
-            debug_rect,
-            2,
-        )
 
 
 
@@ -450,14 +436,13 @@ class TiledMap:
 
             return LootPoint(
                 rect=rect,
+                name=properties.get("name", "Loot"),
+                loot_id=properties.get("loot_id"),
+                capacity=properties.get("capacity", 10),
+                loot_type=properties.get("loot_type", "fixed"),
+                loot_pool=properties.get("loot_pool"),
+            ) 
 
-                name=obj_data.name,
-
-                capacity=properties.get(
-                    "capacity",
-                    10,
-                ),
-            )
 
         # MINING NODE
 

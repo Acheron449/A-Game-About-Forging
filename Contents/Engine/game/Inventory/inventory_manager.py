@@ -81,6 +81,15 @@ class InventoryManager:
             destination_slot.set_item(source_slot.get_item())
             source_slot.set_item(temp_item)
 
+    def move_to_bag(self, item: Any) -> bool:
+        empty = self.first_empty_slot()
+
+        if empty is None:
+            return False
+
+        empty.set_item(item)
+        return True
+
     def close_inventory_screen(self) -> None:
         if self.is_inventory_open:
             self.toggle_inventory_ui()

@@ -63,6 +63,11 @@ from ..game.Settings.settings_ui_manager import (
     SettingsUIManager,
 )
 
+from ..game.Map.interactive.loot_point import (
+    LootWindow,
+)
+
+
 from .Title import (
     Application,
     GameEngine,
@@ -89,6 +94,7 @@ def initialize_play_state(
     settings_screen,
     map_manager,
 ):
+    
     """
     Creates all systems that belong to the player/gameplay state.
     """
@@ -117,6 +123,10 @@ def initialize_play_state(
     inventory_screen = InventoryScreen(
         inventory_manager=inventory_manager,
         hotbar=hotbar,
+    )
+
+    loot_window = LootWindow(
+    inventory_manager=inventory_manager,
     )
 
     # EQUIPMENT
@@ -201,6 +211,8 @@ def initialize_play_state(
         "hotbar": hotbar,
 
         "inventory_screen": inventory_screen,
+
+        "loot_window": loot_window,
 
         "equipment_manager": equipment_manager,
 
@@ -357,7 +369,8 @@ def main():
         ):
 
             interactive.interact(
-                play_state
+                play_state,
+                screen.get_size(),
             )
 
         
@@ -633,6 +646,7 @@ def main():
                 map_manager=map_manager,
             )
 
+            play_state["screen"] = screen
             play_state["map_manager"] = map_manager
 
             # PLAYER SPAWN
@@ -793,14 +807,31 @@ def main():
                 and play_state is not None
             ):
 
-                
+
+
+                # LOOT WINDOW
+
+                if play_state["loot_window"].is_open:
+
+                    play_state["loot_window"].handle_event(event)
+
+                    continue
+
+
+                if play_state[
+                    "loot_window"
+                ].is_open:
+
+                    play_state[
+                        "loot_window"
+                    ].draw(
+                        screen
+                    )
                 # ESCAPE
                 
 
                 if (
-                    event.type == pg.KEYDOWN
-                    and event.key == pg.K_ESCAPE
-                ):
+                    event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
 
                     play_state[
                         "pause_menu"
@@ -808,29 +839,25 @@ def main():
 
                     continue
 
-                
                 # INVENTORY
                 
-
                 if (
-                    event.type == pg.KEYDOWN
-                    and event.key == pg.K_i
-                ):
+                    event.type == pg.KEYDOWN and event.key == pg.K_i):
 
-                    play_state[
-                        "inventory_screen"
-                    ].toggle()
+                    play_state["inventory_screen"].toggle()
 
                     continue
+
+
+                if play_state ["inventory_screen"].is_open:
+                    play_state["inventory_screen"].draw(screen,None,)
 
                 
                 # INTERACTION
                 
 
                 if (
-                    event.type == pg.KEYDOWN
-                    and event.key == pg.K_e
-                ):
+                    event.type == pg.KEYDOWN and event.key == pg.K_e):
 
                     if not (
                         play_state[
@@ -998,21 +1025,6 @@ def main():
             )
 
             
-            # COLLISION DEBUG
-            
-
-            for collision in (
-                map_manager.current_map
-                .collision_objects
-            ):
-
-                collision.draw_debug(
-                    screen,
-                    camera_x,
-                    camera_y,
-                )
-
-            
             # PLAYER
             
 
@@ -1050,7 +1062,6 @@ def main():
 
             
             # INVENTORY
-            
 
             if play_state[
                 "inventory_screen"
@@ -1061,6 +1072,19 @@ def main():
                 ].draw(
                     screen,
                     None,
+                )
+
+
+            # LOOT WINDOW
+
+            if play_state[
+                "loot_window"
+            ].is_open:
+
+                play_state[
+                    "loot_window"
+                ].draw(
+                    screen
                 )
 
             

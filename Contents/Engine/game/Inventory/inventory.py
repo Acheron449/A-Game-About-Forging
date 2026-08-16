@@ -94,7 +94,7 @@ class InventoryManager:
 @dataclass
 class InventoryItem:
     """Renderer-friendly item data. Existing game items work without conversion."""
-
+    item_id: str
     name: str
     type: str = 'material'
     sprite: Optional[Any] = None

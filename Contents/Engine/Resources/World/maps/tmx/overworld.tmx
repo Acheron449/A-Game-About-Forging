@@ -95,7 +95,7 @@
   <object id="35" type="collision" x="11398.9" y="4708.08" width="1474.94" height="1298.33"/>
   <object id="36" type="collision" x="11876.2" y="5987.32" width="1298.33" height="300.716"/>
   <object id="37" type="collision" x="13184.1" y="6273.72"/>
-  <object id="38" type="collision" x="12821.4" y="4832.19" width="720.764" height="1207.64"/>
+  <object id="38" type="collision" x="12821.4" y="4832.19" width="995.927" height="1207.64"/>
   <object id="39" type="collision" x="9742.58" y="4474.19" width="544.153" height="883.055"/>
   <object id="41" type="collision" x="10272.4" y="4860.83" width="276.85" height="295.943"/>
   <object id="42" type="collision" x="9599.38" y="5109.04" width="133.652" height="171.838"/>
@@ -187,12 +187,12 @@
   <object id="139" type="collision" x="2240.82" y="7123.37" width="191.304" height="191.304"/>
   <object id="140" type="collision" x="2040.82" y="8049.46" width="113.043" height="234.783"/>
   <object id="141" type="collision" x="3945.17" y="5666.85" width="169.565" height="491.304"/>
-  <object id="142" type="collision" x="13049.5" y="4549.46" width="817.391" height="200"/>
+  <object id="142" type="collision" x="13049.5" y="4549.46" width="817.391" height="286.894"/>
   <object id="144" type="collision" x="13171.3" y="6019.02" width="652.174" height="539.13"/>
   <object id="145" type="collision" x="13419.1" y="7471.2" width="391.304" height="1630.43"/>
   <object id="146" type="collision" x="11958.2" y="8545.11" width="1456.52" height="547.826"/>
   <object id="147" type="collision" x="12888.7" y="8019.02" width="526.087" height="508.696"/>
-  <object id="148" type="collision" x="13680" y="6558.15" width="139.13" height="917.391"/>
+  <object id="148" type="collision" x="13497.8" y="6558.15" width="321.299" height="917.391"/>
   <object id="149" type="collision" x="13219.1" y="6579.89" width="278.261" height="682.609"/>
  </objectgroup>
  <objectgroup id="3" name="SpawnPoints" locked="1">
