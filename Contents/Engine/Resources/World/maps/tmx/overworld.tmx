@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="60" height="40" tilewidth="256" tileheight="256" infinite="0" nextlayerid="5" nextobjectid="151">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="60" height="40" tilewidth="256" tileheight="256" infinite="0" nextlayerid="6" nextobjectid="153">
  <tileset firstgid="1" source="../active/Overworld_1.tsx"/>
  <tileset firstgid="97" source="../active/Overworld_2.tsx"/>
  <tileset firstgid="193" source="../active/Overworld_3.tsx"/>
@@ -17,7 +17,7 @@
  <tileset firstgid="1345" source="../active/Overworld_15.tsx"/>
  <tileset firstgid="1441" source="../active/Overworld_16.tsx"/>
  <tileset firstgid="1537" source="../active/misc/trees_div.tsx"/>
- <layer id="1" name="Tile Layer 1" width="60" height="40">
+ <layer id="1" name="Tile Layer 1" width="60" height="40" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -61,7 +61,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="2" name="Collision">
+ <objectgroup id="2" name="Collision" locked="1">
   <object id="1" type="collision" x="1544.44" y="9095.83" width="12266.7" height="683.333"/>
   <object id="2" type="collision" x="3952.6" y="7934.82" width="921.241" height="1169.45"/>
   <object id="4" type="collision" x="4272.41" y="7643.65" width="463.007" height="300.716"/>
@@ -203,7 +203,16 @@
    </properties>
   </object>
  </objectgroup>
- <layer id="4" name="Decor" width="60" height="40">
+ <objectgroup id="5" name="Objects">
+  <object id="151" name="Cave" type="Door" x="2311.52" y="6419.51" width="236.377" height="44.7873">
+   <properties>
+    <property name="spawn_id" value="entrance"/>
+    <property name="target_map" value="cave"/>
+   </properties>
+  </object>
+  <object id="152" name="Cave" type="spawn_point" x="2319.73" y="6475.42" width="219.064" height="28.6869"/>
+ </objectgroup>
+ <layer id="4" name="Decor" width="60" height="40" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

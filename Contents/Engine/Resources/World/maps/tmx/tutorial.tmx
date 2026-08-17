@@ -8,7 +8,11 @@
     <property name="loot_id" value="stone_pickaxe"/>
    </properties>
   </object>
-  <object id="51" name="3" type="loot_point" x="1017.18" y="1543.39" width="120.214" height="52.4329"/>
+  <object id="51" name="3" type="loot_point" x="1017.18" y="1543.39" width="120.214" height="52.4329">
+   <properties>
+    <property name="loot_id" value="old_sword"/>
+   </properties>
+  </object>
   <object id="52" name="2" type="loot_point" x="531.391" y="1518.83" width="120.596" height="46.1409"/>
   <object id="53" name="1" type="loot_point" x="502.799" y="1212.64" width="120.596" height="55.5789"/>
   <object id="29" name="daemia's altar" type="door" x="1560.91" y="1434.64" width="93.6055" height="91.478">
@@ -18,8 +22,11 @@
     <property name="target_spawn" value="entrance"/>
    </properties>
   </object>
-  <object id="56" name="exit" type="door" x="887.714" y="836.987" width="299.839" height="207.032">
+  <object id="56" name="exit" type="quest_point" x="877.956" y="840.136" width="463.727" height="451.772">
    <properties>
+    <property name="prerequisite" value="pickaxe"/>
+    <property name="quest_id" value="tutorial"/>
+    <property name="sequence" value="door, complete_quest"/>
     <property name="spawn_id" value="tutorial"/>
     <property name="target_map" value="overworld"/>
    </properties>

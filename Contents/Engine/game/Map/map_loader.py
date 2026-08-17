@@ -22,6 +22,8 @@ from typing import Optional, Any
 from .interactive.door import Door
 from .interactive.loot_point import LootPoint
 from .interactive.mining_node import MiningNode
+from .interactive.quest_point import QuestPoint
+from .interactive.forge import Forge
 
 
 
@@ -140,6 +142,9 @@ class TiledMap:
         # Spawn points
 
         self.spawn_points = {}
+
+        # Quest Points
+        self.quest_points = []
         
         # Parse Tiled
         
@@ -223,7 +228,7 @@ class TiledMap:
 
                     # INTERACTIVE OBJECTS
 
-                    elif layer.name == "Objects":
+                    elif layer.name in ("Objects", "MiningNodes"):
 
                         if (
                             obj.width <= 0
@@ -454,13 +459,24 @@ class TiledMap:
 
             return MiningNode(
                 rect=rect,
-
-                name=obj_data.name,
-
-                respawn_time=properties.get(
-                    "respawn_time",
-                    10.0,
+                possible_resources=properties.get(
+                    "possible_resources",
+                    ["Stone"],
                 ),
+                health=properties.get(
+                    "health",
+                    3,
+                ),
+            )
+
+        # map_loader.py — add before “UNKNOWN CLASS”
+        if class_name == "quest_point":
+            return QuestPoint(
+                x=rect.x,
+                y=rect.y,
+                width=rect.width,
+                height=rect.height,
+                properties=properties,
             )
 
 

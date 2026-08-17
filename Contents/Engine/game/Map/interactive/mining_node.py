@@ -19,6 +19,11 @@ class MiningNode:
 
         self.is_depleted = False
 
+        self.class_name = "mining_node"
+
+    def can_interact(self, player_rect):
+        return self.can_mine(player_rect)
+
     def can_mine(self, player_rect):
 
         return (
@@ -34,8 +39,7 @@ class MiningNode:
         self.health -= 1
 
         if self.health <= 0:
-
-            self.break_node()
+            return self.break_node()
 
     def break_node(self):
 
