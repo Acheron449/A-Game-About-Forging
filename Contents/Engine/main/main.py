@@ -959,45 +959,33 @@ def main():
 
             # GAMEPLAY EVENTS
 
-
             if (
                 game_state == "PLAYING"
                 and play_state is not None
             ):
 
-
-
                 # LOOT WINDOW
 
                 if play_state["loot_window"].is_open:
 
-                    play_state["loot_window"].handle_event(event)
+                    if play_state["loot_window"].handle_event(event):
+                        continue
 
-                    continue
 
-
-                if play_state[
-                    "loot_window"
-                ].is_open:
-
-                    play_state[
-                        "loot_window"
-                    ].draw(
-                        screen
-                    )
-
-                # FORGE
+                # FORGE WINDOW
 
                 if play_state["forge_window"].is_open:
-                    play_state["forge_window"].draw(screen)
+
+                    if play_state["forge_window"].handle_event(event):
+                        continue
 
 
-                
                 # ESCAPE
-                
 
                 if (
-                    event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
+                    event.type == pg.KEYDOWN
+                    and event.key == pg.K_ESCAPE
+                ):
 
                     play_state[
                         "pause_menu"
@@ -1031,25 +1019,38 @@ def main():
 
                         continue
 
-                # INVENTORY
-                
-                if (
-                    event.type == pg.KEYDOWN and event.key == pg.K_i):
 
-                    play_state["inventory_screen"].toggle()
+                # INVENTORY
+
+                if (
+                    event.type == pg.KEYDOWN
+                    and event.key == pg.K_i
+                ):
+
+                    play_state[
+                        "inventory_screen"
+                    ].toggle()
 
                     continue
 
 
-                if play_state["inventory_screen"].is_open:
-                    if play_state["inventory_screen"].handle_event(event):
+                if play_state[
+                    "inventory_screen"
+                ].is_open:
+
+                    if play_state[
+                        "inventory_screen"
+                    ].handle_event(event):
+
                         continue
-                    
+
+
                 # INTERACTION
-                
 
                 if (
-                    event.type == pg.KEYDOWN and event.key == pg.K_e):
+                    event.type == pg.KEYDOWN
+                    and event.key == pg.K_e
+                ):
 
                     if not (
                         play_state[
@@ -1060,7 +1061,6 @@ def main():
                         activate_interaction()
 
                     continue
-
                 
                 # PAUSE MOUSE
                 
@@ -1087,7 +1087,7 @@ def main():
         if (
             game_state == "PLAYING"
             and play_state is not None
-            and not play_state["pause_menu"].is_paused
+            # and not play_state["pause_menu"].is_paused
         ):
 
             keys_pressed = pg.key.get_pressed()
@@ -1285,19 +1285,26 @@ def main():
                     screen
                 )
 
+
+            # FORGE WINDOW
+
+            if play_state[
+                "forge_window"
+            ].is_open:
+
+                play_state[
+                    "forge_window"
+                ].draw(
+                    screen
+                )
+
             
             # PAUSE
             
 
-            if play_state[
-                "pause_menu"
-            ].is_paused:
+            if play_state["pause_menu"].is_paused:
 
-                play_state[
-                    "pause_screen"
-                ].render(
-                    screen
-                )
+                play_state["pause_screen"].render(screen)
 
         
         # SETTINGS

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="60" height="40" tilewidth="256" tileheight="256" infinite="0" nextlayerid="6" nextobjectid="153">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="60" height="40" tilewidth="256" tileheight="256" infinite="0" nextlayerid="6" nextobjectid="154">
  <tileset firstgid="1" source="../active/Overworld_1.tsx"/>
  <tileset firstgid="97" source="../active/Overworld_2.tsx"/>
  <tileset firstgid="193" source="../active/Overworld_3.tsx"/>
@@ -195,22 +195,26 @@
   <object id="148" type="collision" x="13497.8" y="6558.15" width="321.299" height="917.391"/>
   <object id="149" type="collision" x="13219.1" y="6579.89" width="278.261" height="682.609"/>
  </objectgroup>
- <objectgroup id="3" name="SpawnPoints" locked="1">
-  <object id="150" name="tutorial" type="spawn_point" x="2994.46" y="8707.54" width="176.922" height="25.2827">
+ <objectgroup id="3" name="SpawnPoints">
+  <object id="150" name="default" type="spawn_point" x="2994.46" y="8707.54" width="176.922" height="25.2827">
    <properties>
     <property name="spawn_id" value="default"/>
-    <property name="target_map" value="tutorial"/>
+   </properties>
+  </object>
+  <object id="152" name="cave_exit" type="spawn_point" x="2391.52" y="6658.2" width="219.064" height="110.863">
+   <properties>
+    <property name="spawn_id" value="cave"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="5" name="Objects">
-  <object id="151" name="Cave" type="Door" x="2311.52" y="6419.51" width="236.377" height="44.7873">
+  <object id="151" name="Cave_entrance" type="Door" x="2166.87" y="6386.7" width="586.809" height="177.504">
    <properties>
     <property name="spawn_id" value="entrance"/>
     <property name="target_map" value="cave"/>
    </properties>
   </object>
-  <object id="152" name="Cave" type="spawn_point" x="2319.73" y="6475.42" width="219.064" height="28.6869"/>
+  <object id="153" name="Forge" type="forge" x="5772.89" y="7291.48" width="403.445" height="263.731"/>
  </objectgroup>
  <layer id="4" name="Decor" width="60" height="40" locked="1">
   <data encoding="csv">

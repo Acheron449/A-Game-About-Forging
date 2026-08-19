@@ -138,6 +138,7 @@ class TiledMap:
         self.doors = []
         self.loot_points = []
         self.mining_nodes = []
+        self.forges = []
 
         # Spawn points
 
@@ -278,24 +279,34 @@ class TiledMap:
                                     interactive
                                 )
 
+                            elif isinstance(
+                                interactive,
+                                Forge,
+                            ):
+
+                                self.forges.append(
+                                    interactive
+                                )
+
                     # SPAWN POINTS
 
                     elif layer.name == "SpawnPoints":
 
                         for obj in layer:
+
                             spawn_id = obj.name or "default"
 
                             position = (
-                                int(obj.x +obj.width /2 ),
-                                int(obj.y +obj.height / 2),
+                                int(obj.x + obj.width / 2),
+                                int(obj.y + obj.height / 2),
                             )
 
-                        self.spawn_points[spawn_id] = position
+                            self.spawn_points[spawn_id] = position
 
-                        print(
-                            f"spawn point:"
-                            f"{spawn_id}, {position}",
-                        )
+                            print(
+                                f"Spawn point: "
+                                f"{spawn_id}, {position}"
+                            )
 
         print(
             "--- DEBUG: TiledMap initialization complete. ---"
@@ -323,6 +334,14 @@ class TiledMap:
 
         if spawn_point is None:
 
+            print("--- SPAWN POINTS FOUND ---")
+
+            for spawn_id, position in self.spawn_points.items():
+
+                print(f"  {spawn_id}: {position}")
+
+            print("--------------------------")
+
             print(
                 f"WARNING: Spawn point "
                 f"'{spawn_id}' not found."
@@ -332,7 +351,7 @@ class TiledMap:
             default_spawn = self.spawn_points.get("default")
 
             if default_spawn is not None:
-                return default_spawn.position
+                return default_spawn
 
             return (0, 0)
 
@@ -466,6 +485,18 @@ class TiledMap:
                 health=properties.get(
                     "health",
                     3,
+                ),
+            )
+
+        # FORGE
+
+        if class_name == "forge":
+
+            return Forge(
+                rect=rect,
+                name=properties.get(
+                    "name",
+                    obj_data.name or "Forge",
                 ),
             )
 

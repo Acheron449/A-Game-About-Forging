@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" class="wall_collisions" orientation="orthogonal" renderorder="right-down" width="9" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="17" nextobjectid="60">
+<map version="1.10" tiledversion="1.12.2" class="wall_collisions" orientation="orthogonal" renderorder="right-down" width="9" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="20" nextobjectid="64">
  <tileset firstgid="1" source="../active/tutorial_rubble.tsx"/>
  <tileset firstgid="81" source="../active/NPCs_Tutorial.tsx"/>
+ <tileset firstgid="93" source="../active/mining_nodes.tsx"/>
  <objectgroup color="#89f859" id="9" name="Objects" class="loot_point">
   <object id="50" name="4" type="loot_point" x="1269.46" y="1240.57" width="127.936" height="42.995">
    <properties>
@@ -22,12 +23,12 @@
     <property name="target_spawn" value="entrance"/>
    </properties>
   </object>
-  <object id="56" name="exit" type="quest_point" x="877.956" y="840.136" width="463.727" height="451.772">
+  <object id="56" name="exit" type="quest_point" x="877.956" y="840.136" width="546.354" height="377.619">
    <properties>
     <property name="prerequisite" value="pickaxe"/>
     <property name="quest_id" value="tutorial"/>
     <property name="sequence" value="door, complete_quest"/>
-    <property name="spawn_id" value="tutorial"/>
+    <property name="spawn_id" value="default"/>
     <property name="target_map" value="overworld"/>
    </properties>
   </object>

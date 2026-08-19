@@ -103,9 +103,15 @@ PLAYER_WEAPON_ANIMATION_FOLDERS = {
         'parry': 'Parry - Sword',
     },
     'pickaxe': {
-        'attack': 'Attack - Pickaxe',
+        'Attack': 'Mine - Pickaxe',
     },
 }
+PLAYER_MINING_ANIMATION_FOLDERS = {
+    'pickaxe': {
+        'mine': 'Mine - Pickaxe',
+    },
+}
+
 ANIMATION_SPEED_WALK = 20
 ANIMATION_SPEED_DASH = 35
 IDLE_ANIMATION_SPEED = 18

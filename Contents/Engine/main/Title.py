@@ -215,7 +215,7 @@ class TitleScreen:
         self.title_menu = title_menu
         self.screen_size = screen_size
         self.title_font = get_game_font(88)
-        self.button_font = get_game_font(40)
+        self.button_font = get_game_font(30)
         self.prompt_font = get_game_font(24)
         self.button_rects: list[tuple[MenuButton, pygame.Rect]] = []
 
