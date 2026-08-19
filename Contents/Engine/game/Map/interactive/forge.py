@@ -1,5 +1,6 @@
 """Tiled forge interaction and its in-game forge window."""
 
+ # Provide the map forge object and its interactive crafting window.
 from __future__ import annotations
 
 from typing import Any, Dict, List, Tuple

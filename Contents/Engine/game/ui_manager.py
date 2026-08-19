@@ -1,5 +1,6 @@
 """In-game UI toggles: quests, minimap, settings (uimanager.txt)."""
 
+ # Provide shared UI drawing and event-routing helpers for gameplay screens.
 from __future__ import annotations
 
 from typing import Callable, List, Optional

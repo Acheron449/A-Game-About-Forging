@@ -1,4 +1,5 @@
 
+ # Select randomized loot from the configured drop pools.
 from __future__ import annotations
 
 import random

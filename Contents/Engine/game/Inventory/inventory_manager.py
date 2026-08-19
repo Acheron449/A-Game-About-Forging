@@ -1,5 +1,6 @@
 """Bag inventory and drag-move (invmanager.txt)."""
 
+ # Manage the compact inventory model used by gameplay interactions.
 from __future__ import annotations
 
 from typing import Any, Callable, List, Optional

@@ -1,5 +1,6 @@
 """Player movement, dash, attack, block input."""
 
+ # Translate player input into movement, collision, and animation updates.
 from __future__ import annotations
 
 from typing import Any, Callable, Optional

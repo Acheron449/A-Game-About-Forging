@@ -1,5 +1,6 @@
 """Entry point for the game."""
 
+ # Launch the package entry point when the repository is run as a module.
 import os
 import sys
 from pathlib import Path

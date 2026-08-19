@@ -1,5 +1,6 @@
 """Wires menu, save, inventory, equipment, and UI systems for the running game."""
 
+ # Assemble player, inventory, equipment, and quest state for a game run.
 from __future__ import annotations
 
 from typing import Any, Dict, Optional

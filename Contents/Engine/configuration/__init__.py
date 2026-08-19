@@ -1,4 +1,5 @@
 # Configuration module
+ # Define shared paths, gameplay defaults, and resource helpers for the engine.
 import os
 import pygame
 from typing import Dict, Sequence, NamedTuple, Tuple

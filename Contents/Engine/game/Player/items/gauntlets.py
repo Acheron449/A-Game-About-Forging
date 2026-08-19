@@ -1,3 +1,4 @@
+ # Define the gauntlets equipment item used by the player.
 class Gauntlets:
     name = "Gauntlets"
     type = "weapon"

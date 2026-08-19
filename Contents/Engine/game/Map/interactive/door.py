@@ -1,3 +1,4 @@
+ # Represent a map door and the collision or transition behavior it controls.
 import pygame as pg
 
 

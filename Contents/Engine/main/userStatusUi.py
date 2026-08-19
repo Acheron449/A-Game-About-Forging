@@ -1,5 +1,6 @@
 """User Status HUD: live HP/MP/Stamina reads and bar fill rendering."""
 
+ # Draw player status bars and update their displayed values.
 from __future__ import annotations
 
 from typing import Any, Callable, Optional, Tuple

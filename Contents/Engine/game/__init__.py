@@ -1,3 +1,4 @@
+ # Re-export the primary gameplay classes for convenient package imports.
 """Game systems integrated from design pseudocode (menus, saves, inventory, UI)."""
 
 from .boss_status import BossStatus

@@ -1,4 +1,5 @@
 """main.py - """
+ # Start the game, initialize runtime state, and run the main event loop.
 import sys
 from pathlib import Path
 from types import SimpleNamespace

@@ -1,5 +1,6 @@
 """Save/load backend (savemanagerbackend.txt + savemanageringamebackend.txt)."""
 
+ # Serialize and restore player progress and save-slot metadata.
 from __future__ import annotations
 
 import json

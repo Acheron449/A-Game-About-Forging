@@ -1,5 +1,6 @@
 """Pause menu save/settings/quit (pausemenumanager.txt)."""
 
+ # Coordinate pause-menu state, rendering, and input actions.
 from __future__ import annotations
 
 from typing import Any, Callable, Dict, List, Optional, Tuple 

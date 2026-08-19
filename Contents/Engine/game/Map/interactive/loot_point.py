@@ -1,5 +1,6 @@
 """Interactive loot points and loot window."""
 
+ # Handle map loot points, generated rewards, and the loot-selection window.
 from __future__ import annotations
 
 from typing import Any, Optional

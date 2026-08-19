@@ -1,5 +1,6 @@
 """Bag inventory data, presentation, and drag-and-drop interaction."""
 
+ # Implement inventory data, slots, item transfer, and inventory-screen behavior.
 from __future__ import annotations
 
 from dataclasses import dataclass

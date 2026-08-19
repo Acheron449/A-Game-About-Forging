@@ -1,5 +1,6 @@
 """Apply settings and rebind keys (settingmodifier.txt)."""
 
+ # Read, validate, and persist user-editable game settings.
 from __future__ import annotations
 
 from typing import Any, Callable, Dict, Optional

@@ -1,3 +1,4 @@
+ # Provide weighted random ore selections to the game-facing item API.
 from __future__ import annotations
 
 import random

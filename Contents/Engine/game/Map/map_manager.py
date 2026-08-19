@@ -1,4 +1,5 @@
 
+ # Select maps, load their assets, and manage map-level transitions.
 from __future__ import annotations
 from pathlib import Path
 from typing import Optional

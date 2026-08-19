@@ -1,3 +1,4 @@
+ # Keep compatibility constants and resource helpers in one configuration module.
 import os
 import pygame
 from typing import Dict, Sequence, Tuple

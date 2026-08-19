@@ -1,3 +1,4 @@
+ # Define the sword equipment item used by the player.
 class Sword:
     name = "Sword"
     type = "weapon"

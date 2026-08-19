@@ -1,3 +1,4 @@
+ # Expose quest interactions placed on the world map.
 import pygame
 
 

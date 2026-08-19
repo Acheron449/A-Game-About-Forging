@@ -1,5 +1,6 @@
 """manages and renders the minimap in the game, including zooming and panning functionality."""
 
+ # Draw the player's reduced world-map view and map markers.
 from ...configuration.constants import config
 from ...configuration.imports import imports
 

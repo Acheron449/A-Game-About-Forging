@@ -1,3 +1,4 @@
+ # Provide legacy world and UI renderer helpers.
 import os 
 import json
 import pygame

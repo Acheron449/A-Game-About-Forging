@@ -11,6 +11,7 @@ Handles:
         - mining nodes
 """
 
+ # Load Tiled map data, images, layers, and collision geometry.
 from __future__ import annotations
 from typing import Any, Optional
 

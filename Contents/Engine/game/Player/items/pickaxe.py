@@ -1,3 +1,4 @@
+ # Define the pickaxe item and its inventory identity.
 from ...Inventory.item_identifier import create_item
 
 

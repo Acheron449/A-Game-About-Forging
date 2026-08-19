@@ -1,5 +1,6 @@
 """Inventory-backed forging with mixed-ore rarity bonuses."""
 
+ # Model ore drops, forging recipes, and the forge interaction workflow.
 from __future__ import annotations
 
 import random

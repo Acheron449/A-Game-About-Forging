@@ -1,3 +1,4 @@
+ # Represent a mineable world node and its randomized resource yield.
 import random
 
 

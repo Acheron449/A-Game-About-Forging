@@ -1,5 +1,6 @@
 """Ultimate and skill hotkeys Q / E / C (skill.txt)."""
 
+ # Track skill unlocks, cooldowns, and skill-trigger callbacks.
 from __future__ import annotations
 
 from typing import Callable, Optional

@@ -1,5 +1,6 @@
 """Always-visible in-game hotbar UI."""
 
+ # Connect inventory state with the visible hotbar and item interactions.
 from __future__ import annotations
 
 from pathlib import Path

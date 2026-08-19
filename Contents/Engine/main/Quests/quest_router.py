@@ -1,5 +1,6 @@
 """Discover quests from folders and route them into the quest manager."""
 
+ # Discover quest modules and route quest identifiers to implementations.
 from __future__ import annotations
 
 import importlib.util
