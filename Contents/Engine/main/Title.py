@@ -258,8 +258,8 @@ class TitleScreen:
         screen.fill(self.BACKGROUND_COLOR)
         width, height = self.screen_size
 
-        panel_width = 700
-        panel_height = 600
+        panel_width = 800
+        panel_height = 700
         panel_rect = pygame.Rect(0, 0, panel_width, panel_height)
         panel_rect.center = (width // 2, height // 2)
         pygame.draw.rect(screen, self.PANEL_COLOR, panel_rect, border_radius=28)
