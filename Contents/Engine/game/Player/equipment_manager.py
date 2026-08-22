@@ -187,3 +187,5 @@ class EquipmentManager:
             return item
 
         return None
+
+

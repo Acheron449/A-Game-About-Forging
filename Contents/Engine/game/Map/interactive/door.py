@@ -21,9 +21,7 @@ class Door:
         self.spawn_id = spawn_id
 
 
-    # --------------------------------------------------
     # INTERACTION
-    # --------------------------------------------------
 
     def can_interact(self, player_rect):
 

@@ -105,7 +105,26 @@ from .playerRenderer import (
 class GameplayPlayerStub(SimpleNamespace):
 
     def equipped_weapon_type(self):
-        return None
+
+        equipment_manager = getattr(
+            self,
+            "equipment_manager",
+            None,
+        )
+
+        if equipment_manager is None:
+            return None
+
+        item = equipment_manager.get_equipped_item()
+
+        if item is None:
+            return None
+
+        return getattr(
+            item,
+            "attack_type",
+            None,
+        )
 
 # PLAY STATE INITIALISATION
 
@@ -189,22 +208,23 @@ def initialize_play_state(
         inventory_manager=inventory_manager,
     )
 
-
     # MOVEMENT
-
 
     movement_controller = PlayerController(
         player=player,
         player_status=player_status,
     )
 
+    # Give both the player and movement controller
+    # access to the equipment manager.
+
+    player.equipment_manager = equipment_manager
+
     movement_controller.equipment_manager = (
         equipment_manager
     )
 
-
     # CHARACTER ATTACK
-
 
     character_attack = CharacterAttack(
         player_controller=movement_controller,

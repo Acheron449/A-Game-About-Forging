@@ -79,11 +79,11 @@ def collect_dependency_packages(project_root: Path) -> Set[str]:
         if isinstance(node, ast.Import):
             for alias in node.names:
                 module_name = alias.name.split('.')[0]
-                if module_name not in {'os', 'sys', 'json', 'pathlib', 'typing', 'ast', 'dataclasses', 'subprocess', 'importlib', 'math', 'random', 'time', 'uuid', 'logging', 'collections', 'itertools', 'functools', 'enum', 'statistics', 're', 'shutil', 'argparse', 'copy', 'weakref', 'threading'}:
+                if module_name not in {'os', 'sys', 'json', 'pathlib', 'typing', 'ast', 'dataclasses', 'subprocess', 'importlib', 'math', 'random', 'time', 'uuid', 'logging', 'collections', 'itertools', 'functools', 'enum', 'statistics', 're', 'shutil', 'argparse', 'copy', 'weakref', 'threading', 'pytmx'}:
                     packages.add(module_name)
         elif isinstance(node, ast.ImportFrom) and node.module:
             module_name = node.module.split('.')[0]
-            if module_name not in {'os', 'sys', 'json', 'pathlib', 'typing', 'ast', 'dataclasses', 'subprocess', 'importlib', 'math', 'random', 'time', 'uuid', 'logging', 'collections', 'itertools', 'functools', 'enum', 'statistics', 're', 'shutil', 'argparse', 'copy', 'weakref', 'threading'}:
+            if module_name not in {'os', 'sys', 'json', 'pathlib', 'typing', 'ast', 'dataclasses', 'subprocess', 'importlib', 'math', 'random', 'time', 'uuid', 'logging', 'collections', 'itertools', 'functools', 'enum', 'statistics', 're', 'shutil', 'argparse', 'copy', 'weakref', 'threading', 'pytmx'}:
                 packages.add(module_name)
     return packages
 
