@@ -99,7 +99,7 @@ PLAYER_WEAPON_ANIMATION_FOLDERS = {
         'parry': 'Parry - Greatsword',
     },
     'sword': {
-        'attack': 'Attack - Sword',
+        'Attack': 'Attack - Sword',
         'block': 'Block - Sword',
         'parry': 'Parry - Sword',
     },

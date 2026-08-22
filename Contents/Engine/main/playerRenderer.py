@@ -236,45 +236,105 @@ class PlayerRenderer:
         return frames
 
     def _load_direction_images(self, base_dir, direction_key):
-        """Load all images for a specific direction from a directory or nested direction subfolder."""
+        """Load animation frames for a direction.
+
+        If the requested direction does not exist, use D as the source
+        and horizontally flip it for A.
+        """
+
         images = []
         direction_key = direction_key.upper()
-        candidate_dir = os.path.join(base_dir, direction_key)
-        search_dir = candidate_dir if os.path.isdir(candidate_dir) else base_dir
 
-        if os.path.isdir(search_dir):
-            for filename in sorted(os.listdir(search_dir)):
-                if not filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-                    continue
-                name_base = os.path.splitext(filename)[0].upper()
-                parts = name_base.split('_')
-                if not parts:
-                    continue
-                if parts[-1].isdigit():
+        # ---------------------------------------------------------
+        # A = horizontally flipped version of D
+        # ---------------------------------------------------------
+        source_direction = "D" if direction_key == "A" else direction_key
+
+        candidate_dir = os.path.join(base_dir, source_direction)
+
+        # If a direction subfolder exists, use it.
+        # Otherwise search the base folder.
+        if os.path.isdir(candidate_dir):
+            search_dir = candidate_dir
+        else:
+            search_dir = base_dir
+
+        if not os.path.isdir(search_dir):
+            return []
+
+        files = []
+
+        for filename in sorted(os.listdir(search_dir)):
+            if not filename.lower().endswith((".png", ".jpg", ".jpeg")):
+                continue
+
+            name_base = os.path.splitext(filename)[0].upper()
+
+            # -----------------------------------------------------
+            # If using a direction-specific folder, accept frames
+            # in that folder without requiring the filename to end
+            # in the direction.
+            # -----------------------------------------------------
+            if os.path.isdir(candidate_dir):
+                files.append(filename)
+
+            else:
+                # Otherwise only accept files belonging to source D.
+                parts = name_base.split("_")
+
+                # Remove frame number
+                if parts and parts[-1].isdigit():
                     parts = parts[:-1]
-                suffix = ''.join(parts)
-                if suffix != direction_key:
-                    continue
 
-                try:
-                    image_path = os.path.join(search_dir, filename)
-                    image = pygame.image.load(image_path)
-                    if pygame.display.get_surface() is not None:
-                        image = image.convert_alpha()
-                    if self.sprite_scale != 1.0:
-                        image = pygame.transform.rotozoom(image, 0, self.sprite_scale)
-                    images.append((filename, image))
-                except Exception as e:
-                    print(f"Failed to load image {filename}: {e}")
+                suffix = "".join(parts)
 
-        if not images and search_dir == base_dir:
-            for child_name in sorted(os.listdir(base_dir)):
-                child_path = os.path.join(base_dir, child_name)
-                if os.path.isdir(child_path) and child_path != candidate_dir:
-                    images.extend(self._load_direction_images(child_path, direction_key))
+                if suffix == source_direction:
+                    files.append(filename)
+
+        # ---------------------------------------------------------
+        # Load the frames
+        # ---------------------------------------------------------
+        for filename in files:
+
+            image_path = os.path.join(search_dir, filename)
+
+            try:
+                image = pygame.image.load(image_path)
+
+                if pygame.display.get_surface() is not None:
+                    image = image.convert_alpha()
+
+                # -------------------------------------------------
+                # Flip D -> A
+                # -------------------------------------------------
+                if direction_key == "A":
+                    image = pygame.transform.flip(
+                        image,
+                        True,   # horizontal
+                        False   # vertical
+                    )
+
+                # -------------------------------------------------
+                # Scale
+                # -------------------------------------------------
+                if self.sprite_scale != 1.0:
+                    image = pygame.transform.rotozoom(
+                        image,
+                        0,
+                        self.sprite_scale
+                    )
+
+                images.append((filename, image))
+
+            except Exception as e:
+                print(
+                    f"[PlayerRenderer] Failed to load "
+                    f"{filename}: {e}"
+                )
 
         return images
-    
+
+
     def get_current_direction(self, axis_scancodes_held): # Determine player facing direction based on pressed keys.
         """Determine player facing direction based on pressed keys."""
         up = self._axis_held(axis_scancodes_held, 'up')
