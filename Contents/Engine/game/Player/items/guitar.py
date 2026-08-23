@@ -1,4 +1,4 @@
- # Define the guitar equipment item used by the player.
+"""Define the guitar equipment item used by the player."""
 class Guitar:
     name = "Guitar"
     type = "weapon"

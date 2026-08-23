@@ -1,3 +1,4 @@
+"""Verify quest sequencing, prerequisites, and completion behavior."""
  # Verify quest registration, loading, and completion behavior.
 import unittest
 from pathlib import Path

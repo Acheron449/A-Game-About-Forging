@@ -1,4 +1,4 @@
- # Keep compatibility constants and resource helpers in one configuration module.
+"""Canonical shared configuration, resource paths, and gameplay defaults."""
 import os
 import pygame
 from typing import Dict, Sequence, Tuple

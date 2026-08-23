@@ -1,2 +1,1 @@
- # Mark the main game-loop directory as an importable package.
-# Main game module
+"""Main-loop package containing the game's legacy runtime and renderers."""

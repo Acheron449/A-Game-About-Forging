@@ -1,2 +1,2 @@
- # Mark the Engine directory as an importable Python package.
+"""Top-level package for the game's engine systems."""
 # Engine package

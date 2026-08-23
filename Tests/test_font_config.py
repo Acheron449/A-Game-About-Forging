@@ -1,3 +1,4 @@
+"""Verify bundled font configuration and loading behavior."""
  # Verify that configured fonts can be loaded through the engine helper.
 import os
 import unittest

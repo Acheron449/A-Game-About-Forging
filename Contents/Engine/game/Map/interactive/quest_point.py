@@ -1,4 +1,4 @@
- # Expose quest interactions placed on the world map.
+"""Run scripted quest-point interactions defined by Tiled map properties."""
 import pygame
 
 

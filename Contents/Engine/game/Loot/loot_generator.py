@@ -1,5 +1,5 @@
 
- # Select randomized loot from the configured drop pools.
+"""Generate weighted loot results from the configured drop pools."""
 from __future__ import annotations
 
 import random

@@ -1,4 +1,4 @@
- # Provide legacy world and UI renderer helpers.
+"""Re-export legacy world and UI renderer helpers for the prototype bridge."""
 import os 
 import json
 import pygame

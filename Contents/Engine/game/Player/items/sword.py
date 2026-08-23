@@ -1,4 +1,4 @@
- # Define the sword equipment item used by the player.
+"""Define sword equipment items and their combat metadata."""
 class Sword:
     name = "Sword"
     type = "weapon"

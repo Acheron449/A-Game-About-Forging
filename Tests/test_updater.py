@@ -1,3 +1,4 @@
+"""Verify dependency inspection and import-update helper behavior."""
  # Verify dependency discovery and import-update behavior in the updater.
 import unittest
 from pathlib import Path

@@ -1,3 +1,4 @@
+"""Verify player sprite discovery and loading behavior."""
 #!/usr/bin/env python3
  # Verify that representative player and UI sprite assets are discoverable.
 import os

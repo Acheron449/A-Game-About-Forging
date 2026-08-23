@@ -1,3 +1,4 @@
+"""Verify settings defaults and menu loading behavior."""
  # Verify that the settings menu can initialize its configured controls.
 import unittest
 

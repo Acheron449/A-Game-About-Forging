@@ -1,4 +1,4 @@
- # Resolve player movement against map collision rectangles and objects.
+"""Resolve player movement against map collision rectangles and objects."""
 from ...configuration.imports import *
 import random
 import pygame as pg

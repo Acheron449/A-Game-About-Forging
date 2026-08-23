@@ -1,4 +1,4 @@
- # Represent a map door and the collision or transition behavior it controls.
+"""Represent a map door and request a transition when the player interacts."""
 import pygame as pg
 
 

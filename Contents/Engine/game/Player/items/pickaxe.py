@@ -1,4 +1,4 @@
- # Define the pickaxe item and its inventory identity.
+"""Define the pickaxe item and its mining and inventory integration."""
 from ...Inventory.item_identifier import create_item
 
 

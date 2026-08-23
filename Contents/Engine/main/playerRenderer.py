@@ -1,4 +1,4 @@
- # Load and draw player sprites, equipment, bars, and related UI elements.
+"""Load and draw player sprites, equipment overlays, and related UI elements."""
 import os 
 import json
 import pygame

@@ -1,3 +1,4 @@
+"""Exercise player-controller input and movement behavior."""
  # Exercise player-controller movement behavior with a small test double.
 import unittest
 

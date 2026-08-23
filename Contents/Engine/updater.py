@@ -1,4 +1,4 @@
- # Inspect imports and optionally install missing runtime dependencies.
+"""Inspect imports and optionally install missing runtime dependencies."""
 import ast
 import importlib
 import os

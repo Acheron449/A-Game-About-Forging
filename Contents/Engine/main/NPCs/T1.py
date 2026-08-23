@@ -1,1 +1,1 @@
- # Reserve this module for the first-tier non-player character definition.
+"""Placeholder for first-tier non-player character definitions."""

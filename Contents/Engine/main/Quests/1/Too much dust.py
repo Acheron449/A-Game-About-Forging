@@ -1,1 +1,1 @@
- # Reserve this module for the Too Much Dust quest implementation.
+"""Placeholder module for the Too Much Dust quest implementation."""

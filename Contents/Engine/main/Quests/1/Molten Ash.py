@@ -1,1 +1,1 @@
- # Reserve this module for the Molten Ash quest implementation.
+"""Placeholder module for the Molten Ash quest implementation."""

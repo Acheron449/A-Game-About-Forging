@@ -1,5 +1,5 @@
 
- # Define item identities, stack metadata, and item-construction helpers.
+"""Define stable item identifiers and metadata used by inventory systems."""
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional
