@@ -11,12 +11,20 @@ Handles:
         - mining nodes
 """
 
+ # Load Tiled map data, images, layers, and collision geometry.
+from __future__ import annotations
+from typing import Any, Optional
+
 import pygame as pg
 import pytmx
 
+from ...configuration.constants import config
+from typing import Optional, Any
 from .interactive.door import Door
 from .interactive.loot_point import LootPoint
 from .interactive.mining_node import MiningNode
+from .interactive.quest_point import QuestPoint
+from .interactive.forge import Forge
 
 
 
@@ -71,25 +79,6 @@ class TiledCollisionObject:
 
         return self.rect.colliderect(rect)
 
-    def draw_debug(
-        self,
-        screen,
-        camera_x=0,
-        camera_y=0,
-        color=(255, 0, 0),
-    ):
-
-        debug_rect = self.rect.move(
-            -camera_x,
-            -camera_y,
-        )
-
-        pg.draw.rect(
-            screen,
-            color,
-            debug_rect,
-            2,
-        )
 
 
 
@@ -150,10 +139,14 @@ class TiledMap:
         self.doors = []
         self.loot_points = []
         self.mining_nodes = []
+        self.forges = []
 
         # Spawn points
 
         self.spawn_points = {}
+
+        # Quest Points
+        self.quest_points = []
         
         # Parse Tiled
         
@@ -237,7 +230,7 @@ class TiledMap:
 
                     # INTERACTIVE OBJECTS
 
-                    elif layer.name == "Objects":
+                    elif layer.name in ("Objects", "MiningNodes"):
 
                         if (
                             obj.width <= 0
@@ -287,24 +280,34 @@ class TiledMap:
                                     interactive
                                 )
 
+                            elif isinstance(
+                                interactive,
+                                Forge,
+                            ):
+
+                                self.forges.append(
+                                    interactive
+                                )
+
                     # SPAWN POINTS
 
                     elif layer.name == "SpawnPoints":
 
                         for obj in layer:
+
                             spawn_id = obj.name or "default"
 
                             position = (
-                                int(obj.x +obj.width /2 ),
-                                int(obj.y +obj.height / 2),
+                                int(obj.x + obj.width / 2),
+                                int(obj.y + obj.height / 2),
                             )
 
-                        self.spawn_points[spawn_id] = position
+                            self.spawn_points[spawn_id] = position
 
-                        print(
-                            f"spawn point:"
-                            f"{spawn_id}, {position}",
-                        )
+                            print(
+                                f"Spawn point: "
+                                f"{spawn_id}, {position}"
+                            )
 
         print(
             "--- DEBUG: TiledMap initialization complete. ---"
@@ -332,6 +335,14 @@ class TiledMap:
 
         if spawn_point is None:
 
+            print("--- SPAWN POINTS FOUND ---")
+
+            for spawn_id, position in self.spawn_points.items():
+
+                print(f"  {spawn_id}: {position}")
+
+            print("--------------------------")
+
             print(
                 f"WARNING: Spawn point "
                 f"'{spawn_id}' not found."
@@ -341,7 +352,7 @@ class TiledMap:
             default_spawn = self.spawn_points.get("default")
 
             if default_spawn is not None:
-                return default_spawn.position
+                return default_spawn
 
             return (0, 0)
 
@@ -450,14 +461,13 @@ class TiledMap:
 
             return LootPoint(
                 rect=rect,
+                name=properties.get("name", "Loot"),
+                loot_id=properties.get("loot_id"),
+                capacity=properties.get("capacity", 10),
+                loot_type=properties.get("loot_type", "fixed"),
+                loot_pool=properties.get("loot_pool"),
+            ) 
 
-                name=obj_data.name,
-
-                capacity=properties.get(
-                    "capacity",
-                    10,
-                ),
-            )
 
         # MINING NODE
 
@@ -469,13 +479,36 @@ class TiledMap:
 
             return MiningNode(
                 rect=rect,
-
-                name=obj_data.name,
-
-                respawn_time=properties.get(
-                    "respawn_time",
-                    10.0,
+                possible_resources=properties.get(
+                    "possible_resources",
+                    ["Stone"],
                 ),
+                health=properties.get(
+                    "health",
+                    3,
+                ),
+            )
+
+        # FORGE
+
+        if class_name == "forge":
+
+            return Forge(
+                rect=rect,
+                name=properties.get(
+                    "name",
+                    obj_data.name or "Forge",
+                ),
+            )
+
+        # map_loader.py — add before “UNKNOWN CLASS”
+        if class_name == "quest_point":
+            return QuestPoint(
+                x=rect.x,
+                y=rect.y,
+                width=rect.width,
+                height=rect.height,
+                properties=properties,
             )
 
 

@@ -1,3 +1,4 @@
+"""Load and draw player sprites, equipment overlays, and related UI elements."""
 import os 
 import json
 import pygame
@@ -37,6 +38,10 @@ class PlayerRenderer:
         self.idle_sprites = self._load_idle_sprites()
         self.movement_sprites = self._load_movement_sprites()
         self.weapon_action_sprites = self._load_weapon_action_sprites()
+        self.mining_sprites = self._load_mining_sprites()
+
+        print("[DEBUG] MINING SPRITES:", [x[0]for x in self.mining_sprites])
+
         self.current_sprite = None
         self.sprites_list = []
         
@@ -57,14 +62,19 @@ class PlayerRenderer:
         if self.action is not None:
             return False
 
-        sprites = self.get_sprite(
-            action,
-            self.facing_direction
-        )
+        # Mining uses its own animation list.
+        # Direction is completely ignored.
+        if action == "mine":
+            sprites = self.mining_sprites
+        else:
+            sprites = self.get_sprite(
+                action,
+                self.facing_direction
+            )
 
         if not sprites:
             print(
-                f"No animation found for action: {action}"
+                f"[PlayerRenderer] No animation found for action '{action}'"
             )
             return False
 
@@ -75,9 +85,14 @@ class PlayerRenderer:
 
         self.current_sprite = sprites[0][1]
 
+        print(
+            f"[PlayerRenderer] Started '{action}' "
+            f"with {len(sprites)} frames"
+        )
+
         return True
 
-        
+    
     def _load_idle_sprites(self):
         """Load idle sprites for all directions from Player/Idle folders.""" #TEST - Updated to load from all subfolders in Idle, not just 'Test - Static'
         idle_sprites = {}
@@ -145,46 +160,181 @@ class PlayerRenderer:
                     weapon_sprites[weapon_type][action_name][direction_key] = self._load_direction_images(action_dir, direction_key)
         return weapon_sprites
 
+    def _load_mining_sprites(self):
+        """Load pickaxe mining animation frames in numerical order.
+
+        Direction is deliberately ignored.
+        """
+
+        mining_dir = os.path.join(
+            self.player_resources_dir,
+            "Movement",
+            "Attack - Pickaxe"
+        )
+
+        if not os.path.isdir(mining_dir):
+            print(
+                f"[PlayerRenderer] Mining folder not found: "
+                f"{mining_dir}"
+            )
+            return []
+
+        frames = []
+
+        for filename in os.listdir(mining_dir):
+
+            if not filename.lower().endswith(
+                (".png", ".jpg", ".jpeg")
+            ):
+                continue
+
+            image_path = os.path.join(
+                mining_dir,
+                filename
+            )
+
+            try:
+                image = pygame.image.load(
+                    image_path
+                ).convert_alpha()
+
+                if self.sprite_scale != 1.0:
+                    image = pygame.transform.rotozoom(
+                        image,
+                        0,
+                        self.sprite_scale
+                    )
+
+                frames.append((filename, image))
+
+            except Exception as e:
+                print(
+                    f"[PlayerRenderer] Failed to load "
+                    f"mining frame {filename}: {e}"
+                )
+
+        # Sort using the number in the filename.
+        def frame_number(frame):
+            filename = frame[0]
+            name = os.path.splitext(filename)[0]
+
+            numbers = [
+                int(part)
+                for part in name.replace("-", "_").split("_")
+                if part.isdigit()
+            ]
+
+            return numbers[-1] if numbers else 0
+
+        frames.sort(key=frame_number)
+
+        print(
+            "[PlayerRenderer] Loaded mining frames:",
+            [frame[0] for frame in frames]
+        )
+
+        return frames
+
     def _load_direction_images(self, base_dir, direction_key):
-        """Load all images for a specific direction from a directory or nested direction subfolder."""
+        """Load animation frames for a direction.
+
+        If the requested direction does not exist, use D as the source
+        and horizontally flip it for A.
+        """
+
         images = []
         direction_key = direction_key.upper()
-        candidate_dir = os.path.join(base_dir, direction_key)
-        search_dir = candidate_dir if os.path.isdir(candidate_dir) else base_dir
 
-        if os.path.isdir(search_dir):
-            for filename in sorted(os.listdir(search_dir)):
-                if not filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-                    continue
-                name_base = os.path.splitext(filename)[0].upper()
-                parts = name_base.split('_')
-                if not parts:
-                    continue
-                if parts[-1].isdigit():
+        # ---------------------------------------------------------
+        # A = horizontally flipped version of D
+        # ---------------------------------------------------------
+        source_direction = "D" if direction_key == "A" else direction_key
+
+        candidate_dir = os.path.join(base_dir, source_direction)
+
+        # If a direction subfolder exists, use it.
+        # Otherwise search the base folder.
+        if os.path.isdir(candidate_dir):
+            search_dir = candidate_dir
+        else:
+            search_dir = base_dir
+
+        if not os.path.isdir(search_dir):
+            return []
+
+        files = []
+
+        for filename in sorted(os.listdir(search_dir)):
+            if not filename.lower().endswith((".png", ".jpg", ".jpeg")):
+                continue
+
+            name_base = os.path.splitext(filename)[0].upper()
+
+            # -----------------------------------------------------
+            # If using a direction-specific folder, accept frames
+            # in that folder without requiring the filename to end
+            # in the direction.
+            # -----------------------------------------------------
+            if os.path.isdir(candidate_dir):
+                files.append(filename)
+
+            else:
+                # Otherwise only accept files belonging to source D.
+                parts = name_base.split("_")
+
+                # Remove frame number
+                if parts and parts[-1].isdigit():
                     parts = parts[:-1]
-                suffix = ''.join(parts)
-                if suffix != direction_key:
-                    continue
 
-                try:
-                    image_path = os.path.join(search_dir, filename)
-                    image = pygame.image.load(image_path)
-                    if pygame.display.get_surface() is not None:
-                        image = image.convert_alpha()
-                    if self.sprite_scale != 1.0:
-                        image = pygame.transform.rotozoom(image, 0, self.sprite_scale)
-                    images.append((filename, image))
-                except Exception as e:
-                    print(f"Failed to load image {filename}: {e}")
+                suffix = "".join(parts)
 
-        if not images and search_dir == base_dir:
-            for child_name in sorted(os.listdir(base_dir)):
-                child_path = os.path.join(base_dir, child_name)
-                if os.path.isdir(child_path) and child_path != candidate_dir:
-                    images.extend(self._load_direction_images(child_path, direction_key))
+                if suffix == source_direction:
+                    files.append(filename)
+
+        # ---------------------------------------------------------
+        # Load the frames
+        # ---------------------------------------------------------
+        for filename in files:
+
+            image_path = os.path.join(search_dir, filename)
+
+            try:
+                image = pygame.image.load(image_path)
+
+                if pygame.display.get_surface() is not None:
+                    image = image.convert_alpha()
+
+                # -------------------------------------------------
+                # Flip D -> A
+                # -------------------------------------------------
+                if direction_key == "A":
+                    image = pygame.transform.flip(
+                        image,
+                        True,   # horizontal
+                        False   # vertical
+                    )
+
+                # -------------------------------------------------
+                # Scale
+                # -------------------------------------------------
+                if self.sprite_scale != 1.0:
+                    image = pygame.transform.rotozoom(
+                        image,
+                        0,
+                        self.sprite_scale
+                    )
+
+                images.append((filename, image))
+
+            except Exception as e:
+                print(
+                    f"[PlayerRenderer] Failed to load "
+                    f"{filename}: {e}"
+                )
 
         return images
-    
+
+
     def get_current_direction(self, axis_scancodes_held): # Determine player facing direction based on pressed keys.
         """Determine player facing direction based on pressed keys."""
         up = self._axis_held(axis_scancodes_held, 'up')
@@ -234,53 +384,97 @@ class PlayerRenderer:
         # Default to walk if moving
         return 'walk'
     
+
     def get_sprite(self, state, direction):
-        """Get the current sprite image based on state and direction."""
+
         sprite_key = f'{state}_{direction}'
         idle_key = f'idle_{direction}'
 
+        # IDLE
         if state == 'idle':
-            if idle_key in self.idle_sprites and self.idle_sprites[idle_key]:
-                return self.idle_sprites[idle_key]
-            if config.PLAYER_IDLE_FALLBACK_KEY in self.idle_sprites and self.idle_sprites[config.PLAYER_IDLE_FALLBACK_KEY]:
-                return self.idle_sprites[config.PLAYER_IDLE_FALLBACK_KEY]
-            return []
+            sprites = self.idle_sprites.get(idle_key, [])
 
+            if sprites:
+                return sprites
 
+            return self.idle_sprites.get(
+                config.PLAYER_IDLE_FALLBACK_KEY,
+                []
+            )
+
+        # EQUIPPED WEAPON
         weapon_type = None
+
         if hasattr(self.player, 'equipped_weapon_type'):
-            value = getattr(self.player, 'equipped_weapon_type')
-            if callable(value):
-                weapon_type = value()
-            else:
-                weapon_type = value
-        if weapon_type and state in {'attack', 'block', 'parry','mine',}:
-            action_sprites = self.get_weapon_action_sprites(weapon_type, state, direction)
+            value = getattr(
+                self.player,
+                'equipped_weapon_type'
+            )
+
+            weapon_type = value() if callable(value) else value
+
+        # NORMAL WEAPON ACTIONS
+        if weapon_type and state in {
+            'attack',
+            'block',
+            'parry',
+        }:
+
+            action_sprites = self.get_weapon_action_sprites(
+                weapon_type,
+                state,
+                direction
+            )
+
             if action_sprites:
                 return action_sprites
-    
 
-        if sprite_key in self.movement_sprites and self.movement_sprites[sprite_key]:
-            return self.movement_sprites[sprite_key]
+        # MINING
+
+        if state == 'mine':
+
+            if self.mining_sprites:
+                return self.mining_sprites
+
+            print(
+                "[PlayerRenderer] No pickaxe mining animation found."
+            )
+
+            return []
+
+        # NORMAL MOVEMENT
+        sprites = self.movement_sprites.get(sprite_key, [])
+
+        if sprites:
+            return sprites
+
+        # WALK FALLBACK
         if state != 'walk':
-            walk_key = f'walk_{direction}'
-            if walk_key in self.movement_sprites and self.movement_sprites[walk_key]:
-                return self.movement_sprites[walk_key]
-        if idle_key in self.idle_sprites and self.idle_sprites[idle_key]:
-            return self.idle_sprites[idle_key]
-        return []
+            sprites = self.movement_sprites.get(
+                f'walk_{direction}',
+                []
+            )
 
+            if sprites:
+                return sprites
 
+        # IDLE FALLBACK
+        return self.idle_sprites.get(idle_key, [])
+
+    
     def update_action(self):
-        """Update a one-shot action such as mining."""
 
         if self.action is None:
             return False
 
-        sprites = self.get_sprite(
-            self.action,
-            self.facing_direction
-        )
+        # Mining ignores direction.
+        if self.action == "mine":
+            sprites = self.mining_sprites
+        else:
+            sprites = self.get_sprite(
+                self.action,
+                self.facing_direction
+            )
 
         if not sprites:
             self.action = None
@@ -293,7 +487,6 @@ class PlayerRenderer:
             self.animation_counter = 0
             self.action_frame += 1
 
-            # Animation finished
             if self.action_frame >= len(sprites):
 
                 self.action = None
@@ -308,7 +501,6 @@ class PlayerRenderer:
 
         return False
 
-    
     def update_animation(self, state, direction, axis_scancodes_held, previous_state=None, previous_direction=None):
         """Update the current animation frame for the given state and direction."""
         sprites = self.get_sprite(state, direction) # Get the sprites for this state and direction.

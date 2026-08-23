@@ -1,5 +1,6 @@
 """Equipped gear overlay preview (charpreview.txt)."""
 
+ # Render a preview of the configured player appearance and equipment.
 from __future__ import annotations
 
 from typing import Any, Callable, List, Optional, TYPE_CHECKING

@@ -1,5 +1,6 @@
 """Quest tracker and manager for the game."""
 
+ # Track quest definitions, objectives, and completion state.
 from __future__ import annotations
 
 from dataclasses import dataclass, field

@@ -1,5 +1,6 @@
 """Handles player attack input, attack cooldowns, attack animations, and equipped weapon behaviour."""
 
+ # Implement player attack timing, hit detection, and weapon behavior.
 from ...configuration.imports import pg
 from .movement_controller import PlayerController
 

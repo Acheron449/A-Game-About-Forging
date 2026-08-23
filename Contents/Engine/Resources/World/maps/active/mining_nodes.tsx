@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.12.2" name="mining_nodes" class="mining_node" tilewidth="80" tileheight="44" tilecount="180" columns="4" objectalignment="topright">
+<tileset version="1.10" tiledversion="1.12.2" name="mining_nodes" class="mining_node" tilewidth="192" tileheight="192" tilecount="2115" columns="4" objectalignment="topright">
  <grid orientation="orthogonal" width="64" height="64"/>
  <transformations hflip="0" vflip="0" rotate="0" preferuntransformed="1"/>
  <properties>
@@ -8,7 +8,7 @@
   <property name="quantity_min" type="int" value="1"/>
   <property name="respawn_time" type="float" value="30"/>
  </properties>
- <image source="../../tilesets/Pixel Art Rock Pile Pack/Rock Pile - USE.png" trans="ff00ff" width="320" height="1980"/>
+ <image source="../../tilesets/Pixel Art Rock Pile Pack/Rock Pile - USE.png" width="768" height="10368"/>
  <tile id="0" type="mining_node"/>
  <tile id="1" type="mining_node"/>
  <tile id="2" type="mining_node"/>

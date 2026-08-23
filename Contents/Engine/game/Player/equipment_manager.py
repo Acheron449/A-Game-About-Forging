@@ -1,5 +1,6 @@
 """Equipment slots and equip/unequip flow (equipmentmanager.txt)."""
 
+ # Track equipped item slots and synchronize equipment changes.
 from __future__ import annotations
 
 from typing import Any, Callable, Dict, List, Optional, TYPE_CHECKING
@@ -186,3 +187,5 @@ class EquipmentManager:
             return item
 
         return None
+
+

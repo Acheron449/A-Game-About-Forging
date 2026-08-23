@@ -1,3 +1,5 @@
+"""main.py - """
+ # Start the game, initialize runtime state, and run the main event loop.
 import sys
 from pathlib import Path
 from types import SimpleNamespace
@@ -63,6 +65,30 @@ from ..game.Settings.settings_ui_manager import (
     SettingsUIManager,
 )
 
+from ..game.ui_hotbar_integration import(
+    UIHotbarIntegration,
+)
+
+from ..game.Map.interactive.loot_point import (
+    LootWindow,
+)
+
+from ..game.Map.interactive.quest_point import (
+    QuestPoint,
+)
+
+from ..game.Quest.quest_manager import (
+    QuestEntry,
+    QuestManager,
+)
+
+from ..game.Map.interactive.forge import ForgeWindow
+
+from ..game.Quest.quest_menu import (
+    QuestMenu,
+)
+
+
 from .Title import (
     Application,
     GameEngine,
@@ -79,7 +105,26 @@ from .playerRenderer import (
 class GameplayPlayerStub(SimpleNamespace):
 
     def equipped_weapon_type(self):
-        return None
+
+        equipment_manager = getattr(
+            self,
+            "equipment_manager",
+            None,
+        )
+
+        if equipment_manager is None:
+            return None
+
+        item = equipment_manager.get_equipped_item()
+
+        if item is None:
+            return None
+
+        return getattr(
+            item,
+            "attack_type",
+            None,
+        )
 
 # PLAY STATE INITIALISATION
 
@@ -89,6 +134,7 @@ def initialize_play_state(
     settings_screen,
     map_manager,
 ):
+    
     """
     Creates all systems that belong to the player/gameplay state.
     """
@@ -119,6 +165,28 @@ def initialize_play_state(
         hotbar=hotbar,
     )
 
+    hotbar_ui = UIHotbarIntegration(
+        hotbar=hotbar,
+        inventory_manager=inventory_manager,
+    )
+
+    loot_window = LootWindow(
+        inventory_manager=inventory_manager,
+    )
+
+    # FORGE WINDOW
+
+    forge_window = ForgeWindow(
+        inventory_manager=inventory_manager,
+    )
+
+    # QUEST SYSTEM
+
+    quest_manager = QuestManager()
+    quest_menu = QuestMenu(
+        quest_manager=quest_manager
+    )
+
     # EQUIPMENT
 
     equipment_manager = EquipmentManager(
@@ -137,24 +205,26 @@ def initialize_play_state(
     pickaxe = Pickaxe(
         player=player,
         player_renderer=player_renderer,
+        inventory_manager=inventory_manager,
     )
 
-
     # MOVEMENT
-
 
     movement_controller = PlayerController(
         player=player,
         player_status=player_status,
     )
 
+    # Give both the player and movement controller
+    # access to the equipment manager.
+
+    player.equipment_manager = equipment_manager
+
     movement_controller.equipment_manager = (
         equipment_manager
     )
 
-
     # CHARACTER ATTACK
-
 
     character_attack = CharacterAttack(
         player_controller=movement_controller,
@@ -200,7 +270,17 @@ def initialize_play_state(
 
         "hotbar": hotbar,
 
+        "hotbar_ui": hotbar_ui,
+
         "inventory_screen": inventory_screen,
+
+        "quest_manager": quest_manager,
+
+        "quest_menu": quest_menu,
+
+        "loot_window": loot_window,
+
+        "forge_window": forge_window,
 
         "equipment_manager": equipment_manager,
 
@@ -357,7 +437,8 @@ def main():
         ):
 
             interactive.interact(
-                play_state
+                play_state,
+                screen.get_size(),
             )
 
         
@@ -373,11 +454,22 @@ def main():
             )
         ):
 
-            play_state[
-                "pickaxe"
-            ].mine_node(
-                interactive
+            play_state["pickaxe"].mine(interactive)
+
+        # QUEST POINT
+
+        elif interactive.class_name.lower() == "quest_point":
+            interactive.trigger(play_state)
+
+
+        # FORGE 
+
+        elif interactive.class_name.lower() == "forge":
+            interactive.interact(
+                play_state,
+                screen.get_size(),
             )
+
 
     
     # INTERACTION PROMPT
@@ -606,6 +698,106 @@ def main():
             camera_y,
         ]
 
+    def process_pending_map_transition():
+
+        if play_state is None:
+            return
+
+        transition = play_state.get(
+            "pending_map_transition"
+        )
+
+        if transition is None:
+            return
+
+        # Prevent the same transition from
+        # being processed every frame.
+        play_state[
+            "pending_map_transition"
+        ] = None
+
+        target_map = transition.get(
+            "target_map"
+        )
+
+        spawn_id = transition.get(
+            "spawn_id"
+        )
+
+        quest_point = transition.get(
+            "quest_point"
+        )
+
+        print(
+            f"[MAIN] Loading map: {target_map}, "
+            f"spawn: {spawn_id}"
+        )
+
+        # LOAD TARGET MAP
+
+        map_manager.load_map(
+            target_map,
+            spawn_id=spawn_id,
+        )
+
+        # GET NEW SPAWN POSITION
+
+        spawn_x, spawn_y = (
+            map_manager.spawn_position
+        )
+
+        # RESET PLAYER POSITION
+
+        play_state[
+            "player_rect"
+        ] = pg.Rect(
+            spawn_x,
+            spawn_y,
+            24,
+            20,
+        )
+
+        play_state[
+            "world_position"
+        ] = [
+            spawn_x,
+            spawn_y,
+        ]
+
+        # RESET CAMERA
+
+        view_width, view_height = (
+            screen.get_size()
+        )
+
+        play_state[
+            "camera"
+        ] = [
+            max(
+                0,
+                spawn_x - view_width // 2,
+            ),
+            max(
+                0,
+                spawn_y - view_height // 2,
+            ),
+        ]
+
+        print(
+            "[MAIN] Player moved to:",
+            spawn_x,
+            spawn_y,
+        )
+
+        # CONTINUE QUEST SEQUENCE
+
+        if quest_point is not None:
+
+            quest_point._step_complete(
+                play_state
+            )    
+
+
     
     # START PLAYING
     
@@ -633,6 +825,7 @@ def main():
                 map_manager=map_manager,
             )
 
+            play_state["screen"] = screen
             play_state["map_manager"] = map_manager
 
             # PLAYER SPAWN
@@ -787,15 +980,28 @@ def main():
 
             # GAMEPLAY EVENTS
 
-
             if (
                 game_state == "PLAYING"
                 and play_state is not None
             ):
 
-                
+                # LOOT WINDOW
+
+                if play_state["loot_window"].is_open:
+
+                    if play_state["loot_window"].handle_event(event):
+                        continue
+
+
+                # FORGE WINDOW
+
+                if play_state["forge_window"].is_open:
+
+                    if play_state["forge_window"].handle_event(event):
+                        continue
+
+
                 # ESCAPE
-                
 
                 if (
                     event.type == pg.KEYDOWN
@@ -808,9 +1014,34 @@ def main():
 
                     continue
 
-                
+
+                # HOTBAR SELECTION
+
+                if event.type == pg.KEYDOWN:
+
+                    if play_state[
+                        "hotbar_ui"
+                    ].handle_keydown(event.key):
+
+                        selected_item = (
+                            play_state[
+                                "hotbar_ui"
+                            ].get_selected_item()
+                        )
+
+                        print(
+                            "Selected hotbar item:",
+                            getattr(
+                                selected_item,
+                                "name",
+                                None,
+                            ),
+                        )
+
+                        continue
+
+
                 # INVENTORY
-                
 
                 if (
                     event.type == pg.KEYDOWN
@@ -823,9 +1054,19 @@ def main():
 
                     continue
 
-                
+
+                if play_state[
+                    "inventory_screen"
+                ].is_open:
+
+                    if play_state[
+                        "inventory_screen"
+                    ].handle_event(event):
+
+                        continue
+
+
                 # INTERACTION
-                
 
                 if (
                     event.type == pg.KEYDOWN
@@ -841,7 +1082,6 @@ def main():
                         activate_interaction()
 
                     continue
-
                 
                 # PAUSE MOUSE
                 
@@ -868,16 +1108,16 @@ def main():
         if (
             game_state == "PLAYING"
             and play_state is not None
-            and not play_state[
-                "pause_menu"
-            ].is_paused
+            # and not play_state["pause_menu"].is_paused
         ):
 
             keys_pressed = pg.key.get_pressed()
 
-            mouse_buttons = (
-                pg.mouse.get_pressed(3)
-            )
+            mouse_buttons = (pg.mouse.get_pressed(3))
+
+            # QUEST + MAP TRANSITIONS
+
+            process_pending_map_transition()
 
             
             # MOVEMENT INPUT
@@ -998,21 +1238,6 @@ def main():
             )
 
             
-            # COLLISION DEBUG
-            
-
-            for collision in (
-                map_manager.current_map
-                .collision_objects
-            ):
-
-                collision.draw_debug(
-                    screen,
-                    camera_x,
-                    camera_y,
-                )
-
-            
             # PLAYER
             
 
@@ -1028,10 +1253,16 @@ def main():
                 screen_center,
             )
 
+            # HOTBAR
+
+            play_state[
+                "hotbar_ui"
+            ].draw(
+                screen
+            )
             
             # INTERACTION PROMPT
             
-
             interactive = (
                 get_player_interaction()
             )
@@ -1050,7 +1281,6 @@ def main():
 
             
             # INVENTORY
-            
 
             if play_state[
                 "inventory_screen"
@@ -1063,19 +1293,39 @@ def main():
                     None,
                 )
 
+
+            # LOOT WINDOW
+
+            if play_state[
+                "loot_window"
+            ].is_open:
+
+                play_state[
+                    "loot_window"
+                ].draw(
+                    screen
+                )
+
+
+            # FORGE WINDOW
+
+            if play_state[
+                "forge_window"
+            ].is_open:
+
+                play_state[
+                    "forge_window"
+                ].draw(
+                    screen
+                )
+
             
             # PAUSE
             
 
-            if play_state[
-                "pause_menu"
-            ].is_paused:
+            if play_state["pause_menu"].is_paused:
 
-                play_state[
-                    "pause_screen"
-                ].render(
-                    screen
-                )
+                play_state["pause_screen"].render(screen)
 
         
         # SETTINGS

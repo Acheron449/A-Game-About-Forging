@@ -1,5 +1,6 @@
 """Player health, mana, stamina, and regen (Playerstatus.txt)."""
 
+ # Store player health, mana, stamina, level, and progression state.
 from __future__ import annotations
 
 from typing import Callable, Dict, Optional

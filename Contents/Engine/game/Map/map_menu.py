@@ -1,6 +1,6 @@
-# Engine/game/map_menu.py
-"""opens upon interaction with M key or the minimap"""
+"""Render and operate the map-selection menu opened from gameplay."""
 
+ # Render and operate the map-selection menu.
 from ...configuration.constants import config
 from ...configuration.imports import imports
 # Assuming MapManager is available to handle commands

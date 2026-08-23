@@ -1,5 +1,6 @@
 """Bag inventory and drag-move (invmanager.txt)."""
 
+ # Manage the compact inventory model used by gameplay interactions.
 from __future__ import annotations
 
 from typing import Any, Callable, List, Optional
@@ -80,6 +81,15 @@ class InventoryManager:
             temp_item = destination_slot.get_item()
             destination_slot.set_item(source_slot.get_item())
             source_slot.set_item(temp_item)
+
+    def move_to_bag(self, item: Any) -> bool:
+        empty = self.first_empty_slot()
+
+        if empty is None:
+            return False
+
+        empty.set_item(item)
+        return True
 
     def close_inventory_screen(self) -> None:
         if self.is_inventory_open:

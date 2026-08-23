@@ -1,3 +1,4 @@
+"""Represent a map door and request a transition when the player interacts."""
 import pygame as pg
 
 
@@ -20,9 +21,7 @@ class Door:
         self.spawn_id = spawn_id
 
 
-    # --------------------------------------------------
     # INTERACTION
-    # --------------------------------------------------
 
     def can_interact(self, player_rect):
 

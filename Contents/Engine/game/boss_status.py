@@ -1,5 +1,6 @@
 """Boss health bar state (bossstat.txt)."""
 
+ # Track boss health, defeat state, and callbacks used by combat UI.
 from __future__ import annotations
 
 from typing import Callable, Optional

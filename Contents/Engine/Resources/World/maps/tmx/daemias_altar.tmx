@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="10" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="7" nextobjectid="33">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="10" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="7" nextobjectid="34">
  <tileset firstgid="1" source="../active/daemia's altar.tsx"/>
  <layer id="1" name="Tile Layer 1" width="10" height="8">
   <data encoding="csv">
@@ -34,8 +34,14 @@
  </objectgroup>
  <objectgroup id="5" name="Objects" class="door">
   <object id="32" name="altar" type="loot_point" x="1250" y="692.529" width="172.414" height="183.908"/>
+  <object id="33" name="exit" type="door" x="1205.05" y="1741.63" width="187.127" height="32.6908">
+   <properties>
+    <property name="spawn_id" value="tutorial"/>
+    <property name="target_map" value="tutorial"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="6" name="SpawnPoints">
-  <object id="29" name="entrance" type="spawn_point" x="1240.76" y="1692.4" width="133.478" height="36.4031"/>
+  <object id="29" name="entrance" type="spawn_point" x="1224.98" y="1702.55" width="133.478" height="36.4031"/>
  </objectgroup>
 </map>

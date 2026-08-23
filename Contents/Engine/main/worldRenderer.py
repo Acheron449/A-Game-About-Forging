@@ -1,5 +1,6 @@
 """Handles rendering of the world map using the TiledMap structure."""
 
+ # Compose map rendering with the active camera and world state.
 from ..game.Map.map_loader import TiledMap
 from ..configuration.constants import *
 

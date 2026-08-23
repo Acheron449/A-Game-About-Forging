@@ -1,5 +1,6 @@
 """Shows quest menu and handles quest selection."""
 
+ # Render the quest journal and route quest-menu input.
 from __future__ import annotations
 
 from typing import List, Optional

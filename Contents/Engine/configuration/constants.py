@@ -1,6 +1,8 @@
+"""Canonical shared configuration, resource paths, and gameplay defaults."""
 import os
 import pygame
-from typing import Dict, Sequence, NamedTuple, Tuple
+from typing import Dict, Sequence, Tuple
+from dataclasses import dataclass
 
 # Configuration constants
 CONFIGURATION = "CONFIGURATION"
@@ -56,7 +58,7 @@ PLAYER_START_MAX_MANA = 50
 PLAYER_START_XP = 0
 PLAYER_START_LEVEL = 1
 PLAYER_START_GOLD = 0
-PLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 5}
+PLAYER_START_STATS: Dict[str, int] = {'strength': 10, 'defense': 5, 'speed': 15}
 XP_PER_LEVEL_MULTIPLIER = 100
 LEVEL_UP_MAX_HEALTH_BONUS = 10
 DEFAULT_PLAYER_APPEARANCE = 'default'
@@ -97,14 +99,20 @@ PLAYER_WEAPON_ANIMATION_FOLDERS = {
         'parry': 'Parry - Greatsword',
     },
     'sword': {
-        'attack': 'Attack - Sword',
+        'Attack': 'Attack - Sword',
         'block': 'Block - Sword',
         'parry': 'Parry - Sword',
     },
     'pickaxe': {
-        'attack': 'Attack - Pickaxe',
+        'Attack': 'Mine - Pickaxe',
     },
 }
+PLAYER_MINING_ANIMATION_FOLDERS = {
+    'pickaxe': {
+        'mine': 'Mine - Pickaxe',
+    },
+}
+
 ANIMATION_SPEED_WALK = 20
 ANIMATION_SPEED_DASH = 35
 IDLE_ANIMATION_SPEED = 18
@@ -217,9 +225,7 @@ DIRECTION_MAP = {
     'right': 'D',
 }
 
-class OreDrop(NamedTuple):
-    name: str
-    weight: int
+
 
 # Ore types: rarity label plus slice of a 0–100 roll (half-open interval [low, high)).
 # Draw roll in [0, 100); the first matching range wins. Ranges must partition 0–100.
@@ -236,20 +242,11 @@ ORE_RARITY_BY_PERCENT_RANGE = {
     'Meteorite Fragment': {'rarity': 'mythical', 'percent_range': (99, 100)},
 }
 
-ORE_POOL: Sequence[OreDrop] = [
-    OreDrop(name="Stone", weight=42),
-    OreDrop(name="Coal", weight=18),
-    OreDrop(name="Iron", weight=12),
-    OreDrop(name="Silver", weight=8),
-    OreDrop(name="Gold", weight=6),
-    OreDrop(name="Platinum", weight=5),
-    OreDrop(name="Diamond", weight=4),
-    OreDrop(name="Mithril", weight=2),
-    OreDrop(name="Kyber", weight=2),
-    OreDrop(name="Meteorite Fragment", weight=1),
-    OreDrop(name="Meteorite Fragment", weight=1),
-]
-
+# LOOT POOLS
+@dataclass(frozen=True)
+class LootDrop:
+    item_id: str
+    weight: int
 
 # Gear spawn: when rolling rarity for a drop, use a 0–100 value and the half-open
 # [low, high) interval for the gear category. Weapon vs armor use different tables.
@@ -269,6 +266,82 @@ GEAR_SPAWN_CHANCE_BY_RARITY = {
         'legendary': (98, 100),
     },
 }
+
+ORE_POOL = [
+    LootDrop("stone", 42),
+    LootDrop("coal", 18),
+    LootDrop("iron", 12),
+    LootDrop("silver", 8),
+    LootDrop("gold", 6),
+    LootDrop("platinum", 5),
+    LootDrop("diamond", 4),
+    LootDrop("mithril", 2),
+    LootDrop("kyber", 2),
+    LootDrop("meteorite_fragment", 1),
+]
+
+
+NPC_BASIC_POOL = [
+    LootDrop("gold_coin", 50),
+    LootDrop("health_potion", 20),
+    LootDrop("coal", 15),
+    LootDrop("iron", 10),
+    LootDrop("silver", 5),
+]
+
+
+CHEST_COMMON_POOL = [
+    LootDrop("gold_coin", 40),
+    LootDrop("health_potion", 20),
+    LootDrop("iron", 20),
+    LootDrop("silver", 10),
+    LootDrop("diamond", 2),
+    LootDrop("old_sword", 8),
+]
+
+LOOT_POOLS = {
+    "ore": ORE_POOL,
+    "npc_basic": NPC_BASIC_POOL,
+    "chest_common": CHEST_COMMON_POOL,
+}
+
+# ITEM IDENTIFIERS
+
+# Materials
+ITEM_STONE = "stone"
+ITEM_COAL = "coal"
+ITEM_IRON = "iron"
+ITEM_SILVER = "silver"
+ITEM_GOLD = "gold"
+ITEM_PLATINUM = "platinum"
+ITEM_DIAMOND = "diamond"
+ITEM_MITHRIL = "mithril"
+ITEM_KYBER = "kyber"
+ITEM_METEORITE_FRAGMENT = "meteorite_fragment"
+
+# Currency
+ITEM_GOLD_COIN = "gold_coin"
+
+# Consumables
+ITEM_HEALTH_POTION = "health_potion"
+
+# Quest
+ITEM_ALTAR_KEY = "altar_key"
+
+# WEAPONS
+
+WEAPON_OLD_SWORD = "old_sword"
+WEAPON_IRON_SWORD = "iron_sword"
+WEAPON_GREAT_SWORD = "greatsword"
+
+# TOOLS
+
+PICKAXE_WOODEN = "wooden_pickaxe"
+PICKAXE_STONE = "stone_pickaxe"
+PICKAXE_IRON = "iron_pickaxe"
+PICKAXE_GOLD = "gold_pickaxe"
+PICKAXE_DIAMOND = "diamond_pickaxe"
+PICKAXE_MITHRIL = "mithril_pickaxe"
 
 def get_all_resources(base_path):
     """

@@ -1,3 +1,6 @@
+
+"""Select maps, load their assets, and expose the active map to gameplay."""
+from __future__ import annotations
 from pathlib import Path
 from typing import Optional
 from ...configuration.constants import config

@@ -1,4 +1,7 @@
-# Configuration module
+# REDUNDANT: Superseded by configuration.constants, which is the canonical
+# configuration module imported by the game. Retained for package compatibility.
+"""Legacy configuration package initializer; use :mod:`.constants` instead."""
+ # Define shared paths, gameplay defaults, and resource helpers for the engine.
 import os
 import pygame
 from typing import Dict, Sequence, NamedTuple, Tuple

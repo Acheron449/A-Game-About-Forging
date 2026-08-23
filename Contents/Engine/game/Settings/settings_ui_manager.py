@@ -1,5 +1,6 @@
 """Settings menu layout and apply (uimanagersettings.txt)."""
 
+ # Render settings categories and apply interactive settings changes.
 from __future__ import annotations
 
 from typing import Any, Callable, Dict, List, Optional

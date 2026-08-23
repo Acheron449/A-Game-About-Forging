@@ -1,6 +1,7 @@
 """
 This is a test of using the pytmx library with Tiled.
 """
+ # Render individual world tiles using the shared engine configuration.
 from ..configuration.imports import *
 from ..configuration.constants import *
 

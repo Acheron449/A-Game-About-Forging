@@ -1,5 +1,6 @@
 """Gameplay hotbar keys 1–0 (invhotbar.txt)."""
 
+ # Maintain the quick-access inventory hotbar and its selection callbacks.
 from __future__ import annotations
 
 from typing import Any, Callable, List, Optional

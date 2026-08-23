@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" class="wall_collisions" orientation="orthogonal" renderorder="right-down" width="9" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="15" nextobjectid="60">
+<map version="1.10" tiledversion="1.12.2" class="wall_collisions" orientation="orthogonal" renderorder="right-down" width="9" height="8" tilewidth="256" tileheight="256" infinite="0" nextlayerid="20" nextobjectid="64">
  <tileset firstgid="1" source="../active/tutorial_rubble.tsx"/>
  <tileset firstgid="81" source="../active/NPCs_Tutorial.tsx"/>
+ <tileset firstgid="93" source="../active/mining_nodes.tsx"/>
  <objectgroup color="#89f859" id="9" name="Objects" class="loot_point">
-  <object id="50" name="4" type="loot_point" x="1053.2" y="1469.35" width="127.936" height="42.995"/>
-  <object id="51" name="3" type="loot_point" x="999.18" y="1720.33" width="177.223" height="52.4329"/>
-  <object id="52" name="2" type="loot_point" x="772.678" y="1463.42" width="120.596" height="46.1409"/>
-  <object id="53" name="1" type="loot_point" x="514.536" y="1207.72" width="120.596" height="55.5789"/>
-  <object id="54" name="5" type="loot_point" x="1292.98" y="1208.94" width="99.6225" height="54.5302"/>
+  <object id="50" name="4" type="loot_point" x="1269.46" y="1240.57" width="127.936" height="42.995">
+   <properties>
+    <property name="loot_id" value="stone_pickaxe"/>
+   </properties>
+  </object>
+  <object id="51" name="3" type="loot_point" x="1017.18" y="1543.39" width="120.214" height="52.4329">
+   <properties>
+    <property name="loot_id" value="old_sword"/>
+   </properties>
+  </object>
+  <object id="52" name="2" type="loot_point" x="531.391" y="1518.83" width="120.596" height="46.1409"/>
+  <object id="53" name="1" type="loot_point" x="502.799" y="1212.64" width="120.596" height="55.5789"/>
   <object id="29" name="daemia's altar" type="door" x="1560.91" y="1434.64" width="93.6055" height="91.478">
    <properties>
     <property name="spawn_id" value="entrance"/>
@@ -15,9 +23,12 @@
     <property name="target_spawn" value="entrance"/>
    </properties>
   </object>
-  <object id="56" name="exit" type="door" x="887.714" y="836.987" width="299.839" height="207.032">
+  <object id="56" name="exit" type="quest_point" x="877.956" y="840.136" width="546.354" height="377.619">
    <properties>
-    <property name="spawn_id" value="tutorial"/>
+    <property name="prerequisite" value="pickaxe"/>
+    <property name="quest_id" value="tutorial"/>
+    <property name="sequence" value="door, complete_quest"/>
+    <property name="spawn_id" value="default"/>
     <property name="target_map" value="overworld"/>
    </properties>
   </object>
@@ -74,15 +85,27 @@
   <object id="47" type="collision" x="395.562" y="1095.03" width="110.95" height="55.4752"/>
   <object id="48" type="collision" x="670.526" y="904.486" width="94.0666" height="74.7709"/>
  </objectgroup>
- <layer id="8" name="NPCs" class="NPC" width="9" height="8">
+ <layer id="8" name="NPCs old" class="NPC" width="9" height="8" visible="0">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,
 0,0,86,0,0,81,0,0,0,
-0,0,0,85,87,0,0,0,0,
-0,0,0,0,88,0,0,0,0,
+0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="16" name="NPCs" width="9" height="8">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,
+0,0,87,0,0,88,0,0,0,
+0,0,81,0,85,0,0,0,0,
 0,0,0,0,0,0,0,0,0
 </data>
  </layer>

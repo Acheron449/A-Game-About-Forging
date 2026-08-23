@@ -1,5 +1,6 @@
 """Mutable game settings struct (config.txt pseudocode)."""
 
+ # Load and expose configuration values for a single game session.
 from __future__ import annotations
 
 import json

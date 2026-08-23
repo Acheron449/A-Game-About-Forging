@@ -1,3 +1,4 @@
+"""Compatibility import bundle used by the older rendering modules."""
 import pygame as pg
 import numpy as np
 import random
